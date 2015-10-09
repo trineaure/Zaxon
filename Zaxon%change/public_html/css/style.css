@@ -71,7 +71,8 @@ body .container nav {
     border-style: none none solid none;
     border-color: #eaeaea;
     padding-top: .5em;
-    //padding-bottom: .5em; }
+    //padding-bottom: .5em; 
+}
 
 body .container nav .nav-bar {
     width: 59%;
