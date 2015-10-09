@@ -89,7 +89,7 @@ body .container nav ul li a, body .container nav ul li a:visited {
     padding: 0.3125em; }
 
 body .container nav ul li a:hover {
-    text-decoration: none; }
+    text-decoration: underline; }
 
 body .container label {
     display:block;
