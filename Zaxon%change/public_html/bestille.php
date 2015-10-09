@@ -37,7 +37,7 @@ session_start();
                 <!-- START: Header -->
                 <header>
                     <div class="image">
-                        <a href="index.html"><img src="bilder/logoo.png" alt=""></a>
+                        <a href="index.html"><img src="bilder/nylogo.png" alt=""></a>
                     </div>
                 </header>
                 <!-- END -->
