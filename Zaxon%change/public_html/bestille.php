@@ -19,6 +19,15 @@ session_start();
         <div class="container">
             <!-- START: Navigasjon -->
             <nav>
+                
+                <!-- START: Header -->
+                    <header>
+                        <div class="logo">
+                            <a href="index.html"><img src="bilder/nylogo.png" alt=""></a>
+                        </div>
+                    </header> 
+                <!-- END --> 
+                
                 <div class="nav-bar">
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -34,13 +43,7 @@ session_start();
             <!-- Lager til strukturen under navigasjonen og over footer -->
             <div id="structure">
 
-                <!-- START: Header -->
-                <header>
-                    <div class="image">
-                        <a href="index.html"><img src="bilder/nylogo.png" alt=""></a>
-                    </div>
-                </header>
-                <!-- END -->
+               
 
                 <!-- START: Main area where content goes -->
                 <main>
