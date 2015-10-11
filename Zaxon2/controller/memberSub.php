@@ -32,7 +32,7 @@
 
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../bestille.php">Bestill time</a></li>
+                        <li><a href="../bestill.html">Bestill time</a></li>
                         <li><a href="../prisliste.html">Prisliste</a></li>
                         <li><a href="../oss.html">Om oss</a></li>
                         <li><a href="../kontakt.html">Kontakt</a></li>
