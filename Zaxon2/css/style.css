@@ -188,13 +188,12 @@ body .container #structure main  table caption {
 
 }
 
-body .container #structure main .content-area .button {
+body .container #structure main #big .button {
     display: block;
     height:1.5em;
     width: 300px;
     background: #E0E0E0; 
-    margin-top:7px;
-    margin-bottom:20px;
+    margin-top:20px;
     padding:10px;
     font-size:0.9em;
     text-align: center; 
