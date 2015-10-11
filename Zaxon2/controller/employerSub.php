@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Zaxon</title>
         <link rel="stylesheet" href="../css/style.css" />
-        
+
     </head>
     <!-- END -->
 
@@ -15,21 +15,21 @@
 
         <!-- START: Container (Den som holder bredden til siden) -->
         <div class="container">
-            
-            
-                
+
+
+
             <!-- START: Navigasjon -->
             <nav>
                 <!-- START: Header -->
-                    <header>
-                        <div class="logo">
-                            <a href="../index.html"><img src="../bilder/nylogo.png" alt=""></a>
-                        </div>
-                    </header> 
+                <header>
+                    <div class="logo">
+                        <a href="../index.html"><img src="../bilder/nylogo.png" alt=""></a>
+                    </div>
+                </header> 
                 <!-- END --> 
-                
+
                 <div class="nav-bar">
-                    
+
                     <ul>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../bestille.php">Bestill time</a></li>
@@ -42,27 +42,27 @@
             <!-- END -->
 
             <!-- Lager til strukturen under navigasjonen og over footer -->
-            
 
-                
+            <div id="structure">
+
 
                 <!-- START: Main area where content goes -->
                 <main>
-                    <div id="structure">
-                    <b><p>Add Employer to Zaxon</p><br></b>
-                    <form action="employer.php" method="post">
-                        First name: <input type="text" name="First_name" class="register-input" />
-                        Last name: <input type="text" name="Last_name" class="register-input" />
-                        <input id="submit" type="submit" name="submit" value="Submit" class="register-button" />
-                    </form>
-</div>
+                    <div >
+                        <b><p>Add Employer to Zaxon</p><br></b>
+                        <form action="employer.php" method="post">
+                            First name: <input type="text" name="First_name" class="register-input" />
+                            Last name: <input type="text" name="Last_name" class="register-input" />
+                            <input id="submit" type="submit" name="submit" value="Submit" class="register-button" />
+                        </form>
+                    </div>
                 </main>
                 <!-- END -->
+            </div>
 
-            
 
             <!-- START: Footer -->
-             <footer>
+            <footer>
                 <div class="footer-container">
                     <div class="footer-col">
                         <h2>Vårt Lokale</h2>

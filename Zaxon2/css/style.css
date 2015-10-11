@@ -71,8 +71,8 @@ body .container nav {
     border-style: none none solid none;
     border-color: #eaeaea;
     padding-top: .5em;
-    //padding-bottom: .5em; 
-    }
+    //padding-bottom: .5em;
+}
 
 body .container nav .nav-bar {
     width: 59%;
@@ -98,26 +98,8 @@ body .container label {
     letter-spacing:2px;
 }
 
-body .container #submit {
-    width:95%;
-    height:3em;
-    
-    background-color: #E0E0E0 ;
-    border:none;
-    margin-top:20px;
-    cursor:pointer;
-}
 
-body .container input, textarea {
-    width:95%;
-    height:1.5em;
-    background:#FFF ;
-    border:1px solid #dedede;
-    padding:10px;
-    margin-top:3px;
-    font-size:0.9em;
-    color:#3a3a3a;
-}
+
 
 body .container #structure {
     width: 83%;
@@ -134,6 +116,26 @@ body .container #structure header {
     margin-right: 0;
     margin-top: 1.5em;
     padding-bottom: 1em; }
+
+body .container #structure main input, textarea {
+    width:95%;
+    height:1.5em;
+    background:#FFF ;
+    border:1px solid #dedede;
+    padding:10px;
+    margin-top:3px;
+    font-size:0.9em;
+    color:#3a3a3a;
+}
+
+body .container #structure main #submit {
+    width:97.8%;
+    height:3em;
+    background-color: #E0E0E0 ;
+    border:none;
+    margin-top:20px;
+    cursor:pointer;
+}
 
 body .container #structure main #big {
     width: 49%;
@@ -172,7 +174,7 @@ body .container #structure main  table tr:nth-child(odd) {
     background-color: #eee;
 }
 body .container #structure main  table td:nth-child(even) {
-    text-align: right;  
+    text-align: right;
 }
 
 body .container #structure main  table td:nth-child(odd) {
@@ -182,7 +184,7 @@ body .container #structure main  table td:nth-child(odd) {
 body .container #structure main  table caption {
     text-transform: uppercase;
     font-size: 1em;
-    
+
 }
 
 
@@ -247,17 +249,17 @@ body .container footer .footer-container .footer-col:last-child {
 @media screen and (max-width: 1520px) {
     body .container nav ul li {
         margin: 0 0.1875em 0 0.1875em;
-      font-size: 1em; }
-    
-   body .container nav ul li a, body .container nav ul li a:visited {
-     padding: 0.1875em; } }
+        font-size: 1em; }
+
+    body .container nav ul li a, body .container nav ul li a:visited {
+        padding: 0.1875em; } }
 
 @media screen and (max-width: 1100px) {
     body .container nav .nav-bar {
         width: 76%;
         float: right;
         margin-right: 0; }
-    
+
     body .container footer .footer-container .footer-col img {
         max-height: 2.1875em; } }
 
@@ -267,8 +269,8 @@ body .container footer .footer-container .footer-col:last-child {
         float: left;
         margin-left: 0;
         margin-right: 0; }
-    
+
     body .container footer .footer-container .footer-col img {
-        max-height: 1.875em; } } 
+        max-height: 1.875em; } }
 
 /*# sourceMappingURL=style.css.map */

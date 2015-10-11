@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Zaxon</title>
         <link rel="stylesheet" href="../css/style.css" />
-        
+
     </head>
     <!-- END -->
 
@@ -15,21 +15,21 @@
 
         <!-- START: Container (Den som holder bredden til siden) -->
         <div class="container">
-            
-            
-                
+
+
+
             <!-- START: Navigasjon -->
             <nav>
                 <!-- START: Header -->
-                    <header>
-                        <div class="logo">
-                            <a href="../index.html"><img src="../bilder/nylogo.png" alt=""></a>
-                        </div>
-                    </header> 
+                <header>
+                    <div class="logo">
+                        <a href="../index.html"><img src="../bilder/nylogo.png" alt=""></a>
+                    </div>
+                </header> 
                 <!-- END --> 
-                
+
                 <div class="nav-bar">
-                    
+
                     <ul>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../bestille.php">Bestill time</a></li>
@@ -42,30 +42,30 @@
             <!-- END -->
 
             <!-- Lager til strukturen under navigasjonen og over footer -->
-           <!--<div id="structure"> -->
+            <div id="structure">
 
-                
+
 
                 <!-- START: Main area where content goes -->
                 <main>
 
-                    <div id="structure">
+                    <div>
                         <b><p>Add Member to Zaxon</p></b><br>
-                    <form action="member.php" method="post">
-                        <p>First name: <input type="text" placeholder="Ola" name="First_name" /></p>
-                        <p>Last name: <input type="text"placeholder="Nordmann" name="Last_name" /></p>
-                        <p>Birth: <input type="text"placeholder="1995-06-26" name="Birth" /></p>
-                        <input id="submit" type="submit" name="submit" value="Submit" />
-                    </form>
+                        <form action="member.php" method="post">
+                            <p>First name: <input type="text" placeholder="Ola" name="First_name" required/></p>
+                            <p>Last name: <input type="text"placeholder="Nordmann" name="Last_name" required/></p>
+                            <p>Birth: <input type="text"placeholder="1995-06-26" name="Birth" required/></p>
+                            <input id="submit" type="submit" name="submit" value="Submit" />
+                        </form>
                     </div>
 
                 </main>
                 <!-- END -->
 
-         <!--</div>-->
+            </div>
 
             <!-- START: Footer -->
-             <footer>
+            <footer>
                 <div class="footer-container">
                     <div class="footer-col">
                         <h2>Vårt Lokale</h2>
