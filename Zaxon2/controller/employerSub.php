@@ -52,7 +52,7 @@
                     <form action="employer.php" method="post">
                         First name: <input type="text" name="First_name" class="register-input" />
                         Last name: <input type="text" name="Last_name" class="register-input" />
-                        <input type="submit" name="submit" value="Submit" class="register-button" />
+                        <input id="submit" type="submit" name="submit" value="Submit" class="register-button" />
                     </form>
 
                 </main>
