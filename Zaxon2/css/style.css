@@ -137,6 +137,7 @@ body .container #structure main #submit {
     cursor:pointer;
 }
 
+
 body .container #structure main #big {
     width: 49%;
     float: left;
@@ -187,11 +188,23 @@ body .container #structure main  table caption {
 
 }
 
+body .container #structure main .content-area .button {
+    display: block;
+    height:1.5em;
+    width: 300px;
+    background: #E0E0E0; 
+    margin-top:7px;
+    margin-bottom:20px;
+    padding:10px;
+    font-size:0.9em;
+    text-align: center; 
+}
 
 body .container #structure main #small {
     width: 49%;
     float: right;
-    margin-right: 0; }
+    margin-right: 0; 
+    padding: 1em 0 1em 0;}
 
 body .container #structure main #small p#error {
     color: darkred;
@@ -201,8 +214,8 @@ body .container #structure main #small p#info {
     color: darkgreen;
     font-weight: 700;  }
 
-body .container #structure main #small .content-area {
-    width: 100%;
+body .container #structure main  .content-area {
+    width: 49%;
     float: left;
     margin-left: 0;
     margin-right: 0;
