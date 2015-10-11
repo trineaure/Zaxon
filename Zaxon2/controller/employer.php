@@ -52,19 +52,10 @@
                 $connectionInfo = array("Database" => "Zaxon", "UID" => "admin", "PWD" => "admin");
                 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-
-
-
                 if ($conn == true) {
-
-
 
                     $fName = $_POST['First_name'];
                     $lName = $_POST['Last_name'];
-
-
-
-
 
                     $sql = "INSERT INTO admin.Employee (First_name,Last_name)
     VALUES ('$fName','$lName')";
