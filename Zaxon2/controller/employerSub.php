@@ -50,8 +50,8 @@
                 <main>
                     <b><p>Add Employer to Zaxon</p><br></b>
                     <form action="employer.php" method="post">
-                        First_name: <input type="text" name="First_name" class="register-input" />
-                        Last_name: <input type="text" name="Last_name" class="register-input" />
+                        First name: <input type="text" name="First_name" class="register-input" />
+                        Last name: <input type="text" name="Last_name" class="register-input" />
                         <input type="submit" name="submit" value="Submit" class="register-button" />
                     </form>
 
