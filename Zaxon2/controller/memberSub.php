@@ -42,7 +42,7 @@
             <!-- END -->
 
             <!-- Lager til strukturen under navigasjonen og over footer -->
-            <div id="structure">
+           <!--<div id="structure"> -->
 
                 
 
@@ -62,7 +62,7 @@
                 </main>
                 <!-- END -->
 
-            </div>
+         <!--</div>-->
 
             <!-- START: Footer -->
              <footer>

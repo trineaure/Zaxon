@@ -42,23 +42,24 @@
             <!-- END -->
 
             <!-- Lager til strukturen under navigasjonen og over footer -->
-            <div id="structure">
+            
 
                 
 
                 <!-- START: Main area where content goes -->
                 <main>
+                    <div id="structure">
                     <b><p>Add Employer to Zaxon</p><br></b>
                     <form action="employer.php" method="post">
                         First name: <input type="text" name="First_name" class="register-input" />
                         Last name: <input type="text" name="Last_name" class="register-input" />
                         <input id="submit" type="submit" name="submit" value="Submit" class="register-button" />
                     </form>
-
+</div>
                 </main>
                 <!-- END -->
 
-            </div>
+            
 
             <!-- START: Footer -->
              <footer>
