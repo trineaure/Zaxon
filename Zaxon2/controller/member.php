@@ -66,6 +66,8 @@
                             die(print_r(sqlsrv_errors(), true));
                         } else {
                             echo "success";
+                            
+                             echo "<script>window.location = 'http://localhost/github/zaxon/zaxon2/index.html'</script>";     
                         }
                     } else {
                         echo "Connection could not be established.\n";
