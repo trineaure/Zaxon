@@ -1,0 +1,34 @@
+USE Zaxon 
+Go
+
+
+ALTER TABLE Reservation
+ADD Reservation_date date NOT NULL;
+
+ALTER TABLE Reservation
+ADD Time_of_Day time NOT NULL;
+
+
+
+ALTER TABLE Employee
+ADD Birth date NOT NULL;
+
+ALTER TABLE Employee
+ADD Phone_Number varchar(30) NOT NULL;
+
+ALTER TABLE Employee
+ADD Home_Address nvarchar(150) NOT NULL;
+
+ALTER TABLE Employee
+ADD Zip_Code varchar(10) NOT NULL;
+
+ALTER TABLE Employee
+ADD Login_Password nvarchar(30) NOT NULL;
+
+
+
+ALTER TABLE Member
+ADD Phone_Number varchar(30) NOT NULL;
+
+ALTER TABLE Member
+ADD Login_Password nvarchar(30) NOT NULL;
