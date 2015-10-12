@@ -55,7 +55,7 @@
                             { 
                             var a = document.getElementById("Login_Password").value;
                             var b = document.getElementById("confirm_password").value;
-                            if (a!=b) {
+                            if (a!==b) {
                             alert("Passordet er ikke likt");
                             return false;
                             }
