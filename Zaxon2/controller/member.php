@@ -61,10 +61,11 @@
 
                         $q1 = sqlsrv_query($conn, $sql);
                         if ($q1 === false) {
-                            echo "Peacelate!!";
+                            //Error page
+                            echo"<script>window.location = 'http://localhost/github/zaxon/zaxon2/memberDenied.html'</script>";
                             die(print_r(sqlsrv_errors(), true));
                         } else {
-                            echo "success";
+                            //Confirm page 
                             echo"<script>window.location = 'http://localhost/github/zaxon/zaxon2/memberConfirm.html'</script>";       
                         }
                     } else {
