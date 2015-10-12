@@ -53,6 +53,12 @@
                         <form action="employer.php" method="post">
                             First name: <input type="text" name="First_name" class="register-input" required />
                             Last name: <input type="text" name="Last_name" class="register-input" required/>
+                            Fødselsdag: <input type="text" name="Birth" class="register-input" required/>
+                            Telefon: <input type="text" name="Phone_Number" class="register-input" required/>
+                            Hjemme Adresse: <input type="text" name="Home_Address" class="register-input" required/>
+                            Post Nummer: <input type="text" name="Zip_Code" class="register-input" required/>
+                            Passord: <input type="text" name="Login_Password" class="register-input" required/>
+                            
                             <input id="submit" type="submit" name="submit" value="Submit" class="register-button" required/>
                         </form>
                     </div>

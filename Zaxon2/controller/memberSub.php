@@ -55,9 +55,9 @@
                             <p>Fornavn: <input type="text" placeholder="Ola" name="First_name" required/></p>
                             <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name" required/></p>
                             <p>Fødselsdag: <input type="text"placeholder="1995-06-26" name="Birth" required/></p>
-                            <p>Telefon: <input type="text"placeholder="41761114" name="Phone" required/></p>
-                            <p>Passord: <input type="text"placeholder="luremus123" name="Password1" required/></p>
-                            <p>Gjenta passord: <input type="text"placeholder="luremus123" name="Password2" required/></p> 
+                            <p>Telefon: <input type="text"placeholder="41761114" name="Phone_Number" required/></p>
+                            <p>Passord: <input type="text"placeholder="luremus123" name="Login_Password" required/></p>
+                            
                             <input id="submit" type="submit" name="submit" value="Submit" />
                         </form>
                     </div>

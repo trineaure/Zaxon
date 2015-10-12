@@ -49,16 +49,21 @@
                 <main>
                      <?php
                 $serverName = "(local)";
-                $connectionInfo = array("Database" => "Zaxon", "UID" => "admin", "PWD" => "admin");
+                $connectionInfo = array("Database" => "Zaxon2", "UID" => "admin", "PWD" => "admin");
                 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
                 if ($conn == true) {
 
-                    $fName = $_POST['First_name'];
-                    $lName = $_POST['Last_name'];
+                        $fName = $_POST['First_name'];
+                        $lName = $_POST['Last_name'];
+                        $birth = $_POST['Birth'];
+                        $Phone_Number = $_POST['Phone_Number'];
+                        $Home_Address = $_POST['Home_Address'];
+                        $Zip_Code = $_POST['Zip_Code'];
+                        $Login_Password = $_POST['Login_Password'];
 
-                    $sql = "INSERT INTO admin.Employee (First_name,Last_name)
-    VALUES ('$fName','$lName')";
+                        $sql = "INSERT INTO dbo.Employee(First_name,Last_name,Birth,Phone_Number,Home_Address,Zip_Code,Login_Password)
+                        VALUES ('$fName','$lName','$birth','$Phone_Number','$Home_Address','$Zip_Code','$Login_Password')";
 
 
                     $q1 = sqlsrv_query($conn, $sql);

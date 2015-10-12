@@ -46,7 +46,7 @@
                 <main>
                     <?php
                     $serverName = "(local)";
-                    $connectionInfo = array("Database" => "Zaxon", "UID" => "admin", "PWD" => "admin");
+                    $connectionInfo = array("Database" => "Zaxon2", "UID" => "admin", "PWD" => "admin");
                     $conn = sqlsrv_connect($serverName, $connectionInfo);
 
                     if ($conn) {
@@ -54,9 +54,11 @@
                         $fName = $_POST['First_name'];
                         $lName = $_POST['Last_name'];
                         $birth = $_POST['Birth'];
+                        $Phone_Number = $_POST['Phone_Number'];
+                        $Login_Password = $_POST['Login_Password'];
 
-                        $sql = "INSERT INTO admin.Member (First_name,Last_name,Birth)
-                        VALUES ('$fName','$lName','$birth')";
+                        $sql = "INSERT INTO dbo.Member (First_name,Last_name,Birth,Phone_Number,Login_Password)
+                        VALUES ('$fName','$lName','$birth','$Phone_Number','$Login_Password')";
 
 
                         $q1 = sqlsrv_query($conn, $sql);
