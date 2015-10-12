@@ -47,12 +47,19 @@
 
                 <!-- START: Main area where content goes -->
                 <main>
-                     <?php
-                $serverName = "(local)";
-                $connectionInfo = array("Database" => "Zaxon2", "UID" => "admin", "PWD" => "admin");
-                $conn = sqlsrv_connect($serverName, $connectionInfo);
+                    <?php
+                    $serverName = "(local)";   
+                    $uid = "admin";     
+                    $pwd = "admin";    
+                    $databaseName = "Zaxon2";
+                    
+                    $connectionInfo = array("Database" => $databaseName,
+                                                 "UID" => $uid,
+                                                 "PWD" => $pwd);
+                    
+                    $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-                if ($conn == true) {
+                    if ($conn) {
 
                         $fName = $_POST['First_name'];
                         $lName = $_POST['Last_name'];
@@ -61,6 +68,8 @@
                         $Home_Address = $_POST['Home_Address'];
                         $Zip_Code = $_POST['Zip_Code'];
                         $Login_Password = $_POST['Login_Password'];
+                        $confirm_password = $_POST['confirm_password'];
+                        if($_POST['Login_Password']==$_POST['confirm_password'])
 
                         $sql = "INSERT INTO dbo.Employee(First_name,Last_name,Birth,Phone_Number,Home_Address,Zip_Code,Login_Password)
                         VALUES ('$fName','$lName','$birth','$Phone_Number','$Home_Address','$Zip_Code','$Login_Password')";

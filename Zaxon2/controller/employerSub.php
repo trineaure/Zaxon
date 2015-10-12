@@ -44,21 +44,35 @@
             <!-- Lager til strukturen under navigasjonen og over footer -->
 
             <div id="structure">
-
+                
 
                 <!-- START: Main area where content goes -->
                 <main>
+                    
+                    <script>
+                            //Ser om login_password stemmer overens med confirm_password
+                            function validate()
+                            { 
+                            var a = document.getElementById("Login_Password").value;
+                            var b = document.getElementById("confirm_password").value;
+                            if (a!==b) {
+                            alert("Passordet er ikke likt");
+                            return false;
+                            }
+                            }
+                    </script>
+
                     <div >
-                        <b><p>Add Employer to Zaxon</p><br></b>
-                        <form action="employer.php" method="post">
-                            First name: <input type="text" name="First_name" class="register-input" required />
-                            Last name: <input type="text" name="Last_name" class="register-input" required/>
-                            Fødselsdag: <input type="text" name="Birth" class="register-input" required/>
-                            Telefon: <input type="text" name="Phone_Number" class="register-input" required/>
-                            Hjemme Adresse: <input type="text" name="Home_Address" class="register-input" required/>
-                            Post Nummer: <input type="text" name="Zip_Code" class="register-input" required/>
-                            Passord: <input type="text" name="Login_Password" class="register-input" required/>
-                            
+                        <b><p>Add Employer to Zaxon</p></b><br>
+                        <form onSubmit="return validate()" action="employer.php"method="post">
+                            <p>Fornavn: <input type="text" placeholder="Ola" name="First_name" class="register-input" required/></p>
+                            <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name" class="register-input" required/></p>
+                            <p>Fødselsdag: <input type="text"  placeholder="1995-06-26" name="Birth" class="register-input" required/></p>
+                            <p>Telefon: <input type="number"placeholder="41761114" name="Phone_Number" class="register-input" required/></p>
+                            <p>Hjemme Adresse: <input type="text"placeholder="Engens vei. 53" name="Home_Address" class="register-input" required/></p>
+                            <p>Post Nummer: <input type="number" placeholder="6006" name="Zip_Code" class="register-input" required/></p>
+                            <p>Passord: <input type="text"placeholder="luremus123" id="Login_Password" name="Login_Password" class="register-input" required/></p>
+                            <p>Gjenta Passord: <input type="text"placeholder="luremus123" id="confirm_password" name="confirm_password" class="register-input" required/></p>
                             <input id="submit" type="submit" name="submit" value="Submit" class="register-button" required/>
                         </form>
                     </div>
