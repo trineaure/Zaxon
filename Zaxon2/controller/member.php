@@ -16,7 +16,6 @@
         <div class="container">
 
 
-
             <!-- START: Navigasjon -->
             <nav>
                 <!-- START: Header -->
