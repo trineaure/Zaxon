@@ -56,7 +56,7 @@
                         $birth = $_POST['Birth'];
 
                         $sql = "INSERT INTO admin.Member (First_name,Last_name,Birth)
-	VALUES ('$fName','$lName','$birth')";
+                        VALUES ('$fName','$lName','$birth')";
 
 
                         $q1 = sqlsrv_query($conn, $sql);
