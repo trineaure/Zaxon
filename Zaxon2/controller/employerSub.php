@@ -51,6 +51,7 @@
                     
                     <script>
                             //Ser om login_password stemmer overens med confirm_password
+                            //javascript
                             function validate()
                             { 
                             var a = document.getElementById("Login_Password").value;
@@ -71,8 +72,8 @@
                             <p>Telefon: <input type="number"placeholder="41761114" name="Phone_Number" class="register-input" required/></p>
                             <p>Hjemme Adresse: <input type="text"placeholder="Engens vei. 53" name="Home_Address" class="register-input" required/></p>
                             <p>Post Nummer: <input type="number" placeholder="6006" name="Zip_Code" class="register-input" required/></p>
-                            <p>Passord: <input type="password"placeholder="luremus123" id="Login_Password" name="Login_Password" class="register-input" required/></p>
-                            <p>Gjenta Passord: <input type="password"placeholder="luremus123" id="confirm_password" name="confirm_password" class="register-input" required/></p>
+                            <p>Passord: <input type="password" id="Login_Password" name="Login_Password" class="register-input" required/></p>
+                            <p>Gjenta Passord: <input type="password" id="confirm_password" name="confirm_password" class="register-input" required/></p>
                             <input id="submit" type="submit" name="submit" value="Submit" class="register-button" required/>
                         </form>
                     </div>

@@ -81,7 +81,8 @@
                         echo"<script>window.location = 'http://localhost/github/zaxon/zaxon2/memberDenied.html'</script>";
                         die(print_r(sqlsrv_errors(), true));
                     } else {
-                        echo "success";
+                        echo "Success";
+                        
                     }
                 } else {
                     echo "Connection could not be established.\n";
