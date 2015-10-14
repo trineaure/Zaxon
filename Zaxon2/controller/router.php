@@ -31,6 +31,15 @@ class Router {
             
             case "order":
                 return new orderController();
+                
+            case "pricelist":
+                return new pricelistController();
+                 
+            case "aboutus":
+                return new aboutusController();   
+                 
+            case "contact":
+                return new contactController();        
             
             case "home":
             default:
