@@ -28,7 +28,10 @@ class Router {
           //  case "addCustomer":
          //       return new CustomerController();
             // Assign new routes to controllers here
-
+            
+            case "order":
+                return new orderController();
+            
             case "home":
             default:
                 return new homeController();
