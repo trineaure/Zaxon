@@ -6,3 +6,4 @@ require_once("orderController.php");
 require_once("pricelistController.php");
 require_once("aboutusController.php");
 require_once("contactController.php");
+require_once("memberController.php");

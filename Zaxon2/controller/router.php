@@ -39,7 +39,10 @@ class Router {
                 return new aboutusController();   
                  
             case "contact":
-                return new contactController();        
+                return new contactController();     
+            
+            case "member":
+                return new memberController();
             
             case "home":
             default:

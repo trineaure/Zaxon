@@ -1,8 +1,29 @@
 <?php
+class memberModel {
+    /** @var PDO */
+    private $dbConn;
+    const TABLE = "dbo.Member";
+    const INSERT_QUERY = "INSERT INTO " . CustomerModel::TABLE . " (name) VALUES (:name)";
+    
+    /** @var PDOStatement Statement for adding new entries */
+    private $addStmt;
+    public function __construct(PDO $dbConn) {
+        $this->dbConn = $dbConn;
+        $this->addStmt = $this->dbConn->prepare(CustomerModel::INSERT_QUERY);
+        }
+        
+   /**
+     * Try to add a new customer
+     *
+     * @param $name
+     *
+     * @return bool true on success, false otherwise
+     */
+    public function add($First_name, $Last_name, $Birth, $Phone_Number, $Login_Password) {
+        return $this->addStmt->execute(array("First_name,Last_name,Birth,Phone_Number,Login_Password"
+            => $First_name, $Last_name, $Birth, $Phone_Number, $Login_Password));
+    }
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    // TODO - create additional functions for customer model here
 
+}     
