@@ -1,7 +1,7 @@
 <?php
 
 // Represents a controller of our website
-abstract class Controller {
+abstract class tempController {
 
     /**
      * Renders the page - outputs its content
