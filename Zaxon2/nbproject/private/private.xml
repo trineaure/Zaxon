@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/controller/login.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/controller/memberSub.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/session.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/controller/loginUser.php</file>
-            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/memberConfirm.html</file>
-            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/welcome.php</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/index.php</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/model/db.php</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/view/footer.html</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/controller/employerSub.php</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/view/header.html</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/gamleHTMLfiler/index.html</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/view/home.php</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/config.php</file>
+            <file>file:/C:/xampp/htdocs/GitHub/Zaxon/Zaxon2/controller/employer.php</file>
         </group>
     </open-files>
 </project-private>
