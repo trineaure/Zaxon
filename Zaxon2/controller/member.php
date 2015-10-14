@@ -68,8 +68,6 @@
 
                         $sql = "INSERT INTO dbo.Member (First_name,Last_name,Birth,Phone_Number,Login_Password)
                         VALUES ('$fName','$lName','$birth','$Phone_Number','$Login_Password')";
-
-
                         $q1 = sqlsrv_query($conn, $sql);
                         if ($q1 === false) {
                             //Error page

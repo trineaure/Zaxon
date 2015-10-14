@@ -68,10 +68,10 @@
                         <form onSubmit="return validate()" action="member.php"method="post">
                             <p>Fornavn: <input type="text" placeholder="Ola" name="First_name" class="register-input" required/></p>
                             <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name" class="register-input" required/></p>
-                            <p>Fødselsdag: <input type="text"  placeholder="1995-06-26" name="Birth" class="register-input" required/></p>
+                            <p>Fødselsdag: <input type="date"  placeholder="1995-06-26" name="Birth" class="register-input" required/></p>
                             <p>Telefon: <input type="number"placeholder="41761114" name="Phone_Number" class="register-input" required/></p>
-                            <p>Passord: <input type="text"placeholder="luremus123" id="Login_Password" name="Login_Password" class="register-input" required/></p>
-                            <p>Gjenta Passord: <input type="text"placeholder="luremus123" id="confirm_password" name="confirm_password" class="register-input" required/></p>
+                            <p>Passord: <input type="password" id="Login_Password" name="Login_Password" class="register-input" required/></p>
+                            <p>Gjenta Passord: <input type="password" id="confirm_password" name="confirm_password" class="register-input" required/></p>
                             <input id="submit" type="submit" name="submit" value="Submit" />
                         </form>
                     </div>
