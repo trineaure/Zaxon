@@ -9,7 +9,10 @@ class orderController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        $this->render("order");
-    }
+        if($page == "order")
+            {
+            $this ->render("order");
+            }
+        }
     
 }

@@ -41,6 +41,9 @@ class Router {
             case "memberAdd":
             case "member":    
                 return new memberController();
+                
+            case "employerAdd":
+                return new employerController();
             
             
             case "home":

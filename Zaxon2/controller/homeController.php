@@ -9,7 +9,10 @@ class homeController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        $this->render("home");
-    }
+        if($page == "home")
+            {
+            $this ->render("home");
+            }
+        }
     
 }

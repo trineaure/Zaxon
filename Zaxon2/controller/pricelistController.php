@@ -9,7 +9,10 @@ class pricelistController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        $this->render("pricelist");
-    }
+        if($page == "pricelist")
+            {
+            $this ->render("pricelist");
+            }
+        }
     
 }
