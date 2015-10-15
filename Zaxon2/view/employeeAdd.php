@@ -15,7 +15,7 @@
                     </script>
 
                     <div >
-                        <b><p>Add Employer to Zaxon</p></b><br>
+                        <b><p>Add Employee to Zaxon</p></b><br>
                         <form onSubmit="return validate()" action="employer.php"method="post">
                             <p>Fornavn: <input type="text" placeholder="Ola" name="First_name" class="register-input" required/></p>
                             <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name" class="register-input" required/></p>

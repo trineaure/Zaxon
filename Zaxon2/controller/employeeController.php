@@ -3,15 +3,15 @@
 require_once("tempController.php");
 
 //Represents home page
-class employerController extends tempController {
+class employeeController extends tempController {
     /**
      * Render "Home" View
      *@param string $page
      */
     public function show($page) {
-        if($page == "employerAdd")
+        if($page == "employeeAdd")
             {
-            $this ->render("employerAdd");
+            $this ->render("employeeAdd");
             }
         }
     
