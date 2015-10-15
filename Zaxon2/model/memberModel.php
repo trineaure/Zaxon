@@ -2,15 +2,18 @@
 class memberModel {
     /** @var PDO */
     private $dbConn;
-    const TABLE = "dbo.Member";
+    const TABLE = "Member";
     const INSERT_QUERY = "INSERT INTO " . CustomerModel::TABLE . " (name) VALUES (:name)";
     
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
+    
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(CustomerModel::INSERT_QUERY);
         }
+        
+   // lage en funksjon inni controller å referere den til denne.
         
    /**
      * Try to add a new customer
@@ -25,5 +28,4 @@ class memberModel {
     }
 
     // TODO - create additional functions for customer model here
-
 }     
