@@ -41,7 +41,7 @@ class empoyeeModel {
      *
      * @return bool true on success, false otherwise
      */
-    public function add($fName, $lName, $birth, $Phone_Number, $Home_Address, $Zip_Code, $Login_Password, $confirm_password) {
+    public function add($fName, $lName, $birth, $Phone_Number, $Home_Address, $Zip_Code, $Login_Password) { /*Confirm_Password er tatt vekk, da det ikke skal i db */
         return $this->addStmt->execute(array("First_name", "Last_name", "Birth", "Phone_Number", "Home_Address", "Zip_Code", "Login_Password"
                                             => $fName, $lName, $birth, $Phone_Number, $Home_Address, $Zip_Code, $Login_Password ));
     }

@@ -16,7 +16,7 @@
 
                     <div >
                         <b><p>Add Employee to Zaxon</p></b><br>
-                        <form onSubmit="return validate()" action="employer.php"method="post">
+                        <form onSubmit="return validate()" action="../controller/employeeController.php"method="post">
                             <p>Fornavn: <input type="text" placeholder="Ola" name="First_name" class="register-input" required/></p>
                             <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name" class="register-input" required/></p>
                             <p>Fødselsdag: <input type="date"  placeholder="1995-06-26" name="Birth" class="register-input" required/></p>
