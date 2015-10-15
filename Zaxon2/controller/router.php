@@ -24,11 +24,7 @@ class Router {
     public function getController() {
         $page = $this->getPage();
         switch ($page) {
-            
-          //  case "addCustomer":
-         //       return new CustomerController();
-            // Assign new routes to controllers here
-            
+
             case "order":
                 return new orderController();
                 
@@ -41,8 +37,11 @@ class Router {
             case "contact":
                 return new contactController();     
             
-            case "member":
+            
+            case "memberAdd":
+            case "member":    
                 return new memberController();
+            
             
             case "home":
             default:

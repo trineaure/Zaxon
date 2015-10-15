@@ -256,6 +256,20 @@ body .container footer .footer-container .footer-col:last-child {
     margin-right: 0;
     text-align: right; }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
 @media screen and (max-width: 1520px) {
     body .container nav ul li {
         margin: 0 0.1875em 0 0.1875em;
@@ -282,5 +296,6 @@ body .container footer .footer-container .footer-col:last-child {
 
     body .container footer .footer-container .footer-col img {
         max-height: 1.875em; } }
+
 
 /*# sourceMappingURL=style.css.map */

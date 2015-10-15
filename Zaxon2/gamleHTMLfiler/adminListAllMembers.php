@@ -14,20 +14,21 @@
 
         <!-- START: Container (Den som holder bredden til siden) -->
         <div class="container">
-
-
+            
+            
+                
             <!-- START: Navigasjon -->
             <nav>
                 <!-- START: Header -->
-                <header>
-                    <div class="logo">
-                        <a href="index.html"><img src="../bilder/nylogo.png" alt=""></a>
-                    </div>
-                </header>
-                <!-- END -->
-
+                    <header>
+                        <div class="logo">
+                            <a href="../index.html"><img src="../bilder/nylogo.png" alt=""></a>
+                        </div>
+                    </header> 
+                <!-- END --> 
+                
                 <div class="nav-bar">
-
+                    
                     <ul>
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../bestill.html">Bestill time</a></li>
@@ -41,6 +42,8 @@
 
             <!-- Lager til strukturen under navigasjonen og over footer -->
             <div id="structure">
+
+                
 
                 <!-- START: Main area where content goes -->
                 <main>
@@ -58,39 +61,35 @@
 
                     if ($conn) {
 
-                        $fName = $_POST['First_name'];
-                        $lName = $_POST['Last_name'];
-                        $birth = $_POST['Birth'];
-                        $Phone_Number = $_POST['Phone_Number'];
-                        $Login_Password = $_POST['Login_Password'];
-                        $confirm_password = $_POST['confirm_password'];
-                        if($_POST['Login_Password']==$_POST['confirm_password'])
+                        
 
-                        $sql = "INSERT INTO dbo.Member (First_name,Last_name,Birth,Phone_Number,Login_Password)
-                        VALUES ('$fName','$lName','$birth','$Phone_Number','$Login_Password')";
-                        $q1 = sqlsrv_query($conn, $sql);
-                        if ($q1 === false) {
-                            //Error page
-                            echo"<script>window.location = 'http://localhost/github/zaxon/zaxon2/memberDenied.html'</script>";
-                            die(print_r(sqlsrv_errors(), true));
-                        } else {
-                            //Confirm page 
-                            echo"<script>window.location = 'memberConfirm.html'</script>";       
-                        }
-                    } else {
-                        echo "Connection could not be established.\n";
+                        $sql = "SELECT * FROM member";
+
+
+                    $q1 = sqlsrv_query($conn, $sql);
+                    if ($q1 === false) {
+                        //Error page
+                        echo"<script>window.location = 'http://localhost/github/zaxon/zaxon2/memberDenied.html'</script>";
                         die(print_r(sqlsrv_errors(), true));
+                    } else {
+                        echo "Success";
+                        
                     }
+                } else {
+                    echo "Connection could not be established.\n";
+                    die(print_r(sqlsrv_errors(), true));
+                }
 
-                    sqlsrv_close($conn);
-                    ?>
+
+                sqlsrv_close($conn);
+                ?>
                 </main>
                 <!-- END -->
 
             </div>
 
             <!-- START: Footer -->
-            <footer>
+             <footer>
                 <div class="footer-container">
                     <div class="footer-col">
                         <h2>Vårt Lokale</h2>
@@ -99,7 +98,7 @@
                     <div class="footer-col">
                         <h2>Kontakt</h2>
                         <p>tlf. 555-zaxon<br>
-                            mail:
+                            mail: 
                             <a href="mailto:zaxon@frisor.no" target="_top">zaxon@frisor.no</a> </p>
                     </div>
                     <div class="footer-col">
@@ -115,4 +114,3 @@
     <!-- END -->
 
 </html>
-

@@ -9,7 +9,12 @@ class memberController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        $this->render("member");
+        if($page == "member"){
+           $this ->render("member");
+        }           
+        else if ($page == "memberAdd"){
+        $this ->render("memberAdd");}
+        
     }
     
 }
