@@ -8,3 +8,4 @@ require_once("aboutusController.php");
 require_once("contactController.php");
 require_once("memberController.php");
 require_once("employeeController.php");
+require_once("loginController.php");

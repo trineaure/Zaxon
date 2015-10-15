@@ -1,6 +1,6 @@
  <main>
                     <div  id="big">
-                        <a href="#" class="button">Logg Inn</a>
+                        <a href="?page=login" class="button">Logg Inn</a>
                         <a href="?page=memberAdd" class="button">Ny Bruker</a>
                     </div>
 

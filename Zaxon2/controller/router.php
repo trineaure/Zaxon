@@ -45,6 +45,8 @@ class Router {
             case "employeeAdd":
                 return new employeeController();
             
+            case "login":
+                return new loginController();
             
             case "home":
             default:
