@@ -6,6 +6,8 @@ require_once("tempController.php");
 class memberController extends tempController {
     /**
      * Render "Home" View
+     * Checks if the page is member or memberAdd, and if it is
+     * 
      *@param string $page
      */
     public function show($page) {
@@ -23,7 +25,7 @@ class memberController extends tempController {
        }
     
     private function addCustomerAction(){
-        // Find "2"customerName" in parameter in request.
+        // Find "customerName" in parameter in request.
         $custimerName = $_REQUEST["customerName"];
         if(!$customerName){
             // no customer name supplied, redirect to customer list
@@ -43,10 +45,10 @@ class memberController extends tempController {
     }
     }
     
+  
     
     
     
-
 
 /**    
   *  $fName = $_POST['First_name'];

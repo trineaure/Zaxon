@@ -6,7 +6,7 @@
                                 Vi er her for å gi deg en god håropplevelse. </p>
                         </div>
                         <div class="content-area">
-                            <a href="bestill.html"><img src="bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
+                            <a href="?page=order"><img src="bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
                         </div>
                     </div>
 
