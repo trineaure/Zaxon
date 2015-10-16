@@ -13,7 +13,7 @@ $added = $GLOBALS["added"];
 <?php if ($added) { ?>
 <h1>Customer added successfully!</h1><br>
     <p> Click here to continue to the order page </p> <br>
-<!--    <a href="?page=order"></a>-->
+<!--    <a href="?page=order"> Click here to continue to the order page</a>-->
 <?php } else { ?>
     <h1>Could not add new customer!</h1>
     <p>Perhaps one with such name already exists?</p>
