@@ -60,7 +60,7 @@ class memberController extends tempController {
         $givenBirth = $_POST['givenBirth'];
         $givenPhone_Number = $_POST['givenPhone_Number'];
         $givenLogin_Password = $_POST['givenLogin_Password'];
-        //$givenConfirm_password = $_POST['givenConfirm_password'];
+        
         
         // Try to add new customers, Set action response code - success or not
         $memberModel = $GLOBALS["memberModel"];

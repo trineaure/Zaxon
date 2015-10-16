@@ -4,8 +4,8 @@
                             //Ser om login_password stemmer overens med confirm_password
                             function validate()
                             { 
-                            var a = document.getElementById("givenLogin_Password").value;
-                            var b = document.getElementById("givenConfirm_password").value;
+                            var a = document.getElementById("Login_Password").value;
+                            var b = document.getElementById("confirm_password").value;
                             if (a!==b) {
                             alert("Passordet er ikke likt");
                             return false;
