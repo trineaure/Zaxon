@@ -17,7 +17,6 @@ class memberController extends tempController {
             }           
         else if ($page == "memberAdded")
             {
-            echo "test";
             $this ->addMemberAction();
             
             }
