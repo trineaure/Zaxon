@@ -35,12 +35,13 @@ class Router {
                 return new aboutusController();   
                  
             case "contact":
-                return new contactController();     
+             return new contactController();     
             
             
             case "memberAdd":
-            case "member":    
+            case "memberAdded":
                 return new memberController();
+                
                 
             case "employeeAdd":
                 return new employeeController();
@@ -51,6 +52,8 @@ class Router {
             case "home":
             default:
                 return new homeController();
+                
+                
         }
 
     }

@@ -12,12 +12,10 @@
                             }
                             }
                     </script>
-      
-                    
+    
                     <div>
-                        <b><p>Add Member to Zaxon</p></b><br>
-                        <form onSubmit="return validate()" action="page=../inga/MemberAdded" method="post">
-                           <p>Medlemsnr: <input type="number" placeholder="medlemsnr" name="givenMembership_number" class="register-input" required/></p>
+                        <b><p>Add Member to Zaxon22</p></b><br>
+                        <form onSubmit="return validate()" action="?page=memberAdded" method="post">
                             <p>Fornavn: <input type="text" placeholder="Ola" name="givenFirst_name" class="register-input" required/></p>
                             <p>Etternavn: <input type="text"placeholder="Nordmann" name="givenLast_name" class="register-input" required/></p>
                             <p>Fødselsdag: <input type="date"  placeholder="1995-06-26" name="givenBirth" class="register-input" required/></p>
