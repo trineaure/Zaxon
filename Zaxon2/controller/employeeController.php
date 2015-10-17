@@ -16,27 +16,49 @@ class employeeController extends tempController {
         }
         
         
-     private function showEmplyeerAction() {
+     private function showEmplyeeAction() {
 
         $employeeModel = $GLOBALS["employeeModel"];
         $employeeAdd = $employeeModel->getAll();
+        $data = array("employeeAdd" => $employeeAdd);
+            return $this->render("employeeAdd", $data);
+       }
+                      
+
+        private function addEmployeerAction(){
+            
+            $givenF_Name = $_POST['First_name'];
+            $givenL_Name = $_POST['Last_name'];
+            $givenBirth = $_POST['Birth'];
+            $givenPhone_Number = $_POST['Phone_Number'];
+            $givenHome_Address = $_POST['Home_Address'];
+            $givenZip_Code = $_POST['Zip_Code'];
+            $givenLogin_Password = $_POST['Login_Password'];
         
+        // Try to add new customers, Set action response code - success or not
+        $employeeModel = $GLOBALS["employeeModel"];
         
-        // i arrayen lå det orginalt bare member og phonenumber
-        $data = array(
-           "memberAdd" => $memberAdd,
+        if ($employeeModel -> checkIfNumberIsUsed($givenPhone_Number))
+        {
+           return $this->render("home");
+            
+        }
+        else
+        {
+ 
+            $added = $employeeModel->add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenLogin_Password);
+        
+       $data = array(
+           "added" => $added,
            
                 );
-            return $this->render("memberAdd", $data);
-       }
-    
-//                         $fName = $_POST['First_name'];
-//                        $lName = $_POST['Last_name'];
-//                        $birth = $_POST['Birth'];
-//                        $Phone_Number = $_POST['Phone_Number'];
-//                        $Home_Address = $_POST['Home_Address'];
-//                        $Zip_Code = $_POST['Zip_Code'];
-//                        $Login_Password = $_POST['Login_Password'];
-//                        $confirm_password = $_POST['confirm_password'];
-}
+        
+        return $this->render("login",$data);
+            
+            
+        }
+        
+        }
+       
+     }
 
