@@ -9,12 +9,13 @@ class loginController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        if($page == "logindf")
+        if($page == "logginblabla")
             {
             $this ->loginConfig();
             }
             else {
                 $this->showLogin();
+                
             }
         }    
             
@@ -28,11 +29,25 @@ class loginController extends tempController {
 
         private function loginConfig()
    {
-     $Username = $_POST["Phone_number"];
+     if(empty($_POST['Phone_number']))
+    {
+        $this->HandleError("UserName is empty!");
+        return false;
+    }
+     
+    if(empty($_POST['Login_Password']))
+    {
+        $this->HandleError("Password is empty!");
+        return false;
+    }
+            
+            
+            
+      $Username = $_POST["Phone_number"];
       $Password = $_POST["Login_Password"];   
         // Get all members from database
        $memberModel = $GLOBALS["memberModel"];
-        $Members = $memberModel->getAll(); //holds all members. + her skal jeg legge til emploees senere. -Gard
+        $Members = $memberModel->getAll(); //holds  all members. + her skal jeg legge til emploees senere. -Gard
         
        foreach ($Members as $member){
             if ($member["Phone_number"] == $Username)
