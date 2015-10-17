@@ -75,8 +75,4 @@ class memberController extends tempController {
         
         return $this->render("memberAdded",$data);
     }
-    
-    
-
-     
-     }
+}
