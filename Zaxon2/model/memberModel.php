@@ -3,8 +3,10 @@ class memberModel {
     /** @var PDO */
     private $dbConn;
     const TABLE = "Member";
-    const SELECT_QUERY = "SELECT * FROM " . memberModel::TABLE;
+    
+    const SELECT_ALL_QUERY = "SELECT * FROM " . memberModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . memberModel::TABLE . "(First_name,Last_name,Birth,Phone_Number,Login_Password) VALUES (:First_name,:Last_name,:Birth,:Phone_Number,:Login_Password)";
+    const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE;
     
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
@@ -12,10 +14,13 @@ class memberModel {
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
     
+    private $selNumber;
+    
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(memberModel::INSERT_QUERY);
-        $this->selStmt = $this->dbConn->prepare(memberModel::SELECT_QUERY);
+        $this->selStmt = $this->dbConn->prepare(memberModel::SELECT_ALL_QUERY);
+        $this->selNumber = $this->dbConn->prepare(memberModel::SELECT_QUERY);
         }
   
         /**
@@ -31,5 +36,17 @@ class memberModel {
     public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password) {
         return $this->addStmt->execute(array("First_name"=> $givenFirst_Name, "Last_name"=> $givenLastName,"Birth" => $givenBirth, "Phone_Number" => $givenPhone_Number, "Login_Password"=> $givenLogin_Password));
     }
-  
+    
+   
+    
+    public function checkIfNumberIsUsed($number) {
+        $this->selNumber->execute();
+        if ($this->selNumber->fetchAll(PDO::FETCH_ASSOC === $number)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     }

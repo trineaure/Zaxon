@@ -9,7 +9,7 @@ class loginController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        if($page == "logginblabla")
+        if($page == "home")
             {
             $this ->loginConfig();
             }
@@ -28,37 +28,38 @@ class loginController extends tempController {
      
 
         private function loginConfig()
-   {
-     if(empty($_POST['Phone_number']))
-    {
-        $this->HandleError("UserName is empty!");
-        return false;
-    }
-     
-    if(empty($_POST['Login_Password']))
-    {
-        $this->HandleError("Password is empty!");
-        return false;
-    }
-            
-            
-            
-      $Username = $_POST["Phone_number"];
-      $Password = $_POST["Login_Password"];   
+   { 
+      $Username = $_POST['Phone_number'];
+      $Password = $_POST['Login_Password'];   
         // Get all members from database
        $memberModel = $GLOBALS["memberModel"];
-        $Members = $memberModel->getAll(); //holds  all members. + her skal jeg legge til emploees senere. -Gard
+        $Members = $memberModel->getAllPhoneNumbers(); //holds  all members. + her skal jeg legge til emploees senere. -Gard
         
-       foreach ($Members as $member){
-            if ($member["Phone_number"] == $Username)
-            {
-                if($member["Login_Password"] == $Password)
-                    {
-                        $_SESSION["AreLoggedIn"] = "true";
-                        echo 'yoooooooo, zaxon'; 
-                    }
-            }
-       }
+      //feil
+        if (($Members['Phone_number'] == $Username))
+        {
+            return $this->render("login");
+            
+        }
+        else
+        {
+            return $this->render("aboutus");
+            
+        }    
+        
+//        foreach ($Members as $member){
+//            if ($member['Phone_number'] == $Username)
+//            {
+//                if($member['Login_Password'] == $Password)
+//                    {
+//                        return $this->render("home");
+//                    
+//                        $_SESSION["AreLoggedIn"] = "true";
+//                        
+//                    }
+//            }
+//       }
+//        header("Location:order");
    }
 }
 

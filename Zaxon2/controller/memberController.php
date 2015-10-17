@@ -28,23 +28,8 @@ class memberController extends tempController {
      * @return bool true on success.
      */
     private function showMemberAction() {
-        //Get all customers from database
-        // @var CustomerModel $customerModel
-        $memberModel = $GLOBALS["memberModel"];
-        $memberAdd = $memberModel->getAll();
         
-        // Get previously used name in the form
-        //isset bestemmer om variabelen er ett sett og er ikke null. 
-        $Phone_Number = isset($_REQUEST["Phone_Number"]) ? $_REQUEST["Phone_Number"] : "";
-        // and secure it
-        $Phone_Number = htmlspecialchars($Phone_Number);
-        
-        // i arrayen lå det orginalt bare member og phonenumber
-        $data = array(
-           "memberAdd" => $memberAdd,
-           
-                );
-            return $this->render("memberAdd", $data);
+            return $this->render("memberAdd");
        }
        
      /**
@@ -64,9 +49,16 @@ class memberController extends tempController {
         
         // Try to add new customers, Set action response code - success or not
         $memberModel = $GLOBALS["memberModel"];
-       
-        $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
-       // echo $givenFirst_Name . $givenLastName . $givenBirth . $givenPhone_Number  . $givenLogin_Password;
+        
+        if ($memberModel -> checkIfNumberIsUsed($givenPhone_Number))
+        {
+           return $this->render("home");
+            
+        }
+        else
+        {
+ 
+            $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
         
        $data = array(
            "added" => $added,
@@ -74,5 +66,15 @@ class memberController extends tempController {
                 );
         
         return $this->render("memberAdded",$data);
+            
+            
+        }
+        
+        }
+        
+        
+        
+        
     }
-}
+
+
