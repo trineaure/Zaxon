@@ -7,7 +7,8 @@ class empoyeeModel {
 
     const TABLE = "Empolyee";
     const SELECT_QUERY = "SELECT * FROM " . empoyeeModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . empoyeeModel::TABLE . " (name) VALUES (:name)";
+    const INSERT_QUERY = "INSERT INTO " . empoyeeModel::TABLE . 
+            "(First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password)";
 
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;

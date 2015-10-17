@@ -14,6 +14,21 @@ class employeeController extends tempController {
             $this ->render("employeeAdd");
             }
         }
+        
+        
+     private function showEmplyeerAction() {
+
+        $employeeModel = $GLOBALS["employeeModel"];
+        $employeeAdd = $employeeModel->getAll();
+        
+        
+        // i arrayen lå det orginalt bare member og phonenumber
+        $data = array(
+           "memberAdd" => $memberAdd,
+           
+                );
+            return $this->render("memberAdd", $data);
+       }
     
 //                         $fName = $_POST['First_name'];
 //                        $lName = $_POST['Last_name'];
