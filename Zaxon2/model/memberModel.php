@@ -39,14 +39,24 @@ class memberModel {
     
    
     
-    public function checkIfNumberIsUsed($number) {
+//    public function checkIfNumberIsUsed($number) {
+//        $this->selNumber->execute();
+//        if ($this->selNumber->fetchAll(PDO::FETCH_ASSOC === $number)){
+//            return true;
+//        }
+//        else  {
+//            return false;
+//        }
+//    }
+    
+    
+    public function getAllNumbers()
+    {
         $this->selNumber->execute();
-        if ($this->selNumber->fetchAll(PDO::FETCH_ASSOC === $number)){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return $this->selNumber->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    
+    
     
     }

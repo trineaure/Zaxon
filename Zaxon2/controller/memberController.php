@@ -29,7 +29,13 @@ class memberController extends tempController {
      */
     private function showMemberAction() {
         
-            return $this->render("memberAdd");
+           $data2 = array(
+                  "feiltlf" => "false",
+                  "tlfnummer" => 0,
+                  
+              );
+        
+            return $this->render("memberAdd",$data2);
        }
        
      /**
@@ -40,41 +46,51 @@ class memberController extends tempController {
       */       
     private function addMemberAction(){
         // Find "customerName" in parameter in request.
-        $givenFirst_Name = $_POST['givenFirst_name'];
-        $givenLastName = $_POST['givenLast_name'];
-        $givenBirth = $_POST['givenBirth'];
-        $givenPhone_Number = $_POST['givenPhone_Number'];
-        $givenLogin_Password = $_POST['givenLogin_Password'];
+        $givenFirst_Name = $_REQUEST['givenFirst_name'];
+        $givenLastName = $_REQUEST['givenLast_name'];
+        $givenBirth = $_REQUEST['givenBirth'];
+        $givenPhone_Number = $_REQUEST["givenPhone_Number"];
+        $givenLogin_Password = $_REQUEST['givenLogin_Password'];
         
         
         // Try to add new customers, Set action response code - success or not
         $memberModel = $GLOBALS["memberModel"];
+
+//        if ($memberModel->checkIfNumberIsUsed($givenPhone_Number)) {
+//            return $this->render("home");
+//        } else {
+//
+//            $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
+//
+//            $data = array(
+//                "added" => $added,
+//            );
+//
+//            return $this->render("memberAdded", $data);
+//        }
         
-        if ($memberModel -> checkIfNumberIsUsed($givenPhone_Number))
-        {
-           return $this->render("home");
-            
-        }
-        else
-        {
- 
-            $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
         
-       $data = array(
-           "added" => $added,
-           
+        
+        
+        $numbers = $memberModel->getAllNumbers();
+
+        foreach ($numbers as $number) {
+
+            if ($number["Phone_Number"] == $givenPhone_Number) {
+                $data2 = array(
+                    "feiltlf" => "true",
+                    "tlfnummer" => $givenPhone_Number,
                 );
-        
-        return $this->render("memberAdded",$data);
-            
-            
+                return $this->render("memberAdd", $data2);
+            }
         }
-        
-        }
-        
-        
-        
-        
+        $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
+
+        $data = array(
+            "added" => $added,
+        );
+
+        return $this->render("memberAdded", $data);
     }
 
-
+}

@@ -1,3 +1,8 @@
+<?php
+//variabler i $data2
+$TlfNummer = $GLOBALS["tlfnummer"];
+$feilTlf = $GLOBALS["feiltlf"];
+?>
 <main>
                     
                     <script>
@@ -15,6 +20,11 @@
     
                     <div>
                         <b><p>Add Member to Zaxon</p></b><br>
+                        <?php
+                            if($feilTlf == "true"){?>
+                        <h2> <?php echo $TlfNummer ?> Eksisterer allerede</h2>
+                            <?php }
+                        ?>
                         <form onSubmit="return validate()" action="?page=memberAdded" method="post">
                             <p>Fornavn: <input type="text" placeholder="Ola" name="givenFirst_name" class="register-input" required/></p>
                             <p>Etternavn: <input type="text"placeholder="Nordmann" name="givenLast_name" class="register-input" required/></p>
