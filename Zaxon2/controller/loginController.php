@@ -55,7 +55,7 @@ class loginController extends tempController {
                 if($member["Login_Password"] == $Password)
                     {
                         $_SESSION["AreLoggedIn"] = "true";
-                        echo 'yoooooooo, zaxon';
+                        echo 'yoooooooo, zaxon'; 
                     }
             }
        }
