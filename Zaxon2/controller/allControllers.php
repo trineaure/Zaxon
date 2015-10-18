@@ -9,3 +9,4 @@ require_once("contactController.php");
 require_once("memberController.php");
 require_once("employeeController.php");
 require_once("loginController.php");
+require_once("showController.php");
