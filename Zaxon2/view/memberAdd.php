@@ -7,12 +7,14 @@ $feilTlf = $GLOBALS["feiltlf"];
                     
                     <script>
                             //Ser om login_password stemmer overens med confirm_password
-                            function validate()
+                    
+    function validate()
                             { 
                             var a = document.getElementById("Login_Password").value;
                             var b = document.getElementById("confirm_password").value;
                             if (a!==b) {
                             alert("Passordet er ikke likt");
+                            <?php  echo "hei";   ?>;   
                             return false;
                             }
                             }
