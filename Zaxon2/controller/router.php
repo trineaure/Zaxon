@@ -40,7 +40,7 @@ class Router {
             
             case "memberAdd":
             case "memberAdded":
-            case "showMember":
+            case "showMembers":
                 return new memberController();
 
             case "employeeAdd":
