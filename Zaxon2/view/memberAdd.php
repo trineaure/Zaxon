@@ -8,23 +8,23 @@ $feilTlf = $GLOBALS["feiltlf"];
                     <script>
                             //Ser om login_password stemmer overens med confirm_password
                     
-    function validate()
+                            function validate()
                             { 
                             var a = document.getElementById("Login_Password").value;
                             var b = document.getElementById("confirm_password").value;
                             if (a!==b) {
                             alert("Passordet er ikke likt");
-                            <?php  echo "hei";   ?>;   
+                             
                             return false;
                             }
                             }
                     </script>
     
                     <div>
-                        <b><p>Add Member to Zaxon</p></b><br>
+                        <b><p>Bli medlem av Zaxon</p></b><br>
                         <?php
                             if($feilTlf == "true"){?>
-                        <h2> <?php echo $TlfNummer ?> Eksisterer allerede</h2>
+                        <h2> <?php echo $TlfNummer; ?> Eksisterer allerede</h2>
                             <?php }
                         ?>
                         <form onSubmit="return validate()" action="?page=memberAdded" method="post">

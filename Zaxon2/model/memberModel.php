@@ -37,19 +37,6 @@ class memberModel {
         return $this->addStmt->execute(array("First_name"=> $givenFirst_Name, "Last_name"=> $givenLastName,"Birth" => $givenBirth, "Phone_Number" => $givenPhone_Number, "Login_Password"=> $givenLogin_Password));
     }
     
-   
-    
-//    public function checkIfNumberIsUsed($number) {
-//        $this->selNumber->execute();
-//        if ($this->selNumber->fetchAll(PDO::FETCH_ASSOC === $number)){
-//            return true;
-//        }
-//        else  {
-//            return false;
-//        }
-//    }
-    
-    
     public function getAllNumbers()
     {
         $this->selNumber->execute();

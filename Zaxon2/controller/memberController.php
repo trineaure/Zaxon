@@ -55,25 +55,10 @@ class memberController extends tempController {
         
         // Try to add new customers, Set action response code - success or not
         $memberModel = $GLOBALS["memberModel"];
-
-//        if ($memberModel->checkIfNumberIsUsed($givenPhone_Number)) {
-//            return $this->render("home");
-//        } else {
-//
-//            $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
-//
-//            $data = array(
-//                "added" => $added,
-//            );
-//
-//            return $this->render("memberAdded", $data);
-//        }
-        
-        
-        
-        
         $numbers = $memberModel->getAllNumbers();
-
+        
+        //check's if there are any phone number = $givePhone_number 
+        // if true. Render the page again.   
         foreach ($numbers as $number) {
 
             if ($number["Phone_Number"] == $givenPhone_Number) {
