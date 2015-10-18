@@ -186,6 +186,28 @@ body .container #structure main  table caption {
 
 }
 
+body .container #structure main #adminMenu {
+    width: 29%;
+    float: left;
+    margin-right: 1.7%; }
+
+body .container #structure main #adminMenu .smallButton {
+    display: block;
+    height:.5em;
+    width: 50%;
+    background: #E0E0E0; 
+    margin-top:20px;
+    padding:10px;
+    font-size:0.9em;
+    text-align: center; 
+}
+
+body .container #structure main #adminMain {
+    width: 69%;
+    float: right;
+    margin-right: 0; 
+    padding: 1em 0 1em 0;}
+
 body .container #structure main #big .button {
     display: block;
     height:1.5em;
