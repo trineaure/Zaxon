@@ -5,16 +5,22 @@ require_once("tempController.php");
 class showController extends tempController {
 
     public function show($page) {
-        if($page == "memberAdd")
+        if($page == "showMember")
             {
-            $this ->showMemberAction();
+            $this ->showMembers();
             }           
-        else if ($page == "memberAdded")
-            {
-            $this ->addMemberAction();
-            
-            }
+//        else if ($page == "memberAdded")
+//            {
+//            $this ->addMemberAction();
+//            
+//            }
       
-      }
+    }
+      
+    public function showMembers() {
+        $memberModel = $GLOBALS["memberModel"];
+        
+        $members = $memberModel->getAll();
+    }
 }
 
