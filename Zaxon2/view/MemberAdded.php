@@ -15,9 +15,12 @@ $added = $GLOBALS["added"];
     <p> Hvis du har noen spørsmål, kan du kontakte oss. </p> 
     <p> Se kontaktfeltet neders på siden.  </p> 
     <a href="?page=order"> Trykk her hvis du ønsker å bestille time</a>
-    
-    <p> Mvh. </p> 
-    <p>Zaxon </p> 
+
+
+    <a href="?page=showMembers"> trykk for å vise medlemer </a>
+
+
+    <p> Mvh.Zaxon </p> 
      
     
 <?php } else { ?>
