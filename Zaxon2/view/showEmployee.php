@@ -12,7 +12,7 @@
     $included_employee = $GLOBALS["included_employee"];
     
   //  var_dump($included_members);
-foreach ($included_members as $employee) {
+foreach ($included_employee as $employee) {
     echo    "Fornavn: " . $employee['First_name'] . "<br>",
             "Etternavn: " . $employee['Last_name'] . "<br>",
             "Fødselsdag: " . $employee['Birth'] . "<br>",

@@ -14,6 +14,15 @@ class showController extends tempController {
             $this ->addMemberAction();
             
             }  
+               if($page == "showEmployee")
+            {
+            $this ->showEmployee();
+            }           
+        else if ($page == "EmployeeAdded")
+            {
+            $this ->addEmployeeAction();
+            
+            }  
     }
      /**
       * Function that show all the members in Zaxon
