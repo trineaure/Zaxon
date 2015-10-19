@@ -1,5 +1,3 @@
-
-
 <main>
     <div  id="adminMenu">
         <a href="?page=login" class="smallButton">Medlem</a>
@@ -7,7 +5,15 @@
     </div>
 
     <div id="adminMain">
- <?php $employeeModel->showMembers?>
+  <?php
+       
+    $included_members = $GLOBALS["included_members"];
+    
+  //  var_dump($included_members);
+foreach ($included_members as $member) {
+    echo "Telefon nr: ". $member['Phone_Number'] . "<br>";
+}
+          ?>
     </div>
     
 </main>
