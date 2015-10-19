@@ -38,6 +38,7 @@ class Router {
              return new contactController();     
             
             case "showMembers":
+            case "showEmployee":    
                 return new showController();
                 
             case "memberAdd":
