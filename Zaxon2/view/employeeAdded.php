@@ -14,8 +14,7 @@ $added = $GLOBALS["added"];
 <p> Gratulerer! Du har lagt til en arbeidstaker </p> 
     <a href="?page=home"> gå tilbake til startsiden</a>
     
-    <p> Mvh. </p> 
-    <p>Zaxon </p> 
+    <p> Mvh.Zaxon </p> 
 <?php } else { ?>
     <p> Nei uff! Her skjedde det noe galt.</p> 
     <p> Venligs gå tilbake og prøv igjen. </p> 
