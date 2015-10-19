@@ -24,6 +24,7 @@ Phone_Number varchar(30) NOT NULL,
 Home_Address nvarchar(150) NOT NULL,
 Zip_Code varchar(10) NOT NULL,
 Login_Password nvarchar(30) NOT NULL,
+Extended_Access int NOT NULL,
 
 CONSTRAINT EmployeePK PRIMARY KEY (EmployeeID)
 );
