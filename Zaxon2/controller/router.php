@@ -50,6 +50,7 @@ class Router {
                 return new employeeController();
             
             case "login":
+            case "loginConfig":
                 return new loginController();
             
             case "home":
