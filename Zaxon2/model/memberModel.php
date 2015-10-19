@@ -27,6 +27,11 @@ class memberModel {
         $this->selOne = $this->dbConn->prepare(memberModel::SELECT_ONE_QUERY);     
     }
   
+    /**
+     * Get one query by phone nymber.
+     * @param type $Phone_Number
+     * @return 
+     */
     public function getOneByPhone($Phone_Number) { 
         
         $this->selOne->execute(array(

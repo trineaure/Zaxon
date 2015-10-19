@@ -7,9 +7,21 @@
     </div>
 
     <div id="adminMain">
- <?php
- 
- $employeeModel->showEmployee?>
+  <?php
+       
+    $included_employee = $GLOBALS["included_employee"];
+    
+  //  var_dump($included_members);
+foreach ($included_members as $employee) {
+    echo    "Fornavn: " . $employee['First_name'] . "<br>",
+            "Etternavn: " . $employee['Last_name'] . "<br>",
+            "Fødselsdag: " . $employee['Birth'] . "<br>",
+            "Telefon nr: ". $employee['Phone_Number'] . "<br>",
+            "Hjemme adresse: " . $employee['Home_Address'] . "<br>",
+            "Post kode: " . $employee['Zip_Code'] . "<br>",
+            "Passord: " . $employee['Login_Password'] . "<br>".  "<br>";
+}
+          ?>
     </div>
     
 </main>

@@ -25,11 +25,20 @@ class showController extends tempController {
          return $this->render("showMembers", $data);
 //       
     }
-    
     /**
-     * return the result array from ms sql
-     * query asking for all information stored regarding
-     * if the given phone number fails, NULL is returned.
+     * 
+     * Function that shows all the employee's in Zaxon.
+     */
+    public function showEmployee() {
+        $employeeModel = $GLOBALS["employeeModel"];
+        $included_employee = $employeeModel->getAll();
+        $data = array("included_employee" => $included_employee);
+          return $this->render("showEmployee", $data);  
+        
+    }
+
+    /**
+     * Get information about the user.
      */
     function getUserInfo($Phone_Number) {
          $memberModel = $GLOBALS["memberModel"];
@@ -39,7 +48,14 @@ class showController extends tempController {
         return $result;
         
     }
-    
+   
+    function getEmployeeInfo($Phone_Number) {
+       $employeeModel = $GLOBALS[employeeModel];
+       
+       $result = $employeeModel->getOneByPhone();
+       
+       return result;
+    }
     
    
    
