@@ -41,7 +41,7 @@ class employeeController extends tempController {
             $givenHome_Address = $_REQUEST['Home_Address'];
             $givenZip_Code = $_REQUEST['Zip_Code'];
             $givenLogin_Password = $_REQUEST['Login_Password'];
-        
+            $givenExtended_Access = $_REQUEST['Extended_Access'];
         // Try to add new customers, Set action response code - success or not
         $employeeModel = $GLOBALS["employeeModel"];
         $numbers = $employeeModel->getAllNumbers();
@@ -60,7 +60,7 @@ class employeeController extends tempController {
         }
  
         $added = $employeeModel->add
-                ($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password );
+                ($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access );
         
        $data = array(
            "added" => $added,

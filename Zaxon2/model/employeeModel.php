@@ -7,7 +7,7 @@ class employeeModel {
 
     const TABLE = "Employee";
     const SELECT_ALL_QUERY = "SELECT * FROM " . employeeModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . "(First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password)";
+    const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . "(First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . "WHERE Phone_Number = :Phone_Number";
     /** @var PDOStatement Statement for selecting all entries */
@@ -60,7 +60,7 @@ class employeeModel {
      *
      * @return bool true on success, false otherwise
      */
-        public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password ) {
+        public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access ) {
         return $this->addStmt->execute
                 (array("First_name"=> $givenF_Name, 
                         "Last_name"=> $givenL_Name,
@@ -68,7 +68,8 @@ class employeeModel {
                         "Phone_Number" => $givenPhone_Number, 
                         "Home_Address"=> $givenHome_Address,
                         "Zip_Code"=> $givenZip_Code, 
-                        "Login_Password"=> $givenLogin_Password));
+                        "Login_Password"=> $givenLogin_Password,
+                         "Extended_Access"=>$givenExtended_Access));
     }
     
  public function getAllNumbers()
