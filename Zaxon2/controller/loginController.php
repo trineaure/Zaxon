@@ -9,60 +9,82 @@ class loginController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        if($page == "home")
+        if($page == "login")
+            {
+            $this ->showlogin();
+            }
+         else if ($page == "loginConfig")
             {
             $this ->loginConfig();
-            }
-            else {
-                $this->showLogin();
-                
-            }
-        }    
             
-    public function showlogin() 
-    {
+            } 
+            
+        }   
+        
+        
+        
+    private function loginMember($givenUsername, $givenPassword) {
+        
+        $memberModel = $GLOBALS["memberModel"];
+        $members = $memberModel->getAll();
+        $_SESSION["MemberAreLoggedIn"] = "false";
+        foreach ($members as $member) {
+            if ($member['Phone_Number'] == $givenUsername) {
+                if ($member['Login_Password'] == $givenPassword) {
+                    //match
+                    $_SESSION["MemberAreLoggedIn"] = "true";
+                    return $this->render("home");
+                }
+            }
+        }
+        
+    }
+
+    private function loginEmployee($givenUsername, $givenPassword) {
+        
+        $employeeModel = $GLOBALS["employeeModel"];
+        $employees = $employeeModel->getAll();
+        $_SESSION["EmployeeAreLoggedIn"] = "false";
+        foreach ($employees as $employee) {
+            if ($employee['Phone_Number'] == $givenUsername) {
+                
+                if ($employee['Login_Password'] == $givenPassword) {
+                    //match
+                    $_SESSION["EmployeeAreLoggedIn"] = "true";
+                     return $this->render("order");
+                }
+            }
+        }
+        
+        
+    }
+
+    private function showlogin() {
         return $this->render("login");
     }
-    
-    
-     
 
-        private function loginConfig()
-   { 
-      $Username = $_POST['Phone_number'];
-      $Password = $_POST['Login_Password'];   
+    private function loginConfig() {
+        $givenUsername = $_REQUEST['Phone_Number'];
+        $givenPassword = $_REQUEST['Login_Password'];
         // Get all members from database
-       $memberModel = $GLOBALS["memberModel"];
-        $Members = $memberModel->getAllPhoneNumbers(); //holds  all members. + her skal jeg legge til emploees senere. -Gard
+
+        session_start();
+        $this->loginMember($givenUsername, $givenPassword);
+
+
+        $this->loginEmployee($givenUsername, $givenPassword);
         
-      //feil
-        if (($Members['Phone_number'] == $Username))
-        {
-            return $this->render("login");
-            
-        }
-        else
-        {
+        //error message
+        if (($_SESSION["MemberAreLoggedIn"] == "false") && ($_SESSION["EmployeeAreLoggedIn"] == "false")) {
             return $this->render("aboutus");
-            
-        }    
-        
-//        foreach ($Members as $member){
-//            if ($member['Phone_number'] == $Username)
-//            {
-//                if($member['Login_Password'] == $Password)
-//                    {
-//                        return $this->render("home");
-//                    
-//                        $_SESSION["AreLoggedIn"] = "true";
-//                        
-//                    }
-//            }
-//       }
-//        header("Location:order");
-   }
+        }
+    }
+
 }
 
+//        header("Location:order");
+
+
 
 
 
@@ -71,3 +93,4 @@ class loginController extends tempController {
 
 
     
+
