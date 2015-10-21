@@ -33,7 +33,8 @@ class loginController extends tempController {
                 if ($member['Login_Password'] == $givenPassword) {
                     //match
                     $_SESSION["MemberAreLoggedIn"] = "true";
-                    return $this->render("home");
+                    header("Location:../user/?page=home");
+                    
                 }
             }
         }
@@ -45,19 +46,53 @@ class loginController extends tempController {
         $employeeModel = $GLOBALS["employeeModel"];
         $employees = $employeeModel->getAll();
         $_SESSION["EmployeeAreLoggedIn"] = "false";
+        $_SESSION["MasterAreLoggedIn"] = "false";
+        $Extended_Access = 0;
         foreach ($employees as $employee) {
             if ($employee['Phone_Number'] == $givenUsername) {
                 
                 if ($employee['Login_Password'] == $givenPassword) {
-                    //match
+                    
+                    if(($employee['Extended_Access']) == $Extended_Access)
+                    {
+                        $_SESSION["MasterAreLoggedIn"] = "true";
+                        header("Location:../master/?page=home");
+                    }
+                    else{
+
+                   //match
                     $_SESSION["EmployeeAreLoggedIn"] = "true";
-                     return $this->render("order");
+                    header("Location:../admin/?page=home");
+                    }
                 }
             }
         }
         
         
     }
+    
+    
+        private function loginMaster($givenUsername, $givenPassword) {
+        
+        $employeeModel = $GLOBALS["employeeModel"];
+        $employees = $employeeModel->getAll();
+        $_SESSION["EmployeeAreLoggedIn"] = "false";
+        foreach ($employees as $employee) {
+            if ($employee['Phone_Number'] == $givenUsername) {
+                
+                if ($employee['Login_Password'] == $givenPassword) {
+                    //match
+                    $_SESSION["EmployeeAreLoggedIn"] = "true";
+                    header("Location:../admin/?page=home");
+                   
+                }
+            }
+        }
+        
+        
+    }
+    
+    
 
     private function showlogin() {
         return $this->render("login");
@@ -73,6 +108,8 @@ class loginController extends tempController {
 
 
         $this->loginEmployee($givenUsername, $givenPassword);
+        
+        $this->loginMaster($givenUsername, $givenPassword);
         
         //error message
         if (($_SESSION["MemberAreLoggedIn"] == "false") && ($_SESSION["EmployeeAreLoggedIn"] == "false")) {

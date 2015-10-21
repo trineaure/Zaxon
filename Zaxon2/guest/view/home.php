@@ -1,7 +1,12 @@
+<?php
+session_start();
+session_destroy();
+?>
 <!-- START: Main area where content goes -->
                 <main>
                     <div id="big">
                         <div class="content-area">
+                            <p>VELKOMMEN GUEST<p>
                             <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.
                                 Vi er her for å gi deg en god håropplevelse. </p>
                         </div>

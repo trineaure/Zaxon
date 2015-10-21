@@ -1,7 +1,7 @@
  <main>
                     <div  id="big">
-                        <a href="?page=login" class="button">Logg Inn</a>
-                        <a href="?page=memberAdd" class="button">Ny Bruker</a>
+                        <a href="" class="button">Option1</a>
+                        <a href="" class="button">Option1</a>
                     </div>
 
                     <div id="small">
