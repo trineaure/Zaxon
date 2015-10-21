@@ -8,6 +8,7 @@
 // $customerName - last value used in "Add customer" form
 $added = $GLOBALS["added"];
 
+    
 ?>
 
 <?php if ($added) { ?>
@@ -30,6 +31,8 @@ $added = $GLOBALS["added"];
     <p> Mvh. </p> 
     <p>Zaxon </p> 
     <a href="?page=memberAdd">Gå tilbake</a>
-<?php } ?>
+    <?php
+    
+     } ?>
 
 

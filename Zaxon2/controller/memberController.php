@@ -51,8 +51,6 @@ class memberController extends tempController {
         $givenBirth = $_REQUEST['givenBirth'];
         $givenPhone_Number = $_REQUEST["givenPhone_Number"];
         $givenLogin_Password = $_REQUEST['givenLogin_Password'];
-        
-        
         // Try to add new customers, Set action response code - success or not
         $memberModel = $GLOBALS["memberModel"];
         $numbers = $memberModel->getAllNumbers();
