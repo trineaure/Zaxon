@@ -24,7 +24,41 @@ class showController extends tempController {
             
             }  
     }
-     /**
+    
+    /**
+     * Search through all the members
+     */
+    public function searchMember() {
+        
+    }
+    
+    /**
+     * Search through all the Employee's
+     */
+    public function searchEmployee() {
+        $employeeModel = $GLOBALS['employeeModel'];
+        $searched_employee = $employeeModel->getAll();
+        $data2 = array("$searched_employee" => $searched_employee);
+        return $this->render("showEmployee", $data2);
+        
+        
+            while($row =mssql_fetch_assoc($result)) {
+                $givenF_Name =$row['First_Name'];
+                $givenL_Name =$row['Last_Name'];
+                $givenBirth =$row['Birth'];
+                $givenHome_Address =$row['Home_Address'];
+                $givenZip_Code =$row['Zip_Code'];
+            
+                
+                echo "<ul>\n";
+                echo "<li>" . $givenF_Name . " " . $givenL_Name . "<li>\n";
+                echo "<li>" . $givenBirth . "<li>\n";
+                echo "<li>" . $givenHome_Address . " " . $givenZip_Code . "<li>\n";
+                echo "</ul>";                
+            }
+    }
+
+    /**
       * Function that show all the members in Zaxon
       */ 
     public function showMembers() {
@@ -47,7 +81,7 @@ class showController extends tempController {
     }
 
     /**
-     * Get information about the user.
+     * Get information about the Member.
      */
     function getUserInfo($Phone_Number) {
          $memberModel = $GLOBALS["memberModel"];
@@ -58,6 +92,11 @@ class showController extends tempController {
         
     }
    
+    /**
+     * 
+     * @param type $Phone_Number
+     * @return $result about the Employee by getting it by the Phone Number
+     */
     function getEmployeeInfo($Phone_Number) {
        $employeeModel = $GLOBALS[employeeModel];
        
@@ -88,37 +127,4 @@ class showController extends tempController {
       return $this->num_members;
    }
      */
-    
-    /**
-     * Catches informatiob about details 
-     * like owner, gropu, size, time of last change etc.
-     *
-    public function catchAllInfoMembers() {
-  
-    print_r(stat('members'));
-        $memberModel = $GLOBALS["memberModel"];   
-        $resultSet = $memberModel->getAll();
-    
-        if($resultSet -> num_rows != 0){
-            while($rows = $memberModel->fetch_assoc())
-        {
-            $givenFirst_Name = rows['First_Name'];
-            $givenLastName = rows['Last_Name'];
-            $givenBirth = rows['Birth'];
-            $givenPhone_Number = rows['Phone_Number'];
-            $givenLogin_Password = rows['Login_Password'];
-         echo "<p>Name: $givenFirst_Name $givenLastName <br> $givenBirth $givenPhone_Number $givenLogin_Password";   
-                
-        }
-          
-        } 
-             
-        else {
-            echo "No result.";
-        }
-        } 
-        */
-
-
 }
-
