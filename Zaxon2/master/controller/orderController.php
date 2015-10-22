@@ -14,5 +14,13 @@ class orderController extends tempController {
             $this ->render("order");
             }
         }
+        
+        
+    public function getAllTreatments() {
+        $treatmentModel = $GLOBALS["treatmentModel"];
+        $allTreatments = $treatmentModel->getAll();
+        $data = array("allTreatments" => $allTreatments);
+        return $this->render("chooseTreament", $data);
+    }
     
 }
