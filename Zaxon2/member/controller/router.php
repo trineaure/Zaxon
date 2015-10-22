@@ -43,7 +43,10 @@ class Router {
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
-            
+                
+            case "reservation":
+            case "reservationComplete":    
+                return new reservationController();
             case "home":
             default:
                 return new homeController();
