@@ -193,7 +193,7 @@ body .container #structure main #adminMenu {
 
 body .container #structure main #adminMenu .smallButton {
     display: block;
-    height:.5em;
+    height:1.3em;
     width: 50%;
     background: #E0E0E0; 
     margin-top:20px;
