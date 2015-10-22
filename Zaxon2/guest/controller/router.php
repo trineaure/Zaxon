@@ -36,18 +36,10 @@ class Router {
                  
             case "contact":
              return new contactController();     
-            
-            case "showMembers":
-            case "showEmployee":    
-                return new showController();
                 
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
-
-            case "employeeAdd":
-            case "employeeAdded":    
-                return new employeeController();
             
             case "login":
             case "loginConfig":

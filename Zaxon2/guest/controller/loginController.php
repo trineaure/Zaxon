@@ -33,7 +33,7 @@ class loginController extends tempController {
                 if ($member['Login_Password'] == $givenPassword) {
                     //match
                     $_SESSION["MemberAreLoggedIn"] = "true";
-                    header("Location:../user/?page=home");
+                    header("Location:../member/?page=home");
                     
                 }
             }

@@ -45,14 +45,6 @@ class Router {
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
-
-            case "employeeAdd":
-            case "employeeAdded":    
-                return new employeeController();
-            
-            case "login":
-            case "loginConfig":
-                return new loginController();
             
             case "home":
             default:
