@@ -10,8 +10,7 @@
   <?php
        
     $included_employee = $GLOBALS["included_employee"];
-    $searched_employee = $GLOBALS["searched_employee"];
-    
+   
   //  var_dump($included_members);
 foreach ($included_employee as $employee) {
     echo    "Fornavn: " . $employee['First_name'] . "<br>",

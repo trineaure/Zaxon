@@ -17,10 +17,6 @@ $added = $GLOBALS["added"];
     <p> Se kontaktfeltet neders på siden.  </p> 
     <a href="?page=order"> Trykk her hvis du ønsker å bestille time</a>
 
-
-    <a href="?page=showMembers"> trykk for å vise medlemer </a>
-
-
     <p> Mvh.Zaxon </p> 
      
     
