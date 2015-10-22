@@ -10,16 +10,15 @@
   <?php
        
     $included_employee = $GLOBALS["included_employee"];
-    $searched_employee = $GLOBALS["searched_employee"];
-    
+
   //  var_dump($included_members);
 foreach ($included_employee as $employee) {
-    echo    "Fornavn: " . $employee['First_name'] . "<br>",
-            "Etternavn: " . $employee['Last_name'] . "<br>",
-            "Fødselsdag: " . $employee['Birth'] . "<br>",
-            "Telefon nr: ". $employee['Phone_Number'] . "<br>",
-            "Hjemme adresse: " . $employee['Home_Address'] . "<br>",
-            "Post kode: " . $employee['Zip_Code'] . "<br>" . "<br>";
+    echo    "Fornavn: " . $employee['First_name'] . "\n",
+            "Etternavn: " . $employee['Last_name'] . "\n",
+            "Fødselsdag: " . $employee['Birth'] . "\n",
+            "Telefon nr: ". $employee['Phone_Number'] . "\n",
+            "Hjemme adresse: " . $employee['Home_Address'] . "\n",
+            "Post kode: " . $employee['Zip_Code'] . "\n" . "\n";
           //  "Passord: " . $employee['Login_Password'] . "<br>".  "<br>";
 }
           ?>
