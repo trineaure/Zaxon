@@ -127,7 +127,7 @@ body .container #structure main input, textarea {
 }
 
 body .container #structure main #submit {
-    width:97.8%;
+    width:99%;
     height:3em;
     background-color: #E0E0E0 ;
     border:none;
@@ -135,6 +135,15 @@ body .container #structure main #submit {
     cursor:pointer;
 }
 
+
+body .container #structure main .input {
+    width:97.8%;
+    height:3em;
+    border: black 1px;
+    background-color: #FFFFFF;
+    margin-top:20px;
+    cursor:pointer;
+}
 
 body .container #structure main #big {
     width: 49%;

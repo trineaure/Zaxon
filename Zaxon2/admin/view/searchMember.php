@@ -15,7 +15,7 @@
     put action to be link where this page is located —>
 
 <form method="post" action="?page=searchMember"> 
-    <input class="register-input" type="text" name="searchKeyword" />
+    <input type="text" name="searchKeyword" />
   <input id="submit" type="submit" value="search">
 </form>
 
