@@ -30,10 +30,10 @@ class reservationController extends tempController {
     private function addReservationAction()
     {
         
-     
+        session_start();
         $givenReservation_date = $_REQUEST['givenReservation_date'];
         $givenReservation_time = $_REQUEST['givenReservation_time'];
-        $givenMembership_number = $_REQUEST['givenMembership_number'];
+        $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_REQUEST["givenEmployeeID"];
        
         // Try to add new customers, Set action response code - success or not

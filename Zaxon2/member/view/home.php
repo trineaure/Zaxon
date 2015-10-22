@@ -5,15 +5,16 @@ if ( empty($_SESSION["MemberAreLoggedIn"]))
 {
     header("Location:../guest/?page=login");
 }
-
+echo $_SESSION["MemberFirstName"];
 ?>
 <!-- START: Main area where content goes -->
                 <main>
                     <div id="big">
                         <div class="content-area">
-                            <p>VELKOMMEN USER<p>
-                            <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.
-                                Vi er her for å gi deg en god håropplevelse. </p>
+                            <p>VELKOMMEN USER  </p>
+                            <p> Ditt navn er: <?php echo $_SESSION["MemberFirstName"]; ?> </p>
+                            <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.</p>
+                            <p>   Vi er her for å gi deg en god håropplevelse. </p>
                         </div>
                         <div class="content-area">
                             <a href="?page=order"><img src="bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
