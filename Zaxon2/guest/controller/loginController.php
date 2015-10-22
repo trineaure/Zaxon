@@ -47,13 +47,12 @@ class loginController extends tempController {
         $employees = $employeeModel->getAll();
         $_SESSION["EmployeeAreLoggedIn"] = "false";
         $_SESSION["MasterAreLoggedIn"] = "false";
-        $Extended_Access = 0;
+        $Extended_Access = 1;
+        
         foreach ($employees as $employee) {
-            if ($employee['Phone_Number'] == $givenUsername) {
-                
-                if ($employee['Login_Password'] == $givenPassword) {
-                    
-                    if(($employee['Extended_Access']) == $Extended_Access)
+            if (($employee['Phone_Number'] == $givenUsername) && ($employee['Login_Password'] == $givenPassword)) {
+                echo "Brukernavn eller passord stemmer ikke. :)";
+                if(($employee['Extended_Access']) == $Extended_Access)
                     {
                         $_SESSION["MasterAreLoggedIn"] = "true";
                         header("Location:../master/?page=home");
@@ -68,30 +67,7 @@ class loginController extends tempController {
             }
         }
         
-        
-    }
-    
-    
-        private function loginMaster($givenUsername, $givenPassword) {
-        
-        $employeeModel = $GLOBALS["employeeModel"];
-        $employees = $employeeModel->getAll();
-        $_SESSION["EmployeeAreLoggedIn"] = "false";
-        foreach ($employees as $employee) {
-            if ($employee['Phone_Number'] == $givenUsername) {
-                
-                if ($employee['Login_Password'] == $givenPassword) {
-                    //match
-                    $_SESSION["EmployeeAreLoggedIn"] = "true";
-                    header("Location:../admin/?page=home");
-                   
-                }
-            }
-        }
-        
-        
-    }
-    
+
     
 
     private function showlogin() {
@@ -109,7 +85,6 @@ class loginController extends tempController {
 
         $this->loginEmployee($givenUsername, $givenPassword);
         
-        $this->loginMaster($givenUsername, $givenPassword);
         
         //error message
         if (($_SESSION["MemberAreLoggedIn"] == "false") && ($_SESSION["EmployeeAreLoggedIn"] == "false")) {
@@ -119,7 +94,7 @@ class loginController extends tempController {
 
 }
 
-//        header("Location:order");
+
 
 
 
