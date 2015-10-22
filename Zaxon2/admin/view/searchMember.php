@@ -16,7 +16,7 @@
 
 <form method="post" action="?page=searchMember"> 
     <input type="text" name="searchKeyword" />
-  <input type="submit" value="search">
+  <input id="submit" type="submit" value="search">
 </form>
 
 <?php 
