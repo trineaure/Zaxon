@@ -22,9 +22,13 @@ class showController extends tempController {
 
     public function searchUser() {
         $memberModel = $GLOBALS["memberModel"];
+        if(isset($_REQUEST['searchKeyword'])) {
         $searchKeyword = $_REQUEST['searchKeyword'];
         $members = $memberModel->searchUsers($searchKeyword);
-        
+      }
+      else {$members = array();
+              
+      } 
        // error_reporting(E_ALL);
     
       //  $searchKeyword = isset($_POST['searchKeyword']) ? $_POST['searchKeyword'] : '';
