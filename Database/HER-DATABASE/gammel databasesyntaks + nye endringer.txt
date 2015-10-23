@@ -33,7 +33,7 @@ CONSTRAINT EmployeePK PRIMARY KEY (EmployeeID)
 CREATE TABLE Reservation
 (
 Reservation_number int IDENTITY(1,1),
-Reservation_date_and_Time datetime NOT NULL,
+Reservation_Date_and_Time datetime NOT NULL,
 Membership_number int,
 EmployeeID int,
 
