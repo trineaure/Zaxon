@@ -1,30 +1,37 @@
-<?php
-//checks if a Member Are Logged In
-session_start();
-if ( empty($_SESSION["MemberAreLoggedIn"]))
-{
-    header("Location:../guest/?page=login");
-}
-echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
-?>
-<main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="../../fellesFiler/css/jquery.datetimepicker.css"/>
 
-                    <div>
-                        <b><p>Reserver en time</p></b><br>
-                         
-                         <form action="?page=reservationComplete" method="post">
-                            <p>Reservasjons Dato: <input type="text" id="datetimepicker3" placeholder="1995-06-26" name="givenReservation_date_time" class="register-input" required/></p>
+</head>
+<body>
+	
+	
 
-                            <p>EmployeeID: <input type="number"placeholder="321" name="givenEmployeeID" class="register-input" required/></p>
-                           
-                            <input id="submit" type="submit" name="submit" value="Submit" />
-                        </form>
-                    </div>
+	<!--<div id="console" style="background-color:#fff;color:red">sdfdsfsdf</div>-->
+	<input type="text" id="datetimepicker3"/><input type="button" onclick="$('#datetimepicker3').datetimepicker({value:'2015/10/23 12:00'})" value="restart"/><br><br>
+	
+		<!-- ikke i bruk nå
+  
+	<h3>Set options runtime DateTimePicker   ---   datetimepicker7</h3>
+	<input type="text" id="datetimepicker7"/>
 
-           
-</main>
+	
 
-
+       
+	<h3>disable all weekend   ---   datetimepicker9</h3>
+	<input type="text" id="datetimepicker9"/>
+	
+	
+	
+	<h3>Disable Specific Dates   ---   datetimepicker11</h3>
+	<p>Disable the dates 2 days from now.</p>
+	<input type="text" id="datetimepicker11"/>
+-->
+</body>
+<script src="./jquery.js"></script>
+<script src="./jquery.datetimepicker.js"></script>
 <script>/*
 window.onerror = function(errorMsg) {
 	$('#console').html($('#console').html()+'<br>'+errorMsg)
@@ -103,3 +110,4 @@ $('#datetimepicker3').datetimepicker({
 
 
 </script>
+</html>

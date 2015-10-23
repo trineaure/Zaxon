@@ -31,8 +31,7 @@ class reservationController extends tempController {
     {
         
         session_start();
-        $givenReservation_date = $_REQUEST['givenReservation_date'];
-        $givenReservation_time = $_REQUEST['givenReservation_time'];
+        $givenReservation_date_time = $_REQUEST['givenReservation_date_time'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_REQUEST["givenEmployeeID"];
        
@@ -41,7 +40,7 @@ class reservationController extends tempController {
         
         
         
-        $added = $reservationModel->add($givenReservation_date, $givenReservation_time, $givenMembership_number, $givenEmployeeID);
+        $added = $reservationModel->add($givenReservation_date_time,$givenMembership_number, $givenEmployeeID);
 
         $data = array(
             "added" => $added,

@@ -6,7 +6,7 @@ class reservationModel {
 
     const TABLE = "Reservation";
     const SELECT_ALL_QUERY = "SELECT * FROM " . reservationModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . reservationModel::TABLE . "(Reservation_date, Time_of_Day, Membership_number, EmployeeID) VALUES (:Reservation_date, :Time_of_Day, :Membership_number, :EmployeeID)";
+    const INSERT_QUERY = "INSERT INTO " . reservationModel::TABLE . "(Reservation_date_and_Time, Membership_number, EmployeeID) VALUES (:Reservation_date_and_Time, :Membership_number, :EmployeeID)";
 
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
@@ -40,10 +40,9 @@ class reservationModel {
      *
      * @return bool true on success, false otherwise
      */
-        public function add($givenReservation_date, $givenReservation_time, $givenMembership_number, $givenEmployeeID) {
+        public function add($givenReservation_date_time, $givenMembership_number, $givenEmployeeID) {
         return $this->addStmt->execute
-                (array("Reservation_date"=> $givenReservation_date, 
-                        "Time_of_Day"=> $givenReservation_time,
+                (array("Reservation_date_and_Time"=> $givenReservation_date_time,                    
                         "Membership_number" => $givenMembership_number, 
                         "EmployeeID" => $givenEmployeeID));
     }
