@@ -13,14 +13,23 @@ class orderController extends tempController {
             {
             $this ->render("order");
             }
+            
+        if($page == "chooseTreatment")
+           {
+            $this->getAllTreatments();
+//            $this->render("chooseTreatment");
+           }
+           
         }
         
+        
+ 
         
     public function getAllTreatments() {
         $treatmentModel = $GLOBALS["treatmentModel"];
         $allTreatments = $treatmentModel->getAll();
         $data = array("allTreatments" => $allTreatments);
-        return $this->render("chooseTreament", $data);
+        return $this->render("chooseTreatment", $data);
     }
     
 }
