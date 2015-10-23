@@ -10,10 +10,6 @@
         
         <p> Søkefelt </p>
         
-
-        <!— This is the form with input field and search button
-    put action to be link where this page is located —>
-
 <form method="post" action="?page=searchMember"> 
     <input type="text" name="searchKeyword" />
   <input id="submit" type="submit" value="search">

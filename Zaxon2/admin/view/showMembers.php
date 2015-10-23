@@ -13,10 +13,10 @@
     
   //  var_dump($included_members);
 foreach ($included_members as $member) {
-    echo "Fornavn: " . $member['First_name'] . "\n",
-         "Etternavn: " . $member['Last_name'] . "\n",
-         "Fødselsdag: " . $member['Birth'] . "\n",
-         "Telefon nr: ". $member['Phone_Number'] . "\n". "\n";
+    echo "Fornavn: " . $member['First_name'] . "<br>",
+         "Etternavn: " . $member['Last_name'] . "<br>",
+         "Fødselsdag: " . $member['Birth'] . "<br>",
+         "Telefon nr: ". $member['Phone_Number'] . "<br>". "<br>";
        //  "Passord: " . $member['Login_Password'] . "<br>".  "<br>";
 }
           ?>

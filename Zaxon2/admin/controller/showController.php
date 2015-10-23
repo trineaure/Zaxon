@@ -17,17 +17,23 @@ class showController extends tempController {
             $this->searchUser();
         }
     }
+    
+  
 
     public function searchUser() {
         $memberModel = $GLOBALS["memberModel"];
-        $searchKeyword = $_REQUEST["searchKeyword"];
-
+        $searchKeyword = $_REQUEST['searchKeyword'];
         $members = $memberModel->searchUsers($searchKeyword);
+        
+       // error_reporting(E_ALL);
+    
+      //  $searchKeyword = isset($_POST['searchKeyword']) ? $_POST['searchKeyword'] : '';
+ //$searchKeyword = isset($_REQUEST['searchKeyword']) ? $_REQUEST['searchKeyword'] : '';
 
         $data = array("searchResults" => $members);
         return $this->render("searchMember", $data);
     }
-
+ 
     /**
      * Function that show all the members in Zaxon
      */
@@ -45,6 +51,7 @@ class showController extends tempController {
      */
     public function showEmployee() {
         $employeeModel = $GLOBALS["employeeModel"];
+
         $included_employee = $employeeModel->getAll();
         $data = array("included_employee" => $included_employee);
         return $this->render("showEmployee", $data);
@@ -67,12 +74,14 @@ class showController extends tempController {
      * @return $result about the Employee by getting it by the Phone Number
      */
     function getEmployeeInfo($Phone_Number) {
-        $employeeModel = $GLOBALS[employeeModel];
+        $employeeModel = $GLOBALS["employeeModel"];
 
         $result = $employeeModel->getOneByPhone();
 
         return result;
     }
+
+ 
 
     /**
      * getNumMembers - return the number of signed-up users
