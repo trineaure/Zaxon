@@ -11,17 +11,22 @@ class memberModel {
     const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number = :Phone_Number";
     const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search"; // OR First_name LIKE :search";
+    const DELETE_QUERY = "SELECT * FROM"  . memberModel::TABLE . "WHERE Membership_number LIKE :delete";
 
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
-
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
+    //select a number
     private $selNumber;
     // select one 
     private $selOne;
-    //Seach
+    //Search
     private $search;
+    
+    // delete all info
+    private $delete;
+    
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
@@ -30,13 +35,24 @@ class memberModel {
         $this->selNumber = $this->dbConn->prepare(memberModel::SELECT_QUERY);
         $this->selOne = $this->dbConn->prepare(memberModel::SELECT_ONE_QUERY);
         $this->search = $this->dbConn->prepare(memberModel::SEARCH_QUERY);
+        $this->delete = $this->dbConn->prepare(memberModel::DELETE_QUERY);
     }
 
     /**
-     * 
+     * Delete a member from the table. 
+     * @param type $deleteMember
+     * @return type
+     */
+    public function deleteMember($deleteMember) {
+        $this->delete->execute(array(':delete' => $deleteMember));
+        return $this->delete->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    /**
+     * Search after a member by a searchkeyword
      * 
      */
-    public function searchUsers($searchKeyword) {
+    public function searchMember($searchKeyword) {
 
         $this->search->execute(array(":search" => "%$searchKeyword%"));
         return $this->search->fetchAll(PDO::FETCH_ASSOC);

@@ -14,25 +14,21 @@ class showController extends tempController {
         } else if ($page == "EmployeeAdded") {
             $this->addEmployeeAction();
         } else if ($page == "searchMember") {
-            $this->searchUser();
+            $this->searchMember();
         }
     }
     
   
 
-    public function searchUser() {
+    public function searchMember() {
         $memberModel = $GLOBALS["memberModel"];
         if(isset($_REQUEST['searchKeyword'])) {
         $searchKeyword = $_REQUEST['searchKeyword'];
-        $members = $memberModel->searchUsers($searchKeyword);
+        $members = $memberModel->searchMember($searchKeyword);
       }
       else {$members = array();
               
       } 
-       // error_reporting(E_ALL);
-    
-      //  $searchKeyword = isset($_POST['searchKeyword']) ? $_POST['searchKeyword'] : '';
- //$searchKeyword = isset($_REQUEST['searchKeyword']) ? $_REQUEST['searchKeyword'] : '';
 
         $data = array("searchResults" => $members);
         return $this->render("searchMember", $data);

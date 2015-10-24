@@ -1,5 +1,3 @@
-
-
 <main>
     <div  id="adminMenu">
         <a href="?page=login" class="smallButton">Ansatt</a>
