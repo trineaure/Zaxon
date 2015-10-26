@@ -16,6 +16,9 @@
 	box-sizing: border-box;
 	display: none;
 }
+.xdsoft_datetimepicker.xdsoft_rtl {
+	padding: 8px 0 8px 8px;
+}
 
 .xdsoft_datetimepicker iframe {
 	position: absolute;
@@ -71,6 +74,11 @@
 	float: left;
 	margin-left: 8px;
 }
+.xdsoft_datetimepicker.xdsoft_rtl .xdsoft_datepicker {
+	float: right;
+	margin-right: 8px;
+	margin-left: 0;
+}
 
 .xdsoft_datetimepicker.xdsoft_showweeks .xdsoft_datepicker {
 	width: 256px;
@@ -82,6 +90,11 @@
 	text-align: center;
 	margin-left: 8px;
 	margin-top: 0;
+}
+.xdsoft_datetimepicker.xdsoft_rtl .xdsoft_timepicker {
+	float: right;
+	margin-right: 8px;
+	margin-left: 0;
 }
 
 .xdsoft_datetimepicker .xdsoft_datepicker.active+.xdsoft_timepicker {
@@ -156,6 +169,12 @@
 	margin-left: 14px;
 	margin-top: 7px;
 }
+.xdsoft_datetimepicker.xdsoft_rtl .xdsoft_timepicker .xdsoft_prev,
+.xdsoft_datetimepicker.xdsoft_rtl .xdsoft_timepicker .xdsoft_next {
+	float: none;
+	margin-left: 0;
+	margin-right: 14px;
+}
 
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_prev {
 	background-position: -40px 0;
@@ -173,7 +192,7 @@
 	background: #f5f5f5;
 	border-top: 1px solid #ddd;
 	color: #666;
-	font-size: 12px;
+	font-size: 12px;  //gjør ikke noe
 	text-align: center;
 	border-collapse: collapse;
 	cursor: pointer;
@@ -199,7 +218,7 @@
 	z-index: 9999;
 	margin: 0;
 	padding: 5px 3px;
-	font-size: 14px;
+	font-size: 20px; //skrift på måned
 	line-height: 20px;
 	font-weight: bold;
 	background-color: #fff;
@@ -281,13 +300,13 @@
 	background: #f5f5f5;
 	border: 1px solid #ddd;
 	color: #666;
-	font-size: 12px;
+	font-size: 30px; ///tall bla. var 12
 	text-align: right;
 	vertical-align: middle;
 	padding: 0;
 	border-collapse: collapse;
 	cursor: pointer;
-	height: 25px;
+	height: 70px;
 }
 .xdsoft_datetimepicker.xdsoft_showweeks .xdsoft_calendar td,.xdsoft_datetimepicker.xdsoft_showweeks .xdsoft_calendar th {
 	width: 12.5%;
@@ -299,6 +318,17 @@
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today {
 	color: #33aaff;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_highlighted_default {
+	background: #ffe9d2;
+	box-shadow: #ffb871 0 1px 4px 0 inset;
+	color: #000;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_highlighted_mint {
+	background: #c1ffc9;
+	box-shadow: #00dd1c 0 1px 4px 0 inset;
+	color: #000;
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default,
@@ -379,6 +409,10 @@
 	bottom: 0;
 	cursor: pointer;
 }
+.xdsoft_datetimepicker.xdsoft_rtl .xdsoft_scrollbar {
+	left: 0;
+	right: auto;
+}
 .xdsoft_scroller_box {
 	position: relative;
 }
@@ -443,6 +477,17 @@
 	color: #cc5500;
 }
 
+.xdsoft_datetimepicker.xdsoft_dark .xdsoft_calendar td.xdsoft_highlighted_default {
+	background: #ffe9d2;
+	box-shadow: #ffb871 0 1px 4px 0 inset;
+	color:#000;
+}
+.xdsoft_datetimepicker.xdsoft_dark .xdsoft_calendar td.xdsoft_highlighted_mint {
+	background: #c1ffc9;
+	box-shadow: #00dd1c 0 1px 4px 0 inset;
+	color:#000;
+}
+
 .xdsoft_datetimepicker.xdsoft_dark .xdsoft_calendar td.xdsoft_default,
 .xdsoft_datetimepicker.xdsoft_dark .xdsoft_calendar td.xdsoft_current,
 .xdsoft_datetimepicker.xdsoft_dark .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current {
@@ -478,11 +523,11 @@
     margin-top: 5px;
     width: 100%;
     color: #454551;
-    font-size: 13px;
+    font-size: 13px; //gjør ikke noe
 }
 .xdsoft_datetimepicker .blue-gradient-button {
 	font-family: "museo-sans", "Book Antiqua", sans-serif;
-	font-size: 12px;
+	font-size: 12px; //gjør ikke  noe
 	font-weight: 300;
 	color: #82878c;
 	height: 28px;
