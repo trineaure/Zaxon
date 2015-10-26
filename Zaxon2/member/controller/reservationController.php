@@ -31,16 +31,16 @@ class reservationController extends tempController {
     {
         
         session_start();
-        $givenReservation_date_time = $_REQUEST['givenReservation_date_time'];
+        $givenReservation_date = $_REQUEST['givenReservation_date'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_REQUEST["givenEmployeeID"];
-       
+        $givenTime = $_REQUEST["time"];
         // Try to add new customers, Set action response code - success or not
         $reservationModel = $GLOBALS["reservationModel"];
         
         
         
-        $added = $reservationModel->add($givenReservation_date_time,$givenMembership_number, $givenEmployeeID);
+        $added = $reservationModel->add($givenReservation_date,$givenTime,$givenMembership_number, $givenEmployeeID);
 
         $data = array(
             "added" => $added,
