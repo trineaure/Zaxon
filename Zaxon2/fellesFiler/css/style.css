@@ -249,6 +249,31 @@ body .container #structure main  .content-area {
     margin-right: 0;
     padding: 1em 0 1em 0; }
 
+
+
+body .container #structure main .timeButton input[type="radio"]{
+    
+    opacity:0.01;
+    z-index:100;
+}
+
+body .container #structure main .timeButton input[type="radio"]:checked + label,
+.Checked + label {
+    background:yellow;
+}
+
+body .container #structure main .timeButton label {
+     padding:5px;
+     border:1px solid #CCC; 
+     cursor:pointer;
+    z-index:90;
+}
+
+body .container #structure main .timeButton label:hover {
+     background:#DDD;
+}
+
+
 body .container footer {
     width: 100%;
     float: left;

@@ -34,7 +34,11 @@ class reservationController extends tempController {
         $givenReservation_date = $_REQUEST['givenReservation_date'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_REQUEST["givenEmployeeID"];
-        $givenTime = $_REQUEST["time"];
+        $givenTime = filter_input(INPUT_POST,"time");
+        
+        
+        
+        echo $givenReservation_date;
         // Try to add new customers, Set action response code - success or not
         $reservationModel = $GLOBALS["reservationModel"];
         
