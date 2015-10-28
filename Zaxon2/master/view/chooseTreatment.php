@@ -16,7 +16,7 @@
           foreach($categorysWithTreatments[$key] as  $treatment){
            //foreach ($category as $treatment) {
       ?>
-        <p> <?php echo $treatment['Treatment_Name'] ?>  <input type="radio" name="" value=" <?php $treatment['Treatment_Name'] ?>" /> </p>
+        <p> <?php echo $treatment['Treatment_Name'] ?>  <input type="radio" name="<?php echo $key ?>" value=" <?php $treatment['Treatment_Name'] ?>" /> </p>
            
        <?php }
       }?>
