@@ -1,3 +1,5 @@
+<!--ADMIN SIDE-->
+
 <?php
 
 class memberModel {

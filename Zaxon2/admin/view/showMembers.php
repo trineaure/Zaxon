@@ -1,7 +1,7 @@
 <main>
     <div  id="adminMenu">
         <a href="?page=deleteMember" class="smallButton">Slett medlem</a>
-        <a href="?page=memberAdd" class="smallButton">Timeplan</a>
+        <a href="?page=searchMember" class="smallButton">Søk i medlemer</a>
     </div>
 
     <div id="adminMain">

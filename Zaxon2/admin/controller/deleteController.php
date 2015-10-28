@@ -1,5 +1,5 @@
+<!--ADMIN SIDE-->
 <?php
-
 require_once("tempController.php");
 
 class deleteController extends tempController {
@@ -21,11 +21,12 @@ class deleteController extends tempController {
      */
     public function deleteMemberNow() {
 
-        $membershipnr = $_REQUEST['membershipnr'];
-
         $memberModel = $GLOBALS["memberModel"];
+        if (isset($_REQUEST['membershipnr'])) {
+            $membershipnr = $_REQUEST['membershipnr'];
+            $added = $memberModel->deleteMember($membershipnr);
+        }
 
-        $added = $memberModel->deleteMember($membershipnr);
 
         $this->deleteMember();
     }
@@ -35,12 +36,12 @@ class deleteController extends tempController {
      */
     public function deleteEmployeeNow() {
 
+         $employeeModel = $GLOBALS["employeeModel"];
+         if(isset($_REQUEST['phonenr'])) {
         $phonenr = $_REQUEST['phonenr'];
 
-        $employeeModel = $GLOBALS["employeeModel"];
-
         $added = $employeeModel->deleteEmployee($phonenr);
-
+         }
         $this->deleteEmployee();
     }
 
@@ -49,7 +50,7 @@ class deleteController extends tempController {
      * @return type
      */
     public function deleteMember() {
-        
+
         $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
 
@@ -62,7 +63,7 @@ class deleteController extends tempController {
      * @return type
      */
     public function deleteEmployee() {
-        
+
         $employeeModel = $GLOBALS["employeeModel"];
         $employees = $employeeModel->getAll();
 

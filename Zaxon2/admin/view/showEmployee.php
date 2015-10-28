@@ -1,7 +1,7 @@
 <main>
       <div  id="adminMenu">
             <a href="?page=deleteEmployee" class="smallButton">Slett ansatt</a>
-            <a href="?page=EmployeeAdd" class="smallButton">Timeplan</a>
+            <a href="?page=searchEmployee" class="smallButton">Søk i medlemer</a>
         </div>
 
     <div id="adminMain">
