@@ -201,7 +201,7 @@ body .container #structure main #adminMenu {
     float: left;
     margin-right: 1.7%; }
 
-body .container #structure main #adminMenu .smallButton {
+body .container #structure main .smallButton {
     display: block;
     height:1.3em;
     width: 50%;

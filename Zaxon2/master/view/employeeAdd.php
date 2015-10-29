@@ -36,9 +36,11 @@ $feilTlf = $GLOBALS["feiltlf"];
              <p>Post Nummer: <input type="number" placeholder="6006" name="Zip_Code" class="input-textarea" required/></p>
              <p>Passord: <input type="password" id="Login_Password" name="Login_Password" minlength="6" class="input-textarea" required/></p>
              <p>Gjenta Passord: <input type="password" id="confirm_password" name="confirm_password" class="input-textarea" required/></p>
-             <label for="Extended_Access"> <input type="radio" id="Extended_Access" class="regular-radio" name="Extended_Access" value="0" checked/>Standard tilgang </label>
-             <label for="Extended_Access"> <input type="radio" id="Extended_Access" class="regular-radio" name="Extended_Access" value="1"/>Utvidet tilgang </label>
+            
+             <label for="Extended_Access"> <input type="radio" class="regular-radio" name="Extended_Access" value="0" checked/>Standard tilgang </label>
+             <label for="Extended_Access"> <input type="radio" class="regular-radio" name="Extended_Access" value="1"/>Utvidet tilgang </label>
              <input id="submit" type="submit" name="submit" value="Submit"  required/>
+             
          </form>
      </div>
  </main>
