@@ -44,7 +44,8 @@ class Router {
             case "memberAdded":
                 return new memberController();
                 
-            case "reservation":
+            case "reservationDateAndEmployee":
+            case "reservationTime":    
             case "reservationComplete":    
                 return new reservationController();
             case "home":

@@ -9,10 +9,15 @@ class reservationController extends tempController {
      *@param string $page
      */
     public function show($page) {
-        if($page == "reservation")
+        if($page == "reservationDateAndEmployee")
             {
-            $this ->showReservationAction();
+            $this ->showReservationDateAndEmployeeAction();
             }   
+        else if ($page == "reservationTime")    
+            {
+            $this ->showreservationTimeAction();
+            }
+            
         else if ($page == "reservationComplete")    
             {
             $this ->addReservationAction();
@@ -20,20 +25,51 @@ class reservationController extends tempController {
         }
         
         
-     private function showReservationAction() {
-         
-          
-         
-        return $this->render("reservation");
+     private function showReservationDateAndEmployeeAction() {
+
+        return $this->render("reservationDateAndEmployee");
         }
+        
+   
+        
+    private function showreservationTimeAction() {
+        session_start();
+         $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
+        $_SESSION['givenReservation_date'] = $_REQUEST['givenReservation_date'];
+
+        $reservationModel = $GLOBALS["reservationModel"];
+        $reservations = $reservationModel->getAll();
+        foreach ($reservations as $reservation) {
+
+            if (($reservation["Reservation_Date"] == $_SESSION['givenReservation_date']) 
+                   && ($reservation["EmployeeID"] == $_SESSION['givenEmployeeID']))
+                {          
+//                    $timeInUse 
+//                       $data2 = array(
+//                        "feiltlf" => "true",
+//                        "tlfnummer" => $givenPhone_Number,
+//                    );
+                    return $this->render("memberAdd", $data2);
+                }
+        }
+        
+        
+        
+
+       return $this->render("reservationTime");
+
+        }
+        
+        
+        
         
     private function addReservationAction()
     {
         
         session_start();
-        $givenReservation_date = $_REQUEST['givenReservation_date'];
+        $givenReservation_date = $_SESSION['givenReservation_date'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
-        $givenEmployeeID = $_REQUEST["givenEmployeeID"];
+        $givenEmployeeID = $_SESSION['givenEmployeeID'];
         $givenTime = filter_input(INPUT_POST,"time");
         
         
