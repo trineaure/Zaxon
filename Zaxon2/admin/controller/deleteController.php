@@ -27,7 +27,6 @@ class deleteController extends tempController {
             $added = $memberModel->deleteMember($membershipnr);
         }
 
-
         $this->deleteMember();
     }
 
@@ -36,12 +35,12 @@ class deleteController extends tempController {
      */
     public function deleteEmployeeNow() {
 
-         $employeeModel = $GLOBALS["employeeModel"];
-         if(isset($_REQUEST['phonenr'])) {
-        $phonenr = $_REQUEST['phonenr'];
+        $employeeModel = $GLOBALS["employeeModel"];
+        if (isset($_REQUEST['phonenr'])) {
+            $phonenr = $_REQUEST['phonenr'];
 
-        $added = $employeeModel->deleteEmployee($phonenr);
-         }
+            $added = $employeeModel->deleteEmployee($phonenr);
+        }
         $this->deleteEmployee();
     }
 

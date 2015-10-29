@@ -1,34 +1,78 @@
+<!--ADMIN SIDE-->
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $("button").on("click', function () {
+            $.ajax({
+                type: 'POST',
+                url: "view/deleteMember.php",
+                data: {id: $(this).attr("data-id")},
+                success: function (data) {
+                    alert(data);
+                    $('p').html(data);
+                }
+            });
+        });
+    </script>-->
+
 <?php
 //checks if a Employee are logged in 
 session_start();
-if ( empty($_SESSION["EmployeeAreLoggedIn"]))
-{
+if (empty($_SESSION["EmployeeAreLoggedIn"])) {
     header("Location:../guest/?page=login");
 }
-
+?>
+<?php
+//$members = $GLOBALS["members"];
 ?>
 
 
 <!-- START: Main area where content goes -->
-                <main>
-                    <div id="big">
-                        <div class="content-area">
-                           <p>VELKOMMEN ADMIN<p>
-                            <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.
-                                Vi er her for å gi deg en god håropplevelse. </p>
-                        </div>
-                        <div class="content-area">
-                            <a href="?page=order"><img src="bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
-                        </div>
-                    </div>
+<main>
+    <p> Velkommen admin </p>
 
-                    <div id="small">
+    <?php
+//    "<p></p>";
+//    echo $_POST['id'];
+//
+// echo $member["Membership_number"];
+//   // echo '<button class="button" data-id="'.$members[$membershipnr]'" . type="button">Slett kunde</button>';
+//    echo '<button class="button" data-id="'.$members[Membership_number].'" type="button">Slett kunde</button>';
+    ?>
 
 
-                        <div class="content-area">
-                            <img src="bilder/forsidebilde.png" alt="" style="width:100%;">
-                        </div>
 
-                    </div>
-                </main>
-                <!-- END -->
+    <div id="big">
+        <p> Ansatt </p>
+        <div class="content-area">
+            <div  id="big">
+
+                <a href="?page=deleteEmployee" class="button">Slett ansatt</a>
+                <a href="?page=searchEmployee" class="button">Søk i ansatte</a>
+                <a href="?page=showEmployee" class="button">Vis ansatte</a>
+            </div>
+        </div>
+        <div class="content-area">
+            <a href="?page=order"><img src="bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
+        </div>
+    </div>
+
+
+
+    <div id="small">
+        <p> Kunde </p>
+        <div class="content-area">
+            <div id="big">
+
+                <a href="?page=deleteMember" class="button">Slett kunde</a>
+                <a href="?page=searchMember" class="button">Søk i kunder</a>
+                <a href="?page=showMembers" class="button">Vis kunder</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+<!-- END -->

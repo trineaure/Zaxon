@@ -1,8 +1,9 @@
+<!--ADMIN SIDE-->
 <main>
-      <div  id="adminMenu">
+<!--      <div  id="adminMenu">
             <a href="?page=deleteEmployee" class="smallButton">Slett ansatt</a>
-            <a href="?page=searchEmployee" class="smallButton">Søk i medlemer</a>
-        </div>
+            <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
+        </div>-->
 
     <div id="adminMain">
         <?php

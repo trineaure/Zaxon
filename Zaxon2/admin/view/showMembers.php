@@ -1,8 +1,8 @@
 <main>
-    <div  id="adminMenu">
+<!--    <div  id="adminMenu">
         <a href="?page=deleteMember" class="smallButton">Slett medlem</a>
         <a href="?page=searchMember" class="smallButton">Søk i medlemer</a>
-    </div>
+    </div>-->
 
     <div id="adminMain">
         <?php

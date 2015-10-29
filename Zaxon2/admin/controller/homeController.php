@@ -14,5 +14,5 @@ class homeController extends tempController {
             $this ->render("home");
             }
         }
-    
+  
 }

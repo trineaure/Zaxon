@@ -1,3 +1,4 @@
+<!--ADMIN SIDE-->
 <?php
 
 require_once("tempController.php");
