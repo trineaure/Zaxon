@@ -1,3 +1,4 @@
+<!--ADMIN SIDE-->
 <?php
 
 // Represents a controller of our website

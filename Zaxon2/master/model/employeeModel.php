@@ -1,3 +1,4 @@
+<!--MASTER SIDE-->
 <?php
 
 
@@ -10,6 +11,8 @@ class employeeModel {
     const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . "(First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . "WHERE Phone_Number = :Phone_Number";
+    const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search"; // OR First_name LIKE :search" OR Last_name LIKE :search OR Birth LIKE :search;   
+    const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE Phone_Number = ?";
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
     /** @var PDOStatement Statement for adding new entries */
@@ -19,6 +22,10 @@ class employeeModel {
     
     // select one query
     private $selOne;
+    
+    private $search;
+    
+    private $delete;
     
     //Constructor for the class employeeModel
     /*
@@ -30,8 +37,25 @@ class employeeModel {
         $this->selStmt = $this->dbConn->prepare(employeeModel::SELECT_ALL_QUERY);
         $this->selNumber = $this->dbConn->prepare(employeeModel::SELECT_QUERY);
         $this->selOne = $this->dbConn->prepare(employeeModel::SELECT_ONE_QUERY);
+        $this->search = $this->dbConn->prepare(employeeModel::SEARCH_QUERY);    
+        $this->delete = $this->dbConn->prepare(employeeModel::DELETE_QUERY);
     }
 
+    /**
+     * Deletes an employee from the database.
+     * @param type $deleteEmployee
+     * @return type
+     */
+    public function deleteEmployee($deleteEmployee) {
+        
+        return $this->delete->execute(array($deleteEmployee));
+    }
+    
+    public function searchEmployee($searchKeyword) {
+        
+    $this->search->execute(array(":search" => "%$searchKeyword%"));
+        return $this->search->fetchAll(PDO::FETCH_ASSOC);
+    }
     /**
      * Get all employee stored in the DB
      * @return array in associative form
@@ -46,6 +70,7 @@ class employeeModel {
      * Get one query by phone number
      */
     public function getOneByPhone($Phone_Number) {
+        
       $this->selOne->execute(array(
           ':Phone_Number' => $Phone_Number,
       )

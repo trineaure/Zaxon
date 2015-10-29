@@ -1,3 +1,4 @@
+<!--ADMIN SIDE-->
 <main>
 <!-- <div  id="adminMenu">
         <a href="?page=deleteMember" class="smallButton">Slett medlem</a>

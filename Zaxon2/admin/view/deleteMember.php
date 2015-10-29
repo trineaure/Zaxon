@@ -4,6 +4,13 @@
     $members = $GLOBALS["members"];
     ?>
 
+    <script>
+//alert on delete
+        function confirm_alert(node) {
+            return confirm("You are about to permanently delete a product. Click OK to continue or CANCEL to quit.");
+        }
+    </script>
+
     <p> Her kan en slette medlemene i Zaxon .</p>
 
 
@@ -14,18 +21,22 @@
         ?>
 
         <?php foreach ($members as $member) { ?>
-            <tr>
-                <td> <?php echo $member["First_name"] ?> </td>
-                <td> <?php echo $member["Last_name"] ?> </td>
-                <td> <?php echo $member["Birth"] ?> </td>
-                <td> <?php echo $member["Phone_Number"] ?> </td>
-                <td> <form method="post" action="?page=deleteMemberNow">
 
-                        <input style="display:none;" value="<?php echo $member["Membership_number"]; ?>" name="membershipnr">
-                        <button value="submit"> Delete </button>
-                    </form>
-                </td>
-            </tr>
+           <!--<form onSubmit="return confirm_alert(this)" action="?page=deleteMember" method="post">-->    
+                <tr>
+
+                    <td> <?php echo $member["First_name"] ?> </td>
+                    <td> <?php echo $member["Last_name"] ?> </td>
+                    <td> <?php echo $member["Birth"] ?> </td>
+                    <td> <?php echo $member["Phone_Number"] ?> </td>
+                    <td> <form method="post" action="?page=deleteMemberNow">
+
+                            <input style="display:none;" value="<?php echo $member["Membership_number"]; ?>" name="membershipnr">
+                            <button value="submit"> Delete </button>
+                        </form>
+                    </td>
+                </tr>
+            <!--</form>-->
         <?php } ?>
 
     </table>

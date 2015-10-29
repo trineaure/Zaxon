@@ -28,35 +28,42 @@ class Router {
             case "order":
             case "chooseTreatment":
                 return new orderController();
-                
+
             case "pricelist":
                 return new pricelistController();
-                 
+
             case "aboutus":
-                return new aboutusController();   
-                 
+                return new aboutusController();
+
             case "contact":
-             return new contactController();     
-            
+                return new contactController();
+
             case "showMembers":
-            case "showEmployee":    
+            case "showEmployee":
                 return new showController();
-                
+
+            case "searchMember":
+            case "searchEmployee":
+                return new searchController();
+
+            case "deleteMember":
+            case "deleteMemberNow":
+            case "deleteEmployee":
+            case "deleteEmployeeNow":
+                return new deleteController();
+
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
 
             case "employeeAdd":
-            case "employeeAdded":    
+            case "employeeAdded":
                 return new employeeController();
-            
+
             case "home":
             default:
                 return new homeController();
-                
-                
         }
-
     }
 
 }

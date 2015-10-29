@@ -1,15 +1,12 @@
 <!--MASTER SIDE-->
 <main>
-<!-- <div  id="adminMenu">
-        <a href="?page=deleteMember" class="smallButton">Slett medlem</a>
-        <a href="?page=showMembers" class="smallButton">Tilbake</a>
-    </div>-->
+
 
     <div id="adminMain">
 
-        <p> Søk etter Zaxon's medlemer </p>
+        <p> Søk etter frisørene ved Zaxon </p>
 
-        <form method="post" action="?page=searchMember"> 
+        <form method="post" action="?page=searchEmployee"> 
             <input type="text" name="searchKeyword" />
             <input id="submit" type="submit" value="search">
         </form>
@@ -23,16 +20,18 @@
         if (!empty($searchResults)) {
 
             echo "<table>\n";
-            echo "<tr><td> Medlemsnr </td> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td>  <td> Mobil nummer </td> </tr>";
+            echo "<tr> <td> Ansatt ID </td> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td>  <td> Mobil nummer </td> <td> Hjemme adresse </td> <td> Postkode </td> </tr>";
 
             foreach ($searchResults as $r) {
 
                 Echo "<tr>"
-                . "<td>" . $r["Membership_number"] . "</td>"
+                . "<td>" . $r["EmployeeID"] . "</td>"
                 . "<td>" . $r["First_name"] . "</td>"
                 . "<td>" . $r["Last_name"] . "</td>"
                 . "<td>" . $r["Birth"] . "</td>"
                 . "<td>" . $r["Phone_Number"] . "</td>"
+                . "<td>" . $r["Home_Address"] . "</td>"
+                . "<td>" . $r["Zip_Code"] . "</td>"
                 . "</tr>";
             }
 

@@ -44,11 +44,11 @@ if (empty($_SESSION["EmployeeAreLoggedIn"])) {
 
 
     <div id="big">
-        <p> Ansatt </p>
+        <p> Ansatt</p>
         <div class="content-area">
             <div  id="big">
 
-                <a href="?page=deleteEmployee" class="button">Slett ansatt</a>
+                <!--<a href="?page=deleteEmployee" class="button">Slett ansatt</a>-->
                 <a href="?page=searchEmployee" class="button">Søk i ansatte</a>
                 <a href="?page=showEmployee" class="button">Vis ansatte</a>
             </div>

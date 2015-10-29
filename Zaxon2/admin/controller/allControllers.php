@@ -1,3 +1,4 @@
+<!--ADMIN SIDE-->
 <?php
 
 // Includes all the controllers we have. 

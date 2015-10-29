@@ -1,4 +1,4 @@
-<!--ADMIN SIDE-->
+<!--MASTER SIDE-->
 <main>
     <?php
     $employees = $GLOBALS["employees"];
@@ -34,4 +34,3 @@
     </table>
 
 </main>
-
