@@ -16,7 +16,6 @@
         ?>
 
         <?php
-
         if (!empty($searchResults)) {
 
             echo "<table>\n";

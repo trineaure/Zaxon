@@ -1,14 +1,10 @@
 <!--MASTER SIDE-->
 <main>
-<!-- <div  id="adminMenu">
-        <a href="?page=deleteMember" class="smallButton">Slett medlem</a>
-        <a href="?page=showMembers" class="smallButton">Tilbake</a>
-    </div>-->
 
     <div id="adminMain">
 
-        <p> Søk etter Zaxon's medlemer </p>
-
+        <p> Søk etter Zaxon's medlemer. </p>
+        <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
         <form method="post" action="?page=searchMember"> 
             <input type="text" name="searchKeyword" />
             <input id="submit" type="submit" value="search">
@@ -19,7 +15,6 @@
         ?>
 
         <?php
-
         if (!empty($searchResults)) {
 
             echo "<table>\n";

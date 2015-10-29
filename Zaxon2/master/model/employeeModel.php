@@ -1,8 +1,8 @@
 <!--MASTER SIDE-->
 <?php
 
-
 class employeeModel {
+
     /** @var PDO */
     private $dbConn;
 
@@ -11,22 +11,20 @@ class employeeModel {
     const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . "(First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . "WHERE Phone_Number = :Phone_Number";
-    const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search"; // OR First_name LIKE :search" OR Last_name LIKE :search OR Birth LIKE :search;   
+    const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
     const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE Phone_Number = ?";
+
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
+
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
-    
     private $selNumber;
-    
     // select one query
     private $selOne;
-    
     private $search;
-    
     private $delete;
-    
+
     //Constructor for the class employeeModel
     /*
      * @param $dbConn - The connection to the database
@@ -37,7 +35,7 @@ class employeeModel {
         $this->selStmt = $this->dbConn->prepare(employeeModel::SELECT_ALL_QUERY);
         $this->selNumber = $this->dbConn->prepare(employeeModel::SELECT_QUERY);
         $this->selOne = $this->dbConn->prepare(employeeModel::SELECT_ONE_QUERY);
-        $this->search = $this->dbConn->prepare(employeeModel::SEARCH_QUERY);    
+        $this->search = $this->dbConn->prepare(employeeModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(employeeModel::DELETE_QUERY);
     }
 
@@ -47,15 +45,22 @@ class employeeModel {
      * @return type
      */
     public function deleteEmployee($deleteEmployee) {
-        
+
         return $this->delete->execute(array($deleteEmployee));
     }
-    
+
     public function searchEmployee($searchKeyword) {
-        
-    $this->search->execute(array(":search" => "%$searchKeyword%"));
+
+        $this->search->execute(array(":search" => "%$searchKeyword%",
+            ":search" => "%$searchKeyword%",
+            ":searchLN" => "%$searchKeyword%",
+            ":searchFN" => "%$searchKeyword%",
+            ":searchB" => "%$searchKeyword%",
+            ":searchE" => "%$searchKeyword%"
+        ));
         return $this->search->fetchAll(PDO::FETCH_ASSOC);
     }
+
     /**
      * Get all employee stored in the DB
      * @return array in associative form
@@ -65,17 +70,17 @@ class employeeModel {
         $this->selStmt->execute();
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     /**
      * Get one query by phone number
      */
     public function getOneByPhone($Phone_Number) {
-        
-      $this->selOne->execute(array(
-          ':Phone_Number' => $Phone_Number,
-      )
-              );  
-      return $this->selOne->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->selOne->execute(array(
+            ':Phone_Number' => $Phone_Number,
+                )
+        );
+        return $this->selOne->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -85,23 +90,21 @@ class employeeModel {
      *
      * @return bool true on success, false otherwise
      */
-        public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access ) {
+    public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access) {
         return $this->addStmt->execute
-                (array("First_name"=> $givenF_Name, 
-                        "Last_name"=> $givenL_Name,
-                        "Birth" => $givenBirth, 
-                        "Phone_Number" => $givenPhone_Number, 
-                        "Home_Address"=> $givenHome_Address,
-                        "Zip_Code"=> $givenZip_Code, 
-                        "Login_Password"=> $givenLogin_Password,
-                         "Extended_Access"=>$givenExtended_Access));
+                        (array("First_name" => $givenF_Name,
+                    "Last_name" => $givenL_Name,
+                    "Birth" => $givenBirth,
+                    "Phone_Number" => $givenPhone_Number,
+                    "Home_Address" => $givenHome_Address,
+                    "Zip_Code" => $givenZip_Code,
+                    "Login_Password" => $givenLogin_Password,
+                    "Extended_Access" => $givenExtended_Access));
     }
-    
- public function getAllNumbers()
-    {
+
+    public function getAllNumbers() {
         $this->selNumber->execute();
         return $this->selNumber->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
 }

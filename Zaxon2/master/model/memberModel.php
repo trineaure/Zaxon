@@ -11,7 +11,7 @@ class memberModel {
     const INSERT_QUERY = "INSERT INTO " . memberModel::TABLE . "(First_name,Last_name,Birth,Phone_Number,Login_Password) VALUES (:First_name,:Last_name,:Birth,:Phone_Number,:Login_Password)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number = :Phone_Number";
-    const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search"; // OR First_name LIKE :search" OR Last_name LIKE :search OR Birth LIKE :search;
+    const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search OR Birth LIKE :searchB OR First_name LIKE :searchFN OR Last_name LIKE :searchLN";
     const DELETE_QUERY = "DELETE FROM " . memberModel::TABLE . " WHERE Membership_number = ?";
 
     /** @var PDOStatment Statment for selecting all enteries */
@@ -44,8 +44,8 @@ class memberModel {
      * @return type
      */
     public function deleteMember($deleteMember) {
-       
-      return  $this->delete->execute(array($deleteMember));    
+
+        return $this->delete->execute(array($deleteMember));
     }
 
     /**
@@ -54,7 +54,11 @@ class memberModel {
      */
     public function searchMember($searchKeyword) {
 
-        $this->search->execute(array(":search" => "%$searchKeyword%"));
+        $this->search->execute(array(":search" => "%$searchKeyword%",
+            ":searchB" => "%$searchKeyword%",
+            ":searchFN" => "%$searchKeyword%",
+            ":searchLN" => "%$searchKeyword%"
+        ));
         return $this->search->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -77,7 +81,7 @@ class memberModel {
      * @return an array in associative arrays.
      */
     public function getAll() {
-        
+
         $this->selStmt->execute();
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -87,7 +91,7 @@ class memberModel {
      * @param Firstname, lastname, birth, phone_number and login password. 
      */
     public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password) {
-        
+
         return $this->addStmt->execute(array("First_name" => $givenFirst_Name, "Last_name" => $givenLastName, "Birth" => $givenBirth, "Phone_Number" => $givenPhone_Number, "Login_Password" => $givenLogin_Password));
     }
 
@@ -95,7 +99,7 @@ class memberModel {
      * Get all the phone numbers of the members of Zaxon.
      */
     public function getAllNumbers() {
-        
+
         $this->selNumber->execute();
         return $this->selNumber->fetchAll(PDO::FETCH_ASSOC);
     }
