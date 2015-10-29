@@ -1,9 +1,9 @@
  <main>
-                    <div  id="big">
+                    <div  id="adminMenu">
                       
-            <a href="?page=order" class="button">Bestill time</a>
-            <a href="?page=searchEmployee" class="button">Søk i ansatte</a>
-            <a href="?page=showEmployee" class="button">Vis ansatte</a>
+            <a href="?page=order" class="smallButton">Bestill time</a>
+            <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
+            <a href="?page=showEmployee" class="smallButton">Vis ansatte</a>
         </div>
      
      
