@@ -115,7 +115,8 @@ body .container #structure header {
     margin-top: 1.5em;
     padding-bottom: 1em; }
 
-body .container #structure main input, textarea {
+
+body .container #structure main .input-textarea { 
     width:95%;
     height:1.5em;
     background:#FFF ;
@@ -355,3 +356,36 @@ input[type=date]::-webkit-outer-spin-button {
 
 
 /*# sourceMappingURL=style.css.map */
+
+body .container #structure main #regular-radio {
+    display: inline-block;
+    border:1px solid #dedede;
+    
+}
+
+body .container #structure main #button-holder {
+    position: relative;
+    text-align: left;
+    float: left;
+    margin: 5%;
+    display: block;
+    width: 10em;
+
+
+}
+
+
+body .container #structure main #button-holder label {
+    position: relative;
+    padding: 0.2em;
+    font-size: 1em;
+    display: block;
+    margin-top: 1em;
+    cursor: pointer;
+    width: 100%;
+}
+
+body .container #structure main #button-holder label:hover {
+    background-color: #E0E0E0;
+}
+

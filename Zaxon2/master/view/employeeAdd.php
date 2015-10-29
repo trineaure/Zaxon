@@ -28,16 +28,16 @@ $feilTlf = $GLOBALS["feiltlf"];
          <form onSubmit="return validate()" action="?page=employeeAdded"method="post">
              
              
-             <p>Fornavn: <input type="text" placeholder="Ola" name="First_name"  required/></p>
-             <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name"  required/></p>
-             <p>Fødselsdag: <input type="date"  placeholder="1995-06-26" name="Birth" required/></p>
-             <p>Telefon: <input type="number"placeholder="41761114" name="Phone_Number"  required/></p>
-             <p>Hjemme Adresse: <input type="text"placeholder="Engens vei. 53" name="Home_Address"  required/></p>
-             <p>Post Nummer: <input type="number" placeholder="6006" name="Zip_Code"  required/></p>
-             <p>Passord: <input type="password" id="Login_Password" name="Login_Password" minlength="6" required/></p>
-             <p>Gjenta Passord: <input type="password" id="confirm_password" name="confirm_password"  required/></p>
-             Standard tilgang<input type="radio" name="Extended_Access" value="0" checked/> 
-             Utvidet tilgang<input type="radio" name="Extended_Access" value="1"/>
+             <p>Fornavn: <input type="text" placeholder="Ola" name="First_name" class="input-textarea" required/></p>
+             <p>Etternavn: <input type="text"placeholder="Nordmann" name="Last_name" class="input-textarea" required/></p>
+             <p>Fødselsdag: <input type="date"  placeholder="1995-06-26" name="Birth" class="input-textarea" required/></p>
+             <p>Telefon: <input type="number"placeholder="41761114" name="Phone_Number" class="input-textarea" required/></p>
+             <p>Hjemme Adresse: <input type="text"placeholder="Engens vei. 53" name="Home_Address" class="input-textarea" required/></p>
+             <p>Post Nummer: <input type="number" placeholder="6006" name="Zip_Code" class="input-textarea" required/></p>
+             <p>Passord: <input type="password" id="Login_Password" name="Login_Password" minlength="6" class="input-textarea" required/></p>
+             <p>Gjenta Passord: <input type="password" id="confirm_password" name="confirm_password" class="input-textarea" required/></p>
+             <label for="Extended_Access"> <input type="radio" id="Extended_Access" class="regular-radio" name="Extended_Access" value="0" checked/>Standard tilgang </label>
+             <label for="Extended_Access"> <input type="radio" id="Extended_Access" class="regular-radio" name="Extended_Access" value="1"/>Utvidet tilgang </label>
              <input id="submit" type="submit" name="submit" value="Submit"  required/>
          </form>
      </div>
