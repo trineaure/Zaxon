@@ -39,7 +39,7 @@ $('#datetimepicker3').datetimepicker({
 	
 	lang:'no',
 	timepicker:false,
-	format:'d-m-Y',
+	format:'Y-m-d',
 	formatDate:'Y-m-d'
         
 

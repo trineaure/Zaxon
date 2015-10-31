@@ -17,3 +17,36 @@
                         
                     </div>
                 </main>
+
+
+<script>
+function updateSeats()
+    {
+ 
+        <?php foreach($takenSeats as $takenSeat): ?>
+            for (i=1; i<7 ; i++ ) 
+            {
+              var x = document.getElementById("A" + i);
+              var y = document.getElementById("B" + i);  
+              
+              
+             //window.alert(<?php //echo json_encode($takenSeat["SeatNumber"]) ?> );
+       
+             
+              if(x.value == <?php echo json_encode($takenSeat["SeatNumber"]) ?> )
+              {
+                  var xLabel = document.getElementById("label" + x.value);
+                  xLabel.style.backgroundColor = "red";
+                  x.disabled=true;
+              }
+              
+              if(y.value == <?php echo json_encode($takenSeat["SeatNumber"]) ?> )
+              {
+                  var yLabel = document.getElementById("label" + y.value);
+                  yLabel.style.backgroundColor = "red";
+                  y.disabled=true;
+              }
+            }
+        <?php endforeach; ?>
+        
+    }

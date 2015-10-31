@@ -34,30 +34,26 @@ class reservationController extends tempController {
         
     private function showreservationTimeAction() {
         session_start();
-         $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
+        $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
         $_SESSION['givenReservation_date'] = $_REQUEST['givenReservation_date'];
 
+        echo $_SESSION['givenEmployeeID'];
+        echo $_SESSION['givenReservation_date'];
+        
         $reservationModel = $GLOBALS["reservationModel"];
-        $reservations = $reservationModel->getAll();
-        foreach ($reservations as $reservation) {
+        $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
 
-            if (($reservation["Reservation_Date"] == $_SESSION['givenReservation_date']) 
-                   && ($reservation["EmployeeID"] == $_SESSION['givenEmployeeID']))
-                {          
-//                    $timeInUse 
-//                       $data2 = array(
-//                        "feiltlf" => "true",
-//                        "tlfnummer" => $givenPhone_Number,
-//                    );
-                    return $this->render("memberAdd", $data2);
-                }
-        }
-        
-        
-        
 
-       return $this->render("reservationTime");
-
+//        foreach ($reservations as $reservation) {
+//
+//            if (($reservation["Reservation_Date"] == $_SESSION['givenReservation_date']) 
+//                   && ($reservation["EmployeeID"] == $_SESSION['givenEmployeeID']))
+//                {          
+//                  $_SESSION['Time_In_Use'] = $reservation["Time_of_Day"];
+//  
+//                }
+//        }
+ return $this->render("reservationTime");
         }
         
         
@@ -70,7 +66,7 @@ class reservationController extends tempController {
         $givenReservation_date = $_SESSION['givenReservation_date'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_SESSION['givenEmployeeID'];
-        $givenTime = filter_input(INPUT_POST,"time");
+        $givenTime = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
         
         
         

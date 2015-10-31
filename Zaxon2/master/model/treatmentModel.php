@@ -24,5 +24,7 @@ class treatmentModel {
     public function getByCategory($category) {
          $this->selByCat->execute(array($category));
         return $this->selByCat->fetchAll(PDO::FETCH_ASSOC);
+        
+        
     }
 }
