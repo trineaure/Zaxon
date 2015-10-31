@@ -1,4 +1,5 @@
 <main>
+    <p>
 <?php
 //checks if a Member Are Logged In
 $unavailableTimes = $_SESSION["timeIn"];
@@ -11,16 +12,22 @@ if ( empty($_SESSION["MemberAreLoggedIn"]))
     header("Location:../guest/?page=login");
 }
 
-
-
 echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
-?> <p></p>  <?php
+?> </p> 
+    
+<p>
+ <?php
 echo "Din Employee er : " . $_SESSION['givenEmployeeID'];
 ?>
-<p></p>  <?php
+</p>  
+  <p>  
+    <?php
 echo "Din dato er : " . $_SESSION['givenReservation_date'];
 ?>
-<p></p><?php echo "Tid som er valgt allerede for denne datoen er : ";
+</p>
+    
+<p>
+    <?php echo "Tid som er valgt allerede for denne datoen er : ";
     
  //printer ut tidene som er i bruk 
      foreach($unavailableTimes as $tempTime){
@@ -28,7 +35,7 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
             echo date("H:i", strtotime($tempTime["Time_of_Day"]));
         }
         ?>
-<p></p>
+</p>
 
 
 <script>
@@ -46,7 +53,7 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
     
     
     
-    var a = document.getElementById(<?php echo date("H:i", strtotime($tes["Time_of_Day"]));  ?>)
+    var a = document.getElementById(<?php echo date("H:i", strtotime($tempTime["Time_of_Day"]));  ?>)
     
     
         
@@ -72,7 +79,8 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
 
 </script>
   
-
+<?php $availableTimes = array("10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+                              "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30");?>
 
 
  <div class="timeButton">
@@ -81,30 +89,31 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
                             
         <p>Velg tid</p>
              <table style="width:10%"><p align='center'>
+
                   <tr>
-                    <td><input type="radio" id="10:00" value="10:00" name="time"><label for="10:00">10:00</label></td>
-                    <td><input type="radio" id="10:30" value="10:30" name="time"><label for="10:30">10:30</label></td>	
-                    <td><input type="radio" id="11:00" value="11:00" name="time"><label for="11:00">11:00</label></td>
-                    <td><input type="radio" id="11:30" value="11:30" name="time"><label for="11:30">11:30</label></td>
+                      <?php for($i = 0; $i <= 3; $i++) {
+                          $time =  $availableTimes[$i]?>
+                    <td><input type="radio" id="<?php echo $time?>" value="<?php echo $time?>" name="time"><label for="<?php echo $time?>"><?php echo $time ?></label></td>
+                     <?php }?>
                   </tr>
                    <tr>
-                    <td><input type="radio" id="12:00" value="12:00" name="time"><label for="12:00">12:00</label></td>
-                    <td><input type="radio" id="12:30" value="12:30" name="time"><label for="12:30">12:30</label></td>	
-                    <td><input type="radio" id="13:00" value="13:00" name="time"><label for="13:00">13:00</label></td>
-                    <td><input type="radio" id="13:30" value="13:30" name="time"><label for="13:30">13:30</label></td>
-                  </tr>
+                       <?php for($i = 4; $i <= 7; $i++) {
+                          $time = $availableTimes[$i]?>
+                    <td><input type="radio" id="<?php echo $time?>" value="<?php echo $time?>" name="time"><label for="<?php echo $time?>"><?php echo $time ?></label></td>
+                 <?php }?>
+                   </tr>
                    <tr>
-                    <td><input type="radio" id="14:00" value="14:00" name="time"><label for="14:00">14:00</label></td>
-                    <td><input type="radio" id="14:30" value="14:30" name="time"><label for="14:30">14:30</label></td>	
-                    <td><input type="radio" id="15:00" value="15:00" name="time"><label for="15:00">15:00</label></td>
-                    <td><input type="radio" id="15:30" value="15:30" name="time"><label for="15:30">15:30</label></td>
-                  </tr>
+                       <?php for($i = 8; $i <= 11; $i++) {
+                          $time = $availableTimes[$i]?>
+                    <td><input type="radio" id="<?php echo $time?>" value="<?php echo $time?>" name="time"><label for="<?php echo $time?>"><?php echo $time ?></label></td>
+                  <?php }?>
+                   </tr>
                     <tr>
-                    <td><input type="radio" id="16:00" value="16:00" name="time"><label for="16_00">16:00</label></td>
-                    <td><input type="radio" id="16:30" value="16:30" name="time"><label for="16_30">16:30</label></td>	
-                    <td><input type="radio" id="17:00" value="17:00" name="time"><label for="17_00">17:00</label></td>
-                    <td><input type="radio" id="17:30" value="17:30" name="time"><label for="17_30">17:30</label></td>
-                  </tr>
+                     <?php for($i = 12; $i <= 15; $i++) {
+                          $time = $availableTimes[$i]?>
+                    <td><input type="radio" id="<?php  echo $time?>" value="<?php  echo $time?>" name="time"><label for="<?php  echo $time?>"><?php echo $time ?></label></td>   
+                 <?php }?>
+                    </tr>
 
         <input id="submit" type="submit" name="submit" value="Submit" />
     </form>
