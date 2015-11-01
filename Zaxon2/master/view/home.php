@@ -10,24 +10,31 @@ if ( empty($_SESSION["MasterAreLoggedIn"]))
 
 <!-- START: Main area where content goes -->
                 <main>
-                    <div id="big">
-                        <div class="content-area">
-                            <p>VELKOMMEN MASTER<p>
-                            <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.
-                                Vi er her for å gi deg en god håropplevelse. </p>
-                        </div>
-                        <div class="content-area">
-                            <a href="?page=order"><img src="../fellesFiler/bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
-                        </div>
-                    </div>
+    <p> Velkommen Master </p>
+    
+<div id="small">
+        <p> Ansatt</p>
 
-                    <div id="small">
+                 <a href="?page=showEmployee" class="smallButton">Vis ansatte</a>
+                <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
+                <a href="?page=deleteEmployee" class="smallButton">Slett ansatt</a>
+                <a href="?page=searchEmployee" class="smallButton">Vis egen timeplan</a>
+                
+    </div>
 
 
-                        <div class="content-area">
-                            <img src="../fellesFiler/bilder/forsidebilde.png" alt="" style="width:100%;">
-                        </div>
 
-                    </div>
-                </main>
+    <div id="small">
+        <p> Kunde </p>
+
+                 <a href="?page=showMembers" class="smallButton">Vis kunder</a>
+                 <a href="?page=searchMember" class="smallButton">Søk i kunder</a>
+                 <a href="?page=deleteMember" class="smallButton">Slett kunde</a>
+                <a href="?page=searchEmployee" class="smallButton">Legg inn bestilling</a>
+               
+    </div>
+
+
+
+</main>
                 <!-- END -->
