@@ -1,7 +1,7 @@
  <main>
                     <div  id="big">
-                        <a href="" class="button">Option1</a>
-                        <a href="" class="button">Option1</a>
+                        <a href="?page=chooseTreatment" class="button">Bestill time</a>
+                        
                     </div>
 
                     <div id="small">

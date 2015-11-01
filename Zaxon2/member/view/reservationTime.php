@@ -27,7 +27,8 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
 </p>
     
 <p>
-    <?php echo "Tid som er valgt allerede for denne datoen er : ";
+    <?php 
+    echo "Tid som er valgt allerede for denne datoen er : ";
     
  //printer ut tidene som er i bruk 
      foreach($unavailableTimes as $tempTime){
@@ -115,7 +116,7 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
                  <?php }?>
                     </tr>
 
-        <input id="submit" type="submit" name="submit" value="Submit" />
+        <input id="submit" type="submit" name="submit" value="Neste" />
     </form>
      
  </div>

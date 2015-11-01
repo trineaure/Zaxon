@@ -26,7 +26,10 @@ class reservationController extends tempController {
         
         
      private function showReservationDateAndEmployeeAction() {
-
+         
+         session_start();
+        $_SESSION["Treatment"] = filter_input(INPUT_POST,"treatment");
+         
         return $this->render("reservationDateAndEmployee");
         }
         
@@ -37,12 +40,12 @@ class reservationController extends tempController {
         $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
         $_SESSION['givenReservation_date'] = $_REQUEST['givenReservation_date'];
 
-        echo $_SESSION['givenEmployeeID'];
-        echo $_SESSION['givenReservation_date'];
         
         $reservationModel = $GLOBALS["reservationModel"];
         $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
 
+        
+        
 
 //        foreach ($reservations as $reservation) {
 //
@@ -77,13 +80,14 @@ class reservationController extends tempController {
         
         
         $added = $reservationModel->add($givenReservation_date,$givenTime,$givenMembership_number, $givenEmployeeID);
-
+        
         $data = array(
             "added" => $added,
         );
 
         return $this->render("reservationComplete", $data);
     }
+    
 
 }
 

@@ -10,7 +10,7 @@
 	padding: 8px;
 	padding-left: 0;
 	padding-top: 2px;
-	position: relative;
+	position: absolute;
 	z-index: 9999;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -192,7 +192,7 @@
 	background: #f5f5f5;
 	border-top: 1px solid #ddd;
 	color: #666;
-	font-size: 12px;  //gj�r ikke noe
+	font-size: 12px;
 	text-align: center;
 	border-collapse: collapse;
 	cursor: pointer;
@@ -218,7 +218,7 @@
 	z-index: 9999;
 	margin: 0;
 	padding: 5px 3px;
-	font-size: 20px; //skrift p� m�ned
+	font-size: 14px;
 	line-height: 20px;
 	font-weight: bold;
 	background-color: #fff;
@@ -300,13 +300,13 @@
 	background: #f5f5f5;
 	border: 1px solid #ddd;
 	color: #666;
-	font-size: 30px; ///tall bla. var 12
+	font-size: 12px;
 	text-align: right;
 	vertical-align: middle;
 	padding: 0;
 	border-collapse: collapse;
 	cursor: pointer;
-	height: 70px;
+	height: 25px;
 }
 .xdsoft_datetimepicker.xdsoft_showweeks .xdsoft_calendar td,.xdsoft_datetimepicker.xdsoft_showweeks .xdsoft_calendar th {
 	width: 12.5%;
@@ -523,11 +523,11 @@
     margin-top: 5px;
     width: 100%;
     color: #454551;
-    font-size: 13px; //gj�r ikke noe
+    font-size: 13px;
 }
 .xdsoft_datetimepicker .blue-gradient-button {
 	font-family: "museo-sans", "Book Antiqua", sans-serif;
-	font-size: 12px; //gj�r ikke  noe
+	font-size: 12px;
 	font-weight: 300;
 	color: #82878c;
 	height: 28px;

@@ -26,6 +26,7 @@ class Router {
         switch ($page) {
 
             case "order":
+            case "chooseTreatment":
                 return new orderController();
                 
             case "pricelist":

@@ -10,14 +10,27 @@ $added = $GLOBALS["added"];
 
     
 ?>
-
+<main>
 <?php if ($added) { ?>
-    <p> Gratulerer! Du har nå bestillt en time hos Zaxon. </p>
-    <p> Hvis du ønsker å endre på bestillingen gan du dra til helvete </p>
-    <a href="?page=home"> Trykk her for å gå tilbake til startsiden</a>
-
-    <p> Mvh.Zaxon </p> 
-     
+    
+    <p>Her er en oversikt over din bestilling. Trykk "Fullfør" for å bekrefte  </p>
+    
+    <?php
+           echo "<table>\n";
+        echo "<tr> <td> Kunde nummer </td> <td> Arbeidsgiver </td> <td> Dato </td> <td> Behandling </td> ";
+                Echo "<tr>"
+                . "<td>" . $_SESSION["MembershipNumber"] . "</td>"
+                . "<td>" . $_SESSION['givenEmployeeID'] . "</td>"
+                . "<td>" . $_SESSION['givenReservation_date'] . "</td>"
+                . "<td>" . $_SESSION["Treatment"] . "</td>"
+               // . "<td>" . $member['Phone_Number'] . "</td>"
+                . "</tr>";
+                 echo "</table>\n"; 
+    ?>
+     <form action="?page=reservationTreatmentFinish" method="post">
+     <input id="submit" type="submit" name="submit" value="Fullfør" />
+     </form> 
+    
     
 <?php } else { ?>
     <p> Nei uff! Her skjedde det noe galt.</p> 
@@ -29,3 +42,4 @@ $added = $GLOBALS["added"];
     <?php
     
      } ?>
+</main>
