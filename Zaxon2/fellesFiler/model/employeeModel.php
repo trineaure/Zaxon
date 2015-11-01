@@ -1,4 +1,4 @@
-<!--MASTER SIDE-->
+<!--ADMIN SIDE-->
 <?php
 
 class employeeModel {
@@ -73,6 +73,7 @@ class employeeModel {
 
     /**
      * Get one query by phone number
+     * Ikke i bruk (?)
      */
     public function getOneByPhone($Phone_Number) {
 

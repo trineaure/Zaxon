@@ -11,7 +11,7 @@ session_destroy();
                                 Vi er her for å gi deg en god håropplevelse. </p>
                         </div>
                         <div class="content-area">
-                            <a href="?page=order"><img src="bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
+                            <a href="?page=order"><img src="../fellesFiler/bilder/bestillings_knapp.png" alt=" " style="width: 50%; margin-left: 25%; margin-top: 38%; border-radius: 15px;"></a>
                         </div>
                     </div>
 
@@ -19,7 +19,7 @@ session_destroy();
 
 
                         <div class="content-area">
-                            <img src="bilder/forsidebilde.png" alt="" style="width:100%;">
+                            <img src="../fellesFiler/bilder/forsidebilde.png" alt="" style="width:100%;">
                         </div>
 
                     </div>

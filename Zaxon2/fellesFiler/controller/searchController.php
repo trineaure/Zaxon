@@ -1,4 +1,3 @@
-<!--MASTER SIDE-->
 <?php
 
 require_once("tempController.php");

@@ -12,7 +12,7 @@
 
                     <div id="small">
                         <div class="content-area">
-                           <img src="bilder/omoss.png" alt=" " style=" width: 100%; " >
+                           <img src="../fellesFiler/bilder/omoss.png" alt=" " style=" width: 100%; " >
                         </div>
                         
                     </div>

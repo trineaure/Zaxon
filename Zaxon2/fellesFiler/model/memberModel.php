@@ -1,4 +1,4 @@
-<!--MASTER SIDE-->
+
 <?php
 
 class memberModel {

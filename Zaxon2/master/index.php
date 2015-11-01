@@ -4,14 +4,14 @@
 require ("view/header.html");
 
 // Global config
-require_once("config.php");
+require_once("../fellesFiler/config.php"); //kan hende at skråstrekene (pathen) er feil...
 
 // Model layer - Database Functions
-require_once("model/db.php");
+require_once("../fellesFiler/model/db.php");
 
 //Controller layer - select page to display (controller will handle it)
 //This will select necesseary $template and &data
-require_once("controller/allControllers.php");
+require_once("../fellesFiler/controller/allControllers.php");
 require_once("controller/router.php");
 
 $router = new Router();
