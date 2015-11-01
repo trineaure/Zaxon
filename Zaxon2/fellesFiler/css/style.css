@@ -183,11 +183,11 @@ body .container #structure main  table tr:nth-child(odd) {
     background-color: #eee;
 }
 body .container #structure main  table td:nth-child(even) {
-    text-align: right;
+    text-align: center;
 }
 
 body .container #structure main  table td:nth-child(odd) {
-    text-align: left;
+    text-align: center;
 }
 
 body .container #structure main  table caption {
@@ -388,6 +388,5 @@ body .container #structure main #button-holder label {
 body .container #structure main #button-holder label:hover {
     background-color: #E0E0E0;
 }
-
 
 

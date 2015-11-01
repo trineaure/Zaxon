@@ -11,12 +11,12 @@ echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
 <main>
 
         <div>
-            <b><p>Reserver en time</p></b><br>
+            <b><p>Reserver en time</p></b>
 
              <form action="?page=reservationTime" method="post">
-                <p>EmployeeID: <input type="number"placeholder="321" name="givenEmployeeID" class="register-input" required/></p>
-                <P></p> 
-                <p><input type="text" id="datetimepicker3" placeholder="1995-06-26" name="givenReservation_date" class="register-input" required/></p>
+                <p>EmployeeID: <input type="number"placeholder="321" name="givenEmployeeID" class="input-textarea" required/></p>
+                <br>
+                <p><input type="text" id="datetimepicker3" placeholder="1995-06-26" name="givenReservation_date" required/></p>
                 <input id="submit" type="submit" name="submit" value="Neste" />
                 </form>                     
         </div>
