@@ -1,5 +1,5 @@
 <?php
-
+//GUEST
 // Controller layer - the router selects controller to use depending on URL and request parameters
 class Router {
 
@@ -24,9 +24,6 @@ class Router {
     public function getController() {
         $page = $this->getPage();
         switch ($page) {
-
-            case "order":
-                return new orderController();
                 
             case "pricelist":
                 return new pricelistController();
@@ -40,6 +37,9 @@ class Router {
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
+                
+            case "order":
+                return new reservationController();
             
             case "login":
             case "loginConfig":
