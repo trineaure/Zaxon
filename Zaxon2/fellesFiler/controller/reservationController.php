@@ -37,12 +37,10 @@ class reservationController extends tempController {
            {
             $this->treatCat();
            }
-        }
-        
-        
+    }
+     
     
-        private function showMemberOrder()
-        {
+    private function showMemberOrder(){
              $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
 
@@ -52,56 +50,35 @@ class reservationController extends tempController {
             if (isset($_REQUEST['searchKeyword'])) {
                 $searchKeyword = $_REQUEST['searchKeyword'];
                 $members2 = $memberModel2->searchMember($searchKeyword);
-            } else {
+            } 
+            else {
                 $members2 = array();
             }
             $data2 = array("searchResults" => $members2);
+        return $this->render("memberOrder", $data, $data2);       
+    }
         
         
-        return $this->render("memberOrder", $data, $data2);
-            
+        
+    public function searchMember() {
+        $memberModel = $GLOBALS["memberModel"];
+        if (isset($_REQUEST['searchKeyword'])) {
+            $searchKeyword = $_REQUEST['searchKeyword'];
+            $members = $memberModel->searchMember($searchKeyword);
+        } else {
+            $members = array();
         }
-        
-        
-        
-        public function searchMember() {
-            $memberModel = $GLOBALS["memberModel"];
-            if (isset($_REQUEST['searchKeyword'])) {
-                $searchKeyword = $_REQUEST['searchKeyword'];
-                $members = $memberModel->searchMember($searchKeyword);
-            } else {
-                $members = array();
-            }
-            $data = array("searchResults" => $members);
-            return $this->render("searchMember", $data);
-        }
-
-        
-        
-//        
-//        public function deleteMemberNow() {
-//
-//        $memberModel = $GLOBALS["memberModel"];
-//        if (isset($_REQUEST['membershipnr'])) {
-//            $membershipnr = $_REQUEST['membershipnr'];
-//            $added = $memberModel->deleteMember($membershipnr);
-//        }
-//
-//        $this->deleteMember();
-//    }
-//        
-        
-        
-        
+        $data = array("searchResults" => $members);
+        return $this->render("searchMember", $data);
+    }
 
 
-        private function showReservationDateAndEmployeeAction() {
-         
-         session_start();
+    private function showReservationDateAndEmployeeAction() {  
+        session_start();
         $_SESSION["Treatment"] = filter_input(INPUT_POST,"treatment");
          
         return $this->render("reservationDateAndEmployee");
-        }
+    }
         
    
         
@@ -110,51 +87,28 @@ class reservationController extends tempController {
         $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
         $_SESSION['givenReservation_date'] = $_REQUEST['givenReservation_date'];
 
-        
         $reservationModel = $GLOBALS["reservationModel"];
         $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
 
-        
-        
-
-//        foreach ($reservations as $reservation) {
-//
-//            if (($reservation["Reservation_Date"] == $_SESSION['givenReservation_date']) 
-//                   && ($reservation["EmployeeID"] == $_SESSION['givenEmployeeID']))
-//                {          
-//                  $_SESSION['Time_In_Use'] = $reservation["Time_of_Day"];
-//  
-//                }
-//        }
- return $this->render("reservationTime");
-        }
+        return $this->render("reservationTime");
+    }
         
         
         
         
-    private function addReservationAction()
-    {
-        
+    private function addReservationAction(){
         session_start();
         $givenReservation_date = $_SESSION['givenReservation_date'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_SESSION['givenEmployeeID'];
         $givenTime = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
-        
-        
-        
+
         echo $givenReservation_date;
         // Try to add new customers, Set action response code - success or not
         $reservationModel = $GLOBALS["reservationModel"];
         
-        
-        
         $added = $reservationModel->add($givenReservation_date,$givenTime,$givenMembership_number, $givenEmployeeID);
-        
-        $data = array(
-            "added" => $added,
-        );
-
+        $data = array("added" => $added);
         return $this->render("reservationComplete", $data);
     }
     
@@ -162,7 +116,6 @@ class reservationController extends tempController {
     public function getAllTreatments() {
         $treatmentModel = $GLOBALS["treatmentModel"];
         $allTheTreatments = $treatmentModel->getAll();
-        //$data = array("allTheTreatments" => $allTheTreatments);
         return $allTheTreatments;
     }
     
@@ -170,9 +123,6 @@ class reservationController extends tempController {
         $categoryModel = $GLOBALS["categoryModel"];
         $allCategorys = $categoryModel->getAll();
         return $allCategorys;
-//$data2 = array("allCategorys" => $allCategorys);
-        //return $data2;
-        //return $this->render("testTreatment", $data2);
     }
     
     
@@ -184,18 +134,13 @@ class reservationController extends tempController {
            $categorysWithTreatments [ $category["Category_Name"]] =  $treatmentsByCat;
         }
         $GLOBALS["categorysWithTreatments"] = $categorysWithTreatments;
-        
-                
         return $this->render("chooseTreatment");
     }
     
     public function getTreatmentsByCat($category) {
         $treatmentModel = $GLOBALS["treatmentModel"];
         $treatmentsByCat = $treatmentModel->getByCategory($category);
-        //$data3 = array("treatmentsByCat" => $treatmentsByCat );
-        //return $data3;
         return $treatmentsByCat;
-        //return $this->render("testTreatment", $data3);
     }
     
 
