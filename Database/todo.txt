@@ -1,0 +1,18 @@
+1. Gjør slik at man kan velge flere treatments bare fra forskjellige kategorier. Bruk Trigger eller lagra prosedyrer til dette (?)
+
+2. Hvis loggin failer må vi gjøre noe....
+
+3. Legg inn til admin og master at når de velger "vis egen timeliste" skal alle reservasjonene for dagen i dag (kan velge dag?),
+   være printet ut i en rekkefølge som e bestemt av tidspunktene. Der skal det komme (i riktig rekkefølge):
+	- Klokkeslett
+	- For- og etternavn
+	- Tlf.Nr
+	- Kategori og den treatmenten som er valgt
+  Kategoriene skal kun vises hvis det er valgt en treatment fra den.  Dette er for å gi frisøren en rask oversikt over ha kunden ønsker.
+
+4. Gjør prisliste siden til å oppdatere seg utifra databasen.
+
+5. Legg til slik at kunden kan se sin egen bestilling. (Kanskje kunne endre på den?)
+
+6. Fikse det tekstlige på siden (fjern lorem ipsum osv.)
+
