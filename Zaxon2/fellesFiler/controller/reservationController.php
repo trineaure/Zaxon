@@ -51,11 +51,20 @@ class reservationController extends tempController {
         return $this->render("memberOrder", $data);
     }
 
-
+    /*
+     * Stores the chosen treatments from all off the categorys in a session. 
+     */
     private function showReservationDateAndEmployeeAction() {  
         session_start();
-        $_SESSION["Treatment"] = filter_input(INPUT_POST,"treatment");
-         
+        $categorys = $this->getAllCategorys();
+        $treatmentArray = array();
+        foreach ($categorys as $category) {
+            $temp = filter_input(INPUT_POST, $category["Category_Name"]);
+            if($temp != null){
+                $treatmentArray[$temp] = $temp;
+            }
+        }
+        $_SESSION["treatmentArray"] = $treatmentArray;
         return $this->render("reservationDateAndEmployee");
     }
         
@@ -85,26 +94,41 @@ class reservationController extends tempController {
         echo $givenReservation_date;
         // Try to add new customers, Set action response code - success or not
         $reservationModel = $GLOBALS["reservationModel"];
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
         
         $added = $reservationModel->add($givenReservation_date,$givenTime,$givenMembership_number, $givenEmployeeID);
+        //If true, the reservation number is fetched by using the given time, date and employeeID.
+        //The reservation number is then used to add all the treatments the user has chosen. 
+        if($added == true) {
+            $resID = $reservationModel->getReservationNr($givenReservation_date, $givenTime, $givenEmployeeID);
+            $added = $reservation_treatmentModel->addTreatmentsToRes($resID, $_SESSION["treatmentArray"]);
+        }
         $data = array("added" => $added);
         return $this->render("reservationComplete", $data);
     }
     
-           
+    /*
+     * Returns all the treatments stored in the database
+     */       
     public function getAllTreatments() {
         $treatmentModel = $GLOBALS["treatmentModel"];
         $allTheTreatments = $treatmentModel->getAll();
         return $allTheTreatments;
     }
     
+    /*
+     * Returns all the categorys stored in the database
+     */
     public function getAllCategorys() {
         $categoryModel = $GLOBALS["categoryModel"];
         $allCategorys = $categoryModel->getAll();
         return $allCategorys;
     }
     
-    
+    /*
+     * Returns an array with the all the treatments organized by category.
+     * The categorys are the keys for other arrays wich contains the treatments.
+     */
     public function treatCat() {
         $categorysWithTreatments = array();
         $allCategorys = $this->getAllCategorys();
@@ -116,6 +140,9 @@ class reservationController extends tempController {
         return $this->render("chooseTreatment");
     }
     
+    /*
+     * Returns all the treatments from a chosen category
+     */
     public function getTreatmentsByCat($category) {
         $treatmentModel = $GLOBALS["treatmentModel"];
         $treatmentsByCat = $treatmentModel->getByCategory($category);

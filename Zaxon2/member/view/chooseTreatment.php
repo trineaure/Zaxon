@@ -22,7 +22,7 @@
       ?>
               
                 <label for="<?php $treatment['Treatment_Name'] ?>">
-                    <input type="radio" class="regular-radio" name="treatment" value=" <?php echo $treatment['Treatment_Name'] ?>"  />
+                    <input type="radio" class="regular-radio" name="<?php echo $key ?>" value=" <?php echo $treatment['Treatment_Name'] ?>"  />
                      <?php echo $treatment['Treatment_Name'] ?>  
                 </label> 
 

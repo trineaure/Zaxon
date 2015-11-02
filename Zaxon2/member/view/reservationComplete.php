@@ -34,7 +34,7 @@ $added = $GLOBALS["added"];
     
 <?php } else { ?>
     <p> Nei uff! Her skjedde det noe galt.</p> 
-    <p> Venligs gå tilbake og prøv igjen. </p> 
+    <p> Vennligst gå tilbake og prøv igjen. </p> 
     <br> 
     <p> Mvh. </p> 
     <p>Zaxon </p> 
