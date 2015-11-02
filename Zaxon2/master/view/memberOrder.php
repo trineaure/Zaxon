@@ -1,64 +1,40 @@
 <!--MASTER SIDE-->
 <main>
-    <?php
-    $members = $GLOBALS["members"];
-    $searchResults = $GLOBALS["searchResults"];
-    ?>
 
-    <p> Her kan en slette medlemene i Zaxon .</p>
+   
 
+        <p> Søk etter Zaxon's medlemer du vil bestille en time for </p>
+        <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
+        <form method="post" action="?page=memberOrder"> 
+            <input class="input-textarea" type="text" name="searchKeyword" />
+            <input id="submit" type="submit" value="search">
+        </form>
 
-
-    <table id="submit" type="delete" value="delete">
-       <?php
-        if (!empty($searchResults)) {
-            
-            
-            
-            echo "<table>\n";
-            echo "<tr><td> Medlemsnr </td> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td>  <td> Mobil nummer </td> </tr>";
-
-            foreach ($searchResults as $r) {
-
-                Echo "<tr>"
-                . "<td>" . $r["Membership_number"] . "</td>"
-                . "<td>" . $r["First_name"] . "</td>"
-                . "<td>" . $r["Last_name"] . "</td>"
-                . "<td>" . $r["Birth"] . "</td>"
-                . "<td>" . $r["Phone_Number"] . "</td>"
-                . "</tr>";
-            }
-
-            echo "</table>\n";
-            
-            
-            
-        } 
-        else
-        {
-            echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td>  <td>  Bestill </td> </tr>";
+        <?php
+        $searchResults = $GLOBALS["searchResults"];
         ?>
 
-        <?php foreach ($members as $member) { ?>
+        <?php
+        if (!empty($searchResults)) {
+
+            echo "<table>\n";
+            echo "<tr><td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil Nummer </td>  <td> Bestilling </td> </tr>";
+
+             foreach ($searchResults as $searchResult) { ?>
             <tr>
-                <td> <?php echo $member["First_name"] ?> </td>
-                <td> <?php echo $member["Last_name"] ?> </td>
-                <td> <?php echo $member["Birth"] ?> </td>
-                <td> <?php echo $member["Phone_Number"] ?> </td>
-                <td> <form method="post" action="?page=deleteMemberNow">
+                <td> <?php echo $searchResult["First_name"] ?> </td>
+                <td> <?php echo $searchResult["Last_name"] ?> </td>
+                <td> <?php echo $searchResult["Birth"] ?> </td>
+                <td> <?php echo $searchResult["Phone_Number"] ?> </td>
+                <td> <form method="post" action="?page=chooseTreatment">
 
-                        <input style="display:none;" value="<?php echo $member["Membership_number"]; ?>" name="membership_number">
-                        <button value="submit"> Bestill Time </button>
+                        <input style="display:none;" value="<?php echo $member["Membership_number"]; ?>" name="info Gard Skal ta med">
+                        <button value="submit"> Bestill </button>
                     </form>
-                </td>
-            </tr>
-        <?php } ?>
-
-    </table>
-    <?php   
-    }
-    ?>
-        
-        
-
+                </td> 
+                    <?php
+                    }
+                    echo "</table>\n";
+                }
+                ?>    
 </main>

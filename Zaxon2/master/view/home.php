@@ -27,9 +27,9 @@ if ( empty($_SESSION["MasterAreLoggedIn"]))
     <div id="small">
         <p> Kunde </p>
 
-                 <a href="?page=showMembers" class="smallButton">Vis kunder</a>
-                 <a href="?page=searchMember" class="smallButton">Søk i kunder</a>
-                 <a href="?page=deleteMember" class="smallButton">Slett kunde</a>
+                 <a href="?page=showMembers" class="smallButton">Vis medlem</a>
+                 <a href="?page=searchMember" class="smallButton">Søk i medlemer</a>
+                 <a href="?page=deleteMember" class="smallButton">Slett medlem</a>
                 <a href="?page=memberOrder" class="smallButton">Legg inn bestilling</a>
                
     </div>

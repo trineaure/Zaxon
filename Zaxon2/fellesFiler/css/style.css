@@ -260,7 +260,7 @@ body .container #structure main .timeButton input[type="radio"]{
 
 body .container #structure main .timeButton input[type="radio"]:checked + label,
 .Checked + label {
-    background:yellow;
+    background-color: #8fec72;
 }
 
 body .container #structure main .timeButton label {

@@ -58,7 +58,7 @@ $(document).ready(function() {
               if(x.value == <?php echo date("'H:i'", strtotime($tempTime["Time_of_Day"])) ?> )
               {
                   var xLabel = document.getElementById('label' + x.value);
-                  xLabel.style.backgroundColor = "red";
+                  xLabel.style.backgroundColor = "#ff8888";
                   x.disabled=true;
               }
          }
@@ -66,9 +66,6 @@ $(document).ready(function() {
          <?php endforeach; ?>
         
     }
-   
-     
-    
 
 </script>
 
