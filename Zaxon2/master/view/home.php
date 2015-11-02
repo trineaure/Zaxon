@@ -18,7 +18,7 @@ if ( empty($_SESSION["MasterAreLoggedIn"]))
                  <a href="?page=showEmployee" class="smallButton">Vis ansatte</a>
                 <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
                 <a href="?page=deleteEmployee" class="smallButton">Slett ansatt</a>
-                <a href="?page=searchEmployee" class="smallButton">Vis egen timeplan</a>
+                <a href="?page=employeeAdd" class="smallButton">Legg til ansatt</a>
                 
     </div>
 
@@ -30,7 +30,7 @@ if ( empty($_SESSION["MasterAreLoggedIn"]))
                  <a href="?page=showMembers" class="smallButton">Vis kunder</a>
                  <a href="?page=searchMember" class="smallButton">Søk i kunder</a>
                  <a href="?page=deleteMember" class="smallButton">Slett kunde</a>
-                <a href="?page=searchEmployee" class="smallButton">Legg inn bestilling</a>
+                <a href="?page=memberOrder" class="smallButton">Legg inn bestilling</a>
                
     </div>
 

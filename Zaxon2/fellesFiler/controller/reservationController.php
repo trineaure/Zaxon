@@ -27,6 +27,11 @@ class reservationController extends tempController {
             {
             $this ->render("order");
             }
+        //er bare for Master og Admin
+        else if($page == "memberOrder")
+            {
+            $this ->showMemberOrder();
+            }    
             
         else if($page == "chooseTreatment")
            {
@@ -35,7 +40,62 @@ class reservationController extends tempController {
         }
         
         
-     private function showReservationDateAndEmployeeAction() {
+    
+        private function showMemberOrder()
+        {
+             $memberModel = $GLOBALS["memberModel"];
+        $members = $memberModel->getAll();
+
+        $data = array("members" => $members);
+        
+        $memberModel2 = $GLOBALS["memberModel"];
+            if (isset($_REQUEST['searchKeyword'])) {
+                $searchKeyword = $_REQUEST['searchKeyword'];
+                $members2 = $memberModel2->searchMember($searchKeyword);
+            } else {
+                $members2 = array();
+            }
+            $data2 = array("searchResults" => $members2);
+        
+        
+        return $this->render("memberOrder", $data, $data2);
+            
+        }
+        
+        
+        
+        public function searchMember() {
+            $memberModel = $GLOBALS["memberModel"];
+            if (isset($_REQUEST['searchKeyword'])) {
+                $searchKeyword = $_REQUEST['searchKeyword'];
+                $members = $memberModel->searchMember($searchKeyword);
+            } else {
+                $members = array();
+            }
+            $data = array("searchResults" => $members);
+            return $this->render("searchMember", $data);
+        }
+
+        
+        
+//        
+//        public function deleteMemberNow() {
+//
+//        $memberModel = $GLOBALS["memberModel"];
+//        if (isset($_REQUEST['membershipnr'])) {
+//            $membershipnr = $_REQUEST['membershipnr'];
+//            $added = $memberModel->deleteMember($membershipnr);
+//        }
+//
+//        $this->deleteMember();
+//    }
+//        
+        
+        
+        
+
+
+        private function showReservationDateAndEmployeeAction() {
          
          session_start();
         $_SESSION["Treatment"] = filter_input(INPUT_POST,"treatment");

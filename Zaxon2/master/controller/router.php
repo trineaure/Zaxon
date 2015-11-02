@@ -52,7 +52,7 @@ class Router {
             case "memberAdded":
                 return new memberController();
                 
-            case "order":
+            case "memberOrder":
             case "chooseTreatment":
             case "reservationDateAndEmployee":
             case "reservationTime":    

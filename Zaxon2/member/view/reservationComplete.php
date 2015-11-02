@@ -27,7 +27,7 @@ $added = $GLOBALS["added"];
                 . "</tr>";
                  echo "</table>\n"; 
     ?>
-     <form action="?page=reservationTreatmentFinish" method="post">
+     <form action="?page=home" method="post">
      <input id="submit" type="submit" name="submit" value="Fullfør" />
      </form> 
     
