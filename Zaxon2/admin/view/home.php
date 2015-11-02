@@ -44,8 +44,8 @@ if (empty($_SESSION["EmployeeAreLoggedIn"])) {
 
                  <a href="?page=showMembers" class="smallButton">Vis kunder</a>
                  <a href="?page=searchMember" class="smallButton">Søk i kunder</a>
-                 <a href="?page=deleteMember" class="smallButton">Slett kunde</a>
-                <a href="?page=searchEmployee" class="smallButton">Legg inn bestilling</a>
+                 <a href="?page=deleteMember" class="smallButton">Rediger kunde</a>
+                   <a href="?page=searchEmployee" class="smallButton">Legg inn bestilling</a>
 
     </div>
 

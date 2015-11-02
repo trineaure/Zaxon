@@ -12,3 +12,4 @@ require_once("deleteController.php");
 require_once("searchController.php");
 require_once("reservationController.php");
 require_once("loginController.php");
+require_once("updateController.php");

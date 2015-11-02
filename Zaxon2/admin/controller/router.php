@@ -1,4 +1,5 @@
 <?php
+
 //ADMIN
 // Controller layer - the router selects controller to use depending on URL and request parameters
 class Router {
@@ -49,15 +50,21 @@ class Router {
             case "deleteEmployeeNow":
                 return new deleteController();
 
+            case "updateMember":
+            case "updateMemberNow":
+            case "updateEmployee":
+            case "updateEmployeeNow":
+                return new updateController();
+
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
-                
+
             case "order":
             case "chooseTreatment":
             case "reservationDateAndEmployee":
-            case "reservationTime":    
-            case "reservationComplete":    
+            case "reservationTime":
+            case "reservationComplete":
                 return new reservationController();
 
             case "home":

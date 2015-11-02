@@ -13,6 +13,7 @@ class memberModel {
     const SELECT_ONE_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number = :Phone_Number";
     const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search OR Birth LIKE :searchB OR First_name LIKE :searchFN OR Last_name LIKE :searchLN";
     const DELETE_QUERY = "DELETE FROM " . memberModel::TABLE . " WHERE Membership_number = ?";
+    const UPDATE_QUERY = "UPDATE " . memberModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, WHERE Membership_Number = :Membership_Number";
 
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
@@ -27,6 +28,8 @@ class memberModel {
     private $search;
     // delete a member/employee
     private $delete;
+    //Update e member 
+    private $update;
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
@@ -36,8 +39,31 @@ class memberModel {
         $this->selOne = $this->dbConn->prepare(memberModel::SELECT_ONE_QUERY);
         $this->search = $this->dbConn->prepare(memberModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(memberModel::DELETE_QUERY);
+        $this->update = $this->dbConn->prepare(memberModel::UPDATE_QUERY);
     }
-
+    
+    /**
+     * 
+     * @param type $updateFirst_name
+     * @param type $updateLast_name
+     * @param type $updateBirth
+     * @param type $updatePhone_Number
+     * @param type $updateLogin_Password
+     * @return type
+     */
+    public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_Number) {
+   
+        return $this->update->execute(array(
+            "First_name" => $updateFirst_name,
+            "Last_name" => $updateLast_name,
+            "Birth" => $updateBirth,
+            "Phone_Number" => $updatePhone_Number,
+            "Membership_Number" => $Membership_Number
+        ));
+    }
+            
+    
+    
     /**
      * Delete a member from the table. 
      * @param  $deleteMember
