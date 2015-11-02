@@ -250,7 +250,9 @@ body .container #structure main  .content-area {
     margin-right: 0;
     padding: 1em 0 1em 0; }
 
-
+body .container #structure main .timeButton {
+    width: 10%;
+}
 
 body .container #structure main .timeButton input[type="radio"]{
     
