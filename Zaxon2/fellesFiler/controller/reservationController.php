@@ -30,7 +30,7 @@ class reservationController extends tempController {
         //er bare for Master og Admin
         else if($page == "memberOrder")
             {
-            $this ->showMemberOrder();
+            $this ->searchMemberOrder();
             }    
             
         else if($page == "chooseTreatment")
@@ -38,29 +38,8 @@ class reservationController extends tempController {
             $this->treatCat();
            }
     }
-     
     
-    private function showMemberOrder(){
-             $memberModel = $GLOBALS["memberModel"];
-        $members = $memberModel->getAll();
-
-        $data = array("members" => $members);
-        
-        $memberModel2 = $GLOBALS["memberModel"];
-            if (isset($_REQUEST['searchKeyword'])) {
-                $searchKeyword = $_REQUEST['searchKeyword'];
-                $members2 = $memberModel2->searchMember($searchKeyword);
-            } 
-            else {
-                $members2 = array();
-            }
-            $data2 = array("searchResults" => $members2);
-        return $this->render("memberOrder", $data, $data2);       
-    }
-        
-        
-        
-    public function searchMember() {
+    public function searchMemberOrder() {
         $memberModel = $GLOBALS["memberModel"];
         if (isset($_REQUEST['searchKeyword'])) {
             $searchKeyword = $_REQUEST['searchKeyword'];
@@ -69,7 +48,7 @@ class reservationController extends tempController {
             $members = array();
         }
         $data = array("searchResults" => $members);
-        return $this->render("searchMember", $data);
+        return $this->render("memberOrder", $data);
     }
 
 
