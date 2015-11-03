@@ -8,7 +8,7 @@ if ( empty($_SESSION["MemberAreLoggedIn"]))
 echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
 
 ?> 
-<main>
+<main> <?php var_dump($_SESSION["treatmentArray"]);?>
 
         <div>
             <b><p>Reserver en time</p></b>

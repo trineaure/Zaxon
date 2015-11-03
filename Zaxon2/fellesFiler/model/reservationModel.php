@@ -8,7 +8,7 @@ class reservationModel {
     const SELECT_ALL_QUERY = "SELECT * FROM " . reservationModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . reservationModel::TABLE . " (Reservation_Date, Time_of_Day, Membership_number, EmployeeID) VALUES (:Reservation_Date,:Time_of_Day, :Membership_number, :EmployeeID)";
     const SELECT_TIMEOFDAY_QUERY = "SELECT Time_of_Day FROM " . reservationModel::TABLE . " WHERE Reservation_Date=:Reservation_Date AND EmployeeID=:EmployeeID";
-    const SELECT_RESERVATION_NR_QUERY = "SELECT Reservation_number FROM " . reservationModel::TABLE . "WHERE Reservation_Date=:givenReservation_date AND Time_of_Day=:givenTime AND EmployeeID=:givenEmployeeID";
+    const SELECT_RESERVATION_NR_QUERY = "SELECT Reservation_number FROM " . reservationModel::TABLE . " WHERE Reservation_Date=:givenReservation_date AND Time_of_Day=:givenTime AND EmployeeID=:givenEmployeeID";
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
     /** @var PDOStatement Statement for adding new entries */

@@ -61,8 +61,8 @@ class reservationController extends tempController {
         foreach ($categorys as $category) {
             $temp = filter_input(INPUT_POST, $category["Category_Name"]);
             if($temp != null){
-                $treatmentArray[$temp] = $temp;
-            }
+                array_push($treatmentArray, $temp);
+           }
         }
         $_SESSION["treatmentArray"] = $treatmentArray;
         return $this->render("reservationDateAndEmployee");
@@ -91,7 +91,6 @@ class reservationController extends tempController {
         $givenEmployeeID = $_SESSION['givenEmployeeID'];
         $givenTime = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
 
-        echo $givenReservation_date;
         // Try to add new customers, Set action response code - success or not
         $reservationModel = $GLOBALS["reservationModel"];
         $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];

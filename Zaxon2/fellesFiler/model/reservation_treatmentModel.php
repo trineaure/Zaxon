@@ -8,9 +8,9 @@ class reservation_treatmentModel {
     private $selByNr;
     
     const TABLE = "Reservation_treatment";
-    const INSERT_QUERY = "INSERT INTO " . reservation_treatmentModel::TABLE . "(Reservation_number, Treatment_Name) VALUES (:Reservation_nr, :Treatment_Name)";
+    const INSERT_QUERY = "INSERT INTO " . reservation_treatmentModel::TABLE . "(Reservation_number, Treatment_Name) VALUES (:Reservation_number, :Treatment_Name)";
     const SELECT_ALL_QUERY = "SELECT * FROM " . reservation_treatmentModel::TABLE;
-    const SELECT_BY_NR_QUERY = "SELECT Treatment_Name FROM " . reservation_treatmentModel::TABLE . "WHERE Reservation_number = :Reservation_nr";
+    const SELECT_BY_NR_QUERY = "SELECT Treatment_Name FROM " . reservation_treatmentModel::TABLE . " WHERE Reservation_number = :Reservation_number";
     
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
@@ -23,9 +23,11 @@ class reservation_treatmentModel {
      * Adds all the chosen treament to the database with the same reservation Number. 
      */
     public function addTreatmentsToRes($resNr, $treatNames) {
-        //$keys = array_keys($treatNames);
+        foreach($resNr as $nr) {
         foreach ($treatNames as $treatment) {
-            $success = $this->addStmt->execute(array("Reservation_nr" => $resNr, "Treatment_Name" => $treatment));
+            $success = $this->addStmt->execute(array(":Reservation_number" => $nr, ":Treatment_Name" => $treatment));
+            var_dump($success);
+        }
         }
         return $success;
     }
