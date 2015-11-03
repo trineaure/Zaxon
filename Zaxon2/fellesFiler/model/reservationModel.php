@@ -46,10 +46,16 @@ class reservationModel {
     
     /*
      * Returns the reservation number for a chosen time of day with a chosen employee.
+     * 
+     * @return The reservationID as an int
      */
     public function getReservationNr($givenReservation_date, $givenTime, $givenEmployeeID) {
         $this->selNr->execute(array(":givenReservation_date" => $givenReservation_date, ":givenTime" => $givenTime, ":givenEmployeeID" => $givenEmployeeID));
-        return $this->selNr->fetch(PDO::FETCH_ASSOC);
+        $numbers = $this->selNr->fetch(PDO::FETCH_ASSOC);
+        foreach($numbers as $temp) {
+            $nr = $temp;
+        }
+        return $nr;
     }
     
     
