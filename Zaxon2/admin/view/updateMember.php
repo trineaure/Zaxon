@@ -1,30 +1,26 @@
 <!--ADMIN SIDE-->
 <main>
     <?php
-    if (isset($_REQUEST['First_name'])) {
-        $updateFirst_name = $_REQUEST['First_name'];
-    } if (isset($_REQUEST['Last_name'])) {
-        $updateLast_name = $_REQUEST['Last_name'];
-    } if (isset($_REQUEST['Birth'])) {
-        $updateBirth = $_REQUEST['Birth'];
-    } if (isset($_REQUEST['Phone_Number'])) {
-        $updatePhone_Number = $_REQUEST['Phone_Number'];
-    }if (isset($_REQUEST['Login_Password'])) {
-        $updateLogin_Password = $_REQUEST['Login_Password'];
-    } if (isset($_REQUEST['Membership_Number'])) {
-        $Membership_Number = $_REQUEST['Membership_Number'];
-    }
+    $member = $GLOBALS["member"];
+
+
+    $updateFirst_name = $member['First_name'];
+    $updateLast_name = $member['Last_name'];
+    $updateBirth = $member['Birth'];
+    $updatePhone_Number = $member['Phone_Number'];
+    $updateLogin_Password = $member['Login_Password'];
+    $Membership_number = $member['Membership_number'];
     ?>
 
     <p> Her kan en oppdatere informasjon om medlemene i Zaxon .</p> <br>
 
 
-    <form method="post" action="?page=deleteMember">
-        Fornavn: <input type="text" name="First_name" placeholder="<?php echo $updateFirst_name ?>"> <br />
-        Etternavn: <input type="text" name="Last_name" placeholder="<?php echo $updateLast_name ?>"> <br />
-        Fødselsdag: <input type="number" name="Birth" placeholder=" <?php echo $updateBirth ?>"> <br />
-        Mobilnr: <input type="number" name="Phone_Number" placeholder="<?php echo $updatePhone_Number ?>"> <br />
-        <input type="hidden" name="Membership_Number" value="<?php echo $Membership_Number ?>"> <br />
+    <form method="post" action="?page=updateMemberNow">
+        Fornavn: <input type="text" name="First_name" value="<?php echo $updateFirst_name ?>"> <br />
+        Etternavn: <input type="text" name="Last_name" value="<?php echo $updateLast_name ?>"> <br />
+        Fødselsdag: <input type="text" name="Birth" value=" <?php echo $updateBirth ?>"> <br />
+        Mobilnr: <input type="text" name="Phone_Number" value="<?php echo $updatePhone_Number ?>"> <br />
+        <input type="hidden" name="Membership_number" value="<?php echo $Membership_number ?>"> <br />
         <button value="submit"> Update</button>
 
     </form> 

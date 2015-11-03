@@ -11,24 +11,26 @@ class memberModel {
     const INSERT_QUERY = "INSERT INTO " . memberModel::TABLE . "(First_name,Last_name,Birth,Phone_Number,Login_Password) VALUES (:First_name,:Last_name,:Birth,:Phone_Number,:Login_Password)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number = :Phone_Number";
+    const SELECT_ONE_MEMBER = "SELECT * FROM " . memberModel::TABLE . " WHERE Membership_number = :Membership_number";
     const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search OR Birth LIKE :searchB OR First_name LIKE :searchFN OR Last_name LIKE :searchLN";
     const DELETE_QUERY = "DELETE FROM " . memberModel::TABLE . " WHERE Membership_number = ?";
-    const UPDATE_QUERY = "UPDATE " . memberModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, WHERE Membership_Number = :Membership_Number";
+    const UPDATE_QUERY = "UPDATE " . memberModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number WHERE Membership_number = :Membership_number";
 
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
-
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
     //select a number
     private $selNumber;
-    // select by one 
+    // select by one member by the phone number
     private $selOne;
-    //Search
+    //selct one member by the membership number
+    private $selMember;
+    //Search a member through the database
     private $search;
-    // delete a member/employee
+    // delete a member from the database.
     private $delete;
-    //Update e member 
+    //Update the infromation about member 
     private $update;
 
     public function __construct(PDO $dbConn) {
@@ -37,37 +39,32 @@ class memberModel {
         $this->selStmt = $this->dbConn->prepare(memberModel::SELECT_ALL_QUERY);
         $this->selNumber = $this->dbConn->prepare(memberModel::SELECT_QUERY);
         $this->selOne = $this->dbConn->prepare(memberModel::SELECT_ONE_QUERY);
+        $this->selMember = $this->dbConn->prepare(memberModel::SELECT_ONE_MEMBER);
         $this->search = $this->dbConn->prepare(memberModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(memberModel::DELETE_QUERY);
         $this->update = $this->dbConn->prepare(memberModel::UPDATE_QUERY);
     }
-    
+
     /**
-     * 
-     * @param type $updateFirst_name
-     * @param type $updateLast_name
-     * @param type $updateBirth
-     * @param type $updatePhone_Number
-     * @param type $updateLogin_Password
-     * @return type
+     * Update information about the member in the database. 
+     * @param type $updateFirst_name,$updateLast_name, $updateBirth,$updatePhone_Number, $updateLogin_Password
+     * @return an arraylist with the new information about the Member
      */
-    public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_Number) {
-   
+    public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number) {
+
         return $this->update->execute(array(
-            "First_name" => $updateFirst_name,
-            "Last_name" => $updateLast_name,
-            "Birth" => $updateBirth,
-            "Phone_Number" => $updatePhone_Number,
-            "Membership_Number" => $Membership_Number
+                    ":First_name" => $updateFirst_name,
+                    ":Last_name" => $updateLast_name,
+                    ":Birth" => $updateBirth,
+                    ":Phone_Number" => $updatePhone_Number,
+                    ":Membership_number" => $Membership_number
         ));
     }
-            
-    
-    
+
     /**
-     * Delete a member from the table. 
+     * Delete a member from the database. 
      * @param  $deleteMember
-     * @return type
+     * @return an array of the $deletedMember
      */
     public function deleteMember($deleteMember) {
 
@@ -76,7 +73,8 @@ class memberModel {
 
     /**
      * Search after a member by a searchkeyword
-     * 
+     * @param $searchKeyword
+     * @return 
      */
     public function searchMember($searchKeyword) {
 
@@ -86,6 +84,18 @@ class memberModel {
             ":searchLN" => "%$searchKeyword%"
         ));
         return $this->search->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * 
+     * @param type $memberNumber
+     * @return type
+     */
+    public function getOneByMemberNumber($memberNumber) {
+        $this->selMember->execute(array(
+            ':Membership_number' => $memberNumber
+        ));
+        return $this->selMember->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -115,6 +125,7 @@ class memberModel {
     /**
      * Adds a new member to Zaxon 
      * @param Firstname, lastname, birth, phone_number and login password. 
+     * @return an array with the informatiob about the member. 
      */
     public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password) {
 
@@ -123,6 +134,7 @@ class memberModel {
 
     /**
      * Get all the phone numbers of the members of Zaxon.
+     * @return fetch all numbers
      */
     public function getAllNumbers() {
 

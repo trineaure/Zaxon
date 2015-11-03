@@ -4,7 +4,7 @@ require_once("tempController.php");
 class deleteController extends tempController {
 
     public function show($page) {
-        if ($page == "deleteMember") {
+        if ($page == "listMembers") {
             $this->deleteMember();
         } else if ($page == "deleteEmployee") {
             $this->deleteEmployee();
@@ -16,6 +16,7 @@ class deleteController extends tempController {
     }
 
     /**
+     * Delte the member from the database.
      * 
      */
     public function deleteMemberNow() {
@@ -30,7 +31,7 @@ class deleteController extends tempController {
     }
 
     /**
-     * 
+     * Delete a employee from the database.
      */
     public function deleteEmployeeNow() {
 
@@ -44,8 +45,8 @@ class deleteController extends tempController {
     }
 
     /**
-     * 
-     * @return type
+     * Delete a member from the database
+     * @return an array of the deleted member and render to the listMembers page.
      */
     public function deleteMember() {
 
@@ -53,12 +54,12 @@ class deleteController extends tempController {
         $members = $memberModel->getAll();
 
         $data = array("members" => $members);
-        return $this->render("deleteMember", $data);
+        return $this->render("listMembers", $data);
     }
 
     /**
-     * 
-     * @return type
+     * Delete an employee from the database.
+     * @return an array of the deleted employee and render to the deleteEmployee page.
      */
     public function deleteEmployee() {
 

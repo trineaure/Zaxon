@@ -37,14 +37,12 @@ if (empty($_SESSION["EmployeeAreLoggedIn"])) {
 
     </div>
 
-
-
     <div id="small">
         <p> Kunde </p>
 
                  <a href="?page=showMembers" class="smallButton">Vis kunder</a>
                  <a href="?page=searchMember" class="smallButton">Søk i kunder</a>
-                 <a href="?page=deleteMember" class="smallButton">Rediger kunde</a>
+                 <a href="?page=listMembers" class="smallButton">Rediger kunde</a>
                    <a href="?page=searchEmployee" class="smallButton">Legg inn bestilling</a>
 
     </div>

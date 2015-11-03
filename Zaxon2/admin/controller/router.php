@@ -44,7 +44,7 @@ class Router {
             case "searchEmployee":
                 return new searchController();
 
-            case "deleteMember":
+            case "listMembers":
             case "deleteMemberNow":
             case "deleteEmployee":
             case "deleteEmployeeNow":

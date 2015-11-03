@@ -1,9 +1,5 @@
 <!--ADMIN SIDE-->
 <main>
-<!--      <div  id="adminMenu">
-            <a href="?page=deleteEmployee" class="smallButton">Slett ansatt</a>
-            <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
-        </div>-->
 
     <div id="adminMain">
         <?php
@@ -14,6 +10,7 @@
         echo "<table>\n";
         echo "<tr> <td> Ansatt ID </td> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td>  <td> Mobil nr </td>  <td> Adresse </td> <td> Post Adresse </td> </tr>";
 
+        //checks if there are inclueded employees 
         if (!empty($included_employee)) {
             foreach ($included_employee as $employee) {
                 Echo "<tr>"
@@ -26,7 +23,7 @@
                 . "<td>" . $employee['Zip_Code'] . "</td>"
                 . "</tr>";
             }
-            
+
             echo "</table\n";
         } else {
             echo "No results";
