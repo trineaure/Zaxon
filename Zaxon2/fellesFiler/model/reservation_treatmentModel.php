@@ -23,7 +23,7 @@ class reservation_treatmentModel {
      * Adds all the chosen treament to the database with the same reservation Number. 
      */
     public function addTreatmentsToRes($resNr, $treatNames) {
-        $keys = array_keys($treatNames);
+        //$keys = array_keys($treatNames);
         foreach ($treatNames as $treatment) {
             $success = $this->addStmt->execute(array("Reservation_nr" => $resNr, "Treatment_Name" => $treatment));
         }

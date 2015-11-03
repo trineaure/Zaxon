@@ -49,7 +49,7 @@ class reservationModel {
      */
     public function getReservationNr($givenReservation_date, $givenTime, $givenEmployeeID) {
         $this->selNr->execute(array(":givenReservation_date" => $givenReservation_date, ":givenTime" => $givenTime, ":givenEmployeeID" => $givenEmployeeID));
-        return $this->selNr->fetchAll(PDO::FETCH_ASSOC);
+        return $this->selNr->fetch(PDO::FETCH_ASSOC);
     }
     
     
