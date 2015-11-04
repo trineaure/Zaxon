@@ -1,10 +1,48 @@
 <main>
+
+
+
+
+    <p>
+<?php
+//checks if a Member Are Logged In
+$unavailableTimes = $_SESSION["timeIn"];
+
+
+///skriver ut variablen
+//var_dump($_SESSION["timeIn"]);
+
+echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
+?> </p> 
+    
+<p>
+ <?php
+echo "Din Employee er : " . $_SESSION['givenEmployeeID'];
+?>
+</p>  
+  <p>  
+<?php
+echo "Din dato er : " . $_SESSION['givenReservation_date'];
+?>
+</p>
+    
+<p>
+    <?php 
+    echo "Tid som er valgt allerede for denne datoen er : ";
+    
+ //printer ut tidene som er i bruk 
+    foreach($unavailableTimes as $tempTime){
+           
+           echo date("H:i", strtotime($tempTime["Time_of_Day"]));
+       }
+       ?>
+</p>
+
 <script>
-     
 $(document).ready(function() {
     updateTimes();
     });
-     
+
      function updateTimes()
     {
         var availableTimes = ["10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
@@ -28,47 +66,6 @@ $(document).ready(function() {
     }
 
 </script>
-
-
-
-    <p>
-<?php
-//checks if a Member Are Logged In
-$unavailableTimes = $_SESSION["timeIn"];
-
-////skriver ut variablen
-//var_dump($unavailableTimes);
-
-if ( empty($_SESSION["MemberAreLoggedIn"]))
-{
-    header("Location:../guest/?page=login");
-}
-
-//echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
-//?> </p> 
-    
-<!--<p>
- <?php
-//echo "Din Employee er : " . $_SESSION['givenEmployeeID'];
-?>
-</p>  
-  <p>  
-    <?php
-//echo "Din dato er : " . $_SESSION['givenReservation_date'];
-?>
-</p>
-    
-<p>
-    //<?php 
-//    echo "Tid som er valgt allerede for denne datoen er : ";
-    
- //printer ut tidene som er i bruk 
-//     foreach($unavailableTimes as $tempTime){
-//            
-//            echo date("H:i", strtotime($tempTime["Time_of_Day"]));
-//        }
-//        ?>
-</p>-->
 
 
   
