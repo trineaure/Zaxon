@@ -6,8 +6,8 @@ class deleteController extends tempController {
     public function show($page) {
         if ($page == "listMembers") {
             $this->deleteMember();
-        } else if ($page == "deleteEmployee") {
-            $this->listEmployees();
+        } else if ($page == "listEmployees") {
+            $this->deleteEmployee();
         } else if ($page == "deleteMemberNow") {
             $this->deleteMemberNow();
         } else if ($page == "deleteEmployeeNow") {
@@ -26,7 +26,6 @@ class deleteController extends tempController {
             $membershipnr = $_REQUEST['membershipnr'];
             $added = $memberModel->deleteMember($membershipnr);
         }
-
         $this->deleteMember();
     }
 
@@ -36,10 +35,9 @@ class deleteController extends tempController {
     public function deleteEmployeeNow() {
 
         $employeeModel = $GLOBALS["employeeModel"];
-        if (isset($_REQUEST['phonenr'])) {
-            $phonenr = $_REQUEST['phonenr'];
-
-            $added = $employeeModel->deleteEmployee($phonenr);
+        if (isset($_REQUEST['employeeID'])) {
+            $employeeID = $_REQUEST['employeeID'];
+            $added = $employeeModel->deleteEmployee($employeeID);
         }
         $this->deleteEmployee();
     }
@@ -67,7 +65,7 @@ class deleteController extends tempController {
         $employees = $employeeModel->getAll();
 
         $data = array("employees" => $employees);
-        return $this->render("deleteEmployee", $data);
+        return $this->render("listEmployees", $data);
     }
 
 }

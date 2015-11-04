@@ -33,14 +33,14 @@
                         <input type="hidden" value="<?php echo $member["First_name"]; ?>" name="First_name">
                         <input type="hidden" value="<?php echo $member["Last_name"]; ?>" name="Last_name">
                         <input type="hidden" value="<?php echo $member["Birth"]; ?>" name="Birth">
-                        <input type="hidden" value="<?php echo $member["Phone_Number"]; ?>" name="Phone_Number">
-                        <button value="submit"> Edit </button>
+                        <input type="hidden" value="<?php echo $member["Phone_Number"]; ?>" name="Phone_Number">                    
+                        <button value="submit"> Endre </button>
                     </form>
                 </td>  
                 <td>
                     <form method="post" action="?page=deleteMemberNow">
                         <input style="display:none;" value="<?php echo $member["Membership_number"]; ?>" name="membershipnr">
-                        <button value="submit"> Delete </button>
+                        <button value="submit"> Slett </button>
                     </form>
                 </td>
             </tr>

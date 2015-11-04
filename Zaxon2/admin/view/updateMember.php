@@ -20,7 +20,7 @@
         Fødselsdag: <input type="text" name="Birth" value=" <?php echo $updateBirth ?>"> <br />
         Mobilnr: <input type="text" name="Phone_Number" value="<?php echo $updatePhone_Number ?>"> <br />
         <input type="hidden" name="Membership_number" value="<?php echo $Membership_number ?>"> <br />
-        <button value="submit"> Update</button>
+        <button value="submit"> Oppdater </button>
 
     </form> 
 </main>

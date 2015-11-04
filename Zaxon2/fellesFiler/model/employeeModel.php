@@ -12,7 +12,7 @@ class employeeModel {
     const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number = :Phone_Number";
     const SELECT_ONE_EMPLOYEE = "SELECT * FROM " . employeeModel::TABLE . "WHERE EmployeeID = :EmployeeID";
     const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
-    const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE Phone_Number = ?";
+    const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE EmployeeID = ?";
     const UPDATE_QUERY = "UPDATE " . employeeModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, Home_Address = :Home_Address, Zip_Code = :Zip_Code WHERE EmployeeID = :EmployeeID";
 
     /** @var PDOStatement Statement for selecting all entries */
@@ -49,7 +49,13 @@ class employeeModel {
         $this->update = $this->dbConn->prepare(employeeModel::UPDATE_QUERY);
     }
 
+    /**
+     * Update information about the employee in the database.
+     * @param type $updateFirst_name,$updateLast_name,$updateBirth,$updatePhone_Number,$updateHome_Address
+     * @param type $updateZip_Code,$EmployeeID
+     */
     public function updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID){
+       
         return $this->update->execute(array(
             ":First_name" => $updateFirst_name,
             ":Last_name" => $updateLast_name,
@@ -60,7 +66,6 @@ class employeeModel {
             ":EmployeeID" => $EmployeeID         
         ));
     }
-    
     
     /**
      * Deletes an employee from the database.
@@ -94,9 +99,9 @@ class employeeModel {
      * @param type $employeeID
      * @return type
      */
-    public function getOneByEmployeeID($employeeID) {
+    public function getOneByEmployeeID($EmployeeID) {
         $this->selEmployee->execute(array(
-            ":EmployeeID" => $employeeID
+            ":EmployeeID" => $EmployeeID
         ));
         return $this->selEmployee->fetch(PDO::FETCH_ASSOC);
     }
