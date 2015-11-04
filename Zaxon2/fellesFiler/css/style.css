@@ -115,6 +115,16 @@ body .container #structure header {
     margin-top: 1.5em;
     padding-bottom: 1em; }
 
+body .container #structure main #photo {
+    width:100%;
+}
+
+body .container #structure main #orderButton {
+    width: 50%; 
+    margin-left: 25%; 
+    margin-top: 38%; 
+    border-radius: 15px;
+}
 
 body .container #structure main .input-textarea { 
     width:95%;
@@ -195,7 +205,7 @@ body .container #structure main  table caption {
     font-size: 1em;
 
 }
-
+//ikke i bruk?
 body .container #structure main #adminMenu {
     width: 29%;
     float: left;
@@ -211,7 +221,7 @@ body .container #structure main .smallButton {
     font-size:0.9em;
     text-align: center; 
 }
-
+//ikke i bruk?
 body .container #structure main #adminMain {
     width: 69%;
     float: right;
@@ -372,8 +382,6 @@ body .container #structure main #button-holder {
     margin: 5%;
     display: block;
     width: 10em;
-
-
 }
 
 

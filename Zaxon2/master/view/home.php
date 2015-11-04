@@ -1,3 +1,4 @@
+<!--MASTER-->
 <?php
 //checks if a Master are logged in 
 session_start();

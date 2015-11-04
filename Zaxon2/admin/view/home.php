@@ -1,21 +1,5 @@
 <!--ADMIN SIDE-->
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        $("button").on("click', function () {
-            $.ajax({
-                type: 'POST',
-                url: "view/deleteMember.php",
-                data: {id: $(this).attr("data-id")},
-                success: function (data) {
-                    alert(data);
-                    $('p').html(data);
-                }
-            });
-        });
-    </script>-->
-
 <?php
 //checks if a Employee are logged in 
 session_start();
