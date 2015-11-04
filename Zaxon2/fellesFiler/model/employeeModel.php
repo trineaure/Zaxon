@@ -1,4 +1,3 @@
-<!--ADMIN SIDE-->
 <?php
 
 class employeeModel {
@@ -8,22 +7,31 @@ class employeeModel {
 
     const TABLE = "Employee";
     const SELECT_ALL_QUERY = "SELECT * FROM " . employeeModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . "(First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
+    const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . " (First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
-    const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . "WHERE Phone_Number = :Phone_Number";
+    const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number = :Phone_Number";
+    const SELECT_ONE_EMPLOYEE = "SELECT * FROM " . employeeModel::TABLE . "WHERE EmployeeID = :EmployeeID";
     const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
     const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE Phone_Number = ?";
+    const UPDATE_QUERY = "UPDATE " . employeeModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, Home_Address = :Home_Address, Zip_Code = :Zip_Code WHERE EmployeeID = :EmployeeID";
 
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
 
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
+    // select one number in the database.
     private $selNumber;
-    // select one query
+    // select one query in the database
     private $selOne;
+    // select one employee bu the EmployeeID
+    private $selEmployee;
+    // search on query in the database. 
     private $search;
+    // delete on query in the database. 
     private $delete;
+    // update on query in the database.
+    private $update;
 
     //Constructor for the class employeeModel
     /*
@@ -35,10 +43,25 @@ class employeeModel {
         $this->selStmt = $this->dbConn->prepare(employeeModel::SELECT_ALL_QUERY);
         $this->selNumber = $this->dbConn->prepare(employeeModel::SELECT_QUERY);
         $this->selOne = $this->dbConn->prepare(employeeModel::SELECT_ONE_QUERY);
+        $this->selEmployee = $this->dbConn->prepare(employeeModel::SELECT_ONE_EMPLOYEE);
         $this->search = $this->dbConn->prepare(employeeModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(employeeModel::DELETE_QUERY);
+        $this->update = $this->dbConn->prepare(employeeModel::UPDATE_QUERY);
     }
 
+    public function updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID){
+        return $this->update->execute(array(
+            ":First_name" => $updateFirst_name,
+            ":Last_name" => $updateLast_name,
+            ":Birth" => $updateBirth,
+            ":Phone_Number" => $updatePhone_Number,
+            ":Home_Address" => $updateHome_Address,
+            ":Zip_Code" => $updateZip_Code,
+            ":EmployeeID" => $EmployeeID         
+        ));
+    }
+    
+    
     /**
      * Deletes an employee from the database.
      * @param type $deleteEmployee
@@ -48,7 +71,12 @@ class employeeModel {
 
         return $this->delete->execute(array($deleteEmployee));
     }
-
+    
+/**
+ * Search through the employees in the database.
+ * @param type $searchKeyword
+ * @return type
+ */
     public function searchEmployee($searchKeyword) {
 
         $this->search->execute(array(":search" => "%$searchKeyword%",
@@ -59,6 +87,18 @@ class employeeModel {
             ":searchE" => "%$searchKeyword%"
         ));
         return $this->search->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    /**
+     * Get one Employee by the employeeID
+     * @param type $employeeID
+     * @return type
+     */
+    public function getOneByEmployeeID($employeeID) {
+        $this->selEmployee->execute(array(
+            ":EmployeeID" => $employeeID
+        ));
+        return $this->selEmployee->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -103,6 +143,10 @@ class employeeModel {
                     "Extended_Access" => $givenExtended_Access));
     }
 
+    /**
+     * Get all the phoneNumbers in the database. 
+     * @return type
+     */
     public function getAllNumbers() {
         $this->selNumber->execute();
         return $this->selNumber->fetchAll(PDO::FETCH_ASSOC);

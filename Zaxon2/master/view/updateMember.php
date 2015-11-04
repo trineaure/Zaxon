@@ -1,4 +1,4 @@
-<!--ADMIN SIDE-->
+<!--MASTER SIDE-->
 <main>
     <?php
     $member = $GLOBALS["member"];

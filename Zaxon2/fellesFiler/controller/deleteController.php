@@ -7,7 +7,7 @@ class deleteController extends tempController {
         if ($page == "listMembers") {
             $this->deleteMember();
         } else if ($page == "deleteEmployee") {
-            $this->deleteEmployee();
+            $this->listEmployees();
         } else if ($page == "deleteMemberNow") {
             $this->deleteMemberNow();
         } else if ($page == "deleteEmployeeNow") {
