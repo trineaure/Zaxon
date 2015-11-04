@@ -1,7 +1,7 @@
 <!--ADMIN SIDE-->
 <main>
 
-    <div id="adminMain">
+    <div>
         <?php
         $included_employee = $GLOBALS["included_employee"];
 

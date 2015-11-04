@@ -2,12 +2,12 @@
 <main>
 
 
-    <div id="adminMain">
+    <div>
 
         <p> Søk etter frisørene ved Zaxon </p>
 
         <form method="post" action="?page=searchEmployee"> 
-            <input type="text" name="searchKeyword" />
+            <input type="text" class="input-textarea" name="searchKeyword" />
             <input id="submit" type="submit" value="search">
         </form>
 

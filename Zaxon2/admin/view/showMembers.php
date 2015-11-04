@@ -5,7 +5,7 @@
         <a href="?page=searchMember" class="smallButton">Søk i medlemer</a>
     </div>-->
 
-    <div id="adminMain">
+    <div>
         <?php
         $included_members = $GLOBALS["included_members"];
 

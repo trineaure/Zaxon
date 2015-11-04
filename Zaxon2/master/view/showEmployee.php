@@ -6,7 +6,7 @@
             <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
         </div>-->
 
-    <div id="adminMain">
+    <div>
         <?php
         $included_employee = $GLOBALS["included_employee"];
 

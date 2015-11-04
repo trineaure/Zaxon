@@ -2,12 +2,12 @@
 <main>
 
 
-    <div id="adminMain">
+    <div>
 
         <p> Søkefelt. Søk etter kunder </p>
 
         <form method="post" action="?page=searchMember"> 
-            <input type="text" name="searchKeyword" />
+            <input type="text" class="input-textarea" name="searchKeyword" />
             <input id="submit" type="submit" value="search">
         </form>
 

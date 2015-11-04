@@ -1,12 +1,12 @@
 <!--MASTER SIDE-->
 <main>
 
-    <div id="adminMain">
+    <div>
 
         <p> Søk etter Zaxon's medlemer. </p>
         <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
         <form method="post" action="?page=searchMember"> 
-            <input type="text" name="searchKeyword" />
+            <input type="text" class="input-textarea" name="searchKeyword" />
             <input id="submit" type="submit" value="search">
         </form>
 
