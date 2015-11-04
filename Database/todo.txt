@@ -1,5 +1,3 @@
-1. Gjør slik at man kan velge flere treatments bare fra forskjellige kategorier. Bruk Trigger eller lagra prosedyrer til dette (?) TRINE
-
 2. Hvis loggin failer må vi gjøre noe....
 
 3. Legg inn til admin og master at når de velger "vis egen timeliste" skal alle reservasjonene for dagen i dag (kan velge dag?),
@@ -18,7 +16,7 @@
 
 7. Legge inn navn til ansatte eller bilde istedenfor å skrive inn ansattID. 
 
-8. Gå gjennom delete knappene. Endre de slik at resevasjonene til vedkomne blir slette sammens med brukeren. 
+8. Gå gjennom delete knappene. Endre de slik at resevasjonene til vedkomne blir slette sammens med brukeren. TRINE
 
 9. Fullførsiden på bestilling skal det komme opp:
 	- Navn til ansatt (ikke ID)
