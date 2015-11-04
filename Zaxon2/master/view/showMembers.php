@@ -10,7 +10,7 @@
         <?php
         $included_members = $GLOBALS["included_members"];
 
-        echo "Medlemer av Zaxon kundeklubb" . "<br>";
+        echo "Medlemer av Zaxon kundeklubb";
 
 
         echo "<table>\n";

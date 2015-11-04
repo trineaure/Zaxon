@@ -1,17 +1,11 @@
 <!--ADMIN SIDE-->
 <main>
-<!--    <div  id="adminMenu">
-        <a href="?page=deleteMember" class="smallButton">Slett medlem</a>
-        <a href="?page=searchMember" class="smallButton">Søk i medlemer</a>
-    </div>-->
 
     <div>
         <?php
         $included_members = $GLOBALS["included_members"];
 
-        echo "Medlemer av Zaxon kundeklubb" . "<br>";
-
-
+        echo "Medlemer av Zaxon kundeklubb";
         echo "<table>\n";
         echo "<tr> <td> Kunde nummer </td> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td>  <td> Mobil nr </td> </tr>";
 
