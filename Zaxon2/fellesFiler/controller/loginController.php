@@ -27,7 +27,7 @@ class loginController extends tempController {
         
         $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
-        $_SESSION["MemberAreLoggedIn"] = "false";
+       // $_SESSION["MemberAreLoggedIn"] = "false";
         foreach ($members as $member) {
             if ($member['Phone_Number'] == $givenUsername) {
                 if ($member['Login_Password'] == $givenPassword) {

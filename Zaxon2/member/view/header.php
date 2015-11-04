@@ -1,5 +1,20 @@
 <!DOCTYPE html>
-
+<?php
+//checks if a Member Are Logged In
+session_start();
+if (($_SESSION["MemberAreLoggedIn"]) == false)
+{
+    header("Location:../guest/?page=login");
+}
+if (empty($_SESSION["MasterAreLoggedIn"]))
+{
+    header("Location:../guest/?page=login");
+}
+if (empty($_SESSION["EmployeeAreLoggedIn"]))
+{
+    header("Location:../guest/?page=login");
+}
+?>
 <html lang="no">
 
     <!-- START: Head med meta tagger ++ -->
@@ -47,4 +62,3 @@
             <!-- END -->
             <!-- Lager til strukturen under navigasjonen og over footer -->
             <div id="structure">
-                

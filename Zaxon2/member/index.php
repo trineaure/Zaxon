@@ -1,7 +1,7 @@
 <?php
 
 //View layer - The same header for all pages
-require ("view/header.html");
+require ("view/header.php");
 
 // Global config
 require_once("../fellesFiler/config.php"); //kan hende at skråstrekene (pathen) er feil...

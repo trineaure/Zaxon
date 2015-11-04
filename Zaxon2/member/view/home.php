@@ -1,13 +1,4 @@
 <!--MEMBER-->
-<?php
-//checks if a Member Are Logged In
-session_start();
-if ( empty($_SESSION["MemberAreLoggedIn"]))
-{
-    header("Location:../guest/?page=login");
-}
-echo $_SESSION["MemberFirstName"];
-?>
 <!-- START: Main area where content goes -->
                 <main>
                     <div id="big">

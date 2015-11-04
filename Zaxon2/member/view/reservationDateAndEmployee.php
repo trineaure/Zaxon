@@ -1,10 +1,4 @@
 <?php
-//checks if a Member Are Logged In
-
-if ( empty($_SESSION["MemberAreLoggedIn"]))
-{
-    header("Location:../guest/?page=login");
-}
 echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
 
 ?> 
