@@ -7,7 +7,8 @@ class searchController extends tempController {
     public function show($page) {
         if ($page == "searchMember") {
             $this->searchMember();
-        } else if($page == "searchEmployee") {
+        } 
+        if($page == "searchEmployee") {
             $this->searchEmployee();
         }
         

@@ -13,27 +13,27 @@ class reservationController extends tempController {
             {
             $this ->showReservationDateAndEmployeeAction();
             }   
-        else if ($page == "reservationTime")    
+        if ($page == "reservationTime")    
             {
             $this ->showreservationTimeAction();
             }
             
-        else if ($page == "reservationComplete")    
+       if ($page == "reservationComplete")    
             {
             $this ->addReservationAction();
             }
             
-        else if($page == "order")
+        if($page == "order")
             {
             $this ->render("order");
             }
         //er bare for Master og Admin
-        else if($page == "memberOrder")
+        if($page == "memberOrder")
             {
             $this ->searchMemberOrder();
             }    
             
-        else if($page == "chooseTreatment")
+        if($page == "chooseTreatment")
            {
             $this->treatCat();
            }
@@ -104,15 +104,6 @@ class reservationController extends tempController {
         }
         $data = array("added" => $added);
         return $this->render("reservationComplete", $data);
-    }
-    
-    /*
-     * Returns all the treatments stored in the database
-     */       
-    public function getAllTreatments() {
-        $treatmentModel = $GLOBALS["treatmentModel"];
-        $allTheTreatments = $treatmentModel->getAll();
-        return $allTheTreatments;
     }
     
     /*

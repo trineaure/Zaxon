@@ -15,12 +15,11 @@ class memberController extends tempController {
             {
             $this ->showMemberAction();
             }           
-        else if ($page == "memberAdded")
+        if ($page == "memberAdded")
             {
             $this ->addMemberAction();
-            
             }
-      
+        
       }
       
     /**

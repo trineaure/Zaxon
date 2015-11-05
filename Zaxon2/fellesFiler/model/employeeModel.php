@@ -9,7 +9,6 @@ class employeeModel {
     const SELECT_ALL_QUERY = "SELECT * FROM " . employeeModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . " (First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
-    const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number = :Phone_Number";
     const SELECT_ONE_EMPLOYEE = "SELECT * FROM " . employeeModel::TABLE . " WHERE EmployeeID = :EmployeeID";
     const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
     const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE EmployeeID = ?";
@@ -42,7 +41,6 @@ class employeeModel {
         $this->addStmt = $this->dbConn->prepare(employeeModel::INSERT_QUERY);
         $this->selStmt = $this->dbConn->prepare(employeeModel::SELECT_ALL_QUERY);
         $this->selNumber = $this->dbConn->prepare(employeeModel::SELECT_QUERY);
-        $this->selOne = $this->dbConn->prepare(employeeModel::SELECT_ONE_QUERY);
         $this->selEmployee = $this->dbConn->prepare(employeeModel::SELECT_ONE_EMPLOYEE);
         $this->search = $this->dbConn->prepare(employeeModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(employeeModel::DELETE_QUERY);
@@ -116,18 +114,6 @@ class employeeModel {
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Get one query by phone number
-     * Ikke i bruk (?)
-     */
-    public function getOneByPhone($Phone_Number) {
-
-        $this->selOne->execute(array(
-            ':Phone_Number' => $Phone_Number,
-                )
-        );
-        return $this->selOne->fetchAll(PDO::FETCH_ASSOC);
-    }
 
     /**
      * Try to add a new customer

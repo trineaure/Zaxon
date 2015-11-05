@@ -39,7 +39,7 @@ class Router {
                 return new showController();
                 
             case "memberAdd":
-            case "memberAdded":
+            case "memberAdded": 
                 return new memberController();
                 
             case "order":
@@ -48,6 +48,9 @@ class Router {
             case "reservationTime":    
             case "reservationComplete":    
                 return new reservationController();
+                
+            case "myReservations":  
+                return new showController();
                 
             case "home":
             default:

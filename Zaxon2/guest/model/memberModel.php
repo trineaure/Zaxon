@@ -7,7 +7,6 @@ class memberModel {
     const SELECT_ALL_QUERY = "SELECT * FROM " . memberModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . memberModel::TABLE . "(First_name,Last_name,Birth,Phone_Number,Login_Password) VALUES (:First_name,:Last_name,:Birth,:Phone_Number,:Login_Password)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE; 
-    const SELECT_ONE_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number = :Phone_Number";
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
     
@@ -23,24 +22,9 @@ class memberModel {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(memberModel::INSERT_QUERY);
         $this->selStmt = $this->dbConn->prepare(memberModel::SELECT_ALL_QUERY);
-        $this->selNumber = $this->dbConn->prepare(memberModel::SELECT_QUERY);
-        $this->selOne = $this->dbConn->prepare(memberModel::SELECT_ONE_QUERY);     
+        $this->selNumber = $this->dbConn->prepare(memberModel::SELECT_QUERY);     
     }
   
-    /**
-     * Get one query by phone nymber.
-     * @param type $Phone_Number
-     * @return 
-     */
-    public function getOneByPhone($Phone_Number) { 
-        
-        $this->selOne->execute(array(
-            ':Phone_Number' => $Phone_Number,
-             )
-                );
-        return $this->selOne->fetchAll(PDO::FETCH_ASSOC);
-        
-    }
     
         /**
          * Get all customers stord in the database.

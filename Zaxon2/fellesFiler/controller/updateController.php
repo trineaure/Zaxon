@@ -7,13 +7,16 @@ class updateController extends tempController {
     public function show($page) {
         if ($page == "updateMember") {
             $this->updateMemberShow();
-        } else if ($page == "updateEmployee") {
-            $this->updateEmployeeShow();
-        }  else if ($page == "updateMemberNow") {
-            $this->updateMemberNow();
-        } else if ($page == "updateEmployeeNow") {
-            $this->updateEmployeeNow();
         } 
+        if ($page == "updateEmployee") {
+            $this->updateEmployeeShow();
+        } 
+        if ($page == "updateMemberNow") {
+            $this->updateMemberNow();
+        } 
+        if ($page == "updateEmployeeNow") {
+            $this->updateEmployeeNow();
+        }
     }
 
     /**
@@ -56,11 +59,11 @@ class updateController extends tempController {
 
         $memberModel = $GLOBALS["memberModel"];
 
-        $updateFirst_name = $_REQUEST['First_name'];
-        $updateLast_name = $_REQUEST['Last_name'];
-        $updateBirth = $_REQUEST['Birth'];
-        $updatePhone_Number = $_REQUEST['Phone_Number'];
-        $Membership_number = $_REQUEST['Membership_number'];
+        $updateFirst_name = filter_input(INPUT_POST,'First_name');
+        $updateLast_name = filter_input(INPUT_POST,'Last_name');
+        $updateBirth = filter_input(INPUT_POST,'Birth');
+        $updatePhone_Number = filter_input(INPUT_POST,'Phone_Number');
+        $Membership_number = filter_input(INPUT_POST,'Membership_number');
 
         $update = $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
         $members = $memberModel->getAll();
@@ -77,23 +80,18 @@ class updateController extends tempController {
 
         $employeeModel = $GLOBALS["employeeModel"];
 
-        $updateFirst_name = $_REQUEST['First_name'];
-        $updateLast_name = $_REQUEST['Last_name'];
-        $updateBirth = $_REQUEST['Birth'];        
-        $updatePhone_Number = $_REQUEST['Phone_Number'];
-        $updateHome_Address = $_REQUEST['Home_Address'];
-        $updateZip_Code = $_REQUEST['Zip_Code'];
-        $EmployeeID = $_REQUEST['EmployeeID'];
+        $updateFirst_name =filter_input(INPUT_POST,'First_name');
+        $updateLast_name = filter_input(INPUT_POST,'Last_name');
+        $updateBirth = filter_input(INPUT_POST,'Birth');        
+        $updatePhone_Number = filter_input(INPUT_POST,'Phone_Number');
+        $updateHome_Address = filter_input(INPUT_POST,'Home_Address');
+        $updateZip_Code = filter_input(INPUT_POST,'Zip_Code');
+        $EmployeeID = filter_input(INPUT_POST,'EmployeeID');
 
-        $update2 = $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
+        $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
         $employees = $employeeModel->getAll();
 
         $data = array("employees" => $employees);
         return $this->render("listEmployees", $data);
     }   
-
-   
-    
-    
-
 }
