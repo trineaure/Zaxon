@@ -45,10 +45,10 @@ class showController extends tempController {
      * @return $this->render("myReservations")
      */
     public function showMyReservationsAction(){
-        $memberModel = $GLOBALS["memberModel"];
-//        $included_members = $memberModel->getOneByMemberNumber($_SESSION["MemberAreLoggedIn"]);
-//        var_dump($included_members);
-        return $this->render("myReservations");
+        $reservationModel = $GLOBALS["reservationModel"];
+        $included_members = $reservationModel->getReservationsByMemberNumber($_SESSION["MembershipNumber"]);
+        $data = array("included_members" => $included_members);
+        return $this->render("myReservations",$data);
     }
     
             

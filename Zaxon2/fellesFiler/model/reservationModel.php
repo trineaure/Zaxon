@@ -9,6 +9,7 @@ class reservationModel {
     const INSERT_QUERY = "INSERT INTO " . reservationModel::TABLE . " (Reservation_Date, Time_of_Day, Membership_number, EmployeeID) VALUES (:Reservation_Date,:Time_of_Day, :Membership_number, :EmployeeID)";
     const SELECT_TIMEOFDAY_QUERY = "SELECT Time_of_Day FROM " . reservationModel::TABLE . " WHERE Reservation_Date=:Reservation_Date AND EmployeeID=:EmployeeID";
     const SELECT_RESERVATION_NR_QUERY = "SELECT Reservation_number FROM " . reservationModel::TABLE . " WHERE Reservation_Date=:givenReservation_date AND Time_of_Day=:givenTime AND EmployeeID=:givenEmployeeID";
+    const SELECT_ALL_BY_MEMBER_NUMBER = "SELECT * FROM " . reservationModel::TABLE . " WHERE Membership_number = :Membership_number";
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
     /** @var PDOStatement Statement for adding new entries */
@@ -16,6 +17,8 @@ class reservationModel {
     
     private $selTime;
     private $selNr;
+    /**For get all reservations from member */
+    private $selMember;
     //Constructor for the class reservationModel
     /*
      * @param $dbConn - The connection to the database
@@ -26,6 +29,7 @@ class reservationModel {
         $this->selStmt = $this->dbConn->prepare(reservationModel::SELECT_ALL_QUERY);
         $this->selTime = $this->dbConn->prepare(reservationModel::SELECT_TIMEOFDAY_QUERY);
         $this->selNr = $this->dbConn->prepare(reservationModel::SELECT_RESERVATION_NR_QUERY);
+        $this->selMember = $this->dbConn->prepare(reservationModel::SELECT_ALL_BY_MEMBER_NUMBER);
     }
 
     /**
@@ -58,14 +62,6 @@ class reservationModel {
         return $nr;
     }
     
-    
-// public function getTimeOfDay($Reservation_Date, $EmployeeID) { 
-//        
-//        $this->selTime->execute(array(":Reservation_Date" => $Reservation_Date,":EmployeeID" => $EmployeeID));
-//        return $this->selTime->fetchAll(PDO::FETCH_ASSOC);
-//        
-//    }
-    
     /**
      * Try to add a new customer
      *
@@ -76,6 +72,12 @@ class reservationModel {
         public function add($givenReservation_date,$givenTime, $givenMembership_number, $givenEmployeeID) {
         return $this->addStmt->execute(array("Reservation_Date"=> $givenReservation_date,"Time_of_Day" => $givenTime,"Membership_number" => $givenMembership_number, "EmployeeID" => $givenEmployeeID));
     }
-
     
+    public function getReservationsByMemberNumber($memberNumber) {
+        $this->selMember->execute(array(
+            ':Membership_number' => $memberNumber
+        ));
+        return $this->selMember->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

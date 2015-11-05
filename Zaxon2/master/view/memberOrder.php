@@ -17,9 +17,7 @@
         <?php
         if (!empty($searchResults)) {
 
-            echo "<table>\n";
-            echo "<tr><td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil Nummer </td>  <td> Bestilling </td> </tr>";
-
+            
              foreach ($searchResults as $searchResult) { ?>
             <tr>
                 <td> <?php echo $searchResult["First_name"] ?> </td>
