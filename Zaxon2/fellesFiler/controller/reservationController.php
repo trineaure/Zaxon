@@ -55,7 +55,7 @@ class reservationController extends tempController {
      * Stores the chosen treatments from all off the categorys in a session. 
      */
     private function showReservationDateAndEmployeeAction() {  
-        session_start();
+        //session_start();
         $categorys = $this->getAllCategorys();
         $treatmentArray = array();
         foreach ($categorys as $category) {
@@ -71,7 +71,7 @@ class reservationController extends tempController {
    
         
     private function showreservationTimeAction() {
-        session_start();
+        //session_start();
         $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
         $_SESSION['givenReservation_date'] = $_REQUEST['givenReservation_date'];
 
@@ -85,7 +85,7 @@ class reservationController extends tempController {
         
         
     private function addReservationAction(){
-        session_start();
+        //session_start();
         $givenReservation_date = $_SESSION['givenReservation_date'];
         $givenMembership_number = $_SESSION["MembershipNumber"];
         $givenEmployeeID = $_SESSION['givenEmployeeID'];

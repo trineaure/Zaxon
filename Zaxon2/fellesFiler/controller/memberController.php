@@ -29,12 +29,7 @@ class memberController extends tempController {
      */
     private function showMemberAction() {
         
-           $data2 = array(
-                  "feiltlf" => "false",
-                  "tlfnummer" => 0,
-                  
-              );
-        
+           $data2 = array( "feiltlf" => false, "tlfnummer" => 0);
             return $this->render("memberAdd",$data2);
        }
        

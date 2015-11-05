@@ -1,26 +1,55 @@
 <main>
 
-
-
-
-    <p>
+ <p>
 <?php
-//checks if a Member Are Logged In
+//Lagrer alle tider som ikke er tilgjengelige
 $unavailableTimes = $_SESSION["timeIn"];
+?>
+     
+     <script>
+$(document).ready(function() {
+    updateTimes();
+    });
+
+     function updateTimes()
+    {
+        var availableTimes = ["10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+                 "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"];
 
 
+<?php foreach ($unavailableTimes as $tempTime): ?>
+                 for (i = 0; i < 16; i++)
+                 {
+                     var x = document.getElementById(availableTimes[i]);
+                     if (x.value == <?php echo date("'H:i'", strtotime($tempTime["Time_of_Day"])) ?>)
+                     {
+                         var xLabel = document.getElementById('label' + x.value);
+                         xLabel.style.backgroundColor = "#ff8888";
+                         x.disabled = true;
+                     }
+                 }
+
+<?php endforeach; ?>
+
+         }
+
+     </script>
+
+<!--Sakler jeg bruker til å teste START-->
+<?php     
 ///skriver ut variablen
 //var_dump($_SESSION["timeIn"]);
 
 echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
-?> </p> 
+?> 
+</p> 
     
 <p>
  <?php
 echo "Din Employee er : " . $_SESSION['givenEmployeeID'];
 ?>
 </p>  
-  <p>  
+<p>  
 <?php
 echo "Din dato er : " . $_SESSION['givenReservation_date'];
 ?>
@@ -37,43 +66,12 @@ echo "Din dato er : " . $_SESSION['givenReservation_date'];
        }
        ?>
 </p>
-
-<script>
-$(document).ready(function() {
-    updateTimes();
-    });
-
-     function updateTimes()
-    {
-        var availableTimes = ["10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
-                              "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"];
-        
-        
-        <?php foreach($unavailableTimes as $tempTime): ?>
-         for(i=0;i<16;i++)
-         {
-              var x = document.getElementById(availableTimes[i]);
-              if(x.value == <?php echo date("'H:i'", strtotime($tempTime["Time_of_Day"])) ?> )
-              {
-                  var xLabel = document.getElementById('label' + x.value);
-                  xLabel.style.backgroundColor = "#ff8888";
-                  x.disabled=true;
-              }
-         }
-    
-         <?php endforeach; ?>
-        
-    }
-
-</script>
+<!--Sakler jeg bruker til å teste END-->
 
 
-  
 <?php $availableTimes = array("10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
                               "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30");?>
 
-
- 
 
    <form action="?page=reservationComplete" method="post">
                             

@@ -22,9 +22,7 @@ class employeeController extends tempController {
         
      private function showEmployeeAction() {
          
-          $data2 = array(
-                  "feiltlf" => "false",
-                  "tlfnummer" => 0,
+          $data2 = array("feiltlf" => false,"tlfnummer" => 0,
                   
               );
          

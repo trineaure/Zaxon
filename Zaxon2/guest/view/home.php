@@ -1,7 +1,7 @@
 <!--GUEST-->
 <?php
-session_start();
-session_destroy();
+//session_start();
+//session_destroy();
 ?>
 <!-- START: Main area where content goes -->
                 <main>

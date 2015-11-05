@@ -1,4 +1,18 @@
 <?php
+//ADMIN
+
+//sjekker om session er startet eller ikke
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+//checks if a Member Are Logged In
+if ((!isset($_SESSION["EmployeeAreLoggedIn"]) || ($_SESSION["EmployeeAreLoggedIn"])  != true))
+{   
+    session_destroy();
+    header("Location:../guest/?page=login");
+    return;
+}
 
 //View layer - The same header for all pages
 require ("view/header.html");

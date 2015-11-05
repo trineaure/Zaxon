@@ -1,13 +1,5 @@
 <!--ADMIN SIDE-->
 
-<?php
-//checks if a Employee are logged in 
-session_start();
-if (empty($_SESSION["EmployeeAreLoggedIn"])) {
-    header("Location:../guest/?page=login");
-}
-?>
-
 <!-- START: Main area where content goes -->
 <main>
     <p> Velkommen admin </p>

@@ -1,18 +1,6 @@
-<!--MASTER-->
-<?php
-//checks if a Master are logged in 
-session_start();
-if ( empty($_SESSION["MasterAreLoggedIn"]))
-{
-    header("Location:../guest/?page=login");
-}
-
-?>
-
 <!-- START: Main area where content goes -->
                 <main>
     <p> Velkommen Master </p>
-    
 <div id="small">
         <p> Ansatt</p>
 
@@ -22,9 +10,6 @@ if ( empty($_SESSION["MasterAreLoggedIn"]))
                 <a href="?page=employeeAdd" class="smallButton">Legg til ansatt</a>
                 
     </div>
-
-
-
     <div id="small">
         <p> Kunde </p>
 
@@ -34,8 +19,5 @@ if ( empty($_SESSION["MasterAreLoggedIn"]))
                 <a href="?page=memberOrder" class="smallButton">Legg inn bestilling</a>
                
     </div>
-
-
-
 </main>
                 <!-- END -->
