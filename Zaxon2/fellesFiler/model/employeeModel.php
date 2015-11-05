@@ -10,7 +10,7 @@ class employeeModel {
     const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . " (First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
     const SELECT_ONE_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number = :Phone_Number";
-    const SELECT_ONE_EMPLOYEE = "SELECT * FROM " . employeeModel::TABLE . "WHERE EmployeeID = :EmployeeID";
+    const SELECT_ONE_EMPLOYEE = "SELECT * FROM " . employeeModel::TABLE . " WHERE EmployeeID = :EmployeeID";
     const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
     const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE EmployeeID = ?";
     const UPDATE_QUERY = "UPDATE " . employeeModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, Home_Address = :Home_Address, Zip_Code = :Zip_Code WHERE EmployeeID = :EmployeeID";
