@@ -6,15 +6,32 @@ class deleteController extends tempController {
     public function show($page) {
         if ($page == "listMembers") {
             $this->deleteMember();
-        } else if ($page == "listEmployees") {
+        } 
+        if ($page == "listEmployees") {
             $this->deleteEmployee();
-        } else if ($page == "deleteMemberNow") {
+        } 
+        if ($page == "deleteMemberNow") {
             $this->deleteMemberNow();
-        } else if ($page == "deleteEmployeeNow") {
+        } 
+        if ($page == "deleteEmployeeNow") {
             $this->deleteEmployeeNow();
         }
     }
 
+
+    /**
+     * Delete a member from the database
+     * @return an array of the deleted member and render to the listMembers page.
+     */
+    public function deleteMember() {
+
+        $memberModel = $GLOBALS["memberModel"];
+        $members = $memberModel->getAll();
+
+        $data = array("members" => $members);
+        return $this->render("listMembers", $data);
+    }
+    
     /**
      * Delte the member from the database.
      * 
@@ -29,31 +46,6 @@ class deleteController extends tempController {
         $this->deleteMember();
     }
 
-    /**
-     * Delete a employee from the database.
-     */
-    public function deleteEmployeeNow() {
-
-        $employeeModel = $GLOBALS["employeeModel"];
-        if (isset($_REQUEST['employeeID'])) {
-            $employeeID = $_REQUEST['employeeID'];
-            $added = $employeeModel->deleteEmployee($employeeID);
-        }
-        $this->deleteEmployee();
-    }
-
-    /**
-     * Delete a member from the database
-     * @return an array of the deleted member and render to the listMembers page.
-     */
-    public function deleteMember() {
-
-        $memberModel = $GLOBALS["memberModel"];
-        $members = $memberModel->getAll();
-
-        $data = array("members" => $members);
-        return $this->render("listMembers", $data);
-    }
 
     /**
      * Delete an employee from the database.
@@ -67,5 +59,19 @@ class deleteController extends tempController {
         $data = array("employees" => $employees);
         return $this->render("listEmployees", $data);
     }
+    
+    /**
+     * Delete a employee from the database.
+     */
+    public function deleteEmployeeNow() {
+
+        $employeeModel = $GLOBALS["employeeModel"];
+        if (isset($_REQUEST['employeeID'])) {
+            $employeeID = $_REQUEST['employeeID'];
+            $added = $employeeModel->deleteEmployee($employeeID);
+        }
+        $this->deleteEmployee();
+    }
+
 
 }
