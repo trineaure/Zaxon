@@ -42,7 +42,7 @@
             </td>  
             <td>
                 <form method="post" action="?page=deleteMemberNow">
-                    <input style="display:none;" value="<?php echo $up["Membership_number"]; ?>" name="membershipnr">
+                    <input style="display:none;"  value="<?php echo $up["Membership_number"]; ?>" name="membershipnr">
                     <button value="submit"> Delete </button>
                 </form>
             </td>
