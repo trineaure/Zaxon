@@ -33,6 +33,7 @@ $added = $GLOBALS["added"];
     <a href="?page=memberAdd">Gå tilbake</a>
     <?php
     
-     } ?>
+     }
+      ?>
 
 

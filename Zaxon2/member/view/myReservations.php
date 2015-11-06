@@ -13,7 +13,7 @@
         foreach ($included_members as $member) { ?>
         <tr>
                 <td> <?php echo $member["Reservation_Date"] ?> </td>
-                <td> <?php echo $member["Time_of_Day"] ?> </td>
+                <td> <?php echo date("H:i", strtotime($member["Time_of_Day"])) ?> </td>
                 <td> <?php echo $member["EmployeeID"] ?> </td>
                 <?php 
                  }
@@ -25,7 +25,10 @@
             }
                 ?>
             
-
+                 <div  id="big">
+                        <a href="?page=order" class="button"><-Tilbake</a>
+                        
+                    </div>
 
 </main>
 

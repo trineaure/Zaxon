@@ -1,23 +1,15 @@
 <?php
-//////////////////////////////////////////
-// Template for Employee add result page
-//////////////////////////////////////////
 
-// Expected variables:
-// $added - list of all customers
-// $customerName - last value used in "Add customer" form
-$added = $GLOBALS["added"];
 
-?>
+                $serverName = "(local)";
+                $connectionInfo = array("Database" => "Zaxon2", "UID" => "admin", "PWD" => "admin");
+                $conn = sqlsrv_connect($serverName, $connectionInfo);
 
-<?php if ($added) { ?>
-<p> Gratulerer! Du har lagt til en arbeidstaker </p> 
-    <a href="?page=home"> gå tilbake til startsiden</a>
-    
-    <p> Mvh.Zaxon </p> 
-<?php 
-//Upload file 
-$target_dir = "../fellesFiler/bilder/employees";
+
+
+
+                if ($conn == true) {
+$target_dir = "images/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -56,17 +48,17 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         //Renames the file you have uploaded to what you want
-        $name = $_SESSION['givenEmployeeNumber'];
-        rename("../fellesFiler/bilder/employees". basename( $_FILES["fileToUpload"]["name"]), "../fellesFiler/bilder/employees/$name.jpg");
+        rename("images/". basename( $_FILES["fileToUpload"]["name"]), "images/hei.jpg");
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-} else { ?>
-    <p> Nei uff! Her skjedde det noe galt.</p> 
-    <p> Venligs gå tilbake og prøv igjen. </p> 
-    <br> 
-    <p> Mvh. </p> 
-    <p>Zaxon </p> 
-    <a href="?page=employeeAdd">Gå tilbake</a>
-<?php } ?>
+
+} else {
+                    echo "Connection could not be established.\n";
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+
+                sqlsrv_close($conn);
+                ?>
