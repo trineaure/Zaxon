@@ -16,6 +16,7 @@ class reservationModel {
     private $addStmt;
     
     private $selTime;
+    
     private $selNr;
     /**For get all reservations from member */
     private $selMember;
@@ -73,6 +74,9 @@ class reservationModel {
         return $this->addStmt->execute(array("Reservation_Date"=> $givenReservation_date,"Time_of_Day" => $givenTime,"Membership_number" => $givenMembership_number, "EmployeeID" => $givenEmployeeID));
     }
     
+    /*
+     * 
+     */
     public function getReservationsByMemberNumber($memberNumber) {
         $this->selMember->execute(array(
             ':Membership_number' => $memberNumber

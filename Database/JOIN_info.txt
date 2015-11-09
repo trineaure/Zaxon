@@ -1,0 +1,18 @@
+//Her er litt av koden for joinen vi kommer til å bruke. (Brukt i queryen i msSql)
+//LEFT JOIN: Return all rows from the left table, and the matched rows from the right table
+
+USE Zaxon2
+GO
+
+-- Denne brukes dersom både reservasjonsNr og treatment name skal skrives ut
+SELECT Reservation_treatment.Reservation_number, Treatment_Name
+ FROM Reservation_treatment 
+ LEFT JOIN Reservation
+ ON Reservation_treatment.Reservation_number=Reservation.Reservation_number;
+
+-- Her blir bare treatment navnet skreve ut, like mange ganger som der er valgt
+ SELECT Treatment_Name
+ FROM Reservation_treatment 
+ LEFT JOIN Reservation
+ ON Reservation_treatment.Reservation_number=Reservation.Reservation_number;
+
