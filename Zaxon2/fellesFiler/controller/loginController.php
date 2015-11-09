@@ -24,19 +24,18 @@ class loginController extends tempController {
         
         
     private function loginMember($givenUsername, $givenPassword) {
-        
+        $_SESSION["MasterAreLoggedIn"] = false;
         $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
         foreach ($members as $member) {
-            if ($member['Phone_Number'] == $givenUsername) {
-                if ($member['Login_Password'] == $givenPassword) {
+            if (($member['Phone_Number'] == $givenUsername) && ($member['Login_Password'] == $givenPassword)) {
                     //match
                     $_SESSION["MemberAreLoggedIn"] = true;
                     $_SESSION["MemberFirstName"] = $member['First_name'];
                     $_SESSION["MembershipNumber"] = $member['Membership_number'];
                     header("Location:../member/?page=home");
                     
-                }
+                
             }
         }
         
@@ -47,7 +46,8 @@ class loginController extends tempController {
         $employeeModel = $GLOBALS["employeeModel"];
         $employees = $employeeModel->getAll();
         $Extended_Access = 1;
-        
+        $_SESSION["MasterAreLoggedIn"] = false;
+        $_SESSION["EmployeeAreLoggedIn"] = false;
         foreach ($employees as $employee) {
             if (($employee['Phone_Number'] == $givenUsername) && ($employee['Login_Password'] == $givenPassword)) {
                 echo "Brukernavn eller passord stemmer ikke. :)";
@@ -78,7 +78,7 @@ class loginController extends tempController {
         $givenPassword = $_REQUEST['Login_Password'];
         // Get all members from database
 
-        session_start();
+        
         $this->loginMember($givenUsername, $givenPassword);
 
 
@@ -86,7 +86,7 @@ class loginController extends tempController {
         
         
         //error message
-        if (($_SESSION["MemberAreLoggedIn"] == false) && ($_SESSION["EmployeeAreLoggedIn"] == false)) {
+        if (($_SESSION["MemberAreLoggedIn"] == false) || ($_SESSION["EmployeeAreLoggedIn"] == false) || ($_SESSION["MasterAreLoggedIn"] == false)){
             return $this->render("aboutus");
         }
     }
