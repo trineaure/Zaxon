@@ -13,7 +13,7 @@ class showController extends tempController {
         }
         if ($page == "myReservations")
             {
-            $this ->showMyReservationsAction();
+            $this ->showMyReservations($_SESSION["MembershipNumber"]);
             }    
       
     }
@@ -41,14 +41,15 @@ class showController extends tempController {
     }
     /**
      * Shows the reservations to a member,
-     * where $_SESSION["MemberAreLoggedIn"] is the MemberNumber
      * @return $this->render("myReservations")
      */
-    public function showMyReservationsAction(){
-        $reservationModel = $GLOBALS["reservationModel"];
-        $included_members = $reservationModel->getReservationsByMemberNumber($_SESSION["MembershipNumber"]);
-        $data = array("included_members" => $included_members);
-        return $this->render("myReservations",$data);
+    public function showMyReservations($memberID){
+       $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+       $reservations = $reservation_treatmentModel->getReservationInfo($memberID);
+       $employeeModel = $GLOBALS["employeeModel"];
+       $employeeName = $employeeModel->getOneByEmployeeID($reservations["EmployeeID"]);
+       array_push($reservations, $employeeName);
+        return $this->render("myReservations", $reservations);
     }
     
             
