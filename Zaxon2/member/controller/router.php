@@ -46,7 +46,8 @@ class Router {
             case "chooseTreatment":
             case "reservationDateAndEmployee":
             case "reservationTime":    
-            case "reservationComplete":    
+            case "reservationComplete":
+            case "reservationTreatmentFinish"    :
                 return new reservationController();
                 
             case "myReservations":  

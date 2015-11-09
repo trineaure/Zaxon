@@ -39,12 +39,11 @@ class memberController extends tempController {
       * @return type
       */       
     private function addMemberAction(){
-        // Find "customerName" in parameter in request.
-        $givenFirst_Name = $_REQUEST['givenFirst_name'];
-        $givenLastName = $_REQUEST['givenLast_name'];
-        $givenBirth = $_REQUEST['givenBirth'];
-        $givenPhone_Number = $_REQUEST['givenPhone_Number'];
-        $givenLogin_Password = $_REQUEST['givenLogin_Password'];
+        $givenFirst_Name = filter_input(INPUT_POST,"givenFirst_name");
+        $givenLastName = filter_input(INPUT_POST,"givenLast_name");
+        $givenBirth = filter_input(INPUT_POST,"givenBirth");
+        $givenPhone_Number = filter_input(INPUT_POST,"givenPhone_Number");
+        $givenLogin_Password = filter_input(INPUT_POST,"givenLogin_Password");
         
         $memberModel = $GLOBALS["memberModel"];
         $numbers = $memberModel->getAllNumbers();

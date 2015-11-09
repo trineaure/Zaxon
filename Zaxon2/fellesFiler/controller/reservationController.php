@@ -37,12 +37,17 @@ class reservationController extends tempController {
            {
             $this->treatCat();
            }
+        if($page == "reservationTreatmentFinish")
+        {            
+            $this->showFinish();
+        }
+           
     }
     
     public function searchMemberOrder() {
         $memberModel = $GLOBALS["memberModel"];
-        if (isset($_REQUEST['searchKeyword'])) {
-            $searchKeyword = $_REQUEST['searchKeyword'];
+        if (isset($_REQUEST["searchKeyword"])) {
+            $searchKeyword = $_REQUEST["searchKeyword"];
             $members = $memberModel->searchMember($searchKeyword);
         } else {
             $members = array();
@@ -74,8 +79,8 @@ class reservationController extends tempController {
         
     private function showreservationTimeAction() {
         //session_start();
-        $_SESSION['givenEmployeeID'] = $_REQUEST["givenEmployeeID"];
-        $_SESSION['givenReservation_date'] = $_REQUEST['givenReservation_date'];
+        $_SESSION["givenEmployeeID"] = $_REQUEST["givenEmployeeID"];
+        $_SESSION["givenReservation_date"] = $_REQUEST["givenReservation_date"];
 
         $reservationModel = $GLOBALS["reservationModel"];
         $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
@@ -87,25 +92,9 @@ class reservationController extends tempController {
         
         
     private function addReservationAction(){
-        //session_start();
-        $givenReservation_date = $_SESSION['givenReservation_date'];
-        $givenMembership_number = $_SESSION["MembershipNumber"];
-        $givenEmployeeID = $_SESSION['givenEmployeeID'];
-        $givenTime = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
-
-        // Try to add new customers, Set action response code - success or not
-        $reservationModel = $GLOBALS["reservationModel"];
-        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        $_SESSION['givenTime'] = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
         
-        $added = $reservationModel->add($givenReservation_date,$givenTime,$givenMembership_number, $givenEmployeeID);
-        //If true, the reservation number is fetched by using the given time, date and employeeID.
-        //The reservation number is then used to add all the treatments the user has chosen. 
-        if($added == true) {
-            $resID = $reservationModel->getReservationNr($givenReservation_date, $givenTime, $givenEmployeeID);
-            $added = $reservation_treatmentModel->addTreatmentsToRes($resID, $_SESSION["treatmentArray"]);
-        }
-        $data = array("added" => $added);
-        return $this->render("reservationComplete", $data);
+        return $this->render("reservationComplete");
     }
     
     /*
@@ -139,6 +128,28 @@ class reservationController extends tempController {
         $treatmentModel = $GLOBALS["treatmentModel"];
         $treatmentsByCat = $treatmentModel->getByCategory($category);
         return $treatmentsByCat;
+    }
+    /*
+     * Shows reservationTreatmentFinish
+     */
+    public function showFinish(){
+        $givenReservation_date = $_SESSION["givenReservation_date"];
+        $givenMembership_number = $_SESSION["MembershipNumber"];
+        $givenEmployeeID = $_SESSION["givenEmployeeID"];
+        $givenTime = $_SESSION["givenTime"];
+
+        // Try to add new customers, Set action response code - success or not
+        $reservationModel = $GLOBALS["reservationModel"];
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        
+        $added = $reservationModel->add($givenReservation_date,$givenTime,$givenMembership_number, $givenEmployeeID);
+        //If true, the reservation number is fetched by using the given time, date and employeeID.
+        //The reservation number is then used to add all the treatments the user has chosen. 
+        if($added == true) {
+            $resID = $reservationModel->getReservationNr($givenReservation_date, $givenTime, $givenEmployeeID);
+            $added = $reservation_treatmentModel->addTreatmentsToRes($resID, $_SESSION["treatmentArray"]);
+        }
+        return $this->render("reservationTreatmentFinish");
     }
     
 

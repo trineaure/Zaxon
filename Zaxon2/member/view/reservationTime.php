@@ -46,12 +46,12 @@ echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
     
 <p>
  <?php
-echo "Din Employee er : " . $_SESSION['givenEmployeeID'];
+echo "Din Employee er : " . $_SESSION["givenEmployeeID"];
 ?>
 </p>  
 <p>  
 <?php
-echo "Din dato er : " . $_SESSION['givenReservation_date'];
+echo "Din dato er : " . $_SESSION["givenReservation_date"];
 ?>
 </p>
     

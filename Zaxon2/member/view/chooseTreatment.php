@@ -21,9 +21,9 @@
            //foreach ($category as $treatment) {
       ?>
               
-                <label for="<?php $treatment['Treatment_Name'] ?>">
-                    <input type="radio" class="regular-radio" name="<?php echo $key ?>" value="<?php echo $treatment['Treatment_Name'] ?>"  />
-                     <?php echo $treatment['Treatment_Name'] ?>  
+                <label for="<?php $treatment["Treatment_Name"] ?>">
+                    <input type="radio" class="regular-radio" name="<?php echo $key ?>" value="<?php echo $treatment["Treatment_Name"] ?>"  />
+                     <?php echo $treatment["Treatment_Name"] ?>  
                 </label> 
 
        <?php }
@@ -33,7 +33,7 @@
     </form>
 
 <script type="text/javascript">
-        var allRadios = document.getElementsByName('treatment'); // endre på når vi kan velge flere treatments
+        var allRadios = document.getElementsByName("treatment"); // endre på når vi kan velge flere treatments
         var booRadio;
         var x = 0;
         for(x = 0; x < allRadios.length; x++){
