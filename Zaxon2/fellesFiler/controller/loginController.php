@@ -47,11 +47,17 @@ class loginController extends tempController {
                 echo "Brukernavn eller passord stemmer ikke. :)";
                 if (($employee['Extended_Access']) == $Extended_Access) {
                     $_SESSION["MasterAreLoggedIn"] = true;
+//                    $_SESSION["MasterFirstName"] = $employee['First_name'];
+//                    $_SESSION["MasterLastName"] = $employee['Last_name'];
+//                    $_SESSION["MasterBirth"] = $employee['Birth'];
+//                    $_SESSION["MasterPhone"] = $employee['Phone_Number'];
+//                    $_SESSION["MasterHome_Address"] = $employee['Home_Address'];
+//                    $_SESSION["MasterZip_Code"] = $employee['Zip_Code'];
                     header("Location:../master/?page=home");
                 } else {
 
                     //match
-                    $_SESSION["EmployeeAreLoggedIn"] = true;
+                    $_SESSION["EmployeeAreLoggedIn"] = true;                   
                     header("Location:../admin/?page=home");
                 }
             }
