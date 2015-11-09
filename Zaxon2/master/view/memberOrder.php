@@ -10,29 +10,33 @@
             <input id="submit" type="submit" value="search">
         </form>
 
+        
+        <table>
         <?php
         $searchResults = $GLOBALS["searchResults"];
-        ?>
-
-        <?php
+        
+        
+       
         if (!empty($searchResults)) {
 
             
              foreach ($searchResults as $searchResult) { ?>
-            <tr>
+            
+                <tr>
                 <td> <?php echo $searchResult["First_name"] ?> </td>
                 <td> <?php echo $searchResult["Last_name"] ?> </td>
                 <td> <?php echo $searchResult["Birth"] ?> </td>
                 <td> <?php echo $searchResult["Phone_Number"] ?> </td>
                 <td> <form method="post" action="?page=chooseTreatment">
 
-                        <input style="display:none;" value="<?php echo $member["Membership_number"]; ?>" name="info Gard Skal ta med">
+                        <input style="display:none;" value="<?php echo $member["Membership_number"] ?>" name="info Gard Skal ta med">
                         <button value="submit"> Bestill </button>
                     </form>
-                </td> 
-                    <?php
-                    }
-                    echo "</table>\n";
-                }
-                ?>    
+                </td>
+                </tr>
+                <?php }} ?>
+                    
+                     </table>
+                
+                 
 </main>

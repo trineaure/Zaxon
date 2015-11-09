@@ -19,7 +19,7 @@ class reservation_treatmentModel {
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(reservation_treatmentModel::INSERT_QUERY);
-        $this->resStmt = $this->$dbConn->prepare(reservation_treatmentModel::RESERVATION_QUERY);
+        $this->resStmt = $this->dbConn->prepare(reservation_treatmentModel::RESERVATION_QUERY);
         //$this->selAll = $this->dbConn->prepare(reservation_treatmentModel::SELECT_ALL_QUERY);
         //$this->selByNr = $this->dbConn->prepare(reservation_treatmentModel::SELECT_BY_NR_QUERY);
     }
