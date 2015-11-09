@@ -2,33 +2,28 @@
     <p>Her ser du en liste over dine reservasjoner. </p>
 
     <?php
-    $included_members = $GLOBALS["included_members"];
-    if (!empty($included_members)) {
+    $reservations = $GLOBALS["myReservations"];
+    if (!empty($reservations)) {
+        foreach($reservations as $res) { ?>
+           <table>
+               <tr>
+                   <td>Dato:</td>
+                   <td>Tid:</td>
+                   <td>Dato:</td>
+                   <td>Tid:</td>
+               </tr>
+          </table>
+    
+    <?php }
+    } 
+    
+    else {
+        echo "Du har ingen reservasjoner.";
+    }?>
             
-        echo "<table>\n";
-        echo "<tr><td> Dato </td> <td> Tid på dagen </td> <td> Arbeidstaker ID: </td> </tr>";
-
-        
-        
-        foreach ($included_members as $member) { ?>
-        <tr>
-                <td> <?php echo $member["Reservation_Date"] ?> </td>
-                <td> <?php echo date("H:i", strtotime($member["Time_of_Day"])) ?> </td>
-                <td> <?php echo $member["EmployeeID"] ?> </td>
-                <?php 
-                 }
-            echo "</table>\n";
-            } 
-            else 
-            {
-              echo "Du har ingen reservasjoner.";
-            }
-                ?>
-            
-                 <div  id="big">
-                        <a href="?page=order" class="button"><-Tilbake</a>
-                        
-                    </div>
+    <div  id="big">
+         <a href="?page=order" class="button"><-Tilbake</a>
+    </div>
 
 </main>
 
