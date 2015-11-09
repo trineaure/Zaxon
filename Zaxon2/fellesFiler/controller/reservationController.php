@@ -46,8 +46,8 @@ class reservationController extends tempController {
     
     public function searchMemberOrder() {
         $memberModel = $GLOBALS["memberModel"];
-        if (isset( filter_input(INPUT_POST,"searchKeyword"))) {
-            $searchKeyword =  filter_input(INPUT_POST,"searchKeyword");
+        if (isset($_REQUEST["searchKeyword"])) {
+            $searchKeyword =  $_REQUEST["searchKeyword"];
             $members = $memberModel->searchMember($searchKeyword);
         } else {
             $members = array();
