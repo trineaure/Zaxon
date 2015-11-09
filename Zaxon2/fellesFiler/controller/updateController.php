@@ -17,6 +17,12 @@ class updateController extends tempController {
         if ($page == "updateEmployeeNow") {
             $this->updateEmployeeNow();
         }
+        if($page == "updateInformation") {
+            $this->updateOneMemberShow();
+        }
+        if ($page == "updateInformationNow") {
+            $this->updateOneMemberNow();
+        }
     }
 
     /**
@@ -94,4 +100,43 @@ class updateController extends tempController {
         $data = array("employees" => $employees);
         return $this->render("listEmployees", $data);
     }   
+    
+    /**
+     * The member can update the information about himself.
+     * @return type
+     */
+      public function updateOneMemberNow() {
+
+        $memberModel = $GLOBALS["memberModel"];
+
+        $updateFirst_name = filter_input(INPUT_POST,'First_name');
+        $updateLast_name = filter_input(INPUT_POST,'Last_name');
+        $updateBirth = filter_input(INPUT_POST,'Birth');
+        $updatePhone_Number = filter_input(INPUT_POST,'Phone_Number');
+        $Membership_number = filter_input(INPUT_POST,'Membership_number');
+
+        $update = $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
+        $members = $memberModel->getOneByMemberNumber($Membership_number);
+
+        $data = array("members" => $members);
+        return $this->render("updateInformation", $data);
+    }
+    
+    /**
+     * The member himself can update the information about him.
+     * @return typ
+     */
+    public function updateOneMemberShow() {
+
+        $memberModel = $GLOBALS["memberModel"];
+        $Membership_number = filter_input(INPUT_POST, "Membership_number");
+
+        // Get the member by the membership number
+        $member = $memberModel->getOneByMemberNumber($Membership_number);
+
+        $data = array("member" => $member);
+        return $this->render("updateInformation", $data);
+    }
+    
+    
 }

@@ -1,18 +1,26 @@
 <!--MASTER SIDE-->
 <main>
+    
+     <?php
+        $searchResults = $GLOBALS["searchResults"];
+          if(isset($_REQUEST["searchKeyword"])) {
+          $searchKeyword = $_REQUEST['searchKeyword'];
+        }
+        else {
+            $searchKeyword = "";
+        }
+        ?>
 
     <div>
 
         <p> Søk etter Zaxon's medlemer. </p>
         <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
         <form method="post" action="?page=searchMember"> 
-            <input type="text" class="input-textarea" name="searchKeyword" />
+            <input type="text" class="input-textarea" name="searchKeyword" value="<?=$searchKeyword;?>" />
             <input id="submit" type="submit" value="search">
         </form>
 
-        <?php
-        $searchResults = $GLOBALS["searchResults"];
-        ?>
+       
 
         <?php
         if (!empty($searchResults)) {

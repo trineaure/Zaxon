@@ -11,7 +11,7 @@
     $Membership_number = $member['Membership_number'];
     ?>
 
-    <p> Her kan en oppdatere informasjon om medlemene i Zaxon .</p> <br>
+    <p> Her kan en oppdatere informasjon om <?php echo $_SESSION["MemberFirstName"]; ?> </p> <br>
 
 <div>
     <form method="post" action="?page=updateMemberNow">

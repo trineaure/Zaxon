@@ -1,21 +1,28 @@
 <!--MASTER SIDE-->
 <main>
+ <?php
+        $searchResults = $GLOBALS["searchResults"];
+     //   $searchKeyword = $GLOBALS["searchKeyword"];
+        if(isset($_REQUEST["searchKeyword"])) {
+          $searchKeyword = $_REQUEST['searchKeyword'];
+        }
+        else {
+            $searchKeyword = "";
+        }
+        ?>
 
+   
 
     <div>
 
         <p> Søk etter frisørene ved Zaxon </p>
 
         <form method="post" action="?page=searchEmployee"> 
-            <input type="text" class="input-textarea" name="searchKeyword" />
+            <input type="text" class="input-textarea" name="searchKeyword" value="<?=$searchKeyword;?>" />
             <input id="submit" type="submit" value="search">
         </form>
 
-        <?php
-        $searchResults = $GLOBALS["searchResults"];
-        ?>
-
-        <?php
+       <?php
 
         if (!empty($searchResults)) {
 
