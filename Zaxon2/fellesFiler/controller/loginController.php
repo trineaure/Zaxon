@@ -22,7 +22,7 @@ class loginController extends tempController {
         $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
         foreach ($members as $member) {
-            if (($member['Phone_Number'] == $givenUsername) && ($member['Login_Password'] == $givenPassword)) {
+            if (($member["Phone_Number"] == $givenUsername) && ($member["Login_Password"] == $givenPassword)) {
                 //match
                 $_SESSION["MemberAreLoggedIn"] = true;
                 $_SESSION["MemberFirstName"] = $member['First_name'];
@@ -63,8 +63,8 @@ class loginController extends tempController {
     }
 
     private function loginConfig() {
-        $givenUsername = $_REQUEST['Phone_Number'];
-        $givenPassword = $_REQUEST['Login_Password'];
+        $givenUsername = $_REQUEST["Phone_Number"];
+        $givenPassword = $_REQUEST["Login_Password"];
         // Get all members from database
 
 

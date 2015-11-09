@@ -92,7 +92,7 @@ class reservationController extends tempController {
         
         
     private function addReservationAction(){
-        $_SESSION['givenTime'] = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
+        $_SESSION["givenTime"] = filter_input(INPUT_POST,"time"); // denne skal vi bruke, istenden for $_REQUEST
         
         return $this->render("reservationComplete");
     }

@@ -1,5 +1,8 @@
 <?php
-
+//sjekker om session er startet eller ikke
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 //View layer - The same header for all pages
 require ("view/header.html");
 
