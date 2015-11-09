@@ -46,8 +46,8 @@ class reservationController extends tempController {
     
     public function searchMemberOrder() {
         $memberModel = $GLOBALS["memberModel"];
-        if (isset($_REQUEST["searchKeyword"])) {
-            $searchKeyword = $_REQUEST["searchKeyword"];
+        if (isset( filter_input(INPUT_POST,"searchKeyword"))) {
+            $searchKeyword =  filter_input(INPUT_POST,"searchKeyword");
             $members = $memberModel->searchMember($searchKeyword);
         } else {
             $members = array();
@@ -79,8 +79,8 @@ class reservationController extends tempController {
         
     private function showreservationTimeAction() {
         //session_start();
-        $_SESSION["givenEmployeeID"] = $_REQUEST["givenEmployeeID"];
-        $_SESSION["givenReservation_date"] = $_REQUEST["givenReservation_date"];
+        $_SESSION["givenEmployeeID"] =  filter_input(INPUT_POST,"givenEmployeeID");
+        $_SESSION["givenReservation_date"] =  filter_input(INPUT_POST,"givenReservation_date");
 
         $reservationModel = $GLOBALS["reservationModel"];
         $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
