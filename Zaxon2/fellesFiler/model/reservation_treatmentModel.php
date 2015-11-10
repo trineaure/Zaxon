@@ -8,9 +8,12 @@ class reservation_treatmentModel {
     
     const TABLE = "Reservation_treatment";
     const INSERT_QUERY = "INSERT INTO " . reservation_treatmentModel::TABLE . " (Reservation_number, Treatment_Name) VALUES (:Reservation_number, :Treatment_Name)";
-    const RESERVATION_QUERY = "SELECT ". reservation_treatmentModel::TABLE .".Reservation_number, Treatment_Name, EmployeeID, Reservation_Date, Time_of_Day
-                              FROM ". reservation_treatmentModel::TABLE ." WHERE Reservation.Membership_number == ?
-                              LEFT JOIN ". reservation_treatmentModel::TABLE .".Reservation_number=Reservation.Reservation_number;";
+    const RESERVATION_QUERY = " SELECT ". reservation_treatmentModel::TABLE .".Reservation_number, Treatment_Name, Reservation_Date, Time_of_Day, Employee.First_Name "
+                              . " FROM ". reservation_treatmentModel::TABLE  
+                             . " INNER JOIN Reservation ON ". reservation_treatmentModel::TABLE .".Reservation_number = Reservation.Reservation_number "
+                              . " INNER JOIN Employee ON Reservation.EmployeeID = Employee.EmployeeID "
+                            . " WHERE Reservation.Membership_number = :memberID "
+                            . " ORDER BY Reservation_Date DESC ";
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
@@ -36,8 +39,9 @@ class reservation_treatmentModel {
      * @return Array with reservations
      */
     public function getReservationInfo($memberID) {
-        $this->resStmt->execute(array($memberID));
-        return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
+        var_dump(reservation_treatmentModel::RESERVATION_QUERY);
+        $this->resStmt->execute(array(":memberID" => $memberID));
+        return $this->resStmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 }

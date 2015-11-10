@@ -16,3 +16,11 @@ SELECT Reservation_treatment.Reservation_number, Treatment_Name
  LEFT JOIN Reservation
  ON Reservation_treatment.Reservation_number=Reservation.Reservation_number;
 
+--Den riktige blir brukt her. De over er ikke brukt.
+ SELECT Reservation_treatment.Reservation_number, Treatment_Name, Reservation_Date, Time_of_Day, Employee.First_Name 
+ FROM Reservation_treatment INNER JOIN Reservation ON Reservation_treatment.Reservation_number = Reservation.Reservation_number 
+ INNER JOIN Employee ON Reservation.EmployeeID = Employee.EmployeeID 
+ WHERE Reservation.Membership_number = 10001 
+ ORDER BY Reservation_Date DESC 
+--Membership_number er ikke tall men en variabel når den er i model
+

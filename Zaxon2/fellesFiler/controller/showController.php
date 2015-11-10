@@ -39,19 +39,15 @@ class showController extends tempController {
         $data = array("included_employee" => $included_employee);
         return $this->render("showEmployee", $data);
     }
+    
     /**
      * Shows the reservations to a member,
      * @return $this->render("myReservations")
      */
     public function showMyReservations($memberID){
        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
-       $reservations = $reservation_treatmentModel->getReservationInfo($memberID);
-       $employeeModel = $GLOBALS["employeeModel"];
-       $employeeName = $employeeModel->getOneByEmployeeID($reservations["EmployeeID"]);
-       array_push($reservations, $employeeName);
-        return $this->render("myReservations", $reservations);
-    }
-    
-            
+       $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
+        return $this->render("myReservations");
+    }         
 
 }
