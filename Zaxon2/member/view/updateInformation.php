@@ -5,8 +5,7 @@
     }
     ?>
 
-    <p> <?php echo $_SESSION["MemberFirstName"]; ?>
-        : Her kan du endre informasjon om deg selv.</p> <br>
+    <p> Her kan du oppdatere informasjon om deg selv.</p> <br>
 
     <div>
         <form method="post" action="?page=updateInformationNow">
