@@ -12,7 +12,6 @@
            <td>Behandling:</td>
        </tr>
     <?php
-    var_dump($reservations);
         foreach($reservations as $res) { ?>
            
            <tr>

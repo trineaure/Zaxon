@@ -39,7 +39,6 @@ class reservation_treatmentModel {
      * @return Array with reservations
      */
     public function getReservationInfo($memberID) {
-        var_dump(reservation_treatmentModel::RESERVATION_QUERY);
         $this->resStmt->execute(array(":memberID" => $memberID));
         return $this->resStmt->fetchAll(PDO::FETCH_ASSOC);
     }
