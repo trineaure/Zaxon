@@ -14,9 +14,10 @@ class memberModel {
     const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search OR Birth LIKE :searchB OR First_name LIKE :searchFN OR Last_name LIKE :searchLN";
     const DELETE_QUERY = "DELETE FROM " . memberModel::TABLE . " WHERE Membership_number = ?";
     const UPDATE_QUERY = "UPDATE " . memberModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number WHERE Membership_number = :Membership_number";
-    
+
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
+
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
     //select a number
@@ -126,6 +127,5 @@ class memberModel {
         $this->selNumber->execute();
         return $this->selNumber->fetchAll(PDO::FETCH_ASSOC);
     }
-    
 
 }

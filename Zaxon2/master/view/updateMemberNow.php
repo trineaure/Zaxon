@@ -18,12 +18,11 @@
 
     <p> Her kan en Oppdatere medlemene i Zaxon, eller velge å redigere dem.</p>
 
-
     <table id="submit" type="delete" value="delete">
 
         <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> <td> Rediger </td>  <td>  Slett </td> </tr>";
         ?>
-        <tr>
+        <tr>             
             <td> <?php echo $up["First_name"] ?> </td>
             <td> <?php echo $up["Last_name"] ?> </td>
             <td> <?php echo $up["Birth"] ?> </td>
