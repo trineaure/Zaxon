@@ -11,15 +11,27 @@
            <td>Frisør:</td>
            <td>Behandling:</td>
        </tr>
-    <?php
+    <?php  $rNr = NULL;
         foreach($reservations as $res) { ?>
+
+               <?php
+               if (($res["Reservation_number"] != $rNr)||($rNr == NULL)) {?>
+                  <tr>
+                     <td> <?php echo $res["Reservation_Date"] ?> </td>
+                     <td> <?php echo "Kl. ". date("H:i", strtotime( $res["Time_of_Day"])) ?> </td>
+                     <td> <?php echo $res["First_Name"] ?> </td>
+                     <?php $rNr = $res["Reservation_number"];
+                     }  ?> <td> 
+               <?php 
+               
+              if ($res["Reservation_number"] == $rNr) { 
+                   echo $res["Treatment_Name"] . " \n ";   
+               } 
+               else {  ?>
+                 </td> 
+                  </tr> <?php } ?>
+               
            
-           <tr>
-               <td> <?php echo $res["Reservation_Date"] ?> </td>
-               <td> <?php echo $res["Time_of_Day"] ?> </td>
-               <td> <?php echo $res["First_Name"] ?> </td>
-               <td> <?php echo $res["Reservation_Date"] ?> </td>
-           </tr>
        <?php }  ?>
     </table> 
           <?php }  
