@@ -25,6 +25,7 @@ Home_Address nvarchar(150) NOT NULL,
 Zip_Code varchar(10) NOT NULL,
 Login_Password nvarchar(30) NOT NULL,
 Extended_Access int NOT NULL,
+Employee_Photo int NOT NULL,
 
 CONSTRAINT EmployeePK PRIMARY KEY (EmployeeID)
 );
@@ -34,7 +35,7 @@ CREATE TABLE Reservation
 (
 Reservation_number int IDENTITY(1,1),
 Reservation_Date date NOT NULL,
-Time_of_Day time NOT NULL,
+Time_of_Day time(2) NOT NULL,
 Membership_number int,
 EmployeeID int,
 

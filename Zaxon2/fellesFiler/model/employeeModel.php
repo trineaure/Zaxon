@@ -7,7 +7,7 @@ class employeeModel {
 
     const TABLE = "Employee";
     const SELECT_ALL_QUERY = "SELECT * FROM " . employeeModel::TABLE;
-    const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . " (First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access)";
+    const INSERT_QUERY = "INSERT INTO " . employeeModel::TABLE . " (First_name, Last_name, Birth, Phone_Number, Home_Address, Zip_Code, Login_Password, Extended_Access, Employee_Photo) VALUES (:First_name, :Last_name, :Birth, :Phone_Number, :Home_Address, :Zip_Code, :Login_Password, :Extended_Access, :Employee_Photo)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . employeeModel::TABLE;
     const SELECT_ONE_EMPLOYEE = "SELECT * FROM " . employeeModel::TABLE . " WHERE EmployeeID = :EmployeeID";
     const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
@@ -122,7 +122,7 @@ class employeeModel {
      *
      * @return bool true on success, false otherwise
      */
-    public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access) {
+    public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo) {
         return $this->addStmt->execute
                         (array("First_name" => $givenF_Name,
                     "Last_name" => $givenL_Name,
@@ -131,7 +131,8 @@ class employeeModel {
                     "Home_Address" => $givenHome_Address,
                     "Zip_Code" => $givenZip_Code,
                     "Login_Password" => $givenLogin_Password,
-                    "Extended_Access" => $givenExtended_Access));
+                    "Extended_Access" => $givenExtended_Access,
+                    "Employee_Photo" => $givenEmployee_Photo));
     }
 
     /**
