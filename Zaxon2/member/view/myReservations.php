@@ -21,16 +21,17 @@
                      <td> <?php echo "Kl. ". date("H:i", strtotime( $res["Time_of_Day"])) ?> </td>
                      <td> <?php echo $res["First_Name"] ?> </td>
                      <?php $rNr = $res["Reservation_number"];
-                     }  ?> <td> 
-               <?php 
+                     ?> <td> <?php
+                     } 
                
               if ($res["Reservation_number"] == $rNr) { 
-                   echo $res["Treatment_Name"] . " \n ";   
+                  echo $res["Treatment_Name"] .", " ;
                } 
                else {  ?>
+                 
                  </td> 
                   </tr> <?php } ?>
-               
+                  
            
        <?php }  ?>
     </table> 
