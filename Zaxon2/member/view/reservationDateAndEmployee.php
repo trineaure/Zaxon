@@ -18,9 +18,9 @@
                 <tr> <td>  <label<?php echo $tempEmployee["First_name"] ?> </td>                           
                     <td>  <input type="radio" class="regular-radio" value="<?php echo $tempEmployee["EmployeeID"]; ?>" name="givenEmployeeID" required></label>
                 <?php if($tempEmployee["Employee_Photo"] == 1){ ?>  
-                            <img src="../fellesFiler/bilder/employees/<?php echo $tempEmployee["Phone_Number"]; ?>.jpg" width="110" height="90"></td> </tr>          
+                            <img src="../fellesFiler/bilder/employees/<?php echo $tempEmployee["Phone_Number"]; ?>.jpg" width="150" height="160"></td> </tr>          
                 <?php } else { ?>
-                            <img src="../fellesFiler/bilder/employees/noPhoto.jpg" width="110" height="90"></td> </tr>                        
+                            <img src="../fellesFiler/bilder/employees/noPhoto.jpg" width="150" height="160"></td> </tr>                        
                 <?php }} ?>
                 </table>   
                 <p><input type="text" id="datetimepicker3" placeholder="1995-06-26" name="givenReservation_date" required/></p>
