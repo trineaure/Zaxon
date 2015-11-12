@@ -134,6 +134,7 @@ class updateController extends tempController {
         // Get the member by the membership number
         $member = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
 
+        // put the information abouth the member in an array and sends it to the updateInformation site.
         $data = array("member" => $member);
         return $this->render("updateInformation", $data);
     }

@@ -20,25 +20,31 @@ class memberModel {
 
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
-    //select a number
+
+    /** @var PDOStatment Statment for selecting entries by the Membership Nr. */
     private $selNumber;
-    // select by one member by the phone number
-    private $selOne;
-    //selct one member by the membership number
+
+    /** @var PDOStatment Statment for selecting an entrie by the Membership Number */
     private $selMember;
-    //Search a member through the database
+
+    /** @var PDOStatment Statment for searching an entrie by the firstname, lastname, birth, phonenumber */
     private $search;
-    // delete a member from the database.
+
+    /** @var PDOStatment Statment for deleting an entrie by the Membership Number */
     private $delete;
-    //Update the infromation about member 
+
+    /** @var PDOStatment Statment for updating an entrie with all the information */
     private $update;
 
+    /**
+     * Constructor of the Class memberModel
+     * @param PDO $dbConn - The connection to the database
+     */
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
         $this->addStmt = $this->dbConn->prepare(memberModel::INSERT_QUERY);
         $this->selStmt = $this->dbConn->prepare(memberModel::SELECT_ALL_QUERY);
         $this->selNumber = $this->dbConn->prepare(memberModel::SELECT_QUERY);
-
         $this->selMember = $this->dbConn->prepare(memberModel::SELECT_ONE_MEMBER);
         $this->search = $this->dbConn->prepare(memberModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(memberModel::DELETE_QUERY);
@@ -46,9 +52,9 @@ class memberModel {
     }
 
     /**
-     * Update information about the member in the database. 
+     * Update information about the member and convert it to an array
      * @param type $updateFirst_name,$updateLast_name, $updateBirth,$updatePhone_Number, $updateLogin_Password
-     * @return an arraylist with the new information about the Member
+     * @return the new information about the Member.
      */
     public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number) {
 
@@ -62,9 +68,9 @@ class memberModel {
     }
 
     /**
-     * Delete a member from the database. 
-     * @param  $deleteMember
-     * @return an array of the $deletedMember
+     * Delete a member 
+     * @param type $deleteMember
+     * @return type
      */
     public function deleteMember($deleteMember) {
 
@@ -74,7 +80,7 @@ class memberModel {
     /**
      * Search after a member by a searchkeyword
      * @param $searchKeyword
-     * @return 
+     * @return  the Member that matches the $searchKeyword's information that is given.
      */
     public function searchMember($searchKeyword) {
 
@@ -87,9 +93,9 @@ class memberModel {
     }
 
     /**
-     * 
+     * Select one Member by its Membership Number
      * @param type $memberNumber
-     * @return type
+     * @return the Member that matches the Membership_Number
      */
     public function getOneByMemberNumber($memberNumber) {
         $this->selMember->execute(array(
@@ -110,8 +116,8 @@ class memberModel {
 
     /**
      * Adds a new member to Zaxon 
-     * @param Firstname, lastname, birth, phone_number and login password. 
-     * @return an array with the informatiob about the member. 
+     * @param $givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password. 
+     * @return bool true on success, false otherwise
      */
     public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password) {
 
@@ -120,7 +126,7 @@ class memberModel {
 
     /**
      * Get all the phone numbers of the members of Zaxon.
-     * @return fetch all numbers
+     * @return an array in associative array.
      */
     public function getAllNumbers() {
 

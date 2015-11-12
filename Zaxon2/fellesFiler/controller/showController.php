@@ -18,13 +18,16 @@ class showController extends tempController {
       
     }
 
-    /**
-     * Function that show all the members in Zaxon
-     */
+   /**
+    * 
+    * @return type
+    */
     public function showMembers() {
         $memberModel = $GLOBALS["memberModel"];
+        // Get all of the members from the db.
         $included_members = $memberModel->getAll();
         $data = array("included_members" => $included_members);
+        // render the page showMembers and bring with the array $data
         return $this->render("showMembers", $data);
     }
 

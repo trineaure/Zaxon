@@ -19,17 +19,20 @@ class employeeModel {
 
     /** @var PDOStatement Statement for adding new entries */
     private $addStmt;
-    // select one number in the database.
+
+    /** @var PDOStatement Statement for secting an existing entry */
     private $selNumber;
-    // select one query in the database
-    private $selOne;
-    // select one employee bu the EmployeeID
+
+    /** @var PDOStatement Statement for selcting an existing entriey by the EmployeeID */
     private $selEmployee;
-    // search on query in the database. 
+
+    /** @var PDOStatement Statement for searching through the existing entries by First_name, Last_name, Birth, Phone_Number, Home_Address and Zip_Code */
     private $search;
-    // delete on query in the database. 
+
+    /** @var PDOStatement Statement for deleting an exisiting entriy */
     private $delete;
-    // update on query in the database.
+
+    /** @var PDOStatement Statement for updating information about an existing entriy. */
     private $update;
 
     //Constructor for the class employeeModel
@@ -49,24 +52,24 @@ class employeeModel {
 
     /**
      * Update information about the employee in the database.
-     * @param type $updateFirst_name,$updateLast_name,$updateBirth,$updatePhone_Number,$updateHome_Address
-     * @param type $updateZip_Code,$EmployeeID
+     * @param type $updateFirst_name,$updateLast_name,$updateBirth,$updatePhone_Number,$updateHome_Address, $updateZip_Code,$EmployeeID
+     * @return the new information about the Employee
      */
-    public function updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID){
-       
+    public function updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID) {
+
         return $this->update->execute(array(
-            ":First_name" => $updateFirst_name,
-            ":Last_name" => $updateLast_name,
-            ":Birth" => $updateBirth,
-            ":Phone_Number" => $updatePhone_Number,
-            ":Home_Address" => $updateHome_Address,
-            ":Zip_Code" => $updateZip_Code,
-            ":EmployeeID" => $EmployeeID         
+                    ":First_name" => $updateFirst_name,
+                    ":Last_name" => $updateLast_name,
+                    ":Birth" => $updateBirth,
+                    ":Phone_Number" => $updatePhone_Number,
+                    ":Home_Address" => $updateHome_Address,
+                    ":Zip_Code" => $updateZip_Code,
+                    ":EmployeeID" => $EmployeeID
         ));
     }
-    
+
     /**
-     * Deletes an employee from the database.
+     * Deletes an employee.
      * @param type $deleteEmployee
      * @return type
      */
@@ -74,12 +77,12 @@ class employeeModel {
 
         return $this->delete->execute(array($deleteEmployee));
     }
-    
-/**
- * Search through the employees in the database.
- * @param type $searchKeyword
- * @return type
- */
+
+    /**
+     * Search through the employees.
+     * @param type $searchKeyword
+     * @return the Employee that matches the $searchKeyword's information that is given.
+     */
     public function searchEmployee($searchKeyword) {
 
         $this->search->execute(array(":search" => "%$searchKeyword%",
@@ -91,11 +94,11 @@ class employeeModel {
         ));
         return $this->search->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     /**
      * Get one Employee by the employeeID
      * @param type $employeeID
-     * @return type
+     * @return the employee with the EmployeeID that is given.
      */
     public function getOneByEmployeeID($EmployeeID) {
         $this->selEmployee->execute(array(
@@ -114,12 +117,9 @@ class employeeModel {
         return $this->selStmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
     /**
-     * Try to add a new customer
-     *
-     * @param $name
-     *
+     * Try to add a new Employee
+     * @param $givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo)
      * @return bool true on success, false otherwise
      */
     public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo) {
@@ -137,7 +137,7 @@ class employeeModel {
 
     /**
      * Get all the phoneNumbers in the database. 
-     * @return type
+     * @return array in associative form.
      */
     public function getAllNumbers() {
         $this->selNumber->execute();
