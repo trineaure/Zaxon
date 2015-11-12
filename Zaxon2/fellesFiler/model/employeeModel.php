@@ -52,8 +52,8 @@ class employeeModel {
 
     /**
      * Update information about the employee in the database.
-     * @param type $updateFirst_name,$updateLast_name,$updateBirth,$updatePhone_Number,$updateHome_Address, $updateZip_Code,$EmployeeID
-     * @return the new information about the Employee
+     * @param String $updateFirst_name,$updateLast_name,$updateBirth,$updatePhone_Number,$updateHome_Address, $updateZip_Code,$EmployeeID
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID) {
 
@@ -70,8 +70,8 @@ class employeeModel {
 
     /**
      * Deletes an employee.
-     * @param type $deleteEmployee
-     * @return type
+     * @param Sting $deleteEmployee
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function deleteEmployee($deleteEmployee) {
 
@@ -80,8 +80,8 @@ class employeeModel {
 
     /**
      * Search through the employees.
-     * @param type $searchKeyword
-     * @return the Employee that matches the $searchKeyword's information that is given.
+     * @param String $searchKeyword
+     * @return array with the Employee that matches the $searchKeyword's information that is given.
      */
     public function searchEmployee($searchKeyword) {
 
@@ -97,8 +97,8 @@ class employeeModel {
 
     /**
      * Get one Employee by the employeeID
-     * @param type $employeeID
-     * @return the employee with the EmployeeID that is given.
+     * @param String $employeeID
+     * @return array with the employee with the EmployeeID that is given.
      */
     public function getOneByEmployeeID($EmployeeID) {
         $this->selEmployee->execute(array(
@@ -119,7 +119,7 @@ class employeeModel {
 
     /**
      * Try to add a new Employee
-     * @param $givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo)
+     * @param String $givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo)
      * @return bool true on success, false otherwise
      */
     public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo) {
@@ -143,5 +143,4 @@ class employeeModel {
         $this->selNumber->execute();
         return $this->selNumber->fetchAll(PDO::FETCH_ASSOC);
     }
-
 }

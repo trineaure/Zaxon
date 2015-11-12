@@ -52,9 +52,9 @@ class memberModel {
     }
 
     /**
-     * Update information about the member and convert it to an array
-     * @param type $updateFirst_name,$updateLast_name, $updateBirth,$updatePhone_Number, $updateLogin_Password
-     * @return the new information about the Member.
+     * Update information about the member in the database.
+     * @param String $updateFirst_name,$updateLast_name, $updateBirth,$updatePhone_Number, $updateLogin_Password
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number) {
 
@@ -68,9 +68,9 @@ class memberModel {
     }
 
     /**
-     * Delete a member 
-     * @param type $deleteMember
-     * @return type
+     * Delete a member from the database.
+     * @param String $deleteMember
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function deleteMember($deleteMember) {
 
@@ -79,8 +79,8 @@ class memberModel {
 
     /**
      * Search after a member by a searchkeyword
-     * @param $searchKeyword
-     * @return  the Member that matches the $searchKeyword's information that is given.
+     * @param String $searchKeyword
+     * @return array with the Member that matches the $searchKeyword's information that is given.
      */
     public function searchMember($searchKeyword) {
 
@@ -94,8 +94,8 @@ class memberModel {
 
     /**
      * Select one Member by its Membership Number
-     * @param type $memberNumber
-     * @return the Member that matches the Membership_Number
+     * @param String $memberNumber
+     * @return array with the Member that matches the Membership_Number
      */
     public function getOneByMemberNumber($memberNumber) {
         $this->selMember->execute(array(
@@ -117,7 +117,7 @@ class memberModel {
     /**
      * Adds a new member to Zaxon 
      * @param $givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password. 
-     * @return bool true on success, false otherwise
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password) {
 

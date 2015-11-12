@@ -4,50 +4,49 @@ require_once("tempController.php");
 
 //Represents home page
 class memberController extends tempController {
+
     /**
      * Render "Home" View
-     * Checks if the page is member or memberAdd, and if it is
-     * 
-     *@param string $page
+     * Checks if the page is memberAdd or memberAdded, and if it is 
+     * use the functions.
+     * @param string $page
      */
     public function show($page) {
-        if($page == "memberAdd")
-            {
-            $this ->showMemberAction();
-            }           
-        if ($page == "memberAdded")
-            {
-            $this ->addMemberAction();
-            }
-        
-      }
-      
+        if ($page == "memberAdd") {
+            $this->showMemberAction();
+        }
+        if ($page == "memberAdded") {
+            $this->addMemberAction();
+        }
+    }
+
     /**
      * Gets cusomers from CustomerModel and inserts them into cusomer template
      * @return bool true on success.
      */
     private function showMemberAction() {
-        
-           $data2 = array( "feiltlf" => false, "tlfnummer" => 0);
-            return $this->render("memberAdd",$data2);
-       }
-       
-     /**
-      * 
-      * given
-      * Adding a member to the database
-      * @return type
-      */       
-    private function addMemberAction(){
-        $givenFirst_Name = filter_input(INPUT_POST,"givenFirst_name");
-        $givenLastName = filter_input(INPUT_POST,"givenLast_name");
-        $givenBirth = filter_input(INPUT_POST,"givenBirth");
-        $givenPhone_Number = filter_input(INPUT_POST,"givenPhone_Number");
-        $givenLogin_Password = filter_input(INPUT_POST,"givenLogin_Password");
-        
+
+        $data2 = array("feiltlf" => false, "tlfnummer" => 0);
+        return $this->render("memberAdd", $data2);
+    }
+
+    /**
+     * Adding a member to the database and checks if the number they try to type
+     * is already used. 
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * if Phone_Number is already used render to memberAdd
+     * else complete the adding of a member and render to memeberAdded
+     */
+    private function addMemberAction() {
+        $givenFirst_Name = filter_input(INPUT_POST, "givenFirst_name");
+        $givenLastName = filter_input(INPUT_POST, "givenLast_name");
+        $givenBirth = filter_input(INPUT_POST, "givenBirth");
+        $givenPhone_Number = filter_input(INPUT_POST, "givenPhone_Number");
+        $givenLogin_Password = filter_input(INPUT_POST, "givenLogin_Password");
+
         $memberModel = $GLOBALS["memberModel"];
         $numbers = $memberModel->getAllNumbers();
-        
+
         //check's if there are any phone number = $givePhone_number 
         // if true. Render the page again.   
         foreach ($numbers as $number) {
@@ -60,12 +59,15 @@ class memberController extends tempController {
                 return $this->render("memberAdd", $data2);
             }
         }
+        // Add the information about the member
         $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
 
+        // put the information in an array 
         $data = array(
             "added" => $added,
         );
 
+        // send the information to the page
         return $this->render("memberAdded", $data);
     }
 
