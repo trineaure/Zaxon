@@ -25,7 +25,6 @@
                             <?php $rNr = $res["Reservation_number"]; ?> 
                         <td> <?php
                         }
-
                         if ($res["Reservation_number"] == $rNr) {
                             echo $res["Treatment_Name"] . ", ";
                         } else {

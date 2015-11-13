@@ -35,8 +35,8 @@
         ?>
 
         <p> Nei uff! Her skjedde det noe galt.</p> 
+        <p> Husk å velge en behandling! </p>
         <p> Venligs gå tilbake og prøv igjen. </p> 
-        <br> 
         <p> Mvh. </p> 
         <p>Zaxon </p> 
         <div  id="big">
@@ -52,15 +52,21 @@
 
     $('#datetimepicker3').datetimepicker({
         inline: true
+       
     });
 //Viser bare uker
     $('#datetimepicker3').datetimepicker({
         lang: 'no',
         timepicker: false,
         format: 'Y-m-d',
-        formatDate: 'Y-m-d'
+        formatDate: 'Y-m-d',
+        startDate:new Date(),
+        scrollMonth: false
+        
 
-
+    });
+    $('#datetimepicker3').datetimepicker({ 
+        minDate: 0
     });
 
 </script>

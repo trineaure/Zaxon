@@ -4,9 +4,12 @@
 <?php
 //Lagrer alle tider som ikke er tilgjengelige
 $unavailableTimes = $_SESSION["timeIn"];
+foreach ($unavailableTimes as $tempTime){
 ?>
+<?php echo date("'H:i'", strtotime($tempTime["Time_of_Day"])); } ?>     
      
-     <script>
+     
+     <script> 
 $(document).ready(function() {
     updateTimes();
     });

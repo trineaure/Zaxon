@@ -82,7 +82,7 @@ class loginController extends tempController {
 
         //error message
         if (($_SESSION["MemberAreLoggedIn"] == false) || ($_SESSION["EmployeeAreLoggedIn"] == false) || ($_SESSION["MasterAreLoggedIn"] == false)) {
-            return $this->render("aboutus");
+            return $this->render("loginError");
         }
     }
 

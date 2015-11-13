@@ -41,6 +41,7 @@ class Router {
             case "order":
                 return new reservationController();
             
+            case "loginError":
             case "login":
             case "loginConfig":
                 return new loginController();
