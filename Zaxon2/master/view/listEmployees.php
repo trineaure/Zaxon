@@ -1,7 +1,7 @@
 <!--MASTER SIDE-->
 <main>
     <?php
-    $employees = $GLOBALS["employees"];
+    $employees = $GLOBALS["included_employees"];
     ?>
 
     <script>

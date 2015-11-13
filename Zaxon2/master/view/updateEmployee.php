@@ -15,7 +15,7 @@
 
     <p> Her kan en oppdatere informasjon om de ansatte i Zaxon .</p> <br>  
 <div>
-    <form method="post" action="?page=updateEmployeeNow">
+    <form method="post" action="?page=updateEmployeeAction">
         Fornavn: <input type="text" class="input-textarea"  name="First_name" value="<?php echo $updateFirst_name ?>"> <br />
         Etternavn: <input type="text" class="input-textarea" name="Last_name" value="<?php echo $updateLast_name ?>"> <br />
         Fødselsdag: <input type="text" class="input-textarea" name="Birth" value="<?php echo $updateBirth ?>"> <br />

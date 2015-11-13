@@ -6,22 +6,41 @@ class updateController extends tempController {
 
     public function show($page) {
         if ($page == "updateMember") {
-            $this->updateMemberShow();
+            $this->getMemberUpdate();
+        }
+        if ($page == "updateMemberAction") {
+            $this->updateMember();
         }
         if ($page == "updateEmployee") {
-            $this->updateEmployeeShow();
+            $this->getEmployeeUpdate();
         }
-        if ($page == "updateMemberNow") {
-            $this->updateMemberNow();
-        }
-        if ($page == "updateEmployeeNow") {
-            $this->updateEmployeeNow();
+        if($page == "updateEmployeeAction") {
+            $this->updateEmployee();
         }
         if ($page == "updateInformation") {
-            $this->updateOneMemberShow();
-        } // checks if the page is the updateInformation
-        if ($page == "updateInformationNow") {
-            $this->updateOneMemberNow();
+            $this->getOneMemberUpdate();
+        } 
+        if ($page == "addUpdate") {
+            $this->updateOneMember();
+        }
+        if ($page == "myInfo") {
+            $this->getMemberInfo();
+            $this->render("myInfo");
+        }
+        if ($page == "myReservations") {
+            $this->showMyReservations($_SESSION["MembershipNumber"]);
+        }
+        if ($page == "listMembers") {
+            $this->showMembers();
+        } 
+        if ($page == "listEmployees") {
+            $this->showEmployee();
+        } 
+        if ($page == "deleteMemberNow") {
+            $this->deleteMemberNow();
+        } 
+        if ($page == "deleteEmployeeNow") {
+            $this->deleteEmployeeNow();
         }
     }
 
@@ -30,7 +49,7 @@ class updateController extends tempController {
      * @return the array with the member and render to the updateMember page.
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function updateMemberShow() {
+    public function getMemberUpdate() {
 
         $memberModel = $GLOBALS["memberModel"];
         $Membership_number = filter_input(INPUT_POST, "Membership_number");
@@ -46,7 +65,7 @@ class updateController extends tempController {
      * Shows the information about the employee before we can change it.
      * @return type
      */
-    public function updateEmployeeShow() {
+    public function getEmployeeUpdate() {
 
         $employeeModel = $GLOBALS["employeeModel"];
         $employeeID = filter_input(INPUT_POST, "EmployeeID");
@@ -62,7 +81,7 @@ class updateController extends tempController {
      * Update the information about the member
      * @return type
      */
-    public function updateMemberNow() {
+    public function updateMember() {
 
         $memberModel = $GLOBALS["memberModel"];
 
@@ -73,18 +92,18 @@ class updateController extends tempController {
         $updatePhone_Number = filter_input(INPUT_POST, 'Phone_Number');
         $Membership_number = filter_input(INPUT_POST, 'Membership_number');
 
-        $update = $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
-        $members = $memberModel->getAll();
+        $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
+        $GLOBALS["included_members"] = $memberModel->getAll();
 
-        $data = array("members" => $members);
-        return $this->render("listMembers", $data);
+        //$data = array("members" => $members);
+        return $this->render("listMembers");
     }
 
     /**
      * Update the information about the Employee
      * @return type
      */
-    public function updateEmployeeNow() {
+    public function updateEmployee() {
 
         $employeeModel = $GLOBALS["employeeModel"];
 
@@ -97,17 +116,16 @@ class updateController extends tempController {
         $EmployeeID = filter_input(INPUT_POST, 'EmployeeID');
 
         $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
-        $employees = $employeeModel->getAll();
+        $GLOBALS["included_employees"] = $employeeModel->getAll();
 
-        $data = array("employees" => $employees);
-        return $this->render("listEmployees", $data);
+        return $this->render("listEmployees");
     }
 
     /**
      * The member can update the information about himself.
      * @return type
      */
-    public function updateOneMemberNow() {
+    public function updateOneMember() {
 
         $memberModel = $GLOBALS["memberModel"];
 
@@ -117,27 +135,96 @@ class updateController extends tempController {
         $updatePhone_Number = filter_input(INPUT_POST, 'Phone_Number');
         $Membership_number = filter_input(INPUT_POST, 'Membership_number');
 
-        $update = $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
+        $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
         $member = $memberModel->getOneByMemberNumber($Membership_number);
 
         $data = array("member" => $member);
-        return $this->render("updateInformation", $data);
+        return $this->render("myInfo", $data);
     }
 
     /**
      * The member himself can update the information about him.
      * @return typ
      */
-    public function updateOneMemberShow() {
+    public function getOneMemberUpdate() {
+        // Get the member by the membership number
+        $this->getMemberInfo();
+        return $this->render("updateInformation");
+    }
+    
+    /*
+     * Returns the info of the member who is logged in. 
+     */
+    public function getMemberInfo() {
+        $memberModel = $GLOBALS["memberModel"];
+        // Get the member by the membership number
+        $GLOBALS["member"] = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
+    }
+    
+    /**
+     * Show all the Members in the database.
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * Render to the new page, listMembers
+     */
+    public function showMembers() {
+        $memberModel = $GLOBALS["memberModel"];
+        // Get all of the members from the db.
+        $included_members = $memberModel->getAll();
+        $data = array("included_members" => $included_members);
+        return $this->render("listMembers", $data);
+    }
+
+    /**
+     * Shows all the employee's in Zaxon.
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * Render to the new page, listEmployee
+     */
+    public function showEmployee() {
+        $employeeModel = $GLOBALS["employeeModel"];
+
+        // get all the employees from the db.
+        $included_employee = $employeeModel->getAll();
+        $data = array("included_employees" => $included_employee);
+        return $this->render("listEmployees", $data);
+    }
+
+    /**
+     * Shows the reservations to a member,
+     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * Render to the new page, myReservations
+     * @return $this->render("myReservations")
+     */
+    public function showMyReservations($memberID) {
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
+        return $this->render("myReservations");
+    }
+    
+    /**
+     * Delte the member from the database.
+     * 
+     */
+    public function deleteMemberNow() {
 
         $memberModel = $GLOBALS["memberModel"];
-        
-        // Get the member by the membership number
-        $member = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
+        if (isset($_REQUEST['membershipnr'])) {
+            $membershipnr = $_REQUEST['membershipnr'];
+            $memberModel->deleteMember($membershipnr);
+        }
+        $this->deleteMember();
+    }
+    
+    /**
+     * Delete a employee from the database.
+     */
+    public function deleteEmployeeNow() {
 
-        // put the information abouth the member in an array and sends it to the updateInformation site.
-        $data = array("member" => $member);
-        return $this->render("updateInformation", $data);
+        $employeeModel = $GLOBALS["employeeModel"];
+        if (isset($_REQUEST['employeeID'])) {
+            $employeeID = $_REQUEST['employeeID'];
+            $employeeModel->deleteEmployee($employeeID);
+        }
+        $this->deleteEmployee();
     }
 
 }

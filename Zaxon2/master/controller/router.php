@@ -35,25 +35,28 @@ class Router {
             case "contact":
                 return new contactController();
 
-            case "showMembers":
-            case "showEmployee":
-                return new showController();
+//            case "showMembers":
+//            case "showEmployee":
+//                return new showController();
 
             case "searchMember":
             case "searchEmployee":
                 return new searchController();
 
+//            case "listMembers":
+//            case "deleteMemberNow":
+//            case "listEmployees":
+//            case "deleteEmployeeNow":
+//                return new deleteController();
+
             case "listMembers":
             case "deleteMemberNow":
             case "listEmployees":
             case "deleteEmployeeNow":
-                return new deleteController();
-
-
             case "updateMember":
-            case "updateMemberNow":
+            case "updateMemberAction":
             case "updateEmployee":
-            case "updateEmployeeNow":
+            case "updateEmployeeAction":
                 return new updateController();
 
             case "memberAdd":

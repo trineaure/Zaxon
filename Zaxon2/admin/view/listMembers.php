@@ -1,7 +1,7 @@
 <!--ADMIN SIDE-->
 <main>
     <?php
-    $members = $GLOBALS["members"];
+    $members = $GLOBALS["included_members"];
     ?>
 
     <script>
@@ -18,11 +18,8 @@
         <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> <td> Rediger </td>  <td>  Slett </td> </tr>";
         ?>
 
-        <?php foreach ($members as $member) { ?>
-
-            <!--<form onSubmit="return confirm_alert(this)" action="?page=deleteMember" method="post">-->    
-            <tr>
-
+        <?php foreach ($members as $member) { ?>    
+            <tr> 
                 <td> <?php echo $member["First_name"] ?> </td>
                 <td> <?php echo $member["Last_name"] ?> </td>
                 <td> <?php echo $member["Birth"] ?> </td>

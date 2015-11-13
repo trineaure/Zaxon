@@ -8,7 +8,7 @@
     <p> Her kan du oppdatere informasjon om deg selv.</p> <br>
 
     <div>
-        <form method="post" action="?page=updateInformationNow">
+        <form method="post" action="?page=addUpdate">
             Fornavn: <input type="text" class="input-textarea" name="First_name" value="<?php echo $member['First_name']; ?>"> <br />
             Etternavn: <input type="text" class="input-textarea" name="Last_name" value="<?php echo $member['Last_name']; ?>"> <br />
             Fødselsdag: <input type="text" class="input-textarea" name="Birth" value=" <?php echo $member['Birth']; ?>"> <br />

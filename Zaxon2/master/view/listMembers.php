@@ -1,7 +1,7 @@
 <!--MASTER SIDE-->
 <main>
     <?php
-    $members = $GLOBALS["members"];
+    $members = $GLOBALS["included_members"];
     ?>
 
     <script>
@@ -51,3 +51,4 @@
 
 </main>
 
+ 

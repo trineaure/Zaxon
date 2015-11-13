@@ -36,15 +36,16 @@ class Router {
             case "contact":
                 return new contactController();
 
-            case "showEmployee":
-                return new showController();
-
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
 
+            case "myInfo":
+            case "myReservations":
             case "updateInformation":
-            case "updateInformationNow":
+            case "showEmployee":
+            case "updateInformation":
+            case "addUpdate":
                 return new updateController();
 
 
@@ -55,9 +56,6 @@ class Router {
             case "reservationComplete":
             case "reservationTreatmentFinish" :
                 return new reservationController();
-
-            case "myReservations":
-                return new showController();
 
             case "home":
             default:

@@ -12,7 +12,7 @@
 
     <p> Her kan en oppdatere informasjon om medlemene i Zaxon .</p> <br>
 <div>
-    <form method="post" action="?page=updateMemberNow">
+    <form method="post" action="?page=updateMemberAction">
         Fornavn: <input type="text" class="input-textarea" name="First_name" value="<?php echo $updateFirst_name ?>"> <br />
         Etternavn: <input type="text" class="input-textarea" name="Last_name" value="<?php echo $updateLast_name ?>"> <br />
         Fødselsdag: <input type="text" class="input-textarea" name="Birth" value="<?php echo $updateBirth ?>"> <br />
