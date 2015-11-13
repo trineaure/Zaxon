@@ -18,7 +18,6 @@ class searchController extends tempController {
 
     /**
      * Searches through all the members by its Membership_Number
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * if true; render page searchMember, else return empty array
      */
     public function searchMember() {
@@ -36,7 +35,6 @@ class searchController extends tempController {
     /**
      * Searches through all of the Employee's and shows the correct employee
      * by its EmployeeID
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      * if true; render page searchEmployee, else return empty array.
      */
     public function searchEmployee() {

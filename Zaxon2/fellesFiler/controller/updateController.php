@@ -47,7 +47,6 @@ class updateController extends tempController {
     /**
      * Show the informatin about the Member in Zaxon.
      * @return the array with the member and render to the updateMember page.
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
     public function getMemberUpdate() {
 
@@ -143,8 +142,8 @@ class updateController extends tempController {
     }
 
     /**
-     * The member himself can update the information about him.
-     * @return typ
+     * Get the information from getMemberInfo, and 
+     * @return Render to the new page, updateInformation
      */
     public function getOneMemberUpdate() {
         // Get the member by the membership number
@@ -156,6 +155,7 @@ class updateController extends tempController {
      * Returns the info of the member who is logged in. 
      */
     public function getMemberInfo() {
+        
         $memberModel = $GLOBALS["memberModel"];
         // Get the member by the membership number
         $GLOBALS["member"] = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
@@ -163,10 +163,11 @@ class updateController extends tempController {
     
     /**
      * Show all the Members in the database.
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * Render to the new page, listMembers
+     * @return Render to the new page, listMembers
+     * @return List of Members from the db.
      */
     public function showMembers() {
+        
         $memberModel = $GLOBALS["memberModel"];
         // Get all of the members from the db.
         $included_members = $memberModel->getAll();
@@ -176,10 +177,11 @@ class updateController extends tempController {
 
     /**
      * Shows all the employee's in Zaxon.
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * Render to the new page, listEmployee
+     * @return Render to the new page, listEmployee 
+     * @return list of employees from the db. 
      */
     public function showEmployee() {
+        
         $employeeModel = $GLOBALS["employeeModel"];
 
         // get all the employees from the db.
@@ -190,8 +192,7 @@ class updateController extends tempController {
 
     /**
      * Shows the reservations to a member,
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
-     * Render to the new page, myReservations
+     * @return Render to the new page, myReservations
      * @return $this->render("myReservations")
      */
     public function showMyReservations($memberID) {

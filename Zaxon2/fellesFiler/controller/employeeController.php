@@ -22,7 +22,7 @@ class employeeController extends tempController {
         /**
          * Show the information where the Employee can add himself.
          * Checks if the Phone_Number is false.
-         * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+         * @return 
          */
     private function showEmployeeAction() {
         $data2 = array("feiltlf" => false,"tlfnummer" => 0);
@@ -32,7 +32,7 @@ class employeeController extends tempController {
 
     /**
      * Add an employee to the db.
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return
      */
     private function addEmployeeAction(){
 

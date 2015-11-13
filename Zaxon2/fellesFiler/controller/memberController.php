@@ -22,7 +22,6 @@ class memberController extends tempController {
 
     /**
      * Gets cusomers from CustomerModel and inserts them into cusomer template
-     * @return bool true on success.
      */
     private function showMemberAction() {
 
@@ -33,7 +32,7 @@ class memberController extends tempController {
     /**
      * Adding a member to the database and checks if the number they try to type
      * is already used. 
-     * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
+     * @return 
      * if Phone_Number is already used render to memberAdd
      * else complete the adding of a member and render to memeberAdded
      */
