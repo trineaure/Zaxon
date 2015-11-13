@@ -25,7 +25,10 @@
                 </table>   
                 <p><input type="text" id="datetimepicker3" placeholder="1995-06-26" name="givenReservation_date" required/></p>
                 <input id="submit" type="submit" name="submit" value="Neste" />
-            </form>                     
+            </form> 
+            <div  id="big">
+                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+            </div>
         </div>
     
     <?php } else {
@@ -36,7 +39,9 @@
         <br> 
         <p> Mvh. </p> 
         <p>Zaxon </p> 
-        <a href="?page=chooseTreatment">Gå tilbake</a>
+        <div  id="big">
+                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+            </div>
 
     <?php } ?>
 </main>

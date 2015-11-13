@@ -25,15 +25,23 @@
                     <input type="radio" class="regular-radio" name="<?php echo $key ?>" value="<?php echo $treatment["Treatment_Name"] ?>"  />
                      <?php echo $treatment["Treatment_Name"] ?>  
                 </label> 
-
-       <?php }
-      }?> </p>
+       <?php } ?>
+            <label for="Ingen">
+                <input type="radio" name="<?php echo $key ?>" value="" class="regular-radio" checked/>  Ingen
+            </label>  
+       
+         <?php  }?>
+        
+        </p>
             <input id="submit" type="submit" name="submit" value="Neste"  required/>
        
     </form>
 
 <script type="text/javascript">
-        var allRadios = document.getElementsByName("treatment"); // endre på når vi kan velge flere treatments
+        
+       <?php   foreach($categorysWithTreatments[$key] as  $treatment): ?>
+    
+        var allRadios = document.getElementsByValue("<?php echo $treatment["Treatment_Name"] ?>"); // endre på når vi kan velge flere treatments
         var booRadio;
         var x = 0;
         for(x = 0; x < allRadios.length; x++){
@@ -46,6 +54,7 @@
                     booRadio = this;
                 }
             };
+            <?php endforeach; ?>
         }
     </script>
 

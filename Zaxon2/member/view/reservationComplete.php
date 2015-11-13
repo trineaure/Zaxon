@@ -31,6 +31,9 @@
      <form action="?page=reservationTreatmentFinish" method="post">
      <input id="submit" type="submit" name="submit" value="Fullfør" />
      </form> 
+       <div  id="big">
+                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+            </div>
     
      <?php }else {?>
     
@@ -39,7 +42,9 @@
     <br> 
     <p> Mvh. </p> 
     <p>Zaxon </p> 
-    <a href="?page=chooseTreatment">Gå tilbake</a>
+       <div  id="big">
+                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+            </div>
     <?php
     
      } ?>

@@ -107,7 +107,9 @@ echo "Din dato er : " . $_SESSION["givenReservation_date"];
         </div>
 
         <input id="submit" type="submit" name="submit" value="Neste" />
-             
+             <div  id="big">
+                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+            </div>
     </form>
      
  
