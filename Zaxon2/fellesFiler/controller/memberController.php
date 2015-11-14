@@ -7,16 +7,19 @@ class memberController extends tempController {
 
     /**
      * Render "Home" View
-     * Checks if the page is memberAdd or memberAdded, and if it is 
-     * use the functions.
+
      * @param string $page
      */
     public function show($page) {
-        if ($page == "memberAdd") {
-            $this->showMemberAction();
-        }
-        if ($page == "memberAdded") {
-            $this->addMemberAction();
+
+        switch ($page) {
+            case($page == "memberAdd"):
+                $this->showMemberAction();
+                break;
+
+            case($page == "memberAdded"):
+                $this->addMemberAction();
+                break;
         }
     }
 
@@ -33,8 +36,8 @@ class memberController extends tempController {
      * Adding a member to the database and checks if the number they try to type
      * is already used. 
      * @return 
-     * if Phone_Number is already used render to memberAdd
-     * else complete the adding of a member and render to memeberAdded
+     * if the Phone_Number is already used render to page memberAdd
+     * if the Phone_Number is not ussed complete the adding of a member and render to memeberAdded
      */
     private function addMemberAction() {
         $givenFirst_Name = filter_input(INPUT_POST, "givenFirst_name");

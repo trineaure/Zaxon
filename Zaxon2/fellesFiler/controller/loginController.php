@@ -10,13 +10,22 @@ class loginController extends tempController {
      * @param string $page
      */
     public function show($page) {
-        if ($page == "login") {
-            $this->showlogin();
-        } else if ($page == "loginConfig") {
-            $this->loginConfig();
+
+        switch ($page) {
+            case($page == "login"):
+                $this->showlogin();
+                break;
+            
+            case($page == "loginConfig"):
+                $this->loginConfig();
+                break;
         }
     }
-
+/**
+ * 
+ * @param String $givenUsername
+ * @param String $givenPassword
+ */
     private function loginMember($givenUsername, $givenPassword) {
         $_SESSION["MasterAreLoggedIn"] = false;
         $memberModel = $GLOBALS["memberModel"];
@@ -34,7 +43,11 @@ class loginController extends tempController {
             }
         }
     }
-
+/**
+ * 
+ * @param String $givenUsername
+ * @param String $givenPassword
+ */
     private function loginEmployee($givenUsername, $givenPassword) {
 
         $employeeModel = $GLOBALS["employeeModel"];
@@ -58,18 +71,25 @@ class loginController extends tempController {
                 } else {
 
                     //match
-                    $_SESSION["EmployeeAreLoggedIn"] = true;   
+                    $_SESSION["EmployeeAreLoggedIn"] = true;
                     $_SESSION["workerID"] = $employee['EmployeeID'];
                     header("Location:../admin/?page=home");
                 }
             }
         }
     }
-
+/**
+ * Show the login.
+ * @return Render to the login page.
+ */
     private function showlogin() {
         return $this->render("login");
     }
 
+    /**
+     * 
+     * @return Render to the loginError page.
+     */
     private function loginConfig() {
         $givenUsername = $_REQUEST["Phone_Number"];
         $givenPassword = $_REQUEST["Login_Password"];
@@ -78,9 +98,7 @@ class loginController extends tempController {
 
         $this->loginMember($givenUsername, $givenPassword);
 
-
         $this->loginEmployee($givenUsername, $givenPassword);
-
 
         //error message
         if (($_SESSION["MemberAreLoggedIn"] == false) || ($_SESSION["EmployeeAreLoggedIn"] == false) || ($_SESSION["MasterAreLoggedIn"] == false)) {

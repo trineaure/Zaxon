@@ -3,29 +3,39 @@
 require_once("tempController.php");
 
 /**
- * Class that controlls all the function with searching
+ * SearchController controll all the ..
  */
 class searchController extends tempController {
 
     public function show($page) {
-        if ($page == "searchMember") {
-            $this->searchMember();
-        }
-        if ($page == "searchEmployee") {
-            $this->searchEmployee();
+
+        switch ($page) {
+
+            case($page == "searchMember"):
+                $this->searchMember();
+                break;
+
+            case($page == "searchEmployee"):
+                $this->searchEmployee();
+                break;
         }
     }
 
     /**
-     * Searches through all the members by its Membership_Number
-     * if true; render page searchMember, else return empty array
+     * Searches through all members in the db.
+     * @return render the page searchMember and send with the $data
+     * with the $searchResult, if no $searchResult returns nothing.
      */
     public function searchMember() {
+
         $memberModel = $GLOBALS["memberModel"];
+        // determine if a variable is set and not NULL
         if (isset($_REQUEST['searchKeyword'])) {
+            // collect value of input field.
             $searchKeyword = $_REQUEST['searchKeyword'];
             $members = $memberModel->searchMember($searchKeyword);
         } else {
+            //return empty array.
             $members = array();
         }
         $data = array("searchResults" => $members);
@@ -33,13 +43,15 @@ class searchController extends tempController {
     }
 
     /**
-     * Searches through all of the Employee's and shows the correct employee
-     * by its EmployeeID
-     * if true; render page searchEmployee, else return empty array.
+     * Searches through all of Employees in the db.
+     * @return render page searchEmployee and send with $data with the $searchResult,
+     *  if no $searchResult returns nothing. 
      */
     public function searchEmployee() {
+
         $employeeModel = $GLOBALS["employeeModel"];
         if (isset($_REQUEST['searchKeyword'])) {
+            // collect value of input field.
             $searchKeyword = $_REQUEST['searchKeyword'];
             $employees = $employeeModel->searchEmployee($searchKeyword);
         } else {
@@ -48,4 +60,5 @@ class searchController extends tempController {
         $data = array("searchResults" => $employees);
         return $this->render("searchEmployee", $data);
     }
+
 }

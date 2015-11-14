@@ -5,42 +5,57 @@ require_once("tempController.php");
 class updateController extends tempController {
 
     public function show($page) {
-        if ($page == "updateMember") {
-            $this->getMemberUpdate();
-        }
-        if ($page == "updateMemberAction") {
-            $this->updateMember();
-        }
-        if ($page == "updateEmployee") {
-            $this->getEmployeeUpdate();
-        }
-        if($page == "updateEmployeeAction") {
-            $this->updateEmployee();
-        }
-        if ($page == "updateInformation") {
-            $this->getOneMemberUpdate();
-        } 
-        if ($page == "addUpdate") {
-            $this->updateOneMember();
-        }
-        if ($page == "myInfo") {
-            $this->getMemberInfo();
-            $this->render("myInfo");
-        }
-//        if ($page == "myReservations") {
+
+        switch ($page) {
+
+            case($page == "updateMember"):
+                $this->getMemberUpdate();
+                break;
+
+            case($page == "updateMemberAction"):
+                $this->updateMember();
+                break;
+
+            case($page == "updateEmployee"):
+                $this->getEmployeeUpdate();
+                break;
+
+            case($page == "updateEmployeeAction"):
+                $this->updateEmployee();
+                break;
+
+            case($page == "updateInformation"):
+                $this->getOneMemberUpdate();
+                break;
+
+            case($page == "addUpdate"):
+                $this->updateOneMember();
+                break;
+
+            case($page == "myInfo"):
+                $this->getMemberInfo();
+                $this->render("myInfo");
+                break;
+
+//        case($page == "myReservations"):
 //            $this->showMyReservations($_SESSION["MembershipNumber"]);
-//        }
-        if ($page == "listMembers") {
-            $this->showMembers();
-        } 
-        if ($page == "listEmployees") {
-            $this->showEmployees();
-        } 
-        if ($page == "deleteMemberNow") {
-            $this->deleteMemberNow();
-        } 
-        if ($page == "deleteEmployeeNow") {
-            $this->deleteEmployeeNow();
+//            break;
+            
+            case($page == "listMembers"):
+                $this->showMembers();
+                break;
+
+            case($page == "listEmployees"):
+                $this->showEmployees();
+                break;
+
+            case($page == "deleteMemberNow"):
+                $this->deleteMemberNow();
+                break;
+
+            case($page == "deleteEmployeeNow"):
+                $this->deleteEmployeeNow();
+                break;
         }
     }
 
@@ -150,24 +165,25 @@ class updateController extends tempController {
         $this->getMemberInfo();
         return $this->render("updateInformation");
     }
-    
+
     /*
      * Returns the info of the member who is logged in. 
      */
+
     public function getMemberInfo() {
-        
+
         $memberModel = $GLOBALS["memberModel"];
         // Get the member by the membership number
         $GLOBALS["member"] = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
     }
-    
+
     /**
      * Show all the Members in the database.
      * @return Render to the new page, listMembers
      * @return List of Members from the db.
      */
     public function showMembers() {
-        
+
         $memberModel = $GLOBALS["memberModel"];
         // Get all of the members from the db.
         $included_members = $memberModel->getAll();
@@ -181,7 +197,7 @@ class updateController extends tempController {
      * @return list of employees from the db. 
      */
     public function showEmployees() {
-        
+
         $employeeModel = $GLOBALS["employeeModel"];
 
         // get all the employees from the db.
@@ -200,9 +216,9 @@ class updateController extends tempController {
 //        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
 //        return $this->render("myReservations");
 //    }
-    
+
     /**
-     * Delte the member from the database.
+     * Deltes one member from the database.
      * 
      */
     public function deleteMemberNow() {
@@ -214,14 +230,15 @@ class updateController extends tempController {
         }
         $this->showMembers();
     }
-    
+
     /**
-     * Delete a employee from the database.
+     * Deletes one employee from the database.
      */
     public function deleteEmployeeNow() {
 
         $employeeModel = $GLOBALS["employeeModel"];
         if (isset($_REQUEST['employeeID'])) {
+            //collect value of input field.
             $employeeID = $_REQUEST['employeeID'];
             $employeeModel->deleteEmployee($employeeID);
         }
