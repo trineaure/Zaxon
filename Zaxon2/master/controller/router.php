@@ -29,25 +29,9 @@ class Router {
             case "pricelist":
                 return new pricelistController();
 
-            case "aboutus":
-                return new aboutusController();
-
-            case "contact":
-                return new contactController();
-
-//            case "showMembers":
-//            case "showEmployee":
-//                return new showController();
-
             case "searchMember":
             case "searchEmployee":
                 return new searchController();
-
-//            case "listMembers":
-//            case "deleteMemberNow":
-//            case "listEmployees":
-//            case "deleteEmployeeNow":
-//                return new deleteController();
 
             case "listMembers":
             case "deleteMemberNow":
@@ -62,7 +46,8 @@ class Router {
             case "memberAdd":
             case "memberAdded":
                 return new memberController();
-
+                
+            case "calendar":
             case "memberOrder":
             case "chooseTreatment":
             case "reservationDateAndEmployee":

@@ -41,6 +41,13 @@ class reservationController extends tempController {
         {            
             $this->showFinish();
         }
+        if ($page == "myReservations") {
+            $this->showMyReservations($_SESSION["MembershipNumber"]);
+        }
+        if ($page == "calendar")
+        {
+            $this->myReservationCalendar($_SESSION["workerID"]);
+        }
            
     }
     
@@ -152,6 +159,21 @@ class reservationController extends tempController {
         return $this->render("reservationTreatmentFinish");
     }
     
-
+        /**
+     * Shows the reservations to a member,
+     * @return Render to the new page, myReservations
+     * @return $this->render("myReservations")
+     */
+    public function showMyReservations($memberID) {
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
+        return $this->render("myReservations");
+    }
+    
+     public function myReservationCalendar($employeeID) {
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        $GLOBALS["myCalendar"] = $reservation_treatmentModel->getEployeeCalender($employeeID);
+        return $this->render("calendar");
+    }
 }
 

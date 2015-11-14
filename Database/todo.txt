@@ -27,3 +27,7 @@
 10. Legg til slik at både admin og member skal kunne legge inn bestilling. GARD
 
 11. Legg til slik at man kan endre personlige informasjon om seg selv. INGA
+
+12. Hva skal vi gjøre med en bestilling etter en ansatt er slettet? ny ansatt stepper inn? 
+
+13. Fikse varsling at noen holder på å bli slettet

@@ -1,9 +1,10 @@
 <!-- START: Main area where content goes -->
-                <main>
+<!--MASTER-->
+<main>
     <p> Velkommen Master </p>
 <div id="small">
         <p> Ansatt</p>
-
+                 <a href="?page=calendar" class="smallButton">Vis egen timeplan</a>
                  <a href="?page=listEmployees" class="smallButton">Vis ansatte</a>
                 <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
 <!--               <a href="?page=listEmployees" class="smallButton">Rediger ansatt</a>-->

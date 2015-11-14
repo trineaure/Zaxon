@@ -9,7 +9,7 @@
 
 <!--                 <a href="?page=showEmployee" class="smallButton">Vis ansatte</a>
                 <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>-->
-                <a href="?page=searchEmployee" class="smallButton">Vis egen timeplan</a>
+                <a href="?page=calendar" class="smallButton">Vis egen timeplan</a>
 
     </div>
 

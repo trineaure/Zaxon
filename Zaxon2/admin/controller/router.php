@@ -26,31 +26,14 @@ class Router {
         $page = $this->getPage();
         switch ($page) {
 
-
             case "pricelist":
                 return new pricelistController();
-
-            case "aboutus":
-                return new aboutusController();
-
-            case "contact":
-                return new contactController();
-
-//            case "showMembers":
-//            case "showEmployee":
-//                return new showController();
 
             case "searchMember":
             case "searchEmployee":
                 return new searchController();
-
-//            case "listMembers":
-//            case "deleteMemberNow":
-//            case "deleteEmployee":
-//            case "deleteEmployeeNow":
-//                return new deleteController();
                 
-             case "listMembers":
+            case "listMembers":
             case "deleteMemberNow":
             case "deleteEmployee":
             case "deleteEmployeeNow":
@@ -64,7 +47,7 @@ class Router {
             case "memberAdded":
                 return new memberController();
 
-            case "order":
+            case "calendar":
             case "chooseTreatment":
             case "reservationDateAndEmployee":
             case "reservationTime":

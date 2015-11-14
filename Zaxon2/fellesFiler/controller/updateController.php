@@ -27,9 +27,9 @@ class updateController extends tempController {
             $this->getMemberInfo();
             $this->render("myInfo");
         }
-        if ($page == "myReservations") {
-            $this->showMyReservations($_SESSION["MembershipNumber"]);
-        }
+//        if ($page == "myReservations") {
+//            $this->showMyReservations($_SESSION["MembershipNumber"]);
+//        }
         if ($page == "listMembers") {
             $this->showMembers();
         } 
@@ -195,11 +195,11 @@ class updateController extends tempController {
      * @return Render to the new page, myReservations
      * @return $this->render("myReservations")
      */
-    public function showMyReservations($memberID) {
-        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
-        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
-        return $this->render("myReservations");
-    }
+//    public function showMyReservations($memberID) {
+//        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+//        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
+//        return $this->render("myReservations");
+//    }
     
     /**
      * Delte the member from the database.

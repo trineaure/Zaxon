@@ -3,7 +3,7 @@
 
     <?php
     $reservations = $GLOBALS["reservations"];
-    if (isset($reservations)) {
+    if (!empty($reservations)) {
         ?>
         <table>
             <tr>
@@ -37,7 +37,7 @@
 
         <?php
     } else {
-        echo "Du har ingen reservasjoner.";
+        echo "<br>". "Du har ingen reservasjoner." ."<br>";
     }
     ?>
 

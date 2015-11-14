@@ -41,14 +41,12 @@ class Router {
                 return new memberController();
 
             case "myInfo":
-            case "myReservations":
             case "updateInformation":
-            //case "showEmployees":
             case "updateInformation":
             case "addUpdate":
                 return new updateController();
 
-
+            case "myReservations":
             case "order":
             case "chooseTreatment":
             case "reservationDateAndEmployee":
