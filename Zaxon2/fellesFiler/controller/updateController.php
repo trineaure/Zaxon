@@ -34,7 +34,7 @@ class updateController extends tempController {
             $this->showMembers();
         } 
         if ($page == "listEmployees") {
-            $this->showEmployee();
+            $this->showEmployees();
         } 
         if ($page == "deleteMemberNow") {
             $this->deleteMemberNow();
@@ -180,7 +180,7 @@ class updateController extends tempController {
      * @return Render to the new page, listEmployee 
      * @return list of employees from the db. 
      */
-    public function showEmployee() {
+    public function showEmployees() {
         
         $employeeModel = $GLOBALS["employeeModel"];
 
@@ -212,7 +212,7 @@ class updateController extends tempController {
             $membershipnr = $_REQUEST['membershipnr'];
             $memberModel->deleteMember($membershipnr);
         }
-        $this->deleteMember();
+        $this->showMembers();
     }
     
     /**
@@ -225,7 +225,7 @@ class updateController extends tempController {
             $employeeID = $_REQUEST['employeeID'];
             $employeeModel->deleteEmployee($employeeID);
         }
-        $this->deleteEmployee();
+        $this->showEmployees();
     }
 
 }

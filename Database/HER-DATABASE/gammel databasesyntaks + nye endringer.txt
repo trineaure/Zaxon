@@ -3,7 +3,7 @@ GO
 
 CREATE TABLE Member
 (
-Membership_number int IDENTITY(10001,1),
+Membership_number int IDENTITY(100,1),
 First_name nvarchar(40) NOT NULL,
 Last_name nvarchar(60) NOT NULL,
 Birth date NOT NULL,
@@ -24,8 +24,8 @@ Phone_Number varchar(30) NOT NULL,
 Home_Address nvarchar(150) NOT NULL,
 Zip_Code varchar(10) NOT NULL,
 Login_Password nvarchar(30) NOT NULL,
-Extended_Access int NOT NULL,
-Employee_Photo int NOT NULL,
+Extended_Access tinyint NOT NULL,
+Employee_Photo tinyint NOT NULL,
 
 CONSTRAINT EmployeePK PRIMARY KEY (EmployeeID)
 );

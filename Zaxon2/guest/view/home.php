@@ -10,8 +10,7 @@
                             <p>VELKOMMEN GUEST<p>
                             <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.
                                 Vi er her for å gi deg en god håropplevelse. </p>
-                        </div>
-                        <div class="content-area">
+
                             <a href="?page=order"><img src="../fellesFiler/bilder/bestillings_knapp.png" id="orderButton"></a>
                         </div>
                     </div>

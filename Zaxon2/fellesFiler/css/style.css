@@ -120,9 +120,10 @@ body .container #structure main #photo {
 }
 
 body .container #structure main #orderButton {
-    width: 50%; 
-    margin-left: 25%; 
-    margin-top: 38%; 
+    width: 50%;
+    margin: auto;
+    //margin-left: 25%; 
+    //margin-top: 38%; 
     border-radius: 15px;
 }
 

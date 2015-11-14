@@ -11,8 +11,7 @@
             <a href="?page=myInfo" class="smallButton">Min kundeinformasjon</a>
             <a href="?page=updateInformation" class="smallButton">Oppdater kundeinformasjon</a>
 
-        </div>
-        <div class="content-area">
+
             <a href="?page=order"><img src="../fellesFiler/bilder/bestillings_knapp.png" id="orderButton" ></a>
         </div>
     </div>

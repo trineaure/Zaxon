@@ -43,7 +43,7 @@ class Router {
             case "myInfo":
             case "myReservations":
             case "updateInformation":
-            case "showEmployee":
+            //case "showEmployees":
             case "updateInformation":
             case "addUpdate":
                 return new updateController();

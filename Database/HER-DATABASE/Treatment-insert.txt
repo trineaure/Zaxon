@@ -1,0 +1,37 @@
+--Treatments og category
+
+INSERT INTO Treatment_category (Category_Name)
+VALUES ('Styling')
+
+INSERT INTO Treatment_category (Category_Name)
+VALUES ('Klipp')
+
+INSERT INTO Treatment_category (Category_Name)
+VALUES ('Farge')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Bob', '799', 'Klipp')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Dip Dye', '899', 'Farge')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Festfrisyre', '899', 'Styling')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Halvfarge', '799', 'Farge')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Long Bob', '799', 'Klipp')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Ombre', '999', 'Farge')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Sidecut', '699', 'Klipp')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Stussing', '599', 'Klipp')
+
+INSERT INTO Treatment (Treatment_Name, Price, Category_Name)
+VALUES ('Vask og Føn', '399', 'Styling')

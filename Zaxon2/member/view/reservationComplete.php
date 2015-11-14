@@ -23,9 +23,9 @@
                 <td> <?php echo $_SESSION["givenEmployeeID"] ?> </td>
                 <td> <?php echo $_SESSION["givenReservation_date"] ?> </td>
                 <td> <?php echo $_SESSION["givenTime"] ?> </td>
-                 <?php foreach ($_SESSION["treatmentArray"] as $treatment){
-                    ?> <td> <?php echo "$treatment"; ?> </td> <?php
-                }?> 
+                 <td> <?php foreach ($_SESSION["treatmentArray"] as $treatment){
+                    ?> <?php echo "$treatment".", "; ?>  <?php
+                }?> </td>
                 </tr>
     </table> 
      <form action="?page=reservationTreatmentFinish" method="post">
