@@ -24,6 +24,20 @@
                     </form>
                 </td>  
             </tr>
+            
+                <tr>
+                <td> <?php echo $price["Price"] ?> </td>
+                <td> <?php echo $price["Treatment_Name"] ?> </td>
+                <td> <?php echo $price["Category_Name"] ?> </td>
+                <td>
+                    <form method="post" action="?page=updatePricelist">
+                        <input type="hidden" value="<?php echo $price["Price"]; ?>" name="Price">
+                        <input type="hidden" value="<?php echo $price["Treatment_Name"]; ?>" name="Treatment_Name">
+                        <input type="hidden" value="<?php echo $price["Category_Name"]; ?>" name="Category_Name">                  
+                    <button value="submit"> Endre </button>
+                    </form>
+                </td>  
+            </tr>
         <?php } ?>
     </table>
     <div  id="big">

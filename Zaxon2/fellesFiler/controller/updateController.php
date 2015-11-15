@@ -56,6 +56,7 @@ class updateController extends tempController {
     }
 
     /**
+     * 
      * Show the informatin about the Member in Zaxon.
      * @return the array with the member and render to the updateMember page.
      */

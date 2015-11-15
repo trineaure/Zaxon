@@ -43,6 +43,7 @@ class pricelistController extends tempController {
     
     /**
      * Update the price in the pricelist.
+     * Get the new input values from an external variable.
      * @return render to the new page pricelist. 
      */
     public function updatePricelist(){
