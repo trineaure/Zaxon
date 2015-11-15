@@ -27,6 +27,8 @@ class Router {
         switch ($page) {
 
             case "pricelist":
+            case "updatePricelist":
+            case "updatePricelistAction":
                 return new pricelistController();
 
             case "searchMember":

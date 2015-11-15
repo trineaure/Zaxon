@@ -6,9 +6,7 @@ class reservation_treatmentModel {
     private $addStmt;
     private $resMStmt;
     private $resEStmt;
-    private $updPrice;
-    private $addPrice;
-    
+  
     const TABLE = "Reservation_treatment";
     const INSERT_QUERY = "INSERT INTO " . reservation_treatmentModel::TABLE . " (Reservation_number, Treatment_Name) VALUES (:Reservation_number, :Treatment_Name)";
     const RESERVATION_M_QUERY = " SELECT ". reservation_treatmentModel::TABLE . ".Reservation_number, Treatment_Name, Reservation_Date, Time_of_Day, Employee.First_Name "
@@ -23,7 +21,6 @@ class reservation_treatmentModel {
                              . " INNER JOIN Member ON Reservation.Membership_number = Member.Membership_number "
                             . " WHERE Reservation.EmployeeID = :employeeID "
                             . " ORDER BY Reservation_Date ASC ";
-    const INSERT_P_QUERY = "INSERT INTO" . reservation_treatmentModel::TABLE . " ";
 
     public function __construct(PDO $dbConn) {
         $this->dbConn = $dbConn;
