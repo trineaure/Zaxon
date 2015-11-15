@@ -31,10 +31,12 @@ class Router {
             case "updatePricelistAction":
                 return new pricelistController();
 
+//            case "searchMember":
+//            case "searchEmployee":
+//                return new searchController();
+                
             case "searchMember":
             case "searchEmployee":
-                return new searchController();
-
             case "listMembers":
             case "deleteMemberNow":
             case "listEmployees":

@@ -59,7 +59,7 @@
             <p> Mvh. </p> 
             <p>Zaxon </p> 
             <div>
-                <a href="?page=chooseTreatment" class="button" >Tilbake</a>
+                <a href="?page=chooseTreatment" class="smallButton" >Tilbake</a>
             </div>
 
     <?php } ?>
