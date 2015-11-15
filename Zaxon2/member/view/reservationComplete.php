@@ -24,7 +24,7 @@
                 <td> <?php echo $_SESSION["givenReservation_date"] ?> </td>
                 <td> <?php echo $_SESSION["givenTime"] ?> </td>
                  <td> <?php foreach ($_SESSION["treatmentArray"] as $treatment){
-                    ?> <?php echo "$treatment".", "; ?>  <?php
+                    ?> <?php echo "$treatment"; ?>  <?php
                 }?> </td>
                 </tr>
     </table> 
