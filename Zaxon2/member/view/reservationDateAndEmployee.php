@@ -10,7 +10,7 @@
              <div class="innerStructure">
             <form method="post" action="?page=reservationTime">
                
-                    <div id="big">
+                <div id="big"><br>
                      <p><input type="text" id="datetimepicker3" placeholder="1995-06-26" name="givenReservation_date" required/></p>
                 </div> 
                 <div id="small">
@@ -27,7 +27,7 @@
                                   else { ?>
                                      <input type="radio" value="<?php echo $tempEmployee["EmployeeID"] ?>" name="givenEmployeeID" required>
                                      <img src="../fellesFiler/bilder/employees/noPhoto.jpg" title="<?php echo $tempEmployee["First_name"]?>" class="pictureBox" >
-                                   <?php }
+                                   <?php } echo $tempEmployee["First_name"];
                                     ?> </label> <?php
                                    } ?> 
                         

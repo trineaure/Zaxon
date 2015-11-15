@@ -1,33 +1,26 @@
-2. Hvis loggin failer må vi gjøre noe....
 
-3. Legg inn til admin og master at når de velger "vis egen timeliste" skal alle reservasjonene for dagen i dag (kan velge dag?),
-   være printet ut i en rekkefølge som e bestemt av tidspunktene. Der skal det komme (i riktig rekkefølge):
-	- Klokkeslett
-	- For- og etternavn
-	- Tlf.Nr
-	- Kategori og den treatmenten som er valgt
-  Kategoriene skal kun vises hvis det er valgt en treatment fra den.  Dette er for å gi frisøren en rask oversikt over ha kunden ønsker.
 
-4. Gjør prisliste siden til å oppdatere seg utifra databasen.
 
-5. Legg til slik at kunden kan se sin egen bestilling. (Kanskje kunne endre på den?)
 
-6. Fikse det tekstlige på siden (fjern lorem ipsum osv.)
+4. Gjør prisliste siden til å oppdatere seg utifra databasen. INGA
 
-7. Legge inn navn til ansatte eller bilde istedenfor å skrive inn ansattID. 
+5. Legg til slik at kunden kan se sin egen bestilling. (Kanskje kunne slette på den?)
+
+6. Fikse det tekstlige på siden (fjern lorem ipsum osv.) INGA
+
+ 
 
 8. Gå gjennom delete knappene. Endre de slik at resevasjonene til vedkomne blir slette sammens med brukeren. TRINE
 
-9. Fullførsiden på bestilling skal det komme opp:
-	- Navn til ansatt (ikke ID)
-	- Navn på kunden (ikke ID)
-	- Tidspunkt og dato
-	- Behandling
+
 	
 10. Legg til slik at både admin og member skal kunne legge inn bestilling. GARD
 
-11. Legg til slik at man kan endre personlige informasjon om seg selv. INGA
 
 12. Hva skal vi gjøre med en bestilling etter en ansatt er slettet? ny ansatt stepper inn? 
 
-13. Fikse varsling at noen holder på å bli slettet
+13. Fikse varsling at noen holder på å bli slettet GARD
+
+14. Endre på fullførsiden at man skal få opp employee navn istedenfor employee ID TRINE
+
+15. Gå gjennom kode å skriv kommentarer og rydde i koden. 

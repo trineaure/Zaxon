@@ -7,6 +7,20 @@ class memberModel {
     private $dbConn;
 
     const TABLE = "Member";
+    
+    const TRIGGER_QUERY = "CREATE TRIGGER hasReservation"
+                         . " ON  " . memberModel::TABLE 
+                         . " BEFORE DELETE "
+                         . " AS "
+                         . " IF EXISTS (SELECT * FROM " . memberModel::TABLE ." AS m "
+                         . " INNER JOIN Reservation AS r "
+                         . " ON m.Membership_number = r.Membership_number"
+                         . " INNER JOIN Reservation_treatment AS rt "
+                         . " ON rt.Reservation_number = r.Reservation_number "
+                         . " WHERE m.Membership_number = :memberID  )"
+                         . " GO ";
+
+
     const SELECT_ALL_QUERY = "SELECT * FROM " . memberModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . memberModel::TABLE . "(First_name,Last_name,Birth,Phone_Number,Login_Password) VALUES (:First_name,:Last_name,:Birth,:Phone_Number,:Login_Password)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE;

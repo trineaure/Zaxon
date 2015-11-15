@@ -1,0 +1,111 @@
+--TRIGGER
+-- Når et medlem blir slettet vil triggeren finne reservasjonene i både 
+-- Reservation og Reservation_treatment å sletter de. Medlemet blir valgt 
+-- utifra medlemsnummeret som blir brukt i DELETE statementen. 
+
+
+-- Ikke brukt
+CREATE TRIGGER hasReservation
+ON  Member 
+BEFORE DELETE
+AS 
+IF EXISTS (SELECT * FROM Member AS m 
+INNER JOIN Reservation AS r 
+ON m.Membership_number = r.Membership_number
+INNER JOIN Reservation_treatment AS rt 
+ON rt.Reservation_number = r.Reservation_number 
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+WHERE m.Membership_number = @memberID  )
+GO ;
+
+-- Brukt:
+CREATE TRIGGER hasReservationd ON Member
+FOR DELETE
+AS
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+BEGIN
+	DECLARE @resnr int 
+	SELECT @resnr = Reservation.Reservation_number FROM Reservation WHERE Membership_number = @memberID
+	DELETE FROM Reservation_treatment WHERE Reservation_treatment.Reservation_number = @resnr
+	DELETE FROM Reservation WHERE  Membership_number = @memberID
+END
+GO
+
+-- BRUKES kanskje
+CREATE TRIGGER hasReservation ON Member
+INSTEAD OF DELETE 
+AS
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+DECLARE @resnr int 
+SELECT @resnr = Reservation_number FROM Reservation WHERE Reservation.Membership_number = @memberID
+BEGIN
+	PRINT @memberID
+	PRINT @resnr
+	
+		while((SELECT Count(Reservation_number) FROM Reservation WHERE Reservation.Membership_number = @memberID) > 0)
+		BEGIN
+			DELETE FROM Reservation_treatment WHERE Reservation_treatment.Reservation_number = @resnr
+		END 
+	DELETE FROM Reservation WHERE  Membership_number = @memberID
+	DELETE FROM Member WHERE Membership_number = @memberID
+END
+GO
+
+-- Enda en triggervasjon
+USE [Zaxon2]
+GO
+/****** Object:  Trigger [dbo].[hasReservation]    Script Date: 15.11.2015 17.57.20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER TRIGGER [dbo].[hasReservation] ON [dbo].[Member]
+INSTEAD OF DELETE 
+AS
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+DECLARE @resnr int 
+
+BEGIN
+	PRINT @memberID
+	PRINT @resnr
+	
+		while((SELECT Count(Reservation_number) FROM Reservation WHERE Reservation.Membership_number = @memberID) > 0)
+		BEGIN
+		    SELECT @resnr = Reservation_number FROM Reservation WHERE Reservation.Membership_number = @memberID
+			DELETE FROM Reservation_treatment WHERE Reservation_treatment.Reservation_number = @resnr
+		END 
+	DELETE FROM Reservation WHERE  Membership_number = @memberID
+	DELETE FROM Member WHERE Membership_number = @memberID
+END
+
+
+-- BARE EN TIL TRIGGER
+
+CREATE TRIGGER hasRes ON Member
+INSTEAD OF DELETE 
+AS
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+DECLARE @resnr int 
+ SELECT @resnr = Reservation_number FROM Reservation WHERE Reservation.Membership_number = @memberID
+
+BEGIN
+	PRINT @memberID
+	PRINT @resnr
+	
+		while((SELECT Count(Reservation_number) FROM Reservation_treatment WHERE Reservation_number = @resnr) > 0)
+		BEGIN
+
+		    SELECT @resnr = Reservation_number FROM Reservation WHERE Reservation.Membership_number = @memberID
+
+			DELETE FROM Reservation_treatment WHERE Reservation_treatment.Reservation_number = @resnr
+			DELETE FROM Reservation WHERE  Membership_number = @memberID			
+		END 
+	
+	DELETE FROM Member WHERE Membership_number = @memberID
+END
+
