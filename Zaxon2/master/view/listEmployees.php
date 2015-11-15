@@ -6,9 +6,14 @@
 
     <script>
 //alert on delete
-        function confirm_alert(node) {
-            return confirm("You are about to permanently delete a product. Click OK to continue or CANCEL to quit.");
-        }
+    function ConfirmDelete()
+    {
+      var x = confirm("Er du sikker på at du vil slette?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
     </script>
 
     <p> Her kan en slette en ansatt i Zaxon, eller velge å redigere dem.</p>
@@ -45,7 +50,7 @@
                     <form method="post" action="?page=deleteEmployeeNow">
                         <!--Delete the employee by the unique employeeID-->
                         <input style="display:none;" value="<?php echo $employee["EmployeeID"]; ?>" name="employeeID">
-                        <button value="submit"> Slett </button>
+                        <button Onclick="return ConfirmDelete();"  type="submit" value="1"> Slett </button>
                     </form>
                 </td>
             </tr>
