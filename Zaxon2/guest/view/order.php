@@ -6,6 +6,8 @@
                     </div>
 
                     <div id="small">
-                       Her kan du logge inn på medlemssiden din  eller opprette en ny brukerkonto om du allerede ikke har en. Velkommen til oss.
+                        <p>Her kan du logge inn, eller opprette en ny brukerkonto om du ikke allerede har en. </p><br>
+                       <p>Som bruker kan du lett bestille en frisørtime via vår hjemmeside.</p> <br>
+                       <p> Velkommen til oss.</p>
                     </div>
                 </main>

@@ -47,7 +47,6 @@ class Router {
                 return new updateController();
 
             case "myReservations":
-            case "order":
             case "chooseTreatment":
             case "reservationDateAndEmployee":
             case "reservationTime":

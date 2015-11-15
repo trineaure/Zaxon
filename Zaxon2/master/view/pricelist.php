@@ -3,11 +3,11 @@
     <?php
     $pricelist = $GLOBALS["pricelist"];
     ?>
-    <p>Vi er stolte av å kunne levere gode tjenester og produkter til overkommelige priser.
+<!--    <p>Vi er stolte av å kunne levere gode tjenester og produkter til overkommelige priser.
         Prislisten viser frapriser.
 
         De oppførte prisene er minstepriser og kan variere med behandlingstiden og teknikken som blir brukt. Spør derfor gjerne frisøren om prisen på forhånd.
-    </p>
+    </p>-->
     <table id="submit" type="submit" value="submit">
         <?php echo "<tr> <td> Pris </td> <td> Behandling </td> <td> Kategori </td> <td> Endre pris </td> </tr>";
             foreach ($pricelist as $price) { ?>
@@ -27,7 +27,7 @@
         <?php } ?>
     </table>
     <div  id="big">
-    <a href="?page=home" class="button"><-Tilbake</a>
+    <a href="?page=home" class="button">Tilbake</a>
     </div>  
 
 </main>
