@@ -23,41 +23,43 @@ class searchController extends tempController {
 
     /**
      * Searches through all members in the db.
-     * @return render the page searchMember and send with the $data
+     * Check if $searchKeyword is determine and not null.
+     * Get the $searchKeyword from $memberModel and saves it in
+     * $searchResult.
+     * @return render the page searchMember and sends the $data
      * with the $searchResult, if no $searchResult returns nothing.
      */
     public function searchMember() {
 
         $memberModel = $GLOBALS["memberModel"];
-        // determine if a variable is set and not NULL
-        if (isset($_REQUEST['searchKeyword'])) {
-            // collect value of input field.
-            $searchKeyword = $_REQUEST['searchKeyword'];
-            $members = $memberModel->searchMember($searchKeyword);
+        // set the value in the $searchKeyword
+        $searchKeyword = filter_input(INPUT_POST, "searchKeyword");
+        if (isset($_POST['searchKeyword'])) {
+            $searchResults = $memberModel->searchMember($searchKeyword);
         } else {
             //return empty array.
-            $members = array();
+            $searchResults = array();
         }
-        $data = array("searchResults" => $members);
+        $data = array("searchResults" => $searchResults);
         return $this->render("searchMember", $data);
     }
 
     /**
      * Searches through all of Employees in the db.
-     * @return render page searchEmployee and send with $data with the $searchResult,
+     * Check if $searchKeyword is determine and not null.
+     * @return render page searchEmployee and sends the $data with the $searchResult,
      *  if no $searchResult returns nothing. 
      */
     public function searchEmployee() {
 
         $employeeModel = $GLOBALS["employeeModel"];
-        if (isset($_REQUEST['searchKeyword'])) {
-            // collect value of input field.
-            $searchKeyword = $_REQUEST['searchKeyword'];
-            $employees = $employeeModel->searchEmployee($searchKeyword);
+        $searchKeyword = filter_input(INPUT_POST, "searchKeyword");
+        if (isset($_POST['searchKeyword'])) {
+            $searchResults = $employeeModel->searchEmployee($searchKeyword);
         } else {
-            $employees = array();
+            $searchResults = array();
         }
-        $data = array("searchResults" => $employees);
+        $data = array("searchResults" => $searchResults);
         return $this->render("searchEmployee", $data);
     }
 
