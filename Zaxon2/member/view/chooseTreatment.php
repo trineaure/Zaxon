@@ -29,14 +29,12 @@
             <label for="Ingen">
                 <input type="radio" name="<?php echo $key ?>" value="" class="regular-radio" checked/>  Ingen
             </label>  
-       
          <?php  }?>
-        
         </p>
-            <input id="submit" type="submit" name="submit" value="Neste"  required/>
-       
-    </form>
-
+                        <div class="backandforth">
+        <input class="tinySubmit" type="submit" name="submit" value="Neste" />
+        <a href="?page=order" class="tinyButton">Tilbake</a>
+            </form> </div>
 </main>
 
 

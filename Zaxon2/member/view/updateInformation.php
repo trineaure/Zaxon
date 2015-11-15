@@ -14,8 +14,11 @@
             Fødselsdag: <input type="text" class="input-textarea" name="Birth" value=" <?php echo $member['Birth']; ?>"> <br />
             Mobilnr: <input type="number" class="input-textarea" name="Phone_Number" value="<?php echo $member['Phone_Number']; ?>"> <br />
                 <input type="hidden" class="ipnut-textarea" name="Membership_number" value="<?php echo $_SESSION["MembershipNumber"] ?>"> <br />
-            <button value="submit" id="submit"> Oppdater </button>
-
+            <div class="backandforth">
+        <input class="tinySubmit" type="submit" name="submit" value="Oppdater" />
+        <a href="?page=home" class="tinyButton">Tilbake</a>
+            </form> </div>
+            
         </form> 
     </div>
 </main>

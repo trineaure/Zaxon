@@ -33,9 +33,10 @@
          <?php  }?>
         
         </p>
-            <input id="submit" type="submit" name="submit" value="Neste"  required/>
-       
-    </form>
+        <div class="backandforth">
+        <input class="tinySubmit" type="submit" name="submit" value="Neste" />
+        <a href="?page=memberOrder" class="tinyButton">Tilbake</a>
+        </form> </div>
 
 </main>
 
