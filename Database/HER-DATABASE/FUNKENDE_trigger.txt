@@ -1,3 +1,6 @@
+USE Zaxon2
+GO
+
 CREATE TRIGGER DeleteReservation ON Reservation
 INSTEAD OF DELETE
 as

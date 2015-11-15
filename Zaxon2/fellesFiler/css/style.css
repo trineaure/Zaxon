@@ -147,6 +147,10 @@ body .container #structure main .smallSubmit {
     cursor:pointer;
 }
 
+body .container #structure main .smallSubmit:hover {
+    text-decoration: underline;
+}
+
 body .container #structure main .tinySubmit {
     width:48%;
     height:3em;
@@ -155,6 +159,10 @@ body .container #structure main .tinySubmit {
     margin-top:20px;
     cursor:pointer;
     float: right;
+}
+
+body .container #structure main .tinySubmit:hover {
+    text-decoration: underline;
 }
 
 body .container #structure main .input-textarea { 
@@ -177,6 +185,9 @@ body .container #structure main #submit {
     cursor:pointer;
 }
 
+body .container #structure main #submit:hover {
+    text-decoration: underline;
+}
 
 body .container #structure main .input {
     width:97.8%;
@@ -246,6 +257,17 @@ body .container #structure main .smallButton {
     display: block;
     height:1.3em;
     width: 50%;
+    background: #E0E0E0; 
+    margin-top:20px;
+    padding:10px;
+    font-size:0.9em;
+    text-align: center; 
+}
+
+body .container #structure main .bigButton {
+    display: block;
+    height:1.3em;
+    width: 96%;
     background: #E0E0E0; 
     margin-top:20px;
     padding:10px;

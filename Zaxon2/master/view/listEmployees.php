@@ -17,7 +17,7 @@
 
     <p> Her kan en slette en ansatt i Zaxon, eller velge å redigere dem.</p>
     <table id="submit" type="delete" value="delete">
-        <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> <td> Adresse </td> <td> Postkode </td> <td> Rediger </td>  <td>  Slett </td> </tr>";
+        <?php echo "<tr> <td>Fornavn</td> <td>Etternavn</td> <td>Fødselsdag</td> <td>Tlf.</td> <td>Adresse</td> <td>Postkode</td> <td>Rediger</td> <td>Slett</td> </tr>";
              foreach ($employees as $employee) { ?>
              <tr>
                 <td> <?php echo $employee["First_name"] ?> </td>
@@ -48,7 +48,7 @@
             </tr>
         <?php } ?>
     </table>
-     <div  id="big">
-                <a href="?page=home" class="button"><-Tilbake</a>
-             </div>  
+    
+                <a href="?page=home" class="bigButton">Tilbake</a>
+              
 </main>

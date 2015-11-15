@@ -19,7 +19,7 @@
     
     <table id="submit" type="delete" value="delete">
 
-        <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> <td> Rediger </td>  <td>  Slett </td> </tr>";
+        <?php echo "<tr> <td>Fornavn</td> <td>Etternavn</td> <td>Fødselsdag</td> <td>Tlf.</td> <td>Rediger</td>  <td>Slett</td> </tr>";
         ?>
 
         <?php foreach ($members as $member) { ?>
@@ -47,10 +47,7 @@
             </tr>
         <?php } ?>
     </table>
-    <div  id="big">
-        <a href="?page=home" class="button"><-Tilbake</a>
-     </div> 
-
+    <a href="?page=home" class="bigButton">Tilbake</a>
 </main>
 
  
