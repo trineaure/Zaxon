@@ -121,8 +121,8 @@ body .container #structure main #photo {
 body .container #structure main #orderButton {
     width: 50%;
     margin: auto;
-    //margin-left: 25%; 
-    //margin-top: 38%; 
+    margin-left: 5%; 
+    margin-top: 5%; 
     border-radius: 15px;
 }
 
@@ -343,13 +343,21 @@ body .container #structure main  .content-area {
     padding: 1em 0 1em 0; }
 
 body .container #structure main .timeButton {
-    width: 10%;
+    width: 50%;
+    font-size: 1em;
+    //border: 1px solid #CCC; 
 }
 
 body .container #structure main .timeButton input[type="radio"]{
-    
-    opacity:0.01;
-    z-index:100;
+    visibility: hidden;
+    position: absolute;
+    margin:0;
+    padding: 2em;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+    //opacity:0.01;
+    //z-index:100;
 }
 
 body .container #structure main .timeButton input[type="radio"]:checked + label,
@@ -358,10 +366,11 @@ body .container #structure main .timeButton input[type="radio"]:checked + label,
 }
 
 body .container #structure main .timeButton label {
-     padding:5px;
-     border:1px solid #CCC; 
+     padding:1em;
+     //border:1px solid #CCC; 
      cursor:pointer;
     z-index:90;
+    
 }
 
 body .container #structure main .timeButton label:hover {
