@@ -109,3 +109,41 @@ BEGIN
 	DELETE FROM Member WHERE Membership_number = @memberID
 END
 
+
+-- Trine SIN SUPER TRIGGER SOM FUNGERA VELDIG BRA
+CREATE TRIGGER EirikSinSuperTriggerSomFunkaVeldigBra ON Member
+INSTEAD OF DELETE 
+AS
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+DECLARE @resnr int
+BEGIN
+	
+	while((SELECT Count(Reservation_number) FROM Reservation WHERE Membership_number = @memberID ) > 0)
+	BEGIN
+		SELECT @resnr = Reservation_number FROM Reservation WHERE Membership_number = @memberID
+		DELETE FROM Reservation_treatment WHERE Reservation_number = @resnr
+		DELETE FROM Reservation WHERE Membership_number = @memberID
+	END
+
+	DELETE FROM Member WHERE Membership_number = @memberID
+END
+GO
+--
+
+DELETE FROM Reservation_treatment WHERE Reservation_number = (SELECT Reservation.Reservation_number FROM Reservation WHERE Reservation.Membership_number = @test )
+
+-- Heftig shit du ikke kan forstå, tommy P og gutta ska lage video NÅ
+Create trigger testtest ON Member
+Instead of delete
+as
+DECLARE @memberID int
+SELECT @memberID = Membership_number FROM DELETED
+Begin
+DELETE FROM Reservation_treatment 
+WHERE Reservation_number = (SELECT Reservation.Reservation_number FROM Reservation WHERE Reservation.Membership_number = @memberID )
+
+Delete from Reservation Where Membership_number = @memberID
+delete from member where Membership_number = @memberID
+
+end

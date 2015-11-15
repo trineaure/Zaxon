@@ -1,0 +1,26 @@
+CREATE TRIGGER DeleteReservation ON Reservation
+INSTEAD OF DELETE
+as
+DECLARE @resID int
+SELECT @resID = Reservation_number FROM DELETED
+DECLARE @memberid int
+SELECT @memberid = Membership_number FROM DELETED
+BEGIN
+DELETE FROM Reservation_treatment 
+WHERE Reservation_number in (SELECT Reservation.Reservation_number FROM Reservation WHERE Reservation.Membership_number = @memberid)
+DELETE FROM Reservation WHERE Membership_number =  @memberid
+print @resID
+end
+
+
+CREATE TRIGGER DeleteMember ON Member
+INSTEAD OF DELETE
+as
+DECLARE @memberid int
+SELECT @memberid = Membership_number FROM DELETED
+BEGIN
+PRINT @memberid
+DELETE FROM Reservation WHERE Membership_number = @memberid
+DELETE FROM Member WHERE Membership_number = @memberid
+end
+
