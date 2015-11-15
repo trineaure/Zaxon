@@ -1,4 +1,4 @@
-<!--ADMIN SIDE-->
+<!--ADMIN SIDE EVENTUELT SLETTES--> 
 <main>
 
     <p> Søk etter frisørene ved Zaxon </p>

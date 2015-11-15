@@ -34,8 +34,10 @@ $feilTlf = $GLOBALS["feiltlf"];
                             <p>Telefon: <input type="number"placeholder="41761114" name="givenPhone_Number" class="input-textarea" required/></p>
                             <p>Passord: <input type="password" id="Login_Password" name="givenLogin_Password" minlength="6" class="input-textarea" required/></p>
                             <p>Gjenta Passord: <input type="password" id="confirm_password" name="givenConfirm_password" class="input-textarea" required/></p>
-                            <input id="submit" type="submit" name="submit" value="Submit" />
-                        </form>
+                            <div class="backandforth">
+                            <input class="tinySubmit" type="submit" name="submit" value="Neste" />
+                            <a href="?page=order" class="tinyButton">Tilbake</a>
+                            </form> </div>
                     </div>
 
            

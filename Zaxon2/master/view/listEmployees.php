@@ -3,7 +3,6 @@
     <?php
     $employees = $GLOBALS["included_employees"];
     ?>
-
     <script>
 //alert on delete
     function ConfirmDelete()
@@ -17,17 +16,10 @@
     </script>
 
     <p> Her kan en slette en ansatt i Zaxon, eller velge å redigere dem.</p>
-
     <table id="submit" type="delete" value="delete">
-
         <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> <td> Adresse </td> <td> Postkode </td> <td> Rediger </td>  <td>  Slett </td> </tr>";
-        ?>
-
-        <?php foreach ($employees as $employee) { ?>
-
-            <!--<form onSubmit="return confirm_alert(this)" action="?page=deleteEmployee" method="post">-->    
-            <tr>
-
+             foreach ($employees as $employee) { ?>
+             <tr>
                 <td> <?php echo $employee["First_name"] ?> </td>
                 <td> <?php echo $employee["Last_name"] ?> </td>
                 <td> <?php echo $employee["Birth"] ?> </td>
@@ -54,7 +46,9 @@
                     </form>
                 </td>
             </tr>
-            <!--</form>-->
         <?php } ?>
     </table>
+     <div  id="big">
+                <a href="?page=home" class="button"><-Tilbake</a>
+             </div>  
 </main>

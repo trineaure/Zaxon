@@ -56,15 +56,19 @@ $feilTlf = $GLOBALS["feiltlf"];
              <!--Velger om man vil ha bilde eller ikke-->
              <div id="Photo">    
              <label for="Employee_Photo"><input type="radio" class="regular-radio" name="Employee_Photo" value="0"  onclick="hideUploadOption()" />Ingen bilde</label>       
-             <p>Velg bilde som skal lastes opp: <input type="file" name="fileToUpload" id="fileToUpload"></p>
+             <p>Velg bilde som skal lastes opp:</p>
+             <input type="file" name="fileToUpload" id="fileToUpload"></p>
+             <p>Bildet må være av jpg format. Kan ikke være over 5 Mb </p>
              </div>
              <div id="noPhoto" style="display:none">
              <label for="Employee_Photo"><input type="radio" class="regular-radio" name="Employee_Photo" value="1"  onclick="showUploadOption()"checked/>Du vil ha bilde</label>     
              </div>
-             
              <label for="Extended_Access"> <input type="radio" class="regular-radio" name="Extended_Access" value="0" checked/>Standard tilgang </label>
              <label for="Extended_Access"> <input type="radio" class="regular-radio" name="Extended_Access" value="1"/>Utvidet tilgang </label>
-             <input id="submit" type="submit" name="submit" value="Submit"  required/>
+             <div class="backandforth">
+             <input class="tinySubmit" type="submit" name="submit" value="Neste" />
+             <a href="?page=home" class="tinyButton">Tilbake</a>
+             </form> </div>
              
          </form>
              

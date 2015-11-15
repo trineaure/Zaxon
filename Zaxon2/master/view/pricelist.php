@@ -8,18 +8,9 @@
 
         De oppførte prisene er minstepriser og kan variere med behandlingstiden og teknikken som blir brukt. Spør derfor gjerne frisøren om prisen på forhånd.
     </p>
-
-
-    <!--    <div id="big">
-            <div class="content-area">-->
-
-
     <table id="submit" type="submit" value="submit">
         <?php echo "<tr> <td> Pris </td> <td> Behandling </td> <td> Kategori </td> <td> Endre pris </td> </tr>";
-        ?>
-
-        <?php foreach ($pricelist as $price) { ?>
-
+            foreach ($pricelist as $price) { ?>
             <tr>
                 <td> <?php echo $price["Price"] ?> </td>
                 <td> <?php echo $price["Treatment_Name"] ?> </td>
@@ -30,11 +21,13 @@
                         <input type="hidden" value="<?php echo $price["Treatment_Name"]; ?>" name="Treatment_Name">
                         <input type="hidden" value="<?php echo $price["Category_Name"]; ?>" name="Category_Name">                  
                     <button value="submit"> Endre </button>
-                </form>
-            </td>  
-        </tr>
-
+                    </form>
+                </td>  
+            </tr>
         <?php } ?>
     </table>
+    <div  id="big">
+    <a href="?page=home" class="button"><-Tilbake</a>
+    </div>  
 
 </main>

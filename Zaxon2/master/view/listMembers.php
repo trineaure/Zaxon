@@ -3,7 +3,6 @@
     <?php
     $members = $GLOBALS["included_members"];
     ?>
-
     <script>
 //alert on delete
     function ConfirmDelete()
@@ -14,21 +13,17 @@
       else
         return false;
     }
-    
     </script>
-
+   
     <p> Her kan en slette medlemene i Zaxon, eller velge å redigere dem.</p>
-
+    
     <table id="submit" type="delete" value="delete">
 
         <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> <td> Rediger </td>  <td>  Slett </td> </tr>";
         ?>
 
         <?php foreach ($members as $member) { ?>
-
-            <!--<form onSubmit="return confirm_alert(this)" action="?page=deleteMember" method="post">-->    
             <tr>
-
                 <td> <?php echo $member["First_name"] ?> </td>
                 <td> <?php echo $member["Last_name"] ?> </td>
                 <td> <?php echo $member["Birth"] ?> </td>
@@ -50,10 +45,11 @@
                     </form>
                 </td>
             </tr>
-            <!--</form>-->
         <?php } ?>
-
     </table>
+    <div  id="big">
+        <a href="?page=home" class="button"><-Tilbake</a>
+     </div> 
 
 </main>
 
