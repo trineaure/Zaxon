@@ -91,8 +91,8 @@ class loginController extends tempController {
      * @return Render to the loginError page.
      */
     private function loginConfig() {
-        $givenUsername = $_REQUEST["Phone_Number"];
-        $givenPassword = $_REQUEST["Login_Password"];
+        $givenUsername = filter_input(INPUT_POST,"Phone_Number");
+        $givenPassword = filter_input(INPUT_POST,"Login_Password");
         // Get all members from database
 
 

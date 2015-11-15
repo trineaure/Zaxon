@@ -23,7 +23,7 @@ class employeeController extends tempController {
         }
     }
 
-      /**
+    /**
      * Show the information where the Employee can add himself.
      * Checks if the Phone_Number is false.
      * @return
@@ -39,15 +39,15 @@ class employeeController extends tempController {
      */
     private function addEmployeeAction() {
 
-        $givenF_Name = $_REQUEST['First_name'];
-        $givenL_Name = $_REQUEST['Last_name'];
-        $givenBirth = $_REQUEST['Birth'];
-        $_SESSION['givenEmployeeNumber'] = $_REQUEST['Phone_Number'];
-        $givenHome_Address = $_REQUEST['Home_Address'];
-        $givenZip_Code = $_REQUEST['Zip_Code'];
-        $givenLogin_Password = $_REQUEST['Login_Password'];
-        $givenExtended_Access = $_REQUEST['Extended_Access'];
-        $givenEmployee_Photo = $_REQUEST['Employee_Photo'];
+        $givenF_Name = filter_input(INPUT_POST, "First_name");
+        $givenL_Name = filter_input(INPUT_POST, "Last_name");
+        $givenBirth = filter_input(INPUT_POST, "Birth");
+        $_SESSION['givenEmployeeNumber'] = filter_input(INPUT_POST, "Phone_Number");
+        $givenHome_Address = filter_input(INPUT_POST, "Home_Address");
+        $givenZip_Code = filter_input(INPUT_POST, "Zip_Code");
+        $givenLogin_Password = filter_input(INPUT_POST, "Login_Password");
+        $givenExtended_Access = filter_input(INPUT_POST, "Extended_Access");
+        $givenEmployee_Photo = filter_input(INPUT_POST, "Employee_Photo");
         // Try to add new customers, Set action response code - success or not
         $employeeModel = $GLOBALS["employeeModel"];
         $numbers = $employeeModel->getAllNumbers();
@@ -63,10 +63,10 @@ class employeeController extends tempController {
             }
         }
         //Upload file source: http://www.w3schools.com/php/php_file_upload.asp 
-        
+
         $target_dir = "../fellesFiler/bilder/employees";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        
+
         //Denne funksjonen blir kjørt hvis bruker velger å ikke laste opp bilde. 
         //Siden ingen bilde er lastet opp så er ". basename($_FILES["fileToUpload"]["name"])" lik 0
         //så blir arbeidstaker info lagret i databasen.
@@ -85,31 +85,31 @@ class employeeController extends tempController {
             if (isset($_POST["submit"])) {
                 $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
                 if ($check !== false) {
-                    echo "Filen er et bilde:" . $check["mime"] . ".\n";
+                    echo "Filen er et bilde:" . $check["mime"] . ".";
                     $uploadOk = 1;
                 } else {
-                    echo "Filen er ikke et bilde\n";
+                    echo "Filen er ikke et bilde.";
                     $uploadOk = 0;
                 }
             }
             // Check if file already exists
             if (file_exists($target_file)) {
-                echo "filen eksisterer allerede\n";
+                echo "filen eksisterer allerede";
                 $uploadOk = 0;
             }
             // Check file size
             if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "Filen er for stor.\n";
+                echo "Filen er for stor.";
                 $uploadOk = 0;
             }
             // Allow certain file formats
             if ($imageFileType != "jpg") {
-                echo "Bare jpg format er tilatt.\n";
+                echo "Bare jpg format er tilatt.";
                 $uploadOk = 0;
             }
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo "Sorry, filen ble ikke opplastet.\n";
+                echo "Sorry, filen ble ikke opplastet.";
                 // if everything is ok, try to upload file. 
                 //så blir arbeidstakerinfo lagt til i databasen 
             } else {
