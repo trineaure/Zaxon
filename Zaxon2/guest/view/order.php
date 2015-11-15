@@ -1,14 +1,11 @@
- <main>
+<!--GUEST SIDE--> 
+<main>
                     <div  id="big">
                         <a href="?page=login" class="button">Logg Inn</a>
                         <a href="?page=memberAdd" class="button">Ny Bruker</a>
                     </div>
 
                     <div id="small">
-                        Lorem ipsum dolor sit amet, pro case solum eu, 
-                        sit no meis maluisset dissentiunt. Munere diceret cu sit, 
-                        causae audire liberavisse te sea, mei ad ullum consectetuer. 
-                        Ea vis nonumes electram, vim choro bonorum ex. 
-                        In pro hinc postulant honestatis.
+                       Her kan du logge inn på medlemssiden din  eller opprette en ny brukerkonto om du allerede ikke har en. Velkommen til oss.
                     </div>
                 </main>
