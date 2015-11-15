@@ -48,10 +48,12 @@ class Router {
                 return new memberController();
 
             case "calendar":
+            case "memberOrder":    
             case "chooseTreatment":
             case "reservationDateAndEmployee":
             case "reservationTime":
             case "reservationComplete":
+            case "reservationTreatmentFinish":    
                 return new reservationController();
 
             case "home":
