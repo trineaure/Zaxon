@@ -122,7 +122,7 @@ class employeeModel {
      * @param String $givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo)
      * @return bool true on success, false otherwise
      */
-    public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo) {
+    public function add($givenF_Name, $givenL_Name, $givenBirth, $givenPhone_Number, $givenHome_Address, $givenZip_Code, $Login_Password_encrypted, $givenExtended_Access, $givenEmployee_Photo) {
         return $this->addStmt->execute
                         (array("First_name" => $givenF_Name,
                     "Last_name" => $givenL_Name,
@@ -130,7 +130,7 @@ class employeeModel {
                     "Phone_Number" => $givenPhone_Number,
                     "Home_Address" => $givenHome_Address,
                     "Zip_Code" => $givenZip_Code,
-                    "Login_Password" => $givenLogin_Password,
+                    "Login_Password" => $Login_Password_encrypted,
                     "Extended_Access" => $givenExtended_Access,
                     "Employee_Photo" => $givenEmployee_Photo));
     }

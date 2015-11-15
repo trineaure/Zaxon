@@ -24,14 +24,15 @@ class loginController extends tempController {
 /**
  * 
  * @param String $givenUsername
- * @param String $givenPassword
+ * @param String $Login_Password_encrypted
  */
-    private function loginMember($givenUsername, $givenPassword) {
+    private function loginMember($givenUsername, $Login_Password_encrypted) {
         $_SESSION["MasterAreLoggedIn"] = false;
         $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
         foreach ($members as $member) {
-            if (($member["Phone_Number"] == $givenUsername) && ($member["Login_Password"] == $givenPassword)) {
+           
+            if (($member["Phone_Number"] == $givenUsername) && ($member["Login_Password"] == $Login_Password_encrypted)) {
                 //match
                 $_SESSION["MemberAreLoggedIn"] = true;
                 $_SESSION["MemberFirstName"] = $member['First_name'];
@@ -46,9 +47,9 @@ class loginController extends tempController {
 /**
  * 
  * @param String $givenUsername
- * @param String $givenPassword
+ * @param String $Login_Password_encrypted
  */
-    private function loginEmployee($givenUsername, $givenPassword) {
+    private function loginEmployee($givenUsername, $Login_Password_encrypted) {
 
         $employeeModel = $GLOBALS["employeeModel"];
         $employees = $employeeModel->getAll();
@@ -56,7 +57,7 @@ class loginController extends tempController {
         $_SESSION["MasterAreLoggedIn"] = false;
         $_SESSION["EmployeeAreLoggedIn"] = false;
         foreach ($employees as $employee) {
-            if (($employee['Phone_Number'] == $givenUsername) && ($employee['Login_Password'] == $givenPassword)) {
+            if (($employee['Phone_Number'] == $givenUsername) && ($employee['Login_Password'] == $Login_Password_encrypted)) {
                 echo "Brukernavn eller passord stemmer ikke. :)";
                 if (($employee['Extended_Access']) == $Extended_Access) {
                     $_SESSION["MasterAreLoggedIn"] = true;
@@ -94,11 +95,14 @@ class loginController extends tempController {
         $givenUsername = filter_input(INPUT_POST,"Phone_Number");
         $givenPassword = filter_input(INPUT_POST,"Login_Password");
         // Get all members from database
+        
+       //The sha1() function calculates the SHA-1 hash of a string.
+        $str = "$givenPassword";
+        $Login_Password_encrypted = sha1($str);
 
+        $this->loginMember($givenUsername, $Login_Password_encrypted);
 
-        $this->loginMember($givenUsername, $givenPassword);
-
-        $this->loginEmployee($givenUsername, $givenPassword);
+        $this->loginEmployee($givenUsername, $Login_Password_encrypted);
 
         //error message
         if (($_SESSION["MemberAreLoggedIn"] == false) || ($_SESSION["EmployeeAreLoggedIn"] == false) || ($_SESSION["MasterAreLoggedIn"] == false)) {

@@ -48,7 +48,12 @@ class employeeController extends tempController {
         $givenLogin_Password = filter_input(INPUT_POST, "Login_Password");
         $givenExtended_Access = filter_input(INPUT_POST, "Extended_Access");
         $givenEmployee_Photo = filter_input(INPUT_POST, "Employee_Photo");
-        // Try to add new customers, Set action response code - success or not
+        
+        //The sha1() function calculates the SHA-1 hash of a string.
+        $str = "$givenLogin_Password";
+        $Login_Password_encrypted = sha1($str);
+        
+
         $employeeModel = $GLOBALS["employeeModel"];
         $numbers = $employeeModel->getAllNumbers();
 
@@ -72,7 +77,7 @@ class employeeController extends tempController {
         //så blir arbeidstaker info lagret i databasen.
         If ($target_file == $target_dir) {
             $added = $employeeModel->add
-                    ($givenF_Name, $givenL_Name, $givenBirth, $_SESSION['givenEmployeeNumber'], $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo);
+                    ($givenF_Name, $givenL_Name, $givenBirth, $_SESSION['givenEmployeeNumber'], $givenHome_Address, $givenZip_Code, $Login_Password_encrypted, $givenExtended_Access, $givenEmployee_Photo);
             echo"Du har ikke lastet opp et bilde av en arbeidstaker.";
             //Denne variabelen brues til å vise om opplastningen er vellykket.
             $uploadOk = 0;
@@ -120,7 +125,7 @@ class employeeController extends tempController {
                     rename("../fellesFiler/bilder/employees" . basename($_FILES["fileToUpload"]["name"]), "../fellesFiler/bilder/employees/$name.jpg");
 
                     $added = $employeeModel->add
-                            ($givenF_Name, $givenL_Name, $givenBirth, $_SESSION['givenEmployeeNumber'], $givenHome_Address, $givenZip_Code, $givenLogin_Password, $givenExtended_Access, $givenEmployee_Photo);
+                            ($givenF_Name, $givenL_Name, $givenBirth, $_SESSION['givenEmployeeNumber'], $givenHome_Address, $givenZip_Code, $Login_Password_encrypted, $givenExtended_Access, $givenEmployee_Photo);
 
                     $data = array("added" => $added, "uploadOk" => $uploadOk);
                     return $this->render("employeeAdded", $data);

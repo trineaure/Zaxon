@@ -44,8 +44,11 @@ class memberController extends tempController {
         $givenLastName = filter_input(INPUT_POST, "givenLast_name");
         $givenBirth = filter_input(INPUT_POST, "givenBirth");
         $givenPhone_Number = filter_input(INPUT_POST, "givenPhone_Number");
-        $givenLogin_Password = filter_input(INPUT_POST, "givenLogin_Password");
-
+        $givenLogin_Password = filter_input(INPUT_POST, "givenLogin_Password");    
+        //The sha1() function calculates the SHA-1 hash of a string.
+        $str = "$givenLogin_Password";
+        $Login_Password_encrypted = sha1($str);
+        
         $memberModel = $GLOBALS["memberModel"];
         $numbers = $memberModel->getAllNumbers();
 
@@ -62,7 +65,7 @@ class memberController extends tempController {
             }
         }
         // Add the information about the member
-        $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password);
+        $added = $memberModel->add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $Login_Password_encrypted);
 
         // put the information in an array 
         $data = array(

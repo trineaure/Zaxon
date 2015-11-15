@@ -119,9 +119,9 @@ class memberModel {
      * @param $givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password. 
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $givenLogin_Password) {
+    public function add($givenFirst_Name, $givenLastName, $givenBirth, $givenPhone_Number, $Login_Password_encrypted) {
 
-        return $this->addStmt->execute(array("First_name" => $givenFirst_Name, "Last_name" => $givenLastName, "Birth" => $givenBirth, "Phone_Number" => $givenPhone_Number, "Login_Password" => $givenLogin_Password));
+        return $this->addStmt->execute(array("First_name" => $givenFirst_Name, "Last_name" => $givenLastName, "Birth" => $givenBirth, "Phone_Number" => $givenPhone_Number, "Login_Password" => $Login_Password_encrypted));
     }
 
     /**
