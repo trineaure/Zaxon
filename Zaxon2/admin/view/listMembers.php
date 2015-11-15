@@ -48,8 +48,6 @@
             </tr>
         <?php } ?>
     </table>
-     <div  id="big">
-        <a href="?page=home" class="button"><-Tilbake</a>
-    </div>
+     <a href="?page=home" class="bigButton">Tilbake</a>
 </main>
 

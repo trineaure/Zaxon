@@ -1,39 +1,62 @@
 <!--ADMIN SIDE EVENTUELT SLETTES--> 
-<main>
-
-    <p> Søk etter frisørene ved Zaxon </p>
-
-    <form method="post" action="?page=searchEmployee"> 
-        <input type="text" class="input-textarea" name="searchKeyword" />
-        <input id="submit" type="submit" value="search">
-    </form>
-
+<main>  
     <?php
-    $searchResults = $GLOBALS["searchResults"];
-    ?>
+        $searchResults = $GLOBALS["searchResults"];
+          if(isset($_REQUEST["searchKeyword"])) {
+          $searchKeyword = $_REQUEST['searchKeyword'];
+        }
+        else {
+            $searchKeyword = "";
+        }
+        ?><br>
+        <p> Søk etter frisørene ved Zaxon </p>
+        <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnummer. </p>
+         
+        
+<!--        <div class="backandforth">-->
+            <br>
+            <form method="post" action="?page=searchEmployee"> 
+            <input type="text" class="input-textarea" name="searchKeyword" value="<?php echo $searchKeyword ?>" />
+            <input class="tinySubmit" type="submit" value="Søk">
+             <a href="?page=home" class="tinyButton">Tilbake</a> <br><br>
+            </form>
+<!--        </div>-->
+        
 
-    <?php if (!empty($searchResults)) { ?>
+       <?php
+        if (!empty($searchResults)) { ?>
+          <table>
+            <tr> <td>Fornavn</td> <td>Etternavn</td> <td>Fødselsdag</td>  <td>Tlf.</td> <td>Adresse</td> <td>Postkode</td> <td>Rediger</td>  <td>Slett</td> </tr>
 
-        <table>
-            <tr> <td> Ansatt ID </td> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td>  <td> Mobil nummer </td> <td> Hjemme adresse </td> <td> Postkode </td> </tr>
-
-            <?php foreach ($searchResults as $r) { ?>
-
-                <tr>
-                    <td> <?php echo $r["EmployeeID"] ?></td>
-                    <td> <?php echo $r["First_name"] ?> </td>
-                    <td> <?php echo $r["Last_name"] ?></td>
-                    <td> <?php echo $r["Birth"] ?></td>
-                    <td> <?php echo $r["Phone_Number"] ?></td>
-                    <td> <?php echo $r["Home_Address"] ?></td>
-                    <td> <?php echo $r["Zip_Code"] ?></td>
-                </tr>
-            <?php } ?>
-
-        </table>
-    <?php
-    } else {
-        echo "No results";
-    }
-    ?>    
+           <?php foreach ($searchResults as $r) { ?>
+                    <tr>
+                        <td> <?php echo $r["First_name"] ?> </td>
+                        <td> <?php echo $r["Last_name"] ?> </td>
+                        <td> <?php echo $r["Birth"]  ?></td>
+                        <td> <?php echo $r["Phone_Number"] ?> </td>
+                        <td> <?php echo $r["Home_Address"] ?></td>
+                        <td> <?php echo $r["Zip_Code"] ?></td>
+                    <td>
+                    <form method="post" action="?page=updateEmployee">
+                        <input type="hidden" value="<?php echo $employee["EmployeeID"]; ?>" name="EmployeeID">
+                        <input type="hidden" value="<?php echo $r["First_name"]; ?>" name="First_name">
+                        <input type="hidden" value="<?php echo $r["Last_name"]; ?>" name="Last_name">
+                        <input type="hidden" value="<?php echo $r["Birth"]; ?>" name="Birth">
+                        <input type="hidden" value="<?php echo $r["Phone_Number"]; ?>" name="Phone_Number">
+                        <input type="hidden" value="<?php echo $r["Home_Address"]; ?>" name="Home_Address">
+                        <input type="hidden" value="<?php echo $r["Zip_Code"]; ?>" name="Zip_Code">
+                        <button value="submit"> Endre </button>
+                    </form>
+                </td>  
+                <td>
+                    <form method="post" action="?page=deleteEmployeeNow">
+                        <!--Delete the employee by the unique employeeID-->
+                        <input style="display:none;" value="<?php echo $r["EmployeeID"]; ?>" name="employeeID">
+                        <button Onclick="return ConfirmDelete();"  type="submit" value="1"> Slett </button>
+                    </form>
+                </td>
+            </tr>
+        <?php }  ?>
+         </table><?php } ?> 
+        
 </main>
