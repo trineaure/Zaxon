@@ -238,9 +238,17 @@ class updateController extends tempController {
     public function deleteEmployeeNow() {
 
         $employeeModel = $GLOBALS["employeeModel"];
+
         if (isset($_REQUEST['employeeID'])) {
             //collect value of input field.
             $employeeID = $_REQUEST['employeeID'];
+            //Delete photo            
+            $included_employee = $employeeModel->getOneByEmployeeID($employeeID);
+            if($included_employee["Employee_Photo"] == 1 ){
+            $file = "../fellesFiler/bilder/employees/".$included_employee["Phone_Number"].".jpg";
+            unlink($file);
+            }
+            
             $employeeModel->deleteEmployee($employeeID);
         }
         $this->showEmployees();
