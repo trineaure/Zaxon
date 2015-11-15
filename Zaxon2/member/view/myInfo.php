@@ -9,6 +9,8 @@
 
     <div>
         <table>
+            
+            <tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td> </tr>
             <tr>
                 <td> <?php echo $member["First_name"] ?> </td>
                 <td> <?php echo $member["Last_name"] ?> </td>

@@ -72,8 +72,10 @@ class updateController extends tempController {
     }
 
     /**
-     * Shows the information about the employee before we can change it.
-     * @return type
+     * Get the employee update. 
+     * Get new input value from an external variable. 
+     * @return render to the new page updateEmployee and return the $data
+     * with the $employee 
      */
     public function getEmployeeUpdate() {
 
@@ -89,13 +91,15 @@ class updateController extends tempController {
 
     /**
      * Update the information about the member
-     * @return type
+     * Get the new input value from an external variable and stores 
+     * it in the $update.. values and updates the db.
+     * @return Render the updated listMembers page. 
      */
     public function updateMember() {
 
         $memberModel = $GLOBALS["memberModel"];
 
-        // set the values in the $update... 
+        // set the values in the $update...  
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
         $updateBirth = filter_input(INPUT_POST, 'Birth');
@@ -104,19 +108,21 @@ class updateController extends tempController {
 
         $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
         $GLOBALS["included_members"] = $memberModel->getAll();
-
-        //$data = array("members" => $members);
+        
         return $this->render("listMembers");
     }
 
     /**
      * Update the information about the Employee
-     * @return type
+     * Get the new input value from an external variable 
+     * and saves it in $update... values and updates the db.
+     * @return Render  the updated page listEmployees.
      */
     public function updateEmployee() {
 
         $employeeModel = $GLOBALS["employeeModel"];
 
+        // set the value in the update...
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
         $updateBirth = filter_input(INPUT_POST, 'Birth');
@@ -133,12 +139,15 @@ class updateController extends tempController {
 
     /**
      * The member can update the information about himself.
-     * @return type
+     * Get the new input value and saves it in $update... values
+     * Get information about one member by its $Membership_Number
+     * @return render  to the new page myInfo and send with $data with the updated 
+     * information about the $member
      */
     public function updateOneMember() {
 
         $memberModel = $GLOBALS["memberModel"];
-
+        // set the value in the update
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
         $updateBirth = filter_input(INPUT_POST, 'Birth');
@@ -153,8 +162,8 @@ class updateController extends tempController {
     }
 
     /**
-     * Get the information from getMemberInfo, and 
-     * @return Render to the new page, updateInformation
+     * Returns the info of the member who is logged in.
+     * @return Render to the new page updateInformation
      */
     public function getOneMemberUpdate() {
         // Get the member by the membership number
@@ -165,7 +174,6 @@ class updateController extends tempController {
     /*
      * Returns the info of the member who is logged in. 
      */
-
     public function getMemberInfo() {
 
         $memberModel = $GLOBALS["memberModel"];
@@ -175,8 +183,8 @@ class updateController extends tempController {
 
     /**
      * Show all the Members in the database.
-     * @return Render to the new page, listMembers
-     * @return List of Members from the db.
+     * @return Render to the new page listMembers and return with
+     * $data with the $inluded_members from the db.
      */
     public function showMembers() {
 
@@ -189,8 +197,8 @@ class updateController extends tempController {
 
     /**
      * Shows all the employee's in Zaxon.
-     * @return Render to the new page, listEmployee 
-     * @return list of employees from the db. 
+     * @return Render to the new page listEmployee and return with
+     * $data with the $included_employees from the db.
      */
     public function showEmployees() {
 
@@ -203,8 +211,7 @@ class updateController extends tempController {
     }
     
     /**
-     * Deltes one member from the database.
-     * 
+     * Deltes one member from the db.
      */
     public function deleteMemberNow() {
 
@@ -217,7 +224,7 @@ class updateController extends tempController {
     }
 
     /**
-     * Deletes one employee from the database.
+     * Deletes one employee from the db.
      */
     public function deleteEmployeeNow() {
 
@@ -229,5 +236,4 @@ class updateController extends tempController {
         }
         $this->showEmployees();
     }
-
 }
