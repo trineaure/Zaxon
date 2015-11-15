@@ -27,12 +27,14 @@
                     ?> <?php echo "$treatment"; ?>  <?php
                 }?> </td>
                 </tr>
-    </table> 
+    </table> <br>
+    <div class="backandforth">
      <form action="?page=reservationTreatmentFinish" method="post">
-     <input id="submit" type="submit" name="submit" value="Fullfør" />
+     <input class="tinySubmit" type="submit" name="submit" value="Fullfør" />
+      <a href="?page=chooseTreatment" class="tinyButton">Tilbake</a>
      </form> 
-       <div  id="big">
-                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+       
+               
             </div>
     
      <?php }else {?>

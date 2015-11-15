@@ -108,12 +108,13 @@ echo "Din dato er : " . $_SESSION["givenReservation_date"];
                     </tr>
                     </table>
         </div>
-
-        <input id="submit" type="submit" name="submit" value="Neste" />
-             <div  id="big">
-                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
-            </div>
-    </form>
+<!--  // </form>-->
+<div class="backandforth">
+<!--     // <form action="?page=reservationComplete" method="post">-->
+        <input class="tinySubmit" type="submit" name="submit" value="Neste" />
+        <a href="?page=chooseTreatment" class="tinyButton">Tilbake</a>
+            </form> </div>
+   
      
  
 

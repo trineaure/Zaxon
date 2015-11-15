@@ -31,12 +31,13 @@
                                     ?> </label> <?php
                                    } ?> 
                         
-                            </div>  </form>
+                            </div>  
+<!--            </form>-->
                 
 <!--                </form> -->
              </div> 
             <div class="backandforth">
-                <form method="post" action="?page=reservationTime">
+<!--                <form method="post" action="?page=reservationTime">-->
                     <input class="tinySubmit" type="submit" name="submit" value="Neste" >
                     <a href="?page=chooseTreatment" class="tinyButton" >Tilbake</a>
 <!--                    <form method="post" action="?page=reservationTime">-->

@@ -3,8 +3,7 @@
 <main>
     <div id="big">
         <div class="content-area">
-            <p>VELKOMMEN MEDLEM  </p>
-            <p> Ditt navn er: <?php echo $_SESSION["MemberFirstName"]; ?> </p>
+            <p>Velkommen <?php echo $_SESSION["MemberFirstName"]; ?> </p><br>
             <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.</p>
             <p>   Vi er her for å gi deg en god håropplevelse. </p>
 
