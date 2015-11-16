@@ -21,6 +21,7 @@
     <div id="small">
         <p> Prisliste </p>
            <a href="?page=pricelist" class="smallButton">Vis prisliste</a>
+           <!--<a href="?page=updatePricelist" class="smallButton">Oppdater prisliste</a>-->
     </div>
 </main>
                 <!-- END -->
