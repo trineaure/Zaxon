@@ -50,7 +50,7 @@
                         <td> <?php echo $r["Zip_Code"] ?></td>
                     <td>
                     <form method="post" action="?page=updateEmployee">
-                        <input type="hidden" value="<?php echo $employee["EmployeeID"]; ?>" name="EmployeeID">
+                        <input type="hidden" value="<?php echo $r["EmployeeID"]; ?>" name="EmployeeID">
                         <input type="hidden" value="<?php echo $r["First_name"]; ?>" name="First_name">
                         <input type="hidden" value="<?php echo $r["Last_name"]; ?>" name="Last_name">
                         <input type="hidden" value="<?php echo $r["Birth"]; ?>" name="Birth">
