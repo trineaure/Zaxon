@@ -184,10 +184,10 @@ body .container #structure main #submit {
     margin-top:20px;
     cursor:pointer;
 }
-
+/*
 body .container #structure main #submit:hover {
     text-decoration: underline;
-}
+}*/
 
 body .container #structure main .input {
     width:97.8%;
