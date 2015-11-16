@@ -19,7 +19,6 @@
             <tr> 
                 <td>Behandling:</td> 
                 <td>Pris:</td>
-
             </tr>
     <?php foreach ($catsWithTreatments[$key] as $treatment) { ?>
 
@@ -27,7 +26,7 @@
                     <td><?php echo $treatment["Treatment_Name"] ?></td>
                     <td><?php echo "Fra " . $treatment["Price"] . ",-" ?></td>                      
                 </tr>
-                <!--</div>-->
+            
         <?php } ?> 
         </table>
 <?php } ?> 

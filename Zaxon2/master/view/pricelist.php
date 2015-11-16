@@ -1,8 +1,6 @@
 <!--MASTER SIDE-->
 <main>
-    
- 
-    <?php
+<?php
     $catsWithTreatments = $GLOBALS["catsWithTreatments"];
    
         $keys = array_keys($catsWithTreatments);
@@ -28,7 +26,6 @@
                             </form>
                         </td>
                     </tr>
-                <!--</div>-->
                 <?php } ?> 
             </table>
  <?php } ?> 
