@@ -20,7 +20,7 @@
                <tr> <td>Kundenummer:</td> <td>Frisør:</td> <td>Dato:</td> <td>Tid:</td>  <td>Behandling:</td>
                 <tr>
                 <td> <?php echo $_SESSION["MembershipNumber"] ?> </td>
-                <td> <?php echo $_SESSION["givenEmployeeID"] ?> </td>
+                <td> <?php echo $_SESSION["First_Name"] ?> </td>
                 <td> <?php echo $_SESSION["givenReservation_date"] ?> </td>
                 <td> <?php echo $_SESSION["givenTime"] ?> </td>
                  <td> <?php foreach ($_SESSION["treatmentArray"] as $treatment){

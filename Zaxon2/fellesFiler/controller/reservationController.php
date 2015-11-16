@@ -88,7 +88,9 @@ class reservationController extends tempController {
         //session_start();
         $_SESSION["givenEmployeeID"] = filter_input(INPUT_POST, "givenEmployeeID");
         $_SESSION["givenReservation_date"] = filter_input(INPUT_POST, "givenReservation_date");
-
+       $employeeModel = $GLOBALS["employeeModel"];
+       $emplo = $employeeModel->getOneByEmployeeID($_SESSION["givenEmployeeID"]);
+        $_SESSION["First_Name"] = $emplo["First_name"];
         $reservationModel = $GLOBALS["reservationModel"];
         $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
 
@@ -97,7 +99,8 @@ class reservationController extends tempController {
 
     private function addReservationAction() {
         $_SESSION["givenTime"] = filter_input(INPUT_POST, "time"); // denne skal vi bruke, istenden for $_REQUEST
-
+      
+               
         return $this->render("reservationComplete");
     }
 
