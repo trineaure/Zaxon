@@ -6,7 +6,7 @@
 $unavailableTimes = $_SESSION["timeIn"];
 foreach ($unavailableTimes as $tempTime){
 ?>
-<?php echo date("'H:i'", strtotime($tempTime["Time_of_Day"])); } ?>     
+<?php  date("'H:i'", strtotime($tempTime["Time_of_Day"])); } ?>     
      
      
      <script> 

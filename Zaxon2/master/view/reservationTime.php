@@ -6,7 +6,7 @@
 $unavailableTimes = $_SESSION["timeIn"];
 foreach ($unavailableTimes as $tempTime){
 ?>
-<?php echo date("'H:i'", strtotime($tempTime["Time_of_Day"])); } ?>     
+<?php  date("'H:i'", strtotime($tempTime["Time_of_Day"])); } ?>     
      
      
      <script> 
@@ -43,19 +43,19 @@ $(document).ready(function() {
 ///skriver ut variablen
 //var_dump($_SESSION["timeIn"]);
 
-echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
-?> 
+//echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
+//?> 
 </p> 
     
 <p>
  <?php
-echo "Din Employee er : " . $_SESSION["givenEmployeeID"];
-?>
+//echo "Din Employee er : " . $_SESSION["givenEmployeeID"];
+//?>
 </p>  
 <p>  
 <?php
-echo "Din dato er : " . $_SESSION["givenReservation_date"];
-?>
+//echo "Din dato er : " . $_SESSION["givenReservation_date"];
+//?>
 </p>
     
 <p>
