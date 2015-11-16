@@ -18,6 +18,18 @@
             <input class="tinySubmit" type="submit" value="Søk">
              <a href="?page=home" class="tinyButton">Tilbake</a> <br><br>
         </form>
+        
+           <script>
+//alert on delete
+    function ConfirmDelete()
+    {
+      var x = confirm("Er du sikker på at du vil slette?");
+      if (x)
+          return true;
+      else
+        return false;
+    }
+    </script>
         <?php
          if (!empty($searchResults)) { ?>
             <table>

@@ -43,31 +43,31 @@ $(document).ready(function() {
 ///skriver ut variablen
 //var_dump($_SESSION["timeIn"]);
 
-echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
-?> 
+//echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
+//?> 
 </p> 
     
 <p>
  <?php
-echo "Din Employee er : " . $_SESSION["givenEmployeeID"];
-?>
+//echo "Din Employee er : " . $_SESSION["givenEmployeeID"];
+//?>
 </p>  
 <p>  
 <?php
-echo "Din dato er : " . $_SESSION["givenReservation_date"];
-?>
+//echo "Din dato er : " . $_SESSION["givenReservation_date"];
+//?>
 </p>
     
 <p>
     <?php 
-    echo "Tid som er valgt allerede for denne datoen er : ";
-    
- //printer ut tidene som er i bruk 
-    foreach($unavailableTimes as $tempTime){
-           
-           echo date("H:i", strtotime($tempTime["Time_of_Day"]));
-       }
-       ?>
+//    echo "Tid som er valgt allerede for denne datoen er : ";
+//    
+// //printer ut tidene som er i bruk 
+//    foreach($unavailableTimes as $tempTime){
+//           
+//           echo date("H:i", strtotime($tempTime["Time_of_Day"]));
+//       }
+//       ?>
 </p>
 <!--Sakler jeg bruker til å teste END-->
 

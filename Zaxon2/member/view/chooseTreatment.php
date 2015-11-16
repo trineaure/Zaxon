@@ -33,7 +33,7 @@
         </p>
                         <div class="backandforth">
         <input class="tinySubmit" type="submit" name="submit" value="Neste" />
-        <a href="?page=order" class="tinyButton">Tilbake</a>
+        <a href="?page=home" class="tinyButton">Tilbake</a>
             </form> </div>
 </main>
 

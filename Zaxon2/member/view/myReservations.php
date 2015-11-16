@@ -42,7 +42,7 @@
     ?>
 
     <div  id="big">
-        <a href="?page=order" class="button">Tilbake</a>
+        <a href="?page=home" class="button">Tilbake</a>
     </div>
 
 
