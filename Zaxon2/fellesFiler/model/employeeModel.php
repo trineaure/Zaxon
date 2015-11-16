@@ -101,9 +101,11 @@ class employeeModel {
      * @return array with the employee with the EmployeeID that is given.
      */
     public function getOneByEmployeeID($EmployeeID) {
+        
         $this->selEmployee->execute(array(
-            ":EmployeeID" => $EmployeeID
+            ':EmployeeID' => $EmployeeID
         ));
+        
         return $this->selEmployee->fetch(PDO::FETCH_ASSOC);
     }
 

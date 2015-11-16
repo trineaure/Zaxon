@@ -28,15 +28,28 @@ class updateController extends tempController {
                 $this->getOneMemberUpdate();
                 break;
 
+            case($page == "updateAdmin"):
+                $this->getOneEmployeeUpdate();
+                break;
+
             case($page == "addUpdate"):
                 $this->updateOneMember();
+                break;
+
+            case($page == "addUpdateAdmin"):
+                $this->updateOneEmployee();
+                break;
+
+            case($page == "adminInfo"):
+                $this->getEmployeeInfo();
+                $this->render("adminInfo");
                 break;
 
             case($page == "myInfo"):
                 $this->getMemberInfo();
                 $this->render("myInfo");
                 break;
-            
+
             case($page == "listMembers"):
                 $this->showMembers();
                 break;
@@ -52,7 +65,7 @@ class updateController extends tempController {
             case($page == "deleteEmployeeNow"):
                 $this->deleteEmployeeNow();
                 break;
-            
+
             case($page == "searchMember"):
                 $this->searchMember();
                 break;
@@ -117,7 +130,7 @@ class updateController extends tempController {
 
         $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
         $GLOBALS["included_members"] = $memberModel->getAll();
-        
+
         return $this->render("listMembers");
     }
 
@@ -165,9 +178,33 @@ class updateController extends tempController {
 
         $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
         $member = $memberModel->getOneByMemberNumber($Membership_number);
-
+        
         $data = array("member" => $member);
         return $this->render("myInfo", $data);
+    }
+
+    /**
+     * The admin can update the information about himself.
+     * @return render to the new page adminInfo and send with $data with the
+     * updated information about the $employee
+     */
+    public function updateOneEmployee() {
+
+        $employeeModel = $GLOBALS["employeeModel"];
+
+        $updateFirst_name = filter_input(INPUT_POST, 'First_name');
+        $updateLast_name = filter_input(INPUT_POST, 'Last_name');
+        $updateBirth = filter_input(INPUT_POST, 'Birth');
+        $updatePhone_Number = filter_input(INPUT_POST, 'Phone_Number');
+        $updateHome_Address = filter_input(INPUT_POST, 'Home_Address');
+        $updateZip_Code = filter_input(INPUT_POST, 'Zip_Code');
+        $EmployeeID = filter_input(INPUT_POST, 'EmployeeID');
+
+        $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
+        $employee = $employeeModel->getOneByEmployeeID($EmployeeID);
+       
+        $data = array("employee" => $employee);
+        return $this->render("adminInfo", $data);
     }
 
     /**
@@ -175,19 +212,41 @@ class updateController extends tempController {
      * @return Render to the new page updateInformation
      */
     public function getOneMemberUpdate() {
+        
         // Get the member by the membership number
         $this->getMemberInfo();
         return $this->render("updateInformation");
     }
 
+    /**
+     * Returns the info of the employee who is logged in
+     * @Return render to the new page updateAdmin
+     */
+    public function getOneEmployeeUpdate() {
+        
+        $this->getEmployeeInfo();
+        return $this->render("updateAdmin");
+    }
+
     /*
      * Returns the info of the member who is logged in. 
      */
+
     public function getMemberInfo() {
 
         $memberModel = $GLOBALS["memberModel"];
         // Get the member by the membership number
         $GLOBALS["member"] = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
+    }
+
+    /**
+     * Returns the info of the employee who is logged in
+     */
+    public function getEmployeeInfo() {
+        
+        $employeeModel = $GLOBALS["employeeModel"];
+
+        $GLOBALS["employee"] = $employeeModel->getOneByEmployeeID($_SESSION["workerID"]);
     }
 
     /**
@@ -218,7 +277,7 @@ class updateController extends tempController {
         $data = array("included_employees" => $included_employee);
         return $this->render("listEmployees", $data);
     }
-    
+
     /**
      * Deltes one member from the db.
      */
@@ -244,17 +303,16 @@ class updateController extends tempController {
             $employeeID = $_REQUEST['employeeID'];
             //Delete photo            
             $included_employee = $employeeModel->getOneByEmployeeID($employeeID);
-            if($included_employee["Employee_Photo"] == 1 ){
-            $file = "../fellesFiler/bilder/employees/".$included_employee["Phone_Number"].".jpg";
-            unlink($file);
+            if ($included_employee["Employee_Photo"] == 1) {
+                $file = "../fellesFiler/bilder/employees/" . $included_employee["Phone_Number"] . ".jpg";
+                unlink($file);
             }
-            
+
             $employeeModel->deleteEmployee($employeeID);
         }
         $this->showEmployees();
     }
-    
-    
+
     /**
      * Searches through all members in the db.
      * Check if $searchKeyword is determine and not null.
@@ -296,4 +354,5 @@ class updateController extends tempController {
         $data = array("searchResults" => $searchResults);
         return $this->render("searchEmployee", $data);
     }
+
 }

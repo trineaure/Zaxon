@@ -1,12 +1,11 @@
+<!--MEMBER SIDE-->
 <main>
     <?php
     if (isset($GLOBALS["member"])) {
         $member = $GLOBALS["member"];
-    }
-    ?>
+    } ?>
 
     <p> Din kundeinformasjon:</p> 
-
     <div>
         <table>
             

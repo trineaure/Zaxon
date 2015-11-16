@@ -43,6 +43,9 @@ class Router {
             case "updateMemberAction":
             case "updateEmployee":
             case "updateEmployeeAction":
+            case "adminInfo":
+            case "addUpdateAdmin":
+            case "updateAdmin":    
                 return new updateController();
 
             case "memberAdd":
