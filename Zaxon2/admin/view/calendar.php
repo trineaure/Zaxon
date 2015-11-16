@@ -18,6 +18,7 @@
             <?php
             $rNr = NULL;
             foreach ($reservations as $res) {
+                if ($res["Reservation_Date"] >= date("Y-m-d")) {
                 ?>
 
         <?php if (($res["Reservation_number"] != $rNr) || ($rNr == NULL)) { ?>
@@ -34,7 +35,7 @@
                         } else {
                             ?>
                         </td> 
-                    </tr> <?php }
+                </tr> <?php }}
                         ?>
     <?php } ?>
         </table> 
@@ -46,10 +47,11 @@
     ?>
 
     <div  id="big">
-        <a href="?page=home" class="button"><-Tilbake</a>
+        <a href="?page=home" class="button">Tilbake</a>
     </div>
 
 
 </main>
 
-
+<!--
+date("Y/m/d") -->
