@@ -13,8 +13,8 @@
     <div id="small">
         <p> Kunde </p>
 
-                 <a href="?page=listMembers" class="smallButton">Vis kunder</a>
-                 <a href="?page=searchMember" class="smallButton">Søk i kunder</a>
+                 <a href="?page=listMembers" class="smallButton">Vis medlemmer</a>
+                 <a href="?page=searchMember" class="smallButton">Søk i medlemmer</a>
                    <a href="?page=memberOrder" class="smallButton">Legg inn bestilling</a>
     </div>
 </main>
