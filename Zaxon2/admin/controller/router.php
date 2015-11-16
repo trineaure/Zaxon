@@ -40,9 +40,9 @@ class Router {
             case "deleteEmployee":
             case "deleteEmployeeNow":
             case "updateMember":
-            case "updateMemberNow":
+            case "updateMemberAction":
             case "updateEmployee":
-            case "updateEmployeeNow":
+            case "updateEmployeeAction":
                 return new updateController();
 
             case "memberAdd":

@@ -1,6 +1,6 @@
+<!--MASTER-->
 <?php
 
-//MASTER
 // Controller layer - the router selects controller to use depending on URL and request parameters
 class Router {
 
