@@ -1,8 +1,9 @@
 <!--MASTER SIDE-->
 <main>
 <?php
+//if(isset($GLOBALS["catsWithTreatments"])) {
     $catsWithTreatments = $GLOBALS["catsWithTreatments"];
-   
+//}
         $keys = array_keys($catsWithTreatments);
         foreach($keys as $key) {  ?> 
             <table> 
@@ -21,8 +22,8 @@
                         <td><?php echo "Fra " . $treatment["Price"] . ",-"?></td>
                         <td>
                             <form method="post" action="?page=updatePricelist">
-                                <input type="hidden" value="<?php echo $treatment["Price"]; ?>" name="Price">
-                                <button value="submit"> Endre </button>
+                                <input type="hidden" name="Treatment_Name" value="<?php echo $treatment["Treatment_Name"] ?>"/>
+                                <button  type="submit" value="submit" name="submit">Endre</button>
                             </form>
                         </td>
                     </tr>

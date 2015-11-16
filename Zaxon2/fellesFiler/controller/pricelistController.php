@@ -14,7 +14,6 @@ class pricelistController extends tempController {
         switch ($page) {
 
             case($page == "pricelist"):
-             //   $this->showPricelist();
                 $this->treatmentCategory();
                 break;
 
@@ -36,9 +35,9 @@ class pricelistController extends tempController {
 
         $treatmentModel = $GLOBALS["treatmentModel"];
         $treatment_Name = filter_input(INPUT_POST, "Treatment_Name");
-
         $GLOBALS["treatment"] = $treatmentModel->getByTreatment($treatment_Name);
 
+       //$this->treatmentCategory();
         return $this->render("updatePricelist");
     }
 
@@ -51,25 +50,11 @@ class pricelistController extends tempController {
 
         $treatmentModel = $GLOBALS["treatmentModel"];
         // set the values in the $update.
-        $updatePrice = filter_input(INPUT_POST, 'Price');
-        $Treatment = filter_input(INPUT_POST, 'Treatment_Name');
+        $updatePrice = filter_input(INPUT_POST, "Price");
+        $Treatment = filter_input(INPUT_POST, "Treatment_Name");
 
         $treatmentModel->updatePricelist($updatePrice, $Treatment);
-        $this->showPricelist();
-    }
-
-    /**
-     * Show the pricelist from the db.
-     * @return render to the page pricelist and return the $data
-     * with the $pricelist and shows it on the page.
-     */
-    public function showPricelist() {
-
-        $treatmentModel = $GLOBALS["treatmentModel"];
-
-        $pricelist = $treatmentModel->getAll();
-        $data = array("pricelist" => $pricelist);
-        return $this->render("pricelist", $data);
+        $this->treatmentCategory();
     }
 
     /*
