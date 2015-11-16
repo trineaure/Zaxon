@@ -1,3 +1,4 @@
+<!--MASTER-->
 <main>
     <?php
     //Checks if $_SESSION["treatmentArray"] is set, if not print error
@@ -27,7 +28,7 @@
                                   else { ?>
                                      <input type="radio" value="<?php echo $tempEmployee["EmployeeID"] ?>" name="givenEmployeeID" required>
                                      <img src="../fellesFiler/bilder/employees/noPhoto.jpg" title="<?php echo $tempEmployee["First_name"]?>" class="pictureBox" >
-                                   <?php }
+                                   <?php }  echo $tempEmployee["First_name"];
                                     ?> </label> <?php
                                    } ?> 
                         

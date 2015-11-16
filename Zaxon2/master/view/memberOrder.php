@@ -13,7 +13,8 @@
         <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
         <form method="post" action="?page=memberOrder"> 
             <input class="input-textarea" type="text" name="searchKeyword" value="<?=$searchKeyword;?>" />
-            <input id="submit" type="submit" value="Søk">
+            <input class="tinySubmit" type="submit" value="Søk">
+            <a href="?page=home" class="tinyButton">Tilbake</a>
         </form>
         <table>
         <?php
@@ -37,7 +38,7 @@
     <?php }
 } ?>
     </table>
-     <div  id="big">
-        <a href="?page=home" class="button"><-Tilbake</a>
-     </div> 
+<!--     <div  id="big">
+        <a href="?page=home" class="button">Tilbake</a>
+     </div> -->
 </main>

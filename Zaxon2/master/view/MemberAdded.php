@@ -15,10 +15,10 @@ $added = $GLOBALS["added"];
     <p> Gratulerer! Du er nå medlem av Zaxon frisørsalong. </p> 
     <p> Hvis du har noen spørsmål, kan du kontakte oss. </p> 
     <p> Se kontaktfeltet neders på siden.  </p> 
-    <a href="?page=order"> Trykk her hvis du ønsker å bestille time</a>
+    <a href="?page=order" class="smallButton"> Trykk her hvis du ønsker å bestille time</a>
 
 
-    <a href="?page=showMembers"> trykk for å vise medlemer </a>
+    <a href="?page=showMembers" class="smallButton"> trykk for å vise medlemmer </a>
 
 
     <p> Mvh.Zaxon </p> 
@@ -30,7 +30,7 @@ $added = $GLOBALS["added"];
     <br> 
     <p> Mvh. </p> 
     <p>Zaxon </p> 
-    <a href="?page=memberAdd">Gå tilbake</a>
+    <a href="?page=memberAdd" class="smallButton">Gå tilbake</a>
     <?php
     
      }

@@ -1,3 +1,4 @@
+<!--MEMBER-->
 <main>
     <?php
     //Checks if $_SESSION["treatmentArray"] is set, if not print error
