@@ -6,7 +6,7 @@
             <p>Velkommen <?php echo $_SESSION["MemberFirstName"]; ?> </p><br>
 <!--            <p>Zaxon er en profesjonell frisørsalong, som har beliggenhet i Ålesund.</p>
             <p>   Vi er her for å gi deg en god håropplevelse. </p>-->
-            <a href="?page=myReservations" class="smallButton">Min bestillinger</a>
+            <a href="?page=myReservations" class="smallButton">Mine bestillinger</a>
             <a href="?page=myInfo" class="smallButton">Min kundeinformasjon</a>
             <a href="?page=updateInformation" class="smallButton">Oppdater kundeinformasjon</a>
 

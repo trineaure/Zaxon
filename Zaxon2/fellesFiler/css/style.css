@@ -324,7 +324,7 @@ body .container #structure main .innerStructure label:hover input + img{
 }
 
 body .container #structure main .innerStructure label input:checked + img{
-    border: 2px solid #CCC;
+    border: 2px solid #8fec72;
 }
 body .container #structure main #adminMain {
     width: 69%;
