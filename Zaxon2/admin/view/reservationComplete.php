@@ -17,7 +17,7 @@
            
     <p>Her er en oversikt over din bestilling. Trykk Fullfør for å bekrefte</p>
     <table>
-               <tr> <td> Kunde nummer </td> <td> Arbeidsgiver </td> <td> Dato </td> <td> Tid </td>  <td> Behandling </td>
+               <tr> <td>Kundenummer:</td> <td>Frisør:</td> <td>Dato:</td> <td>Tid:</td>  <td>Behandling:</td>
                 <tr>
                 <td> <?php echo $_SESSION["MembershipNumber"] ?> </td>
                 <td> <?php echo $_SESSION["givenEmployeeID"] ?> </td>

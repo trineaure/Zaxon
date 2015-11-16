@@ -17,14 +17,14 @@
            
     <p>Her er en oversikt over din bestilling. Trykk Fullfør for å bekrefte</p>
     <table>
-               <tr> <td> Kunde nummer </td> <td> Arbeidsgiver </td> <td> Dato </td> <td> Tid </td>  <td> Behandling </td>
+               <tr> <td>Kundenummer:</td> <td>Frisør:</td> <td>Dato:</td> <td>Tid:</td>  <td>Behandling:</td>
                 <tr>
                 <td> <?php echo $_SESSION["MembershipNumber"] ?> </td>
                 <td> <?php echo $_SESSION["givenEmployeeID"] ?> </td>
                 <td> <?php echo $_SESSION["givenReservation_date"] ?> </td>
                 <td> <?php echo $_SESSION["givenTime"] ?> </td>
                  <td> <?php foreach ($_SESSION["treatmentArray"] as $treatment){
-                    ?> <?php echo "$treatment"; ?>  <?php
+                    ?> <?php echo "$treatment".", "; ?>  <?php
                 }?> </td>
                 </tr>
     </table> <br>
@@ -45,7 +45,7 @@
     <p> Mvh. </p> 
     <p>Zaxon </p> 
        <div  id="big">
-                <a href="?page=chooseTreatment" class="button"><-Tilbake</a>
+                <a href="?page=chooseTreatment" class="button">Tilbake</a>
             </div>
     <?php
     
