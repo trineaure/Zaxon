@@ -27,6 +27,16 @@ DELETE FROM Reservation WHERE Membership_number = @memberid
 DELETE FROM Member WHERE Membership_number = @memberid
 end
 
+
+
+
+
+
+
+
+
+
+
 -- NEDENFOR BRUKES IKKE DA DET IKKE GÅR ANN Å HA TO TRIGGERE AV SAMME TYPE I SAMME TABLE
 
 USE Zaxon2
