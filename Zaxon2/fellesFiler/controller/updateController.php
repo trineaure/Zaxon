@@ -170,15 +170,30 @@ class updateController extends tempController {
 
         $memberModel = $GLOBALS["memberModel"];
         // set the value in the update
+        $memb = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
+        echo $memb["Login_Password"];
+        $givenOldLogin_Password = filter_input(INPUT_POST, "givenOldLogin_Password");
+        $givenNewLogin_Password = filter_input(INPUT_POST, "givenNewLogin_Password");
+        if (($givenOldLogin_Password != NULL) && ($givenNewLogin_Password != NULL)) {
+            $oldLogin_Password_encrypted = sha1($givenOldLogin_Password);
+
+            if ($oldLogin_Password_encrypted == $memb["Login_Password"]) {
+                $givenNewLogin_Password = sha1($givenNewLogin_Password);
+            }
+        } else {
+            $givenNewLogin_Password = filter_input(INPUT_POST, $memb["Login_Password"]);
+            //kanskje en error beskjed ?
+        }
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
         $updateBirth = filter_input(INPUT_POST, 'Birth');
         $updatePhone_Number = filter_input(INPUT_POST, 'Phone_Number');
         $Membership_number = filter_input(INPUT_POST, 'Membership_number');
 
-        $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
+        // update the information about the member
+        $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number, $givenNewLogin_Password);
         $member = $memberModel->getOneByMemberNumber($Membership_number);
-        
+
         $data = array("member" => $member);
         return $this->render("myInfo", $data);
     }
@@ -202,7 +217,7 @@ class updateController extends tempController {
 
         $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
         $employee = $employeeModel->getOneByEmployeeID($EmployeeID);
-       
+
         $data = array("employee" => $employee);
         return $this->render("adminInfo", $data);
     }
@@ -212,7 +227,7 @@ class updateController extends tempController {
      * @return Render to the new page updateInformation
      */
     public function getOneMemberUpdate() {
-        
+
         // Get the member by the membership number
         $this->getMemberInfo();
         return $this->render("updateInformation");
@@ -223,7 +238,7 @@ class updateController extends tempController {
      * @Return render to the new page updateAdmin
      */
     public function getOneEmployeeUpdate() {
-        
+
         $this->getEmployeeInfo();
         return $this->render("updateAdmin");
     }
@@ -243,7 +258,7 @@ class updateController extends tempController {
      * Returns the info of the employee who is logged in
      */
     public function getEmployeeInfo() {
-        
+
         $employeeModel = $GLOBALS["employeeModel"];
 
         $GLOBALS["employee"] = $employeeModel->getOneByEmployeeID($_SESSION["workerID"]);

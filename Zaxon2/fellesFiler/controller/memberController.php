@@ -48,7 +48,7 @@ class memberController extends tempController {
         //The sha1() function calculates the SHA-1 hash of a string.
         $str = "$givenLogin_Password";
         $Login_Password_encrypted = sha1($str);
-        
+
         $memberModel = $GLOBALS["memberModel"];
         $numbers = $memberModel->getAllNumbers();
 

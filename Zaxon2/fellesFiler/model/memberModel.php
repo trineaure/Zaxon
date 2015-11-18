@@ -7,28 +7,25 @@ class memberModel {
     private $dbConn;
 
     const TABLE = "Member";
-    
     const TRIGGER_QUERY = "CREATE TRIGGER hasReservation"
-                         . " ON  " . memberModel::TABLE 
-                         . " BEFORE DELETE "
-                         . " AS "
-                         . " IF EXISTS (SELECT * FROM " . memberModel::TABLE ." AS m "
-                         . " INNER JOIN Reservation AS r "
-                         . " ON m.Membership_number = r.Membership_number"
-                         . " INNER JOIN Reservation_treatment AS rt "
-                         . " ON rt.Reservation_number = r.Reservation_number "
-                         . " WHERE m.Membership_number = :memberID  )"
-                         . " GO ";
-
-
+            . " ON  " . memberModel::TABLE
+            . " BEFORE DELETE "
+            . " AS "
+            . " IF EXISTS (SELECT * FROM " . memberModel::TABLE . " AS m "
+            . " INNER JOIN Reservation AS r "
+            . " ON m.Membership_number = r.Membership_number"
+            . " INNER JOIN Reservation_treatment AS rt "
+            . " ON rt.Reservation_number = r.Reservation_number "
+            . " WHERE m.Membership_number = :memberID  )"
+            . " GO ";
     const SELECT_ALL_QUERY = "SELECT * FROM " . memberModel::TABLE;
     const INSERT_QUERY = "INSERT INTO " . memberModel::TABLE . "(First_name,Last_name,Birth,Phone_Number,Login_Password) VALUES (:First_name,:Last_name,:Birth,:Phone_Number,:Login_Password)";
     const SELECT_QUERY = "SELECT Phone_Number FROM " . memberModel::TABLE;
     const SELECT_ONE_MEMBER = "SELECT * FROM " . memberModel::TABLE . " WHERE Membership_number = :Membership_number";
     const SEARCH_QUERY = "SELECT * FROM " . memberModel::TABLE . " WHERE Phone_Number LIKE :search OR Birth LIKE :searchB OR First_name LIKE :searchFN OR Last_name LIKE :searchLN";
     const DELETE_QUERY = "DELETE FROM " . memberModel::TABLE . " WHERE Membership_number = ?";
-    const UPDATE_QUERY = "UPDATE " . memberModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number WHERE Membership_number = :Membership_number";
-
+    const UPDATE_QUERY = "UPDATE " . memberModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, Login_Password = :Login_Password WHERE Membership_number = :Membership_number";
+   
     /** @var PDOStatment Statment for selecting all enteries */
     private $selStmt;
 
@@ -70,14 +67,15 @@ class memberModel {
      * @param String $updateFirst_name,$updateLast_name, $updateBirth,$updatePhone_Number, $updateLogin_Password
      * @return bool <b>TRUE</b> on success or <b>FALSE</b> on failure.
      */
-    public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number) {
+    public function updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number, $givenNewLogin_Password) {
 
         return $this->update->execute(array(
                     ":First_name" => $updateFirst_name,
                     ":Last_name" => $updateLast_name,
                     ":Birth" => $updateBirth,
                     ":Phone_Number" => $updatePhone_Number,
-                    ":Membership_number" => $Membership_number
+                    ":Membership_number" => $Membership_number,
+                    ":Login_Password" => $givenNewLogin_Password
         ));
     }
 

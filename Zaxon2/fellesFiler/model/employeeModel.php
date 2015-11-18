@@ -13,7 +13,9 @@ class employeeModel {
     const SEARCH_QUERY = "SELECT * FROM " . employeeModel::TABLE . " WHERE Phone_Number LIKE :search OR EmployeeID LIKE :searchE OR First_name LIKE :searchFN OR Last_name LIKE :searchLN OR Birth LIKE :searchB";
     const DELETE_QUERY = "DELETE FROM " . employeeModel::TABLE . " WHERE EmployeeID = ?";
     const UPDATE_QUERY = "UPDATE " . employeeModel::TABLE . " SET First_name = :First_name, Last_name = :Last_name, Birth = :Birth, Phone_Number = :Phone_Number, Home_Address = :Home_Address, Zip_Code = :Zip_Code WHERE EmployeeID = :EmployeeID";
+    const UPDATE_PASSWORD = "UPDATE " . employeeModel::TABLE . " SET Login_Password =:Login_Password WHERE EmployeeID =:EmployeeID";
 
+    
     /** @var PDOStatement Statement for selecting all entries */
     private $selStmt;
 
@@ -34,6 +36,9 @@ class employeeModel {
 
     /** @var PDOStatement Statement for updating information about an existing entriy. */
     private $update;
+    
+    /** @var PDOStatement Statement for updating password for an enterity.*/
+    private $updPass;
 
     //Constructor for the class employeeModel
     /*
@@ -48,8 +53,22 @@ class employeeModel {
         $this->search = $this->dbConn->prepare(employeeModel::SEARCH_QUERY);
         $this->delete = $this->dbConn->prepare(employeeModel::DELETE_QUERY);
         $this->update = $this->dbConn->prepare(employeeModel::UPDATE_QUERY);
+        $this->updPass = $this->dbConn->prepare(employeeModel::UPDATE_PASSWORD);
     }
 
+    /**
+     * Update password
+     * @param String $updatePassword, $EmployeeiD
+     * @return bool True on success or False on failure
+     */
+    public function updatePassword($updatePassword, $EmployeeID) {
+        return $this->updPass->execute(array(
+           ":Login_Password" => $updatePassword,
+            "EmployeeID" => $EmployeeID
+        ));
+    }
+    
+    
     /**
      * Update information about the employee in the database.
      * @param String $updateFirst_name,$updateLast_name,$updateBirth,$updatePhone_Number,$updateHome_Address, $updateZip_Code,$EmployeeID
