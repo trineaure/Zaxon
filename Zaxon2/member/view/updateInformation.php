@@ -32,11 +32,10 @@
             <input type="hidden" class="ipnut-textarea" name="Membership_number" value="<?php echo $_SESSION["MembershipNumber"] ?>"> 
             Gammelt Passord: <input type="password"  id="password_check" class="input-textarea" minlength="6" name="givenOldLogin_Password"> 
             Oppdater Passord: <input type ="password"id="Login_Password" class="input-textarea" minlength="6" name="givenNewLogin_Password"> 
-            Gjenta Passord: <input type ="password" id="confirm_password" minlength="6" name="confirmLogin_Password" class="input-textarea"> 
+            Gjenta Passord: <input type ="password" id="confirm_password" class="input-textarea" minlength="6" name="confirmLogin_Password"> 
             <input class="tinySubmit" type="submit" name="submit" value="Oppdater" >
             <a href="?page=home" class="tinyButton">Tilbake</a>
         </form> 
     </div>
-
 </main>
 

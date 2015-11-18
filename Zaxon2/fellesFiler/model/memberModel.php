@@ -110,6 +110,7 @@ class memberModel {
      * @return array with the Member that matches the Membership_Number
      */
     public function getOneByMemberNumber($memberNumber) {
+        
         $this->selMember->execute(array(
             ':Membership_number' => $memberNumber
         ));

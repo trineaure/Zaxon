@@ -171,7 +171,7 @@ class updateController extends tempController {
         $memberModel = $GLOBALS["memberModel"];
         // set the value in the update
         $memb = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
-        echo $memb["Login_Password"];
+
         $givenOldLogin_Password = filter_input(INPUT_POST, "givenOldLogin_Password");
         $givenNewLogin_Password = filter_input(INPUT_POST, "givenNewLogin_Password");
         if (($givenOldLogin_Password != NULL) && ($givenNewLogin_Password != NULL)) {
@@ -181,7 +181,7 @@ class updateController extends tempController {
                 $givenNewLogin_Password = sha1($givenNewLogin_Password);
             }
         } else {
-            $givenNewLogin_Password = filter_input(INPUT_POST, $memb["Login_Password"]);
+            $givenNewLogin_Password = $memb["Login_Password"];
             //kanskje en error beskjed ?
         }
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
@@ -207,6 +207,21 @@ class updateController extends tempController {
 
         $employeeModel = $GLOBALS["employeeModel"];
 
+        $emp = $employeeModel->getOneByEmployeeID($_SESSION["workerID"]);
+
+        $givenOldLogin_Password = filter_input(INPUT_POST, "givenOldLogin_Password");
+        $givenNewLogin_Password = filter_input(INPUT_POST, "givenNewLogin_Password");
+        if (($givenOldLogin_Password != NULL) && ($givenNewLogin_Password != NULL)) {
+            $oldLogin_Password_encrypted = sha1($givenOldLogin_Password);
+
+            if ($oldLogin_Password_encrypted == $emp["Login_Password"]) {
+                $givenNewLogin_Password = sha1($givenNewLogin_Password);
+            }
+        } 
+        else {
+            $givenNewLogin_Password = $emp["Login_Password"];
+            //kanskje en error beskjed ?
+        }
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
         $updateBirth = filter_input(INPUT_POST, 'Birth');
@@ -215,7 +230,7 @@ class updateController extends tempController {
         $updateZip_Code = filter_input(INPUT_POST, 'Zip_Code');
         $EmployeeID = filter_input(INPUT_POST, 'EmployeeID');
 
-        $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
+        $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID, $givenNewLogin_Password);
         $employee = $employeeModel->getOneByEmployeeID($EmployeeID);
 
         $data = array("employee" => $employee);
