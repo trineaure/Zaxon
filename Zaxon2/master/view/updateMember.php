@@ -18,7 +18,7 @@
         Fødselsdag: <input type="text" class="input-textarea" name="Birth" value="<?php echo $updateBirth ?>"> <br />
         Mobilnr: <input type="number" class="input-textarea" name="Phone_Number" value="<?php echo $updatePhone_Number ?>"> <br />
         <input type="hidden" class="input-textarea" name="Membership_number" value="<?php echo $Membership_number ?>"> <br />
-        <button value="submit" id="submit""> Oppdater</button>
+        <button value="submit" id="submit"> Oppdater</button>
 
     </form> 
 </div>

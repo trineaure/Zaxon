@@ -8,6 +8,7 @@
                  <a href="?page=listEmployees" class="smallButton">Vis ansatte</a>
                 <a href="?page=searchEmployee" class="smallButton">Søk i ansatte</a>
                 <a href="?page=employeeAdd" class="smallButton">Legg til ansatt</a>
+                <a href="?page=updateMaster" class="smallButton"> Oppdater informasjon </a>
                 
     </div>
     <div id="small">

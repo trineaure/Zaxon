@@ -42,9 +42,13 @@ class Router {
             case "listEmployees":
             case "deleteEmployeeNow":
             case "updateMember":
+            case "updateMaster":    
             case "updateMemberAction":
             case "updateEmployee":
             case "updateEmployeeAction":
+            //MÅ ENDRE NAVN TIL MASTER
+            case"addUpdateAdmin":    
+            case "adminInfo":    
                 return new updateController();
 
             case "memberAdd":

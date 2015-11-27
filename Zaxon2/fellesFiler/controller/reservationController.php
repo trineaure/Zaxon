@@ -85,15 +85,16 @@ class reservationController extends tempController {
     }
 
     private function showreservationTimeAction() {
-        //session_start();
         $_SESSION["givenEmployeeID"] = filter_input(INPUT_POST, "givenEmployeeID");
         $_SESSION["givenReservation_date"] = filter_input(INPUT_POST, "givenReservation_date");
+       
        $employeeModel = $GLOBALS["employeeModel"];
        $emplo = $employeeModel->getOneByEmployeeID($_SESSION["givenEmployeeID"]);
+       
         $_SESSION["First_Name"] = $emplo["First_name"];
         $reservationModel = $GLOBALS["reservationModel"];
         $_SESSION["timeIn"] = $reservationModel->getTimeOfDay($_SESSION['givenReservation_date'], $_SESSION['givenEmployeeID']);
-
+        
         return $this->render("reservationTime");
     }
 
@@ -169,16 +170,5 @@ class reservationController extends tempController {
      * @return Render to the new page, myReservations
      * @return $this->render("myReservations")
      */
-    public function showMyReservations($memberID) {
-        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
-        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
-        return $this->render("myReservations");
-    }
-
-    public function myReservationCalendar($employeeID) {
-        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
-        $GLOBALS["myCalendar"] = $reservation_treatmentModel->getEployeeCalender($employeeID);
-        return $this->render("calendar");
-    }
 
 }

@@ -2,11 +2,11 @@
 
 require_once("tempController.php");
 
-//Represents home page
+
 class loginController extends tempController {
 
     /**
-     * Render "Home" View
+     * header to different homepages.
      * @param string $page
      */
     public function show($page) {
@@ -22,17 +22,17 @@ class loginController extends tempController {
         }
     }
 /**
- * 
+ * Heads the page to /member/?page=home if everything goes well
  * @param String $givenUsername
  * @param String $Login_Password_encrypted
  */
     private function loginMember($givenUsername, $Login_Password_encrypted) {
-        $_SESSION["MasterAreLoggedIn"] = false;
+        $_SESSION["MemberAreLoggedIn"] = false;
         $memberModel = $GLOBALS["memberModel"];
         $members = $memberModel->getAll();
         foreach ($members as $member) {
-           
-            if (($member["Phone_Number"] == $givenUsername) && ($member["Login_Password"] == $Login_Password_encrypted)) {
+            if (($member["Phone_Number"] == $givenUsername) && 
+                ($member["Login_Password"] == $Login_Password_encrypted)) {
                 //match
                 $_SESSION["MemberAreLoggedIn"] = true;
                 $_SESSION["MemberFirstName"] = $member['First_name'];
@@ -45,32 +45,25 @@ class loginController extends tempController {
         }
     }
 /**
- * 
+ * Heads the page to /master/?page=home 
+ * or /admin/?page=home if everything goes well
  * @param String $givenUsername
  * @param String $Login_Password_encrypted
  */
     private function loginEmployee($givenUsername, $Login_Password_encrypted) {
-
         $employeeModel = $GLOBALS["employeeModel"];
         $employees = $employeeModel->getAll();
         $Extended_Access = 1;
         $_SESSION["MasterAreLoggedIn"] = false;
         $_SESSION["EmployeeAreLoggedIn"] = false;
         foreach ($employees as $employee) {
-            if (($employee['Phone_Number'] == $givenUsername) && ($employee['Login_Password'] == $Login_Password_encrypted)) {
-                echo "Brukernavn eller passord stemmer ikke. :)";
+            if (($employee['Phone_Number'] == $givenUsername) &&
+                ($employee['Login_Password'] == $Login_Password_encrypted)) {
                 if (($employee['Extended_Access']) == $Extended_Access) {
                     $_SESSION["MasterAreLoggedIn"] = true;
                     $_SESSION["workerID"] = $employee['EmployeeID'];
-//                    $_SESSION["MasterFirstName"] = $employee['First_name'];
-//                    $_SESSION["MasterLastName"] = $employee['Last_name'];
-//                    $_SESSION["MasterBirth"] = $employee['Birth'];
-//                    $_SESSION["MasterPhone"] = $employee['Phone_Number'];
-//                    $_SESSION["MasterHome_Address"] = $employee['Home_Address'];
-//                    $_SESSION["MasterZip_Code"] = $employee['Zip_Code'];
                     header("Location:../master/?page=home");
                 } else {
-
                     //match
                     $_SESSION["EmployeeAreLoggedIn"] = true;
                     $_SESSION["workerID"] = $employee['EmployeeID'];
@@ -88,7 +81,7 @@ class loginController extends tempController {
     }
 
     /**
-     * 
+     * Takes information that the user typed. And checks if there is an account with the password and username
      * @return Render to the loginError page.
      */
     private function loginConfig() { 
@@ -105,7 +98,9 @@ class loginController extends tempController {
         $this->loginEmployee($givenUsername, $Login_Password_encrypted);
 
         //error message
-        if (($_SESSION["MemberAreLoggedIn"] == false) || ($_SESSION["EmployeeAreLoggedIn"] == false) || ($_SESSION["MasterAreLoggedIn"] == false)) {
+        if (($_SESSION["MemberAreLoggedIn"] == false) || 
+            ($_SESSION["EmployeeAreLoggedIn"] == false) || 
+            ($_SESSION["MasterAreLoggedIn"] == false)) {
             return $this->render("loginError");
         }
     }

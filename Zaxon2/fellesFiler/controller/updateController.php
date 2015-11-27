@@ -31,6 +31,10 @@ class updateController extends tempController {
             case($page == "updateAdmin"):
                 $this->getOneEmployeeUpdate();
                 break;
+            
+            case($page =="updateMaster"):
+                 $this->getUpdateMaster();
+                break;
 
             case($page == "addUpdate"):
                 $this->updateOneMember();
@@ -234,7 +238,7 @@ class updateController extends tempController {
         $employee = $employeeModel->getOneByEmployeeID($EmployeeID);
 
         $data = array("employee" => $employee);
-        return $this->render("adminInfo", $data);
+        return $this->render("adminInfo", $data); //MÅ ENDRE NAVN TIL MASTER
     }
 
     /**
@@ -268,6 +272,11 @@ class updateController extends tempController {
         // Get the member by the membership number
         $GLOBALS["member"] = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
     }
+    
+    public function getUpdateMaster(){
+         $this->getEmployeeInfo();
+        return $this->render("updateMaster");
+    }
 
     /**
      * Returns the info of the employee who is logged in
@@ -278,7 +287,8 @@ class updateController extends tempController {
 
         $GLOBALS["employee"] = $employeeModel->getOneByEmployeeID($_SESSION["workerID"]);
     }
-
+    
+    
     /**
      * Show all the Members in the database.
      * @return Render to the new page listMembers and return with
