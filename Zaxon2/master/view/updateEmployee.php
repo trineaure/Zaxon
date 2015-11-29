@@ -11,7 +11,9 @@
     $updateHome_Address = $employee['Home_Address'];
     $updateZip_Code = $employee['Zip_Code'];
     $EmployeeID = $employee['EmployeeID'];
-    ?>
+    
+    $_SESSION["workerID"] =  $EmployeeID;
+?>
 
     <p> Her kan en oppdatere informasjon om de ansatte i Zaxon .</p> <br>  
 <div>

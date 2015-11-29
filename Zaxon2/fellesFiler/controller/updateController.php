@@ -124,7 +124,23 @@ class updateController extends tempController {
     public function updateMember() {
 
         $memberModel = $GLOBALS["memberModel"];
+        
+        $memb = $memberModel->getOneByMemberNumber($_SESSION["MembershipNumber"]);
 
+        $givenOldLogin_Password = filter_input(INPUT_POST, "givenOldLogin_Password");
+        $givenNewLogin_Password = filter_input(INPUT_POST, "givenNewLogin_Password");
+        if (($givenOldLogin_Password != NULL) && ($givenNewLogin_Password != NULL)) {
+            $oldLogin_Password_encrypted = sha1($givenOldLogin_Password);
+
+            if ($oldLogin_Password_encrypted == $memb["Login_Password"]) {
+                $givenNewLogin_Password = sha1($givenNewLogin_Password);
+            }
+        } else {
+            $givenNewLogin_Password = $memb["Login_Password"];
+            //kanskje en error beskjed ?
+        }
+        
+        
         // set the values in the $update...  
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
@@ -132,7 +148,7 @@ class updateController extends tempController {
         $updatePhone_Number = filter_input(INPUT_POST, 'Phone_Number');
         $Membership_number = filter_input(INPUT_POST, 'Membership_number');
 
-        $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number);
+        $memberModel->updateMember($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $Membership_number,$givenNewLogin_Password);
         $GLOBALS["included_members"] = $memberModel->getAll();
 
         return $this->render("listMembers");
@@ -148,6 +164,22 @@ class updateController extends tempController {
 
         $employeeModel = $GLOBALS["employeeModel"];
 
+        $emp = $employeeModel->getOneByEmployeeID($_SESSION["workerID"]);
+
+        $givenOldLogin_Password = filter_input(INPUT_POST, "givenOldLogin_Password");
+        $givenNewLogin_Password = filter_input(INPUT_POST, "givenNewLogin_Password");
+        if (($givenOldLogin_Password != NULL) && ($givenNewLogin_Password != NULL)) {
+            $oldLogin_Password_encrypted = sha1($givenOldLogin_Password);
+
+            if ($oldLogin_Password_encrypted == $emp["Login_Password"]) {
+                $givenNewLogin_Password = sha1($givenNewLogin_Password);
+            }
+        } 
+        else {
+            $givenNewLogin_Password = $emp["Login_Password"];
+            //kanskje en error beskjed ?
+        }
+
         // set the value in the update...
         $updateFirst_name = filter_input(INPUT_POST, 'First_name');
         $updateLast_name = filter_input(INPUT_POST, 'Last_name');
@@ -157,7 +189,7 @@ class updateController extends tempController {
         $updateZip_Code = filter_input(INPUT_POST, 'Zip_Code');
         $EmployeeID = filter_input(INPUT_POST, 'EmployeeID');
 
-        $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID);
+        $employeeModel->updateEmployee($updateFirst_name, $updateLast_name, $updateBirth, $updatePhone_Number, $updateHome_Address, $updateZip_Code, $EmployeeID,$givenNewLogin_Password);
         $GLOBALS["included_employees"] = $employeeModel->getAll();
 
         return $this->render("listEmployees");
@@ -170,6 +202,7 @@ class updateController extends tempController {
      * @return render  to the new page myInfo and send with $data with the updated 
      * information about the $member
      */
+    //NOEN MÅ FORKLARE GARD HVA DENNE GJØR
     public function updateOneMember() {
 
         $memberModel = $GLOBALS["memberModel"];

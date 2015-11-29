@@ -9,9 +9,10 @@
     $updatePhone_Number = $member['Phone_Number'];
     $updateLogin_Password = $member['Login_Password'];
     $Membership_number = $member['Membership_number'];
+    $_SESSION["MembershipNumber"] = $Membership_number;
     ?>
 
-    <p> Her kan en oppdatere informasjon om <?php echo $_SESSION["MemberFirstName"]; ?> </p> <br>
+    <p> Her kan en oppdatere informasjon om <?php echo $updateFirst_name; ?> </p> <br>
 
 <div>
     <form method="post" action="?page=updateMemberAction">
