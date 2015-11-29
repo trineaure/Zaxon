@@ -170,5 +170,15 @@ class reservationController extends tempController {
      * @return Render to the new page, myReservations
      * @return $this->render("myReservations")
      */
+    public function showMyReservations($memberID) {
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        $GLOBALS["reservations"] = $reservation_treatmentModel->getReservationInfo($memberID);
+        return $this->render("myReservations");
+    }
 
+    public function myReservationCalendar($employeeID) {
+        $reservation_treatmentModel = $GLOBALS["reservation_treatmentModel"];
+        $GLOBALS["myCalendar"] = $reservation_treatmentModel->getEployeeCalender($employeeID);
+        return $this->render("calendar");
+    }
 }
