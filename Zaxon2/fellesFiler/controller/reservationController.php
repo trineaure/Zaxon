@@ -29,6 +29,10 @@ class reservationController extends tempController {
                 $this->render("order");
                 break;
 
+            case($page == "defineMember"):
+                $this->defineMember();
+                break;
+            
             //er bare for Master og Admin
             case($page == "memberOrder"):
                 $this->searchMemberOrder();
@@ -50,6 +54,11 @@ class reservationController extends tempController {
                 $this->myReservationCalendar($_SESSION["workerID"]);
                 break;
         }
+    }
+    
+    public function defineMember() {
+        $_SESSION["MembershipNumber"] = filter_input(INPUT_POST, "givenMembershipNumber");
+        $this->treatCat();
     }
 
     public function searchMemberOrder() {
