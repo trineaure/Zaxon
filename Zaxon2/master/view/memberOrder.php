@@ -9,7 +9,7 @@
             $searchKeyword = "";
         }
         ?>
-        <p> Søk etter Zaxon's medlemer du vil bestille en time for </p>
+        <p> Søk etter Zaxon's medlemmer, som du vil bestille en time for. </p>
         <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
         <form method="post" action="?page=memberOrder"> 
             <input class="input-textarea" type="text" name="searchKeyword" value="<?=$searchKeyword;?>" />
@@ -38,7 +38,4 @@
     <?php }
 } ?>
     </table>
-<!--     <div  id="big">
-        <a href="?page=home" class="button">Tilbake</a>
-     </div> -->
 </main>

@@ -43,7 +43,7 @@ $(document).ready(function() {
 ///skriver ut variablen
 //var_dump($_SESSION["timeIn"]);
 
-//echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
+echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
 //?> 
 </p> 
     
@@ -113,7 +113,7 @@ $(document).ready(function() {
 <!--     // <form action="?page=reservationComplete" method="post">-->
         <input class="tinySubmit" type="submit" name="submit" value="Neste" />
         <a href="?page=chooseTreatment" class="tinyButton">Tilbake</a>
-            </form> </div>
+            </div> </form> 
    
      
  
