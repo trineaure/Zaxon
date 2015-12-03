@@ -30,7 +30,7 @@
                     <td> <?php echo $searchResult["Phone_Number"] ?> </td>
                     <td> <form method="post" action="?page=chooseTreatment">
 
-                            <input style="display:none;" value="<?php echo $member["Membership_number"] ?>" name="<?php $_SESSION["MembershipNumber"] ?>">
+                            <input style="display:none;" value="<?php echo $searchResult["Membership_number"] ?>" name="<?php $_SESSION["MembershipNumber"] ?>">
                             <button value="submit"> Bestill </button>
                         </form>
                     </td>
