@@ -30,41 +30,21 @@ end
 
 
 
+-- Lagret prosedyre for sletting av Ansatt
 
-
-
-
-
-
-
--- NEDENFOR BRUKES IKKE DA DET IKKE GÅR ANN Å HA TO TRIGGERE AV SAMME TYPE I SAMME TABLE
-
-USE Zaxon2
+USE Zaxon2 
 GO
 
-CREATE TRIGGER DeleteReservationE ON Reservation
-INSTEAD OF DELETE
-as
-DECLARE @resID int
-SELECT @resID = Reservation_number FROM DELETED
+Create Procedure deleteReservationEmp (@employeenr int)
+AS
 DECLARE @employeeID int
-SELECT @employeeID = EmployeeID FROM DELETED
-BEGIN
-DELETE FROM Reservation_treatment 
-WHERE Reservation_number in (SELECT Reservation.Reservation_number FROM Reservation WHERE Reservation.EmployeeID = @employeeID)
-DELETE FROM Reservation WHERE EmployeeID =  @employeeID
-print @resID
-end
+SELECT @employeeID = @employeenr
+ BEGIN
+	DELETE FROM Reservation_treatment 
+	WHERE Reservation_treatment.Reservation_number in (SELECT Reservation.Reservation_number FROM Reservation WHERE Reservation.EmployeeID = @employeeID)
+	DELETE FROM Reservation WHERE EmployeeID =  @employeeID
+	DELETE FROM Employee WHERE EmployeeID = @employeeID
+END 
+GO
 
-
-CREATE TRIGGER DeleteEmployee ON Employee
-INSTEAD OF DELETE
-as
-DECLARE @employeeID int
-SELECT @employeeID = EmployeeID FROM DELETED
-BEGIN
-PRINT @employeeID
-DELETE FROM Reservation WHERE EmployeeID = @employeeID
-DELETE FROM Member WHERE EmployeeID = @employeeID
-end
 

@@ -15,7 +15,6 @@
     }
     </script>
    
-    <p> Her kan en slette medlemene i Zaxon, eller velge å redigere dem.</p>
     
     <table id="submit" type="delete" value="delete">
 
