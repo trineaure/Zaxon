@@ -8,6 +8,7 @@
     $updateBirth = $member['Birth'];
     $updatePhone_Number = $member['Phone_Number'];
     $Membership_number = $member['Membership_number'];
+    $_SESSION["MembershipNumber"] = $Membership_number;
     ?>
 
     <p> Her kan en oppdatere informasjon om medlemene i Zaxon .</p> <br>
