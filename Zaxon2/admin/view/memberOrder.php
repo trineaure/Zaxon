@@ -12,7 +12,7 @@
     <p> Søk etter Zaxon's medlemer du vil bestille en time for </p>
     <p> Søk ved hjelp av fornavn, etternavn, fødselsdag eller mobilnr. </p>   <br>
     <form method="post" action="?page=memberOrder"> 
-        <input class="input-textarea" type="text" name="searchKeyword" value="<?=$searchKeyword;?>" />
+        <input class="input-textarea" type="text" name="searchKeyword" value="<?=$searchKeyword;?>" required/>
         <input class="tinySubmit" type="submit" value="Søk">
             <a href="?page=home" class="tinyButton">Tilbake</a>
     </form>
@@ -28,9 +28,9 @@
                     <td> <?php echo $searchResult["Last_name"] ?> </td>
                     <td> <?php echo $searchResult["Birth"] ?> </td>
                     <td> <?php echo $searchResult["Phone_Number"] ?> </td>
-                    <td> <form method="post" action="?page=chooseTreatment">
+                    <td> <form method="post" action="?page=defineMember">
 
-                            <input style="display:none;" value="<?php echo $member["Membership_number"] ?>" name="<?php $_SESSION["MembershipNumber"] ?>">
+                            <input style="display:none;" value="<?php echo $searchResult["Membership_number"] ?>" name="givenMembershipNumber">
                             <button value="submit"> Bestill </button>
                         </form>
                     </td>

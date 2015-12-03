@@ -52,6 +52,7 @@ class Router {
             case "memberAdded":
                 return new memberController();
 
+            case "defineMember":
             case "calendar":
             case "memberOrder":    
             case "chooseTreatment":

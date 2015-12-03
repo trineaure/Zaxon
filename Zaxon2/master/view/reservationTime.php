@@ -43,7 +43,7 @@ $(document).ready(function() {
 ///skriver ut variablen
 //var_dump($_SESSION["timeIn"]);
 
-echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
+//echo "Ditt MemberID er: " . $_SESSION["MembershipNumber"];
 //?> 
 </p> 
     
