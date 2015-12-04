@@ -6,8 +6,6 @@
 
     <p> Her kan en slette en av frisørene i Zaxon .</p>
 
-
-
     <table id="submit" type="delete" value="delete">
 
         <?php echo "<tr> <td> Fornavn </td> <td> Etternavn </td> <td> Fødselsdag </td> <td> Mobil </td>  <td>  Adresse </td> <td> Post adresse </td></tr>";

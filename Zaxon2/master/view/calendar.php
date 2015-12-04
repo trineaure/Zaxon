@@ -19,38 +19,37 @@
             $rNr = NULL;
             foreach ($reservations as $res) {
                 if ($res["Reservation_Date"] >= date("Y-m-d")) {
-                ?>
+                    ?>
 
-        <?php if (($res["Reservation_number"] != $rNr) || ($rNr == NULL)) { ?>
-                    <tr>
-                        <td> <?php echo $res["Reservation_Date"] ?> </td>
-                        <td> <?php echo "Kl. " . date("H:i", strtotime($res["Time_of_Day"])) ?> </td>
-                        <td> <?php echo $res["First_Name"] ?> </td>
-                        <td> <?php echo $res["Phone_Number"] ?> </td>
+                    <?php if (($res["Reservation_number"] != $rNr) || ($rNr == NULL)) { ?>
+                        <tr>
+                            <td> <?php echo $res["Reservation_Date"] ?> </td>
+                            <td> <?php echo "Kl. " . date("H:i", strtotime($res["Time_of_Day"])) ?> </td>
+                            <td> <?php echo $res["First_Name"] ?> </td>
+                            <td> <?php echo $res["Phone_Number"] ?> </td>
                             <?php $rNr = $res["Reservation_number"]; ?> 
-                        <td> <?php
-                        }
-                        if ($res["Reservation_number"] == $rNr) {
-                            echo $res["Treatment_Name"] . ", ";
-                        } else {
-                            ?>
-                        </td> 
-                </tr> <?php }}
-                        ?>
-    <?php } ?>
+                            <td> <?php
+                            }
+                            if ($res["Reservation_number"] == $rNr) {
+                                echo $res["Treatment_Name"] . ", ";
+                            } else {
+                                ?>
+                            </td> 
+                        </tr> <?php
+                    }
+                }
+            }
+            ?>
         </table> 
 
         <?php
     } else {
-        echo "<br>"."Du har ingen reservasjoner."."<br>";
+        echo "<br>" . "Du har ingen reservasjoner." . "<br>";
     }
     ?>
-
     <div  id="big">
         <a href="?page=home" class="button">Tilbake</a>
     </div>
-
-
 </main>
 
 

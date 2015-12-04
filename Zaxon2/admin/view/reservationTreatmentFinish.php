@@ -1,3 +1,4 @@
+<!--ADMIN-->
 <main>
     <div id="big">
     <p>Tusen takk for din reservasjon av en time hos oss.</p>

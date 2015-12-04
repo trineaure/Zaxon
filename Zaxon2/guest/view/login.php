@@ -1,7 +1,5 @@
-
+<!--GUEST-->
 <main>
-
-
 
     <div id="big">
         <b><p>Vennligst logg deg inn</p></b><br>

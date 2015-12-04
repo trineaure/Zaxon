@@ -1,14 +1,6 @@
+<!--ADMIN-->
 <?php
-//////////////////////////////////////////
-// Template for Member add result page
-//////////////////////////////////////////
-
-// Expected variables:
-// $added - list of all customers
-// $customerName - last value used in "Add customer" form
 $added = $GLOBALS["added"];
-
-    
 ?>
 
 <?php if ($added) { ?>

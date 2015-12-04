@@ -1,10 +1,8 @@
 <!--ADMIN SIDE-->
 <main>
 <?php
-//if(isset($GLOBALS["catsWithTreatments"])) {
     $catsWithTreatments = $GLOBALS["catsWithTreatments"];
-//}
-        $keys = array_keys($catsWithTreatments);
+    $keys = array_keys($catsWithTreatments);
         foreach($keys as $key) {  ?> 
             <table> 
                 <tr>
@@ -30,7 +28,5 @@
                 <?php } ?> 
             </table>
  <?php } ?> 
-  
-       
-    
+ 
 </main>

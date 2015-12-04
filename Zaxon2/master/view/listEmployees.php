@@ -5,20 +5,20 @@
     ?>
     <script>
 //alert on delete
-    function ConfirmDelete()
-    {
-      var x = confirm("Er du sikker på at du vil slette?");
-      if (x)
-          return true;
-      else
-        return false;
-    }
+        function ConfirmDelete()
+        {
+            var x = confirm("Er du sikker på at du vil slette?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
     </script>
 
     <table id="submit" type="delete" value="delete">
-         <tr> <td>Fornavn</td> <td>Etternavn</td> <td>Fødselsdag</td> <td>Tlf.</td> <td>Adresse</td> <td>Postkode</td> <td>Rediger</td> <td>Slett</td> </tr>
-            <?php foreach ($employees as $employee) { ?>
-             <tr>
+        <tr> <td>Fornavn</td> <td>Etternavn</td> <td>Fødselsdag</td> <td>Tlf.</td> <td>Adresse</td> <td>Postkode</td> <td>Rediger</td> <td>Slett</td> </tr>
+        <?php foreach ($employees as $employee) { ?>
+            <tr>
                 <td> <?php echo $employee["First_name"] ?> </td>
                 <td> <?php echo $employee["Last_name"] ?> </td>
                 <td> <?php echo $employee["Birth"] ?> </td>
@@ -47,7 +47,7 @@
             </tr>
         <?php } ?>
     </table>
-    
-                <a href="?page=home" class="bigButton">Tilbake</a>
-              
+
+    <a href="?page=home" class="bigButton">Tilbake</a>
+
 </main>

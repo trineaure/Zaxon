@@ -17,8 +17,6 @@
                 <?php
                 $included_employee = $GLOBALS["included_employee"];
                 foreach ($included_employee as $tempEmployee) {?>     
-
-                                             <?php //echo $tempEmployee["EmployeeID"] ?>
                             
                                 <label> <?php if ($tempEmployee["Employee_Photo"] == 1) { ?>  
                                     <input type="radio" value="<?php echo $tempEmployee["EmployeeID"] ?>" name="givenEmployeeID" required>
@@ -32,30 +30,18 @@
                                    } ?> 
                         
                             </div>  
-<!--            </form>-->
-                
-<!--                </form> -->
              </div> 
             <div class="backandforth">
-<!--                <form method="post" action="?page=reservationTime">-->
                     <input class="tinySubmit" type="submit" name="submit" value="Neste" >
-                    <a href="?page=chooseTreatment" class="tinyButton" >Tilbake</a>
-<!--                    <form method="post" action="?page=reservationTime">-->
-                     
-
+                    <a href="?page=chooseTreatment" class="tinyButton" >Tilbake</a>               
                  </form>   </div>
-                   
-               
-             
-                     
-          
 
         <?php }
         else {?>
 
             <p> Nei uff! Her skjedde det noe galt.</p> 
             <p> Husk å velge en behandling! </p>
-            <p> Venligs gå tilbake og prøv igjen. </p> 
+            <p> Vennligst gå tilbake og prøv igjen. </p> 
             <p> Mvh. </p> 
             <p>Zaxon </p> 
             <div>

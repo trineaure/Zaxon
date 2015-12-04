@@ -43,15 +43,9 @@
         <?php
     } else {
         echo "<br>"."Du har ingen reservasjoner."."<br>";
-    }
-    ?>
+    }?>
 
     <div  id="big">
         <a href="?page=home" class="button">Tilbake</a>
     </div>
-
-
 </main>
-
-<!--
-date("Y/m/d") -->

@@ -1,14 +1,6 @@
+<!--GUEST-->
 <?php
-//////////////////////////////////////////
-// Template for Member add result page
-//////////////////////////////////////////
-
-// Expected variables:
-// $added - list of all customers
-// $customerName - last value used in "Add customer" form
-$added = $GLOBALS["added"];
-
-    
+$added = $GLOBALS["added"];   
 ?>
 <main>
 <?php if ($added) { ?>
@@ -30,9 +22,6 @@ $added = $GLOBALS["added"];
     <p>Zaxon </p> 
     <a href="?page=memberAdd" class="smallButton">Tilbake</a>
     </div>
-    <?php
-    
-     } ?>
-
+    <?php } ?>
 
 </main>
