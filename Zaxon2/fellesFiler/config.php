@@ -11,5 +11,3 @@ $DB_NAME = "Zaxon2";
 
 
 $DEFAULT_PAGE = "home";
-
-// TODO - define global configuration constants here

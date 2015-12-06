@@ -29,10 +29,6 @@ class Router {
             case "pricelist":
                 return new pricelistController();
 
-//            case "searchMember":
-//            case "searchEmployee":
-//                return new searchController();
-//                
             case "searchMember":
             case "searchEmployee":
             case "listMembers":
@@ -45,7 +41,7 @@ class Router {
             case "updateEmployeeAction":
             case "adminInfo":
             case "addUpdateAdmin":
-            case "updateAdmin":    
+            case "updateAdmin":
                 return new updateController();
 
             case "memberAdd":
@@ -54,12 +50,12 @@ class Router {
 
             case "defineMember":
             case "calendar":
-            case "memberOrder":    
+            case "memberOrder":
             case "chooseTreatment":
             case "reservationDateAndEmployee":
             case "reservationTime":
             case "reservationComplete":
-            case "reservationTreatmentFinish":    
+            case "reservationTreatmentFinish":
                 return new reservationController();
 
             case "home":

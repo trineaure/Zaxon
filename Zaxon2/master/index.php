@@ -30,7 +30,7 @@ require_once("controller/router.php");
 $router = new Router();
 $controller = $router->getController();
 if ($controller instanceof tempController) {
-    //Show page content
+    //Show page content. like selectiong data and rendering a page
     $controller->show($router->getPage());
 }
 

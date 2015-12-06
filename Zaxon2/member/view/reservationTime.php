@@ -108,9 +108,8 @@ $(document).ready(function() {
                     </tr>
                     </table>
         </div>
-<!--  // </form>-->
+
 <div class="backandforth">
-<!--     // <form action="?page=reservationComplete" method="post">-->
         <input class="tinySubmit" type="submit" name="submit" value="Neste" />
         <a href="?page=chooseTreatment" class="tinyButton">Tilbake</a>
             </form> </div>
