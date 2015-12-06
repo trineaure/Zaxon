@@ -14,7 +14,7 @@
         
         <br>
         <form method="post" action="?page=searchMember"> 
-            <input type="text" class="input-textarea" name="searchKeyword" value="<?php echo $searchKeyword ?>" />
+            <input type="text" class="input-textarea" name="searchKeyword" value="<?php echo $searchKeyword ?>" required />
             <input class="tinySubmit" type="submit" value="Søk">
              <a href="?page=home" class="tinyButton">Tilbake</a> <br><br>
         </form>
